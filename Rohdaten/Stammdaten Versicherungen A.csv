@@ -1,0 +1,511 @@
+KuNr;Name;Vorname 1;Vorname 2;Geb.Dat.;Geb.Ort;Strasse;HNr;PLZ;Ort;Tel priv;Tel Arbeit;Mobil;Fax;eMail 1;eMail 2;Prio Kontakt;FamStand;Anz Kinder;Anz Kinder MV;Ehepart MV
+K99998;Adelheit;Anton;;29.02.1964;Mosbach;Mosbacher Weg;4711;63533;Mainhausen;069/4711;069/4711;0177/1234567;069/4712;Adelheit@adelheit.com;Anton@adelheit.com;P;ledig;0;0;N
+K00509;Otto 51;Marcus;;08.12.1974;Bremen;Musterstrasse;84;63504;Mittelstadt;06355/63726;06364/28901;0175/579509;;Otto51@dhbw.tst;Marcus@dhbw.vgl;P;verwitwet;2;1;N
+K00508;Zimmermann 51;Hartwigk;;28.11.1974;Paris;Kurze Strasse;41;63504;Mittelstadt;06355/29135;06364/97731;0175/579508;;Zimmermann51@dhbw.tst;Hartwigk@dhbw.vgl;O;ledig;0;0;N
+K00507;Zöller 51;Holger;;18.11.1974;Mainz;Lange Strasse;97;63503;Altstadt;06354/70611;06363/32180;0175/579507;;Zöller51@dhbw.tst;Holger@dhbw.vgl;N;eingetr. Partnerschaft;1;0;N
+K00506;Musterfrau 51;Tina;Maria;08.11.1974;Düsseldorf;Kreuzweg;56;63503;Altstadt;06354/88267;06363/75968;0175/579506;;Musterfrau51@dhbw.tst;Tina@dhbw.vgl;M;eingetr. Partnerschaft;1;0;N
+K00505;Mueller 51;Ansgar;;29.10.1974;Magdeburg;Im Tal;85;63503;Altstadt;06354/89529;;0175/579505;;Mueller51@dhbw.tst;Ansgar@dhbw.vgl;L;verheiratet;5;4;N
+K00504;Meier 51;Walter;;19.10.1974;Würzburg;Auf der Höhe;76;63502;Neustadt;06353/77635;;0175/579504;06353/99495;Meier51@dhbw.tst;Walter@dhbw.vgl;G;eingetr. Partnerschaft;0;0;J
+K00503;Meyer 51;Egon;;09.10.1974;Kiel;Severinstr.;51;63502;Neustadt;06353/36851;06362/17035;0175/579503;;Meyer51@dhbw.tst;Egon@dhbw.vgl;P;verheiratet;2;1;J
+K00502;Maier 51;Erika;;29.09.1974;London;Kanzlerweg;53;63502;Neustadt;06353/22538;06362/19871;0175/579502;;Maier51@dhbw.tst;Erika@dhbw.vgl;O;geschieden;1;0;N
+K00501;Müller 51;Wolfgang;Putinowitsch;19.09.1974;Bremen;Kreuzberger Str.;85;63502;Neustadt;06353/27365;06362/43973;0175/579501;;Müller51@dhbw.tst;Wolfgang@dhbw.vgl;N;verwitwet;2;1;N
+K00500;Wieczorek-Zeul;Heidemarie;;09.09.1974;London;Im Gewann;2;63502;Neustadt;06353/54771;06362/57652;0175/579500;;Wieczorek-Zeul@dhbw.tst;Heidemarie@dhbw.vgl;M;verheiratet;1;0;N
+K00499;Otto 50;Michael;;30.08.1974;Dortmund;Berliner Strasse;56;63501;Versicherungsstadt;06352/23732;06361/24646;0175/579499;;Otto50@dhbw.tst;Michael@dhbw.vgl;L;geschieden;1;0;N
+K00498;Zimmermann 50;Anne;;20.08.1974;Frankfurt;Musterstrasse;18;63501;Versicherungsstadt;06352/56066;06361/86262;0175/579498;06352/40248;Zimmermann50@dhbw.tst;Anne@dhbw.vgl;G;verwitwet;2;1;N
+K00497;Zöller 50;Torsten;Paul;10.08.1974;Dortmund;Kurze Strasse;0;63500;Musterdorff;06351/62732;06360/14341;0175/579497;;Zöller50@dhbw.tst;Torsten@dhbw.vgl;P;eingetr. Partnerschaft;1;0;N
+K00496;Musterfrau 50;Sabine;;31.07.1974;Hamburg;Lange Strasse;90;63500;Musterdorff;06351/1351;06360/24404;0175/579496;;Musterfrau50@dhbw.tst;Sabine@dhbw.vgl;O;ledig;0;0;N
+K00495;Mueller 50;Carsten;;21.07.1974;Hannover;Kreuzweg;48;63500;Musterdorff;06351/8306;06360/24525;0175/579495;;Mueller50@dhbw.tst;Carsten@dhbw.vgl;N;verwitwet;2;1;N
+K00494;Meier 50;Ernst;Clara;11.07.1974;Dortmund;Im Tal;53;63505;Mosbach;06356/4608;06365/74078;0175/579494;;Meier50@dhbw.tst;Ernst@dhbw.vgl;M;geschieden;2;1;N
+K00493;Meyer 50;Markus;Herrmann;01.07.1974;Magdeburg;Auf der Höhe;69;63504;Mittelstadt;06355/78947;06364/63730;0175/579493;;Meyer50@dhbw.tst;Markus@dhbw.vgl;L;eingetr. Partnerschaft;0;0;J
+K00492;Maier 50;Alfred;;21.06.1974;Kiel;Severinstr.;48;63504;Mittelstadt;06355/24912;06364/70648;0175/579492;06355/98217;Maier50@dhbw.tst;Alfred@dhbw.vgl;G;eingetr. Partnerschaft;1;0;N
+K00491;Müller 50;Sebastian;;11.06.1974;Stralsund;Kanzlerweg;3;63504;Mittelstadt;06355/48130;06364/37361;0175/579491;;Müller50@dhbw.tst;Sebastian@dhbw.vgl;P;ledig;0;0;N
+K00490;Dietrich 49;Christiane;;01.06.1974;Hofgeismar;Kreuzberger Str.;23;63504;Mittelstadt;06355/11943;;0175/579490;;Dietrich49@dhbw.tst;Christiane@dhbw.vgl;O;geschieden;2;1;N
+K00489;Vogel;Hans-Jochen;;22.05.1974;Frankfurt (Oder);Im Gewann;20;63504;Mittelstadt;06355/91476;;0175/579489;;Vogel@dhbw.tst;Hans-Jochen@dhbw.vgl;N;eingetr. Partnerschaft;2;1;J
+K00488;Zimmermann 49;Martina;Egon;12.05.1974;New York;Berliner Strasse;25;63503;Altstadt;06354/20747;;0175/579488;;Zimmermann49@dhbw.tst;Martina@dhbw.vgl;M;verwitwet;2;1;N
+K00487;Zöller 49;Karl-Heinz;;02.05.1974;Düsseldorf;Musterstrasse;20;63503;Altstadt;06354/2298;;0175/579487;;Zöller49@dhbw.tst;Karl-Heinz@dhbw.vgl;L;verwitwet;1;0;N
+K00486;Musterfrau 49;Andreas;;22.04.1974;Moskau;Kurze Strasse;18;63503;Altstadt;06354/75093;;0175/579486;06354/33007;Musterfrau49@dhbw.tst;Andreas@dhbw.vgl;G;verwitwet;2;1;N
+K00485;Mueller 49;Toni;;12.04.1974;Peking;Lange Strasse;75;63502;Neustadt;06353/67177;;0175/579485;;Mueller49@dhbw.tst;Toni@dhbw.vgl;P;verheiratet;2;1;J
+K00484;Meier 49;Kristijan;;02.04.1974;Flensburg;Kreuzweg;81;63502;Neustadt;06353/88264;06362/82794;0175/579484;;Meier49@dhbw.tst;Kristijan@dhbw.vgl;O;verheiratet;5;4;N
+K00483;Meyer 49;Karla;Maria;23.03.1974;Paris;Im Tal;62;63502;Neustadt;06353/69667;06362/50005;0175/579483;;Meyer49@dhbw.tst;Karla@dhbw.vgl;N;verwitwet;2;1;N
+K00482;Maier 49;Thomas;;13.03.1974;London;Auf der Höhe;88;63502;Neustadt;06353/75666;06362/93382;0175/579482;;Maier49@dhbw.tst;Thomas@dhbw.vgl;M;ledig;0;0;N
+K00481;Müller 49;Jürgen;;03.03.1974;Frankfurt (Oder);Severinstr.;27;63502;Neustadt;06353/37458;06362/31305;0175/579481;;Müller49@dhbw.tst;Jürgen@dhbw.vgl;L;geschieden;1;0;N
+K00480;Dietrich 48;Christian;;21.02.1974;Mainz;Kanzlerweg;74;63501;Versicherungsstadt;06352/14619;06361/68124;0175/579480;;Dietrich48@dhbw.tst;Christian@dhbw.vgl;G;geschieden;1;0;N
+K00479;Otto 48;Wolfgang;;11.02.1974;Hamburg;Kreuzberger Str.;83;63501;Versicherungsstadt;06352/44631;06361/14626;0175/579479;;Otto48@dhbw.tst;Wolfgang@dhbw.vgl;P;geschieden;1;0;N
+K00478;Zimmermann 48;Tina;Putinowitsch;01.02.1974;Frankfurt;Im Gewann;15;63500;Musterdorff;06351/12853;06360/30672;0175/579478;;Zimmermann48@dhbw.tst;Tina@dhbw.vgl;O;verwitwet;2;1;N
+K00477;Zöller 48;Marcus;;22.01.1974;Hamburg;Berliner Strasse;11;63500;Musterdorff;06351/72645;06360/99000;0175/579477;;Zöller48@dhbw.tst;Marcus@dhbw.vgl;N;geschieden;2;1;N
+K00476;Musterfrau 48;Ansgar;;12.01.1974;Rostock;Musterstrasse;62;63500;Musterdorff;06351/46211;06360/79332;0175/579476;06351/43770;Musterfrau48@dhbw.tst;Ansgar@dhbw.vgl;M;ledig;2;1;N
+K00475;Mueller 48;Walter;;02.01.1974;Hanau;Kurze Strasse;55;63505;Mosbach;06356/38471;06365/42615;0175/579475;;Mueller48@dhbw.tst;Walter@dhbw.vgl;L;verwitwet;1;0;N
+K00474;Meier 48;Christine;Paul;23.12.1973;Freiburg;Lange Strasse;52;63504;Mittelstadt;06355/83963;06364/14279;0175/579474;;Meier48@dhbw.tst;Christine@dhbw.vgl;G;ledig;2;1;N
+K00473;Meyer 48;Erika;;13.12.1973;Paris;Kreuzweg;14;63504;Mittelstadt;06355/44163;06364/9932;0175/579473;;Meyer48@dhbw.tst;Erika@dhbw.vgl;P;verheiratet;5;4;N
+K00472;Maier 48;Tom;;03.12.1973;Kassel;Im Tal;4;63504;Mittelstadt;06355/54627;06364/75319;0175/579472;;Maier48@dhbw.tst;Tom@dhbw.vgl;O;verwitwet;2;1;N
+K00471;Müller 48;Egon;Clara;23.11.1973;Frankfurt (Oder);Auf der Höhe;46;63504;Mittelstadt;06355/56788;06364/66815;0175/579471;;Müller48@dhbw.tst;Egon@dhbw.vgl;N;ledig;1;0;N
+K00470;Dietrich 47;Holger;Herrmann;13.11.1973;Wiesbaden;Severinstr.;83;63504;Mittelstadt;06355/29948;06364/45627;0175/579470;06355/72650;Dietrich47@dhbw.tst;Holger@dhbw.vgl;M;verwitwet;2;1;N
+K00469;Otto 47;Sebastian;;03.11.1973;Kiel;Kanzlerweg;28;63503;Altstadt;06354/83020;06363/93255;0175/579469;;Otto47@dhbw.tst;Sebastian@dhbw.vgl;L;eingetr. Partnerschaft;1;0;N
+K00468;Zimmermann 47;Sabine;;24.10.1973;Basel;Kreuzberger Str.;9;63503;Altstadt;06354/12849;06363/57347;0175/579468;;Zimmermann47@dhbw.tst;Sabine@dhbw.vgl;G;eingetr. Partnerschaft;0;0;J
+K00467;Zöller 47;Michael;;14.10.1973;Düsseldorf;Im Gewann;25;63503;Altstadt;06354/46732;06363/39530;0175/579467;;Zöller47@dhbw.tst;Michael@dhbw.vgl;P;verheiratet;5;4;N
+K00466;Musterfrau 47;Carsten;;04.10.1973;Sidney;Berliner Strasse;20;63502;Neustadt;06353/87933;06362/4508;0175/579466;;Musterfrau47@dhbw.tst;Carsten@dhbw.vgl;O;geschieden;2;1;N
+K00465;Mueller 47;Ernst;Egon;24.09.1973;Düsseldorf;Musterstrasse;68;63502;Neustadt;06353/34309;06362/68490;0175/579465;;Mueller47@dhbw.tst;Ernst@dhbw.vgl;N;verheiratet;2;1;J
+K00464;Meier 47;Christiane;;14.09.1973;Flensburg;Kurze Strasse;49;63502;Neustadt;06353/58113;06362/1024;0175/579464;06353/23404;Meier47@dhbw.tst;Christiane@dhbw.vgl;M;verheiratet;2;1;J
+K00463;Meyer 47;Alfred;;04.09.1973;Frankfurt (Oder);Lange Strasse;96;63502;Neustadt;06353/25351;06362/8973;0175/579463;;Meyer47@dhbw.tst;Alfred@dhbw.vgl;L;verwitwet;2;1;N
+K00462;Maier 47;Johann;;25.08.1973;Freiburg;Kreuzweg;28;63502;Neustadt;06353/98312;06362/29739;0175/579462;;Maier47@dhbw.tst;Johann@dhbw.vgl;G;geschieden;2;1;N
+K00461;Müller 47;Markus;;15.08.1973;Rostock;Im Tal;45;63501;Versicherungsstadt;06352/80194;06361/39806;0175/579461;;Müller47@dhbw.tst;Markus@dhbw.vgl;P;verwitwet;2;1;N
+K00460;Dietrich 46;Torsten;Maria;05.08.1973;Düsseldorf;Auf der Höhe;53;63501;Versicherungsstadt;06352/97025;06361/83213;0175/579460;;Dietrich46@dhbw.tst;Torsten@dhbw.vgl;O;verwitwet;2;1;N
+K00459;Otto 46;Jürgen;;26.07.1973;Erfurt;Severinstr.;47;63500;Musterdorff;06351/30388;;0175/579459;;Otto46@dhbw.tst;Jürgen@dhbw.vgl;N;verheiratet;1;0;N
+K00458;Zimmermann 46;Andreas;;16.07.1973;Wien;Kanzlerweg;69;63500;Musterdorff;06351/69798;;0175/579458;06351/30849;Zimmermann46@dhbw.tst;Andreas@dhbw.vgl;M;geschieden;1;0;N
+K00457;Zöller 46;Norbert;;06.07.1973;Würzburg;Kreuzberger Str.;52;63500;Musterdorff;06351/35068;;0175/579457;;Zöller46@dhbw.tst;Norbert@dhbw.vgl;L;geschieden;2;1;N
+K00456;Musterfrau 46;Toni;;26.06.1973;New York;Im Gewann;14;63505;Mosbach;06356/19302;;0175/579456;;Musterfrau46@dhbw.tst;Toni@dhbw.vgl;G;ledig;1;0;N
+K00455;Mueller 46;Kristijan;Putinowitsch;16.06.1973;Fulda;Berliner Strasse;50;63504;Mittelstadt;06355/1638;;0175/579455;;Mueller46@dhbw.tst;Kristijan@dhbw.vgl;P;ledig;2;1;N
+K00454;Meier 46;Christian;;06.06.1973;Wiesbaden;Musterstrasse;89;63504;Mittelstadt;06355/67327;06364/17432;0175/579454;;Meier46@dhbw.tst;Christian@dhbw.vgl;O;verheiratet;5;4;N
+K00453;Meyer 46;Thomas;;27.05.1973;Paris;Kurze Strasse;84;63504;Mittelstadt;06355/60655;06364/92335;0175/579453;;Meyer46@dhbw.tst;Thomas@dhbw.vgl;N;eingetr. Partnerschaft;0;0;J
+K00452;Maier 46;Hugo;;17.05.1973;Flensburg;Lange Strasse;44;63504;Mittelstadt;06355/15708;06364/18874;0175/579452;06355/96682;Maier46@dhbw.tst;Hugo@dhbw.vgl;M;verwitwet;1;0;N
+K00451;Müller 46;Karla;Paul;07.05.1973;Moskau;Kreuzweg;17;63504;Mittelstadt;06355/64783;06364/69179;0175/579451;;Müller46@dhbw.tst;Karla@dhbw.vgl;L;geschieden;2;1;N
+K00450;Dietrich 45;Karl-Heinz;;27.04.1973;Frankfurt;Im Tal;14;63503;Altstadt;06354/7196;06363/21451;0175/579450;;Dietrich45@dhbw.tst;Karl-Heinz@dhbw.vgl;G;geschieden;1;0;N
+K00449;Otto 45;Egon;;17.04.1973;Erfurt;Auf der Höhe;82;63503;Altstadt;06354/33792;06363/689;0175/579449;;Otto45@dhbw.tst;Egon@dhbw.vgl;P;eingetr. Partnerschaft;0;0;J
+K00448;Zimmermann 45;Ansgar;Clara;07.04.1973;Stralsund;Severinstr.;84;63503;Altstadt;06354/86904;06363/59488;0175/579448;;Zimmermann45@dhbw.tst;Ansgar@dhbw.vgl;O;eingetr. Partnerschaft;1;0;N
+K00447;Zöller 45;Wolfgang;Herrmann;28.03.1973;Basel;Kanzlerweg;4;63502;Neustadt;06353/99711;06362/9695;0175/579447;;Zöller45@dhbw.tst;Wolfgang@dhbw.vgl;N;verheiratet;5;4;N
+K00446;Musterfrau 45;Walter;;18.03.1973;Kassel;Kreuzberger Str.;27;63502;Neustadt;06353/57883;06362/72788;0175/579446;06353/35460;Musterfrau45@dhbw.tst;Walter@dhbw.vgl;M;geschieden;1;0;N
+K00445;Mueller 45;Christine;;08.03.1973;Zuffenhausen;Im Gewann;19;63502;Neustadt;06353/46985;06362/26323;0175/579445;;Mueller45@dhbw.tst;Christine@dhbw.vgl;L;eingetr. Partnerschaft;1;0;N
+K00444;Meier 45;Holger;;26.02.1973;Köln;Berliner Strasse;76;63502;Neustadt;06353/40573;06362/21709;0175/579444;;Meier45@dhbw.tst;Holger@dhbw.vgl;G;geschieden;2;1;N
+K00443;Meyer 45;Tom;;16.02.1973;Leipzig;Musterstrasse;28;63502;Neustadt;06353/33103;06362/96419;0175/579443;;Meyer45@dhbw.tst;Tom@dhbw.vgl;P;geschieden;1;0;N
+K00442;Maier 45;Hartwigk;Egon;06.02.1973;Moskau;Kurze Strasse;66;63501;Versicherungsstadt;06352/11645;06361/28246;0175/579442;;Maier45@dhbw.tst;Hartwigk@dhbw.vgl;O;eingetr. Partnerschaft;0;0;N
+K00441;Müller 45;Erika;;27.01.1973;Moskau;Lange Strasse;49;63501;Versicherungsstadt;06352/63785;06361/52517;0175/579441;;Müller45@dhbw.tst;Erika@dhbw.vgl;N;ledig;2;1;N
+K00440;Dietrich 44;Marcus;;17.01.1973;Basel;Kreuzweg;85;63500;Musterdorff;06351/82849;06360/25263;0175/579440;;Dietrich44@dhbw.tst;Marcus@dhbw.vgl;M;verheiratet;2;1;J
+K00439;Otto 44;Markus;;07.01.1973;Stralsund;Im Tal;80;63500;Musterdorff;06351/72654;06360/24719;0175/579439;;Otto44@dhbw.tst;Markus@dhbw.vgl;L;geschieden;1;0;N
+K00438;Zimmermann 44;Carsten;;28.12.1972;Peking;Auf der Höhe;37;63500;Musterdorff;06351/56692;06360/4189;0175/579438;;Zimmermann44@dhbw.tst;Carsten@dhbw.vgl;G;verheiratet;2;1;J
+K00437;Zöller 44;Sebastian;Maria;18.12.1972;Frankfurt (Oder);Severinstr.;13;63505;Mosbach;06356/63785;06365/53431;0175/579437;;Zöller44@dhbw.tst;Sebastian@dhbw.vgl;P;verwitwet;2;1;N
+K00436;Musterfrau 44;Ernst;;08.12.1972;Frankfurt;Kanzlerweg;80;63504;Mittelstadt;06355/82369;06364/27904;0175/579436;06355/18840;Musterfrau44@dhbw.tst;Ernst@dhbw.vgl;O;ledig;1;0;N
+K00435;Mueller 44;Christiane;;28.11.1972;Fulda;Kreuzberger Str.;64;63504;Mittelstadt;06355/94865;06364/32617;0175/579435;;Mueller44@dhbw.tst;Christiane@dhbw.vgl;N;ledig;1;0;N
+K00434;Meier 44;Torsten;;18.11.1972;Frankfurt;Im Gewann;36;63504;Mittelstadt;06355/88247;06364/8955;0175/579434;;Meier44@dhbw.tst;Torsten@dhbw.vgl;M;geschieden;2;1;N
+K00433;Meyer 44;Johann;;08.11.1972;Zuffenhausen;Berliner Strasse;20;63504;Mittelstadt;06355/50495;06364/58238;0175/579433;;Meyer44@dhbw.tst;Johann@dhbw.vgl;L;verheiratet;4;3;J
+K00432;Maier 44;Anne;Putinowitsch;29.10.1972;München;Musterstrasse;36;63504;Mittelstadt;06355/21032;06364/52928;0175/579432;;Maier44@dhbw.tst;Anne@dhbw.vgl;G;geschieden;2;1;N
+K00431;Müller 44;Alfred;;19.10.1972;Erfurt;Kurze Strasse;69;63503;Altstadt;06354/86083;06363/85357;0175/579431;;Müller44@dhbw.tst;Alfred@dhbw.vgl;P;geschieden;2;1;N
+K00430;Dietrich 43;Michael;;09.10.1972;Frankfurt;Lange Strasse;58;63503;Altstadt;06354/30221;06363/58791;0175/579430;06354/79764;Dietrich43@dhbw.tst;Michael@dhbw.vgl;O;ledig;2;1;N
+K00429;Otto 43;Karla;;29.09.1972;Wien;Kreuzweg;97;63503;Altstadt;06354/65689;06363/40373;0175/579429;;Otto43@dhbw.tst;Karla@dhbw.vgl;N;verheiratet;4;3;J
+K00428;Zimmermann 43;Toni;Paul;19.09.1972;London;Im Tal;64;63502;Neustadt;06353/39771;06362/10356;0175/579428;;Zimmermann43@dhbw.tst;Toni@dhbw.vgl;M;eingetr. Partnerschaft;0;0;J
+K00427;Zöller 43;Jürgen;;09.09.1972;Duisburg;Auf der Höhe;55;63502;Neustadt;06353/62305;06362/82029;0175/579427;;Zöller43@dhbw.tst;Jürgen@dhbw.vgl;L;ledig;0;0;N
+K00426;Musterfrau 43;Kristijan;;30.08.1972;Würzburg;Severinstr.;71;63502;Neustadt;06353/91257;06362/96915;0175/579426;;Musterfrau43@dhbw.tst;Kristijan@dhbw.vgl;G;eingetr. Partnerschaft;1;0;N
+K00425;Mueller 43;Christian;Clara;20.08.1972;Köln;Kanzlerweg;17;63502;Neustadt;06353/81396;06362/19073;0175/579425;;Mueller43@dhbw.tst;Christian@dhbw.vgl;P;ledig;2;1;N
+K00424;Meier 43;Karl-Heinz;Herrmann;10.08.1972;München;Kreuzberger Str.;1;63502;Neustadt;06353/79756;;0175/579424;06353/90190;Meier43@dhbw.tst;Karl-Heinz@dhbw.vgl;O;verheiratet;1;0;N
+K00423;Meyer 43;Hugo;;31.07.1972;Fulda;Im Gewann;27;63501;Versicherungsstadt;06352/26742;;0175/579423;;Meyer43@dhbw.tst;Hugo@dhbw.vgl;N;geschieden;1;0;N
+K00422;Maier 43;Martina;;21.07.1972;London;Berliner Strasse;84;63501;Versicherungsstadt;06352/86056;;0175/579422;;Maier43@dhbw.tst;Martina@dhbw.vgl;M;geschieden;2;1;N
+K00421;Müller 43;Thomas;;11.07.1972;Moskau;Musterstrasse;40;63500;Musterdorff;06351/25029;;0175/579421;;Müller43@dhbw.tst;Thomas@dhbw.vgl;L;verwitwet;2;1;N
+K00420;Dietrich 42;Norbert;;01.07.1972;Hanau;Kurze Strasse;28;63500;Musterdorff;06351/73158;;0175/579420;;Dietrich42@dhbw.tst;Norbert@dhbw.vgl;G;verheiratet;2;1;J
+K00419;Otto 42;Erika;Egon;21.06.1972;Wien;Lange Strasse;80;63500;Musterdorff;06351/19271;;0175/579419;;Otto42@dhbw.tst;Erika@dhbw.vgl;P;eingetr. Partnerschaft;1;0;N
+K00418;Zimmermann 42;Walter;;11.06.1972;Leipzig;Kreuzweg;73;63505;Mosbach;06356/50017;;0175/579418;06356/23522;Zimmermann42@dhbw.tst;Walter@dhbw.vgl;O;verheiratet;1;0;N
+K00417;Zöller 42;Egon;;01.06.1972;Duisburg;Im Tal;81;63504;Mittelstadt;06355/90228;06364/25673;0175/579417;;Zöller42@dhbw.tst;Egon@dhbw.vgl;N;verwitwet;1;0;N
+K00416;Musterfrau 42;Christine;;22.05.1972;Wolfsburg;Auf der Höhe;39;63504;Mittelstadt;06355/29824;06364/77155;0175/579416;;Musterfrau42@dhbw.tst;Christine@dhbw.vgl;M;verwitwet;2;1;N
+K00415;Mueller 42;Holger;;12.05.1972;Dortmund;Severinstr.;46;63504;Mittelstadt;06355/77953;06364/807;0175/579415;;Mueller42@dhbw.tst;Holger@dhbw.vgl;L;verheiratet;4;3;J
+K00414;Meier 42;Marcus;Maria;02.05.1972;Freiburg;Kanzlerweg;70;63504;Mittelstadt;06355/17189;06364/37025;0175/579414;;Meier42@dhbw.tst;Marcus@dhbw.vgl;G;ledig;1;0;N
+K00413;Meyer 42;Hartwigk;;22.04.1972;Wien;Kreuzberger Str.;66;63504;Mittelstadt;06355/49443;06364/49181;0175/579413;;Meyer42@dhbw.tst;Hartwigk@dhbw.vgl;P;verwitwet;0;0;N
+K00412;Maier 42;Tina;;12.04.1972;München;Im Gewann;44;63503;Altstadt;06354/88351;06363/21302;0175/579412;06354/54056;Maier42@dhbw.tst;Tina@dhbw.vgl;O;geschieden;2;1;N
+K00411;Müller 42;Tom;;02.04.1972;Magdeburg;Berliner Strasse;98;63503;Altstadt;06354/58532;06363/20186;0175/579411;;Müller42@dhbw.tst;Tom@dhbw.vgl;N;verheiratet;5;4;N
+K00410;Dietrich 41;Wolfgang;;23.03.1972;Freiburg;Musterstrasse;15;63503;Altstadt;06354/95639;06363/58143;0175/579410;;Dietrich41@dhbw.tst;Wolfgang@dhbw.vgl;M;ledig;2;1;N
+K00409;Otto 41;Alfred;Putinowitsch;13.03.1972;Duisburg;Kurze Strasse;77;63502;Neustadt;06353/24146;06362/74564;0175/579409;;Otto41@dhbw.tst;Alfred@dhbw.vgl;L;verheiratet;2;1;J
+K00408;Zimmermann 41;Ernst;;03.03.1972;München;Lange Strasse;36;63502;Neustadt;06353/24099;06362/25405;0175/579408;;Zimmermann41@dhbw.tst;Ernst@dhbw.vgl;G;eingetr. Partnerschaft;0;0;J
+K00407;Zöller 41;Markus;;22.02.1972;Kiel;Kreuzweg;17;63502;Neustadt;06353/67696;06362/26732;0175/579407;;Zöller41@dhbw.tst;Markus@dhbw.vgl;P;verheiratet;5;4;N
+K00406;Musterfrau 41;Christiane;;12.02.1972;Würzburg;Im Tal;47;63502;Neustadt;06353/94082;06362/57499;0175/579406;06353/7667;Musterfrau41@dhbw.tst;Christiane@dhbw.vgl;O;eingetr. Partnerschaft;0;0;J
+K00405;Mueller 41;Torsten;Paul;02.02.1972;München;Auf der Höhe;56;63502;Neustadt;06353/90060;06362/67717;0175/579405;;Mueller41@dhbw.tst;Torsten@dhbw.vgl;N;verheiratet;4;3;J
+K00404;Meier 41;Michael;;23.01.1972;München;Severinstr.;42;63501;Versicherungsstadt;06352/76921;06361/83084;0175/579404;;Meier41@dhbw.tst;Michael@dhbw.vgl;M;eingetr. Partnerschaft;1;0;N
+K00403;Meyer 41;Anne;;13.01.1972;Berlin;Kanzlerweg;36;63501;Versicherungsstadt;06352/40982;06361/21436;0175/579403;;Meyer41@dhbw.tst;Anne@dhbw.vgl;L;verheiratet;2;1;J
+K00402;Maier 41;Sabine;Clara;03.01.1972;Freiburg;Kreuzberger Str.;93;63500;Musterdorff;06351/18411;06360/38356;0175/579402;;Maier41@dhbw.tst;Sabine@dhbw.vgl;G;verwitwet;2;1;N
+K00401;Müller 41;Johann;Herrmann;24.12.1971;Wolfsburg;Im Gewann;16;63500;Musterdorff;06351/18243;06360/58233;0175/579401;;Müller41@dhbw.tst;Johann@dhbw.vgl;P;ledig;0;0;N
+K00400;Dietrich 40;Sebastian;;14.12.1971;Erfurt;Berliner Strasse;98;63500;Musterdorff;06351/58238;06360/54315;0175/579400;;Dietrich40@dhbw.tst;Sebastian@dhbw.vgl;O;geschieden;2;1;N
+K00399;Otto 40;Thomas;;04.12.1971;Wien;Musterstrasse;11;63505;Mosbach;06356/30285;06365/29661;0175/579399;;Otto40@dhbw.tst;Thomas@dhbw.vgl;N;geschieden;1;0;N
+K00398;Zimmermann 40;Kristijan;;24.11.1971;Hanau;Kurze Strasse;80;63504;Mittelstadt;06355/18241;06364/33958;0175/579398;;Zimmermann40@dhbw.tst;Kristijan@dhbw.vgl;M;verwitwet;2;1;N
+K00397;Zöller 40;Karla;;14.11.1971;Obersdorf;Lange Strasse;20;63504;Mittelstadt;06355/25736;06364/37517;0175/579397;;Zöller40@dhbw.tst;Karla@dhbw.vgl;L;ledig;0;0;N
+K00396;Musterfrau 40;Christian;Egon;04.11.1971;Dortmund;Kreuzweg;39;63504;Mittelstadt;06355/97107;06364/41586;0175/579396;06355/32418;Musterfrau40@dhbw.tst;Christian@dhbw.vgl;G;eingetr. Partnerschaft;1;0;N
+K00395;Mueller 40;Karl-Heinz;;25.10.1971;Berlin;Im Tal;67;63504;Mittelstadt;06355/58447;06364/81112;0175/579395;;Mueller40@dhbw.tst;Karl-Heinz@dhbw.vgl;P;ledig;0;0;N
+K00394;Meier 40;Norbert;;15.10.1971;Kassel;Auf der Höhe;1;63504;Mittelstadt;06355/25256;;0175/579394;;Meier40@dhbw.tst;Norbert@dhbw.vgl;O;ledig;1;0;N
+K00393;Meyer 40;Martina;;05.10.1971;Paris;Severinstr.;78;63503;Altstadt;06354/38793;;0175/579393;;Meyer40@dhbw.tst;Martina@dhbw.vgl;N;verheiratet;2;1;J
+K00392;Maier 40;Andreas;;25.09.1971;Obersdorf;Kanzlerweg;87;63503;Altstadt;06354/59329;;0175/579392;;Maier40@dhbw.tst;Andreas@dhbw.vgl;M;verheiratet;5;4;N
+K00391;Müller 40;Hugo;Maria;15.09.1971;Würzburg;Kreuzberger Str.;16;63503;Altstadt;06354/43190;;0175/579391;;Müller40@dhbw.tst;Hugo@dhbw.vgl;L;verheiratet;1;0;N
+K00390;Dietrich 39;Jürgen;;05.09.1971;Stuttgart;Im Gewann;30;63502;Neustadt;06353/17215;;0175/579390;06353/49216;Dietrich39@dhbw.tst;Jürgen@dhbw.vgl;G;eingetr. Partnerschaft;0;0;N
+K00389;Otto 39;Tom;;26.08.1971;Rostock;Berliner Strasse;64;63502;Neustadt;06353/16413;;0175/579389;;Otto39@dhbw.tst;Tom@dhbw.vgl;P;ledig;2;1;N
+K00388;Zimmermann 39;Christine;;16.08.1971;Hannover;Musterstrasse;99;63502;Neustadt;06353/26228;06362/2505;0175/579388;;Zimmermann39@dhbw.tst;Christine@dhbw.vgl;O;geschieden;2;1;N
+K00387;Zöller 39;Erika;;06.08.1971;Obersdorf;Kurze Strasse;41;63502;Neustadt;06353/64616;06362/74845;0175/579387;;Zöller39@dhbw.tst;Erika@dhbw.vgl;N;verwitwet;2;1;N
+K00386;Musterfrau 39;Holger;Putinowitsch;27.07.1971;Düsseldorf;Lange Strasse;79;63502;Neustadt;06353/76487;06362/74132;0175/579386;;Musterfrau39@dhbw.tst;Holger@dhbw.vgl;M;ledig;0;0;N
+K00385;Mueller 39;Marcus;;17.07.1971;Zuffenhausen;Kreuzweg;35;63501;Versicherungsstadt;06352/12451;06361/81443;0175/579385;;Mueller39@dhbw.tst;Marcus@dhbw.vgl;L;eingetr. Partnerschaft;0;0;J
+K00384;Meier 39;Wolfgang;;07.07.1971;Zuffenhausen;Im Tal;61;63501;Versicherungsstadt;06352/1116;06361/23435;0175/579384;06352/86567;Meier39@dhbw.tst;Wolfgang@dhbw.vgl;G;eingetr. Partnerschaft;1;0;N
+K00383;Meyer 39;Tina;;27.06.1971;Berlin;Auf der Höhe;89;63500;Musterdorff;06351/81012;06360/39862;0175/579383;;Meyer39@dhbw.tst;Tina@dhbw.vgl;P;verheiratet;2;1;J
+K00382;Maier 39;Ansgar;Paul;17.06.1971;Kiel;Severinstr.;76;63500;Musterdorff;06351/1062;06360/87159;0175/579382;;Maier39@dhbw.tst;Ansgar@dhbw.vgl;O;verwitwet;2;1;N
+K00381;Müller 39;Hartwigk;;07.06.1971;Obersdorf;Kanzlerweg;14;63500;Musterdorff;06351/13744;06360/58841;0175/579381;;Müller39@dhbw.tst;Hartwigk@dhbw.vgl;N;geschieden;0;0;N
+K00380;Dietrich 38;Egon;;28.05.1971;Stuttgart;Kreuzberger Str.;26;63505;Mosbach;06356/8948;06365/845;0175/579380;;Dietrich38@dhbw.tst;Egon@dhbw.vgl;M;geschieden;1;0;N
+K00379;Otto 38;Johann;Clara;18.05.1971;Hannover;Im Gewann;36;63504;Mittelstadt;06355/16199;06364/5131;0175/579379;;Otto38@dhbw.tst;Johann@dhbw.vgl;L;eingetr. Partnerschaft;2;1;J
+K00378;Zimmermann 38;Christiane;Herrmann;08.05.1971;Hanau;Berliner Strasse;11;63504;Mittelstadt;06355/92794;06364/79173;0175/579378;06355/88422;Zimmermann38@dhbw.tst;Christiane@dhbw.vgl;G;verwitwet;1;0;N
+K00377;Zöller 38;Alfred;;28.04.1971;Stuttgart;Musterstrasse;65;63504;Mittelstadt;06355/81479;06364/90912;0175/579377;;Zöller38@dhbw.tst;Alfred@dhbw.vgl;P;ledig;1;0;N
+K00376;Musterfrau 38;Torsten;;18.04.1971;Berlin;Kurze Strasse;2;63504;Mittelstadt;06355/13598;06364/82504;0175/579376;;Musterfrau38@dhbw.tst;Torsten@dhbw.vgl;O;ledig;0;0;N
+K00375;Mueller 38;Michael;;08.04.1971;Berlin;Lange Strasse;6;63504;Mittelstadt;06355/97887;06364/70593;0175/579375;;Mueller38@dhbw.tst;Michael@dhbw.vgl;N;verwitwet;2;1;N
+K00374;Meier 38;Sebastian;;29.03.1971;Duisburg;Kreuzweg;29;63503;Altstadt;06354/45213;06363/38858;0175/579374;;Meier38@dhbw.tst;Sebastian@dhbw.vgl;M;verheiratet;2;1;J
+K00373;Meyer 38;Sabine;Egon;19.03.1971;Zuffenhausen;Im Tal;13;63503;Altstadt;06354/66568;06363/32264;0175/579373;;Meyer38@dhbw.tst;Sabine@dhbw.vgl;L;geschieden;1;0;N
+K00372;Maier 38;Carsten;;09.03.1971;New York;Auf der Höhe;74;63503;Altstadt;06354/22907;06363/15263;0175/579372;06354/37120;Maier38@dhbw.tst;Carsten@dhbw.vgl;G;ledig;1;0;N
+K00371;Müller 38;Anne;;27.02.1971;Bremen;Severinstr.;83;63502;Neustadt;06353/49761;06362/19223;0175/579371;;Müller38@dhbw.tst;Anne@dhbw.vgl;P;ledig;1;0;N
+K00370;Dietrich 37;Markus;;17.02.1971;Frankfurt (Oder);Kanzlerweg;36;63502;Neustadt;06353/15143;06362/91837;0175/579370;;Dietrich37@dhbw.tst;Markus@dhbw.vgl;O;ledig;2;1;N
+K00369;Otto 37;Hugo;;07.02.1971;Hanau;Kreuzberger Str.;64;63502;Neustadt;06353/6043;06362/11007;0175/579369;;Otto37@dhbw.tst;Hugo@dhbw.vgl;N;ledig;0;0;N
+K00368;Zimmermann 37;Christian;Maria;28.01.1971;Düsseldorf;Im Gewann;83;63502;Neustadt;06353/11727;06362/34240;0175/579368;;Zimmermann37@dhbw.tst;Christian@dhbw.vgl;M;verwitwet;2;1;N
+K00367;Zöller 37;Thomas;;18.01.1971;Obersdorf;Berliner Strasse;94;63502;Neustadt;06353/66013;06362/72248;0175/579367;;Zöller37@dhbw.tst;Thomas@dhbw.vgl;L;verheiratet;5;4;N
+K00366;Musterfrau 37;Karl-Heinz;;08.01.1971;Bremen;Musterstrasse;9;63501;Versicherungsstadt;06352/16726;06361/2089;0175/579366;06352/10780;Musterfrau37@dhbw.tst;Karl-Heinz@dhbw.vgl;G;eingetr. Partnerschaft;0;0;N
+K00365;Mueller 37;Norbert;;29.12.1970;Leipzig;Kurze Strasse;75;63501;Versicherungsstadt;06352/98436;06361/62917;0175/579365;;Mueller37@dhbw.tst;Norbert@dhbw.vgl;P;eingetr. Partnerschaft;0;0;J
+K00364;Meier 37;Jürgen;;19.12.1970;Mainz;Lange Strasse;31;63500;Musterdorff;06351/18529;06360/45842;0175/579364;;Meier37@dhbw.tst;Jürgen@dhbw.vgl;O;verwitwet;0;0;N
+K00363;Meyer 37;Andreas;Putinowitsch;09.12.1970;Marburg;Kreuzweg;37;63500;Musterdorff;06351/43778;06360/84320;0175/579363;;Meyer37@dhbw.tst;Andreas@dhbw.vgl;N;ledig;2;1;N
+K00362;Maier 37;Toni;;29.11.1970;Paris;Im Tal;34;63500;Musterdorff;06351/22366;06360/53231;0175/579362;;Maier37@dhbw.tst;Toni@dhbw.vgl;M;verwitwet;1;0;N
+K00361;Müller 37;Martina;;19.11.1970;Moskau;Auf der Höhe;36;63505;Mosbach;06356/68304;06365/40606;0175/579361;;Müller37@dhbw.tst;Martina@dhbw.vgl;L;ledig;1;0;N
+K00360;Dietrich 36;Karla;;09.11.1970;Marburg;Severinstr.;7;63504;Mittelstadt;06355/58974;06364/23299;0175/579360;;Dietrich36@dhbw.tst;Karla@dhbw.vgl;G;eingetr. Partnerschaft;2;1;J
+K00359;Otto 36;Hartwigk;Paul;30.10.1970;Marburg;Kanzlerweg;92;63504;Mittelstadt;06355/93260;;0175/579359;;Otto36@dhbw.tst;Hartwigk@dhbw.vgl;P;verheiratet;0;0;J
+K00358;Zimmermann 36;Holger;;20.10.1970;Frankfurt;Kreuzberger Str.;67;63504;Mittelstadt;06355/39633;;0175/579358;;Zimmermann36@dhbw.tst;Holger@dhbw.vgl;O;eingetr. Partnerschaft;2;1;J
+K00357;Zöller 36;Tom;;10.10.1970;Stralsund;Im Gewann;22;63504;Mittelstadt;06355/29465;;0175/579357;;Zöller36@dhbw.tst;Tom@dhbw.vgl;N;eingetr. Partnerschaft;1;0;N
+K00356;Musterfrau 36;Marcus;Clara;30.09.1970;Wolfsburg;Berliner Strasse;58;63504;Mittelstadt;06355/37269;06364/73010;0175/579356;06355/83448;Musterfrau36@dhbw.tst;Marcus@dhbw.vgl;M;verwitwet;1;0;N
+K00355;Mueller 36;Wolfgang;Herrmann;20.09.1970;Wolfsburg;Musterstrasse;10;63503;Altstadt;06354/75089;06363/74341;0175/579355;;Mueller36@dhbw.tst;Wolfgang@dhbw.vgl;L;verwitwet;2;1;N
+K00354;Meier 36;Egon;;10.09.1970;Mainz;Kurze Strasse;44;63503;Altstadt;06354/4215;06363/69429;0175/579354;;Meier36@dhbw.tst;Egon@dhbw.vgl;G;verheiratet;1;0;N
+K00353;Meyer 36;Ansgar;;31.08.1970;Frankfurt (Oder);Lange Strasse;63;63503;Altstadt;06354/46703;06363/94340;0175/579353;;Meyer36@dhbw.tst;Ansgar@dhbw.vgl;P;geschieden;2;1;N
+K00352;Maier 36;Walter;;21.08.1970;Magdeburg;Kreuzweg;12;63502;Neustadt;06353/13831;06362/25546;0175/579352;;Maier36@dhbw.tst;Walter@dhbw.vgl;O;ledig;0;0;N
+K00351;Müller 36;Tina;;11.08.1970;Bremen;Im Tal;28;63502;Neustadt;06353/1664;06362/5410;0175/579351;;Müller36@dhbw.tst;Tina@dhbw.vgl;N;ledig;1;0;N
+K00350;Dietrich 35;Erika;Egon;01.08.1970;Marburg;Auf der Höhe;21;63502;Neustadt;06353/93446;06362/85802;0175/579350;06353/25231;Dietrich35@dhbw.tst;Erika@dhbw.vgl;M;geschieden;2;1;N
+K00349;Otto 35;Anne;;22.07.1970;Hamburg;Severinstr.;64;63502;Neustadt;06353/97826;06362/54381;0175/579349;;Otto35@dhbw.tst;Anne@dhbw.vgl;L;eingetr. Partnerschaft;0;0;J
+K00348;Zimmermann 35;Torsten;;12.07.1970;Bremen;Kanzlerweg;64;63502;Neustadt;06353/51041;06362/23759;0175/579348;;Zimmermann35@dhbw.tst;Torsten@dhbw.vgl;G;eingetr. Partnerschaft;2;1;J
+K00347;Zöller 35;Johann;;02.07.1970;Sidney;Kreuzberger Str.;51;63501;Versicherungsstadt;06352/40088;06361/48237;0175/579347;;Zöller35@dhbw.tst;Johann@dhbw.vgl;P;verwitwet;3;2;N
+K00346;Musterfrau 35;Michael;;22.06.1970;Bremen;Im Gewann;55;63501;Versicherungsstadt;06352/10092;06361/12414;0175/579346;;Musterfrau35@dhbw.tst;Michael@dhbw.vgl;O;geschieden;2;1;N
+K00345;Mueller 35;Sebastian;Maria;12.06.1970;Stuttgart;Berliner Strasse;83;63500;Musterdorff;06351/75903;06360/15077;0175/579345;;Mueller35@dhbw.tst;Sebastian@dhbw.vgl;N;ledig;1;0;N
+K00344;Meier 35;Markus;;02.06.1970;Erfurt;Musterstrasse;24;63500;Musterdorff;06351/9725;06360/52924;0175/579344;06351/43152;Meier35@dhbw.tst;Markus@dhbw.vgl;M;eingetr. Partnerschaft;1;0;N
+K00343;Meyer 35;Carsten;;23.05.1970;London;Kurze Strasse;78;63500;Musterdorff;06351/2469;06360/49485;0175/579343;;Meyer35@dhbw.tst;Carsten@dhbw.vgl;L;eingetr. Partnerschaft;0;0;J
+K00342;Maier 35;Ernst;;13.05.1970;Berlin;Lange Strasse;57;63505;Mosbach;06356/10183;06365/61014;0175/579342;;Maier35@dhbw.tst;Ernst@dhbw.vgl;G;verwitwet;1;0;N
+K00341;Müller 35;Sabine;;03.05.1970;Wolfsburg;Kreuzweg;49;63504;Mittelstadt;06355/42063;06364/43429;0175/579341;;Müller35@dhbw.tst;Sabine@dhbw.vgl;P;verheiratet;5;4;N
+K00340;Dietrich 34;Alfred;Putinowitsch;23.04.1970;Mainz;Im Tal;53;63504;Mittelstadt;06355/97942;06364/14078;0175/579340;;Dietrich34@dhbw.tst;Alfred@dhbw.vgl;O;eingetr. Partnerschaft;0;0;J
+K00339;Otto 34;Martina;;13.04.1970;Wien;Auf der Höhe;50;63504;Mittelstadt;06355/74606;06364/28210;0175/579339;;Otto34@dhbw.tst;Martina@dhbw.vgl;N;eingetr. Partnerschaft;0;0;J
+K00338;Zimmermann 34;Karl-Heinz;;03.04.1970;Hamburg;Severinstr.;44;63504;Mittelstadt;06355/77531;06364/19655;0175/579338;06355/45454;Zimmermann34@dhbw.tst;Karl-Heinz@dhbw.vgl;M;verwitwet;0;0;N
+K00337;Zöller 34;Hugo;;24.03.1970;Kassel;Kanzlerweg;3;63504;Mittelstadt;06355/53660;06364/23084;0175/579337;;Zöller34@dhbw.tst;Hugo@dhbw.vgl;L;eingetr. Partnerschaft;0;0;N
+K00336;Musterfrau 34;Norbert;Paul;14.03.1970;Magdeburg;Kreuzberger Str.;44;63503;Altstadt;06354/43093;06363/44791;0175/579336;;Musterfrau34@dhbw.tst;Norbert@dhbw.vgl;G;verwitwet;1;0;N
+K00335;Mueller 34;Jürgen;;04.03.1970;Wiesbaden;Im Gewann;18;63503;Altstadt;06354/61493;06363/93660;0175/579335;;Mueller34@dhbw.tst;Jürgen@dhbw.vgl;P;geschieden;0;0;N
+K00334;Meier 34;Karla;;22.02.1970;Hofgeismar;Berliner Strasse;48;63503;Altstadt;06354/91507;06363/71689;0175/579334;;Meier34@dhbw.tst;Karla@dhbw.vgl;O;verwitwet;3;2;N
+K00333;Meyer 34;Toni;Clara;12.02.1970;Moskau;Musterstrasse;30;63502;Neustadt;06353/86667;06362/71132;0175/579333;;Meyer34@dhbw.tst;Toni@dhbw.vgl;N;geschieden;1;0;N
+K00332;Maier 34;Kristijan;Herrmann;02.02.1970;Kassel;Kurze Strasse;70;63502;Neustadt;06353/73959;06362/21067;0175/579332;06353/43867;Maier34@dhbw.tst;Kristijan@dhbw.vgl;M;geschieden;2;1;N
+K00331;Müller 34;Andreas;;23.01.1970;Hofgeismar;Lange Strasse;69;63502;Neustadt;06353/20136;06362/77422;0175/579331;;Müller34@dhbw.tst;Andreas@dhbw.vgl;L;eingetr. Partnerschaft;1;0;N
+K00330;Dietrich 33;Thomas;;13.01.1970;Marburg;Kreuzweg;8;63502;Neustadt;06353/30884;06362/3025;0175/579330;;Dietrich33@dhbw.tst;Thomas@dhbw.vgl;G;ledig;2;1;N
+K00329;Otto 33;Tina;;03.01.1970;Hamburg;Im Tal;39;63502;Neustadt;06353/38551;06362/33770;0175/579329;;Otto33@dhbw.tst;Tina@dhbw.vgl;P;eingetr. Partnerschaft;0;0;J
+K00328;Zimmermann 33;Marcus;;24.12.1969;Hannover;Auf der Höhe;14;63501;Versicherungsstadt;06352/16912;;0175/579328;;Zimmermann33@dhbw.tst;Marcus@dhbw.vgl;O;geschieden;1;0;N
+K00327;Zöller 33;Hartwigk;Egon;14.12.1969;Hofgeismar;Severinstr.;11;63501;Versicherungsstadt;06352/91816;;0175/579327;;Zöller33@dhbw.tst;Hartwigk@dhbw.vgl;N;ledig;0;0;N
+K00326;Musterfrau 33;Wolfgang;;04.12.1969;Hannover;Kanzlerweg;84;63500;Musterdorff;06351/74492;;0175/579326;06351/32942;Musterfrau33@dhbw.tst;Wolfgang@dhbw.vgl;M;geschieden;2;1;N
+K00325;Mueller 33;Egon;;24.11.1969;Wiesbaden;Kreuzberger Str.;71;63500;Musterdorff;06351/47283;;0175/579325;;Mueller33@dhbw.tst;Egon@dhbw.vgl;L;ledig;0;0;N
+K00324;Meier 33;Erika;;14.11.1969;Hofgeismar;Im Gewann;7;63500;Musterdorff;06351/49629;;0175/579324;;Meier33@dhbw.tst;Erika@dhbw.vgl;G;verheiratet;4;3;J
+K00323;Meyer 33;Walter;;04.11.1969;Rostock;Berliner Strasse;54;63505;Mosbach;06356/53821;;0175/579323;;Meyer33@dhbw.tst;Walter@dhbw.vgl;P;eingetr. Partnerschaft;0;0;N
+K00322;Maier 33;Christine;Maria;25.10.1969;Sidney;Musterstrasse;1;63504;Mittelstadt;06355/46141;;0175/579322;;Maier33@dhbw.tst;Christine@dhbw.vgl;O;verheiratet;4;3;J
+K00321;Müller 33;Ansgar;;15.10.1969;Erfurt;Kurze Strasse;72;63504;Mittelstadt;06355/78405;;0175/579321;;Müller33@dhbw.tst;Ansgar@dhbw.vgl;N;verheiratet;4;3;J
+K00320;Dietrich 32;Tom;;05.10.1969;Kiel;Lange Strasse;16;63504;Mittelstadt;06355/21897;06364/14926;0175/579320;;Dietrich32@dhbw.tst;Tom@dhbw.vgl;M;verwitwet;2;1;N
+K00319;Otto 32;Sabine;;25.09.1969;Hannover;Kreuzweg;23;63504;Mittelstadt;06355/12967;06364/34400;0175/579319;;Otto32@dhbw.tst;Sabine@dhbw.vgl;L;ledig;2;1;N
+K00318;Zimmermann 32;Michael;;15.09.1969;Hamburg;Im Tal;74;63504;Mittelstadt;06355/40424;06364/1469;0175/579318;;Zimmermann32@dhbw.tst;Michael@dhbw.vgl;G;verheiratet;4;3;J
+K00317;Zöller 32;Anne;Putinowitsch;05.09.1969;Basel;Auf der Höhe;91;63503;Altstadt;06354/77197;06363/16787;0175/579317;;Zöller32@dhbw.tst;Anne@dhbw.vgl;P;verwitwet;1;0;N
+K00316;Musterfrau 32;Sebastian;;26.08.1969;Mainz;Severinstr.;16;63503;Altstadt;06354/76537;06363/25542;0175/579316;06354/7496;Musterfrau32@dhbw.tst;Sebastian@dhbw.vgl;O;eingetr. Partnerschaft;0;0;J
+K00315;Mueller 32;Markus;;16.08.1969;Duisburg;Kanzlerweg;48;63503;Altstadt;06354/10464;06363/69286;0175/579315;;Mueller32@dhbw.tst;Markus@dhbw.vgl;N;verwitwet;2;1;N
+K00314;Meier 32;Alfred;;06.08.1969;Wiesbaden;Kreuzberger Str.;21;63502;Neustadt;06353/53064;06362/29663;0175/579314;;Meier32@dhbw.tst;Alfred@dhbw.vgl;M;verwitwet;1;0;N
+K00313;Meyer 32;Ernst;Paul;27.07.1969;Bremen;Im Gewann;50;63502;Neustadt;06353/38493;06362/40620;0175/579313;;Meyer32@dhbw.tst;Ernst@dhbw.vgl;L;geschieden;1;0;N
+K00312;Maier 32;Christiane;;17.07.1969;Kassel;Berliner Strasse;39;63502;Neustadt;06353/71274;06362/43977;0175/579312;;Maier32@dhbw.tst;Christiane@dhbw.vgl;G;geschieden;1;0;N
+K00311;Müller 32;Carsten;;07.07.1969;Paris;Musterstrasse;30;63502;Neustadt;06353/5520;06362/65344;0175/579311;;Müller32@dhbw.tst;Carsten@dhbw.vgl;P;verwitwet;1;0;N
+K00310;Dietrich 31;Johann;Clara;27.06.1969;Peking;Kurze Strasse;34;63502;Neustadt;06353/59948;06362/445;0175/579310;06353/16926;Dietrich31@dhbw.tst;Johann@dhbw.vgl;O;geschieden;3;2;N
+K00309;Otto 31;Andreas;Herrmann;17.06.1969;Flensburg;Lange Strasse;75;63501;Versicherungsstadt;06352/19747;06361/56917;0175/579309;;Otto31@dhbw.tst;Andreas@dhbw.vgl;N;verwitwet;2;1;N
+K00308;Zimmermann 31;Norbert;;07.06.1969;Rostock;Kreuzweg;76;63501;Versicherungsstadt;06352/83156;06361/19302;0175/579308;;Zimmermann31@dhbw.tst;Norbert@dhbw.vgl;M;geschieden;1;0;N
+K00307;Zöller 31;Martina;;28.05.1969;Obersdorf;Im Tal;16;63500;Musterdorff;06351/34534;06360/13017;0175/579307;;Zöller31@dhbw.tst;Martina@dhbw.vgl;L;verwitwet;1;0;N
+K00306;Musterfrau 31;Jürgen;;18.05.1969;Köln;Auf der Höhe;60;63500;Musterdorff;06351/83740;06360/8614;0175/579306;;Musterfrau31@dhbw.tst;Jürgen@dhbw.vgl;G;verheiratet;0;0;J
+K00305;Mueller 31;Karla;;08.05.1969;Flensburg;Severinstr.;89;63500;Musterdorff;06351/87063;06360/43866;0175/579305;;Mueller31@dhbw.tst;Karla@dhbw.vgl;P;geschieden;3;2;N
+K00304;Meier 31;Thomas;Egon;28.04.1969;Hofgeismar;Kanzlerweg;1;63505;Mosbach;06356/96745;06365/75177;0175/579304;06356/40232;Meier31@dhbw.tst;Thomas@dhbw.vgl;O;eingetr. Partnerschaft;1;0;N
+K00303;Meyer 31;Kristijan;;18.04.1969;Leipzig;Kreuzberger Str.;7;63504;Mittelstadt;06355/62114;06364/41197;0175/579303;;Meyer31@dhbw.tst;Kristijan@dhbw.vgl;N;verheiratet;4;3;J
+K00302;Maier 31;Christian;;08.04.1969;Frankfurt;Im Gewann;54;63504;Mittelstadt;06355/86374;06364/84059;0175/579302;;Maier31@dhbw.tst;Christian@dhbw.vgl;M;geschieden;2;1;N
+K00301;Müller 31;Toni;;29.03.1969;Wien;Berliner Strasse;48;63504;Mittelstadt;06355/82153;06364/39327;0175/579301;;Müller31@dhbw.tst;Toni@dhbw.vgl;L;verheiratet;1;0;N
+K00300;Dietrich 30;Hugo;;19.03.1969;Leipzig;Musterstrasse;54;63504;Mittelstadt;06355/27924;06364/45331;0175/579300;;Dietrich30@dhbw.tst;Hugo@dhbw.vgl;G;verwitwet;0;0;N
+K00299;Otto 30;Ansgar;Maria;09.03.1969;Duisburg;Kurze Strasse;69;63504;Mittelstadt;06355/88406;06364/66104;0175/579299;;Otto30@dhbw.tst;Ansgar@dhbw.vgl;P;ledig;0;0;N
+K00298;Zimmermann 30;Wolfgang;;27.02.1969;Sidney;Lange Strasse;11;63503;Altstadt;06354/32222;06363/48264;0175/579298;06354/80998;Zimmermann30@dhbw.tst;Wolfgang@dhbw.vgl;O;verheiratet;4;3;J
+K00297;Zöller 30;Tina;;17.02.1969;Basel;Kreuzweg;76;63503;Altstadt;06354/16414;06363/20963;0175/579297;;Zöller30@dhbw.tst;Tina@dhbw.vgl;N;verwitwet;1;0;N
+K00296;Musterfrau 30;Egon;;07.02.1969;Köln;Im Tal;7;63503;Altstadt;06354/71881;06363/9798;0175/579296;;Musterfrau30@dhbw.tst;Egon@dhbw.vgl;M;eingetr. Partnerschaft;0;0;N
+K00295;Mueller 30;Erika;;28.01.1969;Flensburg;Auf der Höhe;50;63502;Neustadt;06353/12160;06362/31197;0175/579295;;Mueller30@dhbw.tst;Erika@dhbw.vgl;L;ledig;0;0;N
+K00294;Meier 30;Tom;Putinowitsch;18.01.1969;Frankfurt (Oder);Severinstr.;83;63502;Neustadt;06353/62006;06362/18940;0175/579294;;Meier30@dhbw.tst;Tom@dhbw.vgl;G;geschieden;2;1;N
+K00293;Meyer 30;Christine;;08.01.1969;Peking;Kanzlerweg;85;63502;Neustadt;06353/84437;06362/24591;0175/579293;;Meyer30@dhbw.tst;Christine@dhbw.vgl;P;ledig;0;0;N
+K00292;Maier 30;Holger;;29.12.1968;München;Kreuzberger Str.;65;63502;Neustadt;06353/11317;06362/9015;0175/579292;06353/78039;Maier30@dhbw.tst;Holger@dhbw.vgl;O;verwitwet;3;2;N
+K00291;Müller 30;Walter;;19.12.1968;Stralsund;Im Gewann;76;63502;Neustadt;06353/16827;06362/29676;0175/579291;;Müller30@dhbw.tst;Walter@dhbw.vgl;N;verwitwet;0;0;N
+K00290;Dietrich 29;Hartwigk;Paul;09.12.1968;Flensburg;Berliner Strasse;2;63501;Versicherungsstadt;06352/62860;06361/5790;;;Dietrich29@dhbw.tst;Hartwigk@dhbw.vgl;M;eingetr. Partnerschaft;0;0;J
+K00289;Otto 29;Carsten;;29.11.1968;Moskau;Musterstrasse;97;63501;Versicherungsstadt;06352/68140;06361/48759;;;Otto29@dhbw.tst;Carsten@dhbw.vgl;L;geschieden;1;0;N
+K00288;Zimmermann 29;Sebastian;;19.11.1968;Wiesbaden;Kurze Strasse;21;63500;Musterdorff;06351/52946;06360/55692;;;Zimmermann29@dhbw.tst;Sebastian@dhbw.vgl;G;verwitwet;1;0;N
+K00287;Zöller 29;Sabine;Clara;09.11.1968;Sidney;Lange Strasse;85;63500;Musterdorff;06351/66268;06360/6972;;;Zöller29@dhbw.tst;Sabine@dhbw.vgl;P;eingetr. Partnerschaft;1;0;N
+K00286;Musterfrau 29;Markus;Herrmann;30.10.1968;Stuttgart;Kreuzweg;55;63500;Musterdorff;06351/13199;06360/66499;;06351/28262;Musterfrau29@dhbw.tst;Markus@dhbw.vgl;O;geschieden;2;1;N
+K00285;Mueller 29;Alfred;;20.10.1968;Köln;Im Tal;22;63505;Mosbach;06356/32412;06365/63888;;;Mueller29@dhbw.tst;Alfred@dhbw.vgl;N;geschieden;1;0;N
+K00284;Meier 29;Johann;;10.10.1968;New York;Auf der Höhe;40;63504;Mittelstadt;06355/43048;;;;Meier29@dhbw.tst;Johann@dhbw.vgl;M;verheiratet;3;2;N
+K00283;Meyer 29;Christiane;;30.09.1968;Leipzig;Severinstr.;67;63504;Mittelstadt;06355/60169;;;;Meyer29@dhbw.tst;Christiane@dhbw.vgl;L;verheiratet;1;0;N
+K00282;Maier 29;Torsten;;20.09.1968;Hamburg;Kanzlerweg;81;63504;Mittelstadt;06355/49447;;0175/579282;;Maier29@dhbw.tst;Torsten@dhbw.vgl;G;verwitwet;3;2;N
+K00281;Müller 29;Ernst;Egon;10.09.1968;Hamburg;Kreuzberger Str.;30;63504;Mittelstadt;06355/98018;;0175/579281;;Müller29@dhbw.tst;Ernst@dhbw.vgl;P;verheiratet;1;0;N
+K00280;Dietrich 28;Anne;;31.08.1968;Freiburg;Im Gewann;93;63504;Mittelstadt;06355/7437;;0175/579280;;Dietrich28@dhbw.tst;Anne@dhbw.vgl;O;geschieden;1;0;N
+K00279;Otto 28;Toni;;21.08.1968;Obersdorf;Berliner Strasse;28;63503;Altstadt;06354/40660;;0175/579279;;Otto28@dhbw.tst;Toni@dhbw.vgl;N;ledig;0;0;N
+K00278;Zimmermann 28;Jürgen;;11.08.1968;Dortmund;Musterstrasse;16;63503;Altstadt;06354/88838;;0175/579278;;Zimmermann28@dhbw.tst;Jürgen@dhbw.vgl;M;ledig;0;0;N
+K00277;Zöller 28;Andreas;;01.08.1968;Fulda;Kurze Strasse;49;63503;Altstadt;06354/68789;06363/57950;0175/579277;;Zöller28@dhbw.tst;Andreas@dhbw.vgl;L;geschieden;2;1;N
+K00276;Musterfrau 28;Karla;Maria;22.07.1968;Fulda;Lange Strasse;19;63502;Neustadt;06353/36755;06362/35410;0175/579276;06353/63991;Musterfrau28@dhbw.tst;Karla@dhbw.vgl;G;verheiratet;3;2;N
+K00275;Mueller 28;Thomas;;12.07.1968;Flensburg;Kreuzweg;88;63502;Neustadt;06353/30725;06362/94791;0175/579275;;Mueller28@dhbw.tst;Thomas@dhbw.vgl;P;verwitwet;2;1;N
+K00274;Meier 28;Hugo;;02.07.1968;Magdeburg;Im Tal;13;63502;Neustadt;06353/71171;06362/2627;0175/579274;;Meier28@dhbw.tst;Hugo@dhbw.vgl;O;geschieden;0;0;N
+K00273;Meyer 28;Christian;;22.06.1968;München;Auf der Höhe;34;63502;Neustadt;06353/71738;06362/33212;0175/579273;;Meyer28@dhbw.tst;Christian@dhbw.vgl;N;verheiratet;4;3;J
+K00272;Maier 28;Karl-Heinz;;12.06.1968;Basel;Severinstr.;45;63502;Neustadt;06353/16446;06362/97014;0175/579272;;Maier28@dhbw.tst;Karl-Heinz@dhbw.vgl;M;geschieden;0;0;N
+K00271;Müller 28;Kristijan;Putinowitsch;02.06.1968;Magdeburg;Kanzlerweg;64;63501;Versicherungsstadt;06352/99996;06361/57256;0175/579271;;Müller28@dhbw.tst;Kristijan@dhbw.vgl;L;ledig;0;0;N
+K00270;Dietrich 27;Martina;;23.05.1968;Marburg;Kreuzberger Str.;66;63501;Versicherungsstadt;06352/4245;06361/50121;0175/579270;06352/17343;Dietrich27@dhbw.tst;Martina@dhbw.vgl;G;geschieden;1;0;N
+K00269;Otto 27;Walter;;13.05.1968;Kiel;Im Gewann;55;63500;Musterdorff;06351/75304;06360/52633;0175/579269;;Otto27@dhbw.tst;Walter@dhbw.vgl;P;geschieden;0;0;N
+K00268;Zimmermann 27;Egon;;03.05.1968;Dortmund;Berliner Strasse;88;63500;Musterdorff;06351/73502;06360/58153;0175/579268;;Zimmermann27@dhbw.tst;Egon@dhbw.vgl;O;verwitwet;0;0;N
+K00267;Zöller 27;Ansgar;Paul;23.04.1968;Stuttgart;Musterstrasse;20;63500;Musterdorff;06351/70740;06360/40374;0175/579267;;Zöller27@dhbw.tst;Ansgar@dhbw.vgl;N;eingetr. Partnerschaft;2;1;J
+K00266;Musterfrau 27;Erika;;13.04.1968;Fulda;Kurze Strasse;40;63505;Mosbach;06356/37172;06365/92940;0175/579266;;Musterfrau27@dhbw.tst;Erika@dhbw.vgl;M;eingetr. Partnerschaft;2;1;J
+K00265;Mueller 27;Tom;;03.04.1968;Erfurt;Lange Strasse;77;63504;Mittelstadt;06355/27993;06364/76401;0175/579265;;Mueller27@dhbw.tst;Tom@dhbw.vgl;L;verheiratet;4;3;J
+K00264;Meier 27;Hartwigk;Clara;24.03.1968;Fulda;Kreuzweg;25;63504;Mittelstadt;06355/45426;06364/53021;0175/579264;06355/95546;Meier27@dhbw.tst;Hartwigk@dhbw.vgl;G;verwitwet;2;1;N
+K00263;Meyer 27;Holger;Herrmann;14.03.1968;Berlin;Im Tal;77;63504;Mittelstadt;06355/28094;06364/54787;0175/579263;;Meyer27@dhbw.tst;Holger@dhbw.vgl;P;geschieden;3;2;N
+K00262;Maier 27;Marcus;;04.03.1968;Sidney;Auf der Höhe;98;63504;Mittelstadt;06355/56770;06364/10416;0175/579262;;Maier27@dhbw.tst;Marcus@dhbw.vgl;O;verheiratet;1;0;N
+K00261;Müller 27;Christine;;23.02.1968;New York;Severinstr.;15;63504;Mittelstadt;06355/4385;06364/367;0175/579261;;Müller27@dhbw.tst;Christine@dhbw.vgl;N;eingetr. Partnerschaft;2;1;J
+K00260;Dietrich 26;Tina;;13.02.1968;Freiburg;Kanzlerweg;25;63503;Altstadt;06354/55842;06363/88572;0175/579260;;Dietrich26@dhbw.tst;Tina@dhbw.vgl;M;geschieden;1;0;N
+K00259;Otto 26;Ernst;;03.02.1968;Basel;Kreuzberger Str.;30;63503;Altstadt;06354/29987;06363/26886;;;Otto26@dhbw.tst;Ernst@dhbw.vgl;L;ledig;0;0;N
+K00258;Zimmermann 26;Markus;Egon;24.01.1968;Mainz;Im Gewann;11;63503;Altstadt;06354/75239;06363/38036;;06354/11656;Zimmermann26@dhbw.tst;Markus@dhbw.vgl;G;verheiratet;4;3;J
+K00257;Zöller 26;Carsten;;14.01.1968;Wien;Berliner Strasse;32;63502;Neustadt;06353/64516;;;;Zöller26@dhbw.tst;Carsten@dhbw.vgl;P;verheiratet;1;0;N
+K00256;Musterfrau 26;Alfred;;04.01.1968;Dortmund;Musterstrasse;64;63502;Neustadt;06353/72780;;;;Musterfrau26@dhbw.tst;Alfred@dhbw.vgl;O;verheiratet;1;0;N
+K00255;Mueller 26;Johann;;25.12.1967;London;Kurze Strasse;29;63502;Neustadt;06353/73928;;;;Mueller26@dhbw.tst;Johann@dhbw.vgl;N;ledig;0;0;N
+K00254;Meier 26;Anne;;15.12.1967;Zuffenhausen;Lange Strasse;80;63502;Neustadt;06353/82120;;;;Meier26@dhbw.tst;Anne@dhbw.vgl;M;verheiratet;1;0;N
+K00253;Meyer 26;Torsten;Maria;05.12.1967;Basel;Kreuzweg;4;63502;Neustadt;06353/27264;;;;Meyer26@dhbw.tst;Torsten@dhbw.vgl;L;geschieden;3;2;N
+K00252;Maier 26;Michael;;25.11.1967;Basel;Im Tal;52;63501;Versicherungsstadt;06352/69517;06361/95590;0175/579252;06352/72504;Maier26@dhbw.tst;Michael@dhbw.vgl;G;ledig;0;0;N
+K00251;Müller 26;Christiane;;15.11.1967;Magdeburg;Auf der Höhe;73;63501;Versicherungsstadt;06352/97340;06361/2419;0175/579251;;Müller26@dhbw.tst;Christiane@dhbw.vgl;P;ledig;0;0;N
+K00250;Dietrich 25;Sabine;;05.11.1967;Peking;Severinstr.;3;63500;Musterdorff;06351/48280;06360/7568;0175/579250;;Dietrich25@dhbw.tst;Sabine@dhbw.vgl;O;verwitwet;2;1;N
+K00249;Otto 25;Kristijan;;26.10.1967;Rostock;Kanzlerweg;49;63500;Musterdorff;06351/30906;06360/22656;0175/579249;;Otto25@dhbw.tst;Kristijan@dhbw.vgl;N;eingetr. Partnerschaft;2;1;J
+K00248;Zimmermann 25;Karla;Putinowitsch;16.10.1967;Würzburg;Kreuzberger Str.;37;63500;Musterdorff;06351/62434;06360/50389;0175/579248;;Zimmermann25@dhbw.tst;Karla@dhbw.vgl;M;ledig;0;0;N
+K00247;Zöller 25;Toni;;06.10.1967;Marburg;Im Gewann;41;63505;Mosbach;06356/95701;06365/15460;0175/579247;;Zöller25@dhbw.tst;Toni@dhbw.vgl;L;eingetr. Partnerschaft;0;0;N
+K00246;Musterfrau 25;Thomas;;26.09.1967;Fulda;Berliner Strasse;86;63504;Mittelstadt;06355/46739;06364/55531;0175/579246;06355/5952;Musterfrau25@dhbw.tst;Thomas@dhbw.vgl;G;geschieden;2;1;N
+K00245;Mueller 25;Hugo;;16.09.1967;Rostock;Musterstrasse;17;63504;Mittelstadt;06355/58636;06364/78787;0175/579245;;Mueller25@dhbw.tst;Hugo@dhbw.vgl;P;verheiratet;0;0;J
+K00244;Meier 25;Martina;Paul;06.09.1967;Hofgeismar;Kurze Strasse;83;63504;Mittelstadt;06355/94262;06364/52072;0175/579244;;Meier25@dhbw.tst;Martina@dhbw.vgl;O;verheiratet;1;0;N
+K00243;Meyer 25;Karl-Heinz;;27.08.1967;Freiburg;Lange Strasse;95;63504;Mittelstadt;06355/51910;06364/88432;0175/579243;;Meyer25@dhbw.tst;Karl-Heinz@dhbw.vgl;N;verheiratet;0;0;J
+K00242;Maier 25;Norbert;;17.08.1967;Stralsund;Kreuzweg;58;63504;Mittelstadt;06355/59695;;0175/579242;;Maier25@dhbw.tst;Norbert@dhbw.vgl;M;verheiratet;1;0;N
+K00241;Müller 25;Christian;Clara;07.08.1967;Berlin;Im Tal;48;63503;Altstadt;06354/32271;;0175/579241;;Müller25@dhbw.tst;Christian@dhbw.vgl;L;ledig;0;0;N
+K00240;Dietrich 24;Andreas;Herrmann;28.07.1967;Würzburg;Auf der Höhe;51;63503;Altstadt;06354/22777;;0175/579240;;Dietrich24@dhbw.tst;Andreas@dhbw.vgl;G;verheiratet;4;3;J
+K00239;Otto 24;Christine;;18.07.1967;London;Severinstr.;55;63503;Altstadt;06354/68396;;0175/579239;;Otto24@dhbw.tst;Christine@dhbw.vgl;P;verwitwet;3;2;N
+K00238;Zimmermann 24;Erika;;08.07.1967;Würzburg;Kanzlerweg;96;63502;Neustadt;06353/21929;06362/30779;0175/579238;;Zimmermann24@dhbw.tst;Erika@dhbw.vgl;O;verwitwet;3;2;N
+K00237;Zöller 24;Walter;;28.06.1967;Frankfurt (Oder);Kreuzberger Str.;75;63502;Neustadt;06353/60292;06362/31691;0175/579237;;Zöller24@dhbw.tst;Walter@dhbw.vgl;N;verheiratet;0;0;J
+K00236;Musterfrau 24;Tom;;18.06.1967;Duisburg;Im Gewann;78;63502;Neustadt;06353/53836;06362/37442;0175/579236;06353/41018;Musterfrau24@dhbw.tst;Tom@dhbw.vgl;M;ledig;0;0;N
+K00235;Mueller 24;Hartwigk;Egon;08.06.1967;Würzburg;Berliner Strasse;9;63502;Neustadt;06353/322;06362/56098;0175/579235;;Mueller24@dhbw.tst;Hartwigk@dhbw.vgl;L;geschieden;1;0;N
+K00234;Meier 24;Tina;;29.05.1967;Zuffenhausen;Musterstrasse;99;63502;Neustadt;06353/34913;06362/89516;0175/579234;;Meier24@dhbw.tst;Tina@dhbw.vgl;G;verheiratet;1;0;N
+K00233;Meyer 24;Marcus;;19.05.1967;Peking;Kurze Strasse;29;63501;Versicherungsstadt;06352/30294;06361/85339;0175/579233;;Meyer24@dhbw.tst;Marcus@dhbw.vgl;P;ledig;0;0;N
+K00232;Maier 24;Wolfgang;;09.05.1967;Peking;Lange Strasse;78;63501;Versicherungsstadt;06352/73288;06361/99969;0175/579232;;Maier24@dhbw.tst;Wolfgang@dhbw.vgl;O;ledig;0;0;N
+K00231;Müller 24;Holger;;29.04.1967;Bremen;Kreuzweg;16;63500;Musterdorff;06351/49417;06360/8793;0175/579231;;Müller24@dhbw.tst;Holger@dhbw.vgl;N;verheiratet;3;2;N
+K00230;Dietrich 23;Ansgar;Maria;19.04.1967;Mainz;Im Tal;2;63500;Musterdorff;06351/68542;06360/41520;0175/579230;06351/33727;Dietrich23@dhbw.tst;Ansgar@dhbw.vgl;M;verwitwet;3;2;N
+K00229;Otto 23;Christiane;;09.04.1967;Rostock;Auf der Höhe;48;63500;Musterdorff;06351/86652;06360/70412;0175/579229;;Otto23@dhbw.tst;Christiane@dhbw.vgl;L;eingetr. Partnerschaft;0;0;N
+K00228;Zimmermann 23;Alfred;;30.03.1967;Düsseldorf;Severinstr.;77;63505;Mosbach;06356/77345;06365/69783;0175/579228;;Zimmermann23@dhbw.tst;Alfred@dhbw.vgl;G;ledig;0;0;N
+K00227;Zöller 23;Ernst;;20.03.1967;Freiburg;Kanzlerweg;55;63504;Mittelstadt;06355/29186;06364/77224;0175/579227;;Zöller23@dhbw.tst;Ernst@dhbw.vgl;P;eingetr. Partnerschaft;0;0;N
+K00226;Musterfrau 23;Johann;;10.03.1967;Paris;Kreuzberger Str.;40;63504;Mittelstadt;06355/86329;06364/97731;0175/579226;;Musterfrau23@dhbw.tst;Johann@dhbw.vgl;O;eingetr. Partnerschaft;1;0;N
+K00225;Mueller 23;Anne;Putinowitsch;28.02.1967;Wolfsburg;Im Gewann;43;63504;Mittelstadt;06355/76972;06364/28970;0175/579225;;Mueller23@dhbw.tst;Anne@dhbw.vgl;N;ledig;0;0;N
+K00224;Meier 23;Sabine;;18.02.1967;New York;Berliner Strasse;78;63504;Mittelstadt;06355/67085;06364/19160;;06355/38913;Meier23@dhbw.tst;Sabine@dhbw.vgl;M;geschieden;2;1;N
+K00223;Meyer 23;Michael;;08.02.1967;Freiburg;Musterstrasse;58;63504;Mittelstadt;06355/26775;06364/65481;;;Meyer23@dhbw.tst;Michael@dhbw.vgl;L;eingetr. Partnerschaft;2;1;J
+K00222;Maier 23;Sebastian;;29.01.1967;Köln;Kurze Strasse;8;63503;Altstadt;06354/56879;06363/27331;;;Maier23@dhbw.tst;Sebastian@dhbw.vgl;G;geschieden;1;0;N
+K00221;Müller 23;Torsten;Paul;19.01.1967;Freiburg;Lange Strasse;80;63503;Altstadt;06354/93798;06363/73622;;;Müller23@dhbw.tst;Torsten@dhbw.vgl;P;verheiratet;3;2;N
+K00220;Dietrich 22;Carsten;;09.01.1967;Obersdorf;Kreuzweg;4;63503;Altstadt;06354/44300;06363/60402;;;Dietrich22@dhbw.tst;Carsten@dhbw.vgl;O;ledig;0;0;N
+K00219;Otto 22;Christian;;30.12.1966;Bremen;Im Tal;99;63502;Neustadt;06353/68585;06362/80152;;;Otto22@dhbw.tst;Christian@dhbw.vgl;N;eingetr. Partnerschaft;2;1;J
+K00218;Zimmermann 22;Thomas;Clara;20.12.1966;Würzburg;Auf der Höhe;3;63502;Neustadt;06353/49283;06362/37063;0175/579218;06353/15575;Zimmermann22@dhbw.tst;Thomas@dhbw.vgl;M;verheiratet;4;3;J
+K00217;Zöller 22;Kristijan;Herrmann;10.12.1966;Stralsund;Severinstr.;22;63502;Neustadt;06353/96080;06362/37912;0175/579217;;Zöller22@dhbw.tst;Kristijan@dhbw.vgl;L;verwitwet;3;2;N
+K00216;Musterfrau 22;Hugo;;30.11.1966;Stralsund;Kanzlerweg;5;63502;Neustadt;06353/77614;06362/28490;0175/579216;;Musterfrau22@dhbw.tst;Hugo@dhbw.vgl;G;ledig;0;0;N
+K00215;Mueller 22;Martina;;20.11.1966;Flensburg;Kreuzberger Str.;54;63502;Neustadt;06353/82278;06362/46120;0175/579215;;Mueller22@dhbw.tst;Martina@dhbw.vgl;P;ledig;0;0;N
+K00214;Meier 22;Andreas;;10.11.1966;Hanau;Im Gewann;97;63501;Versicherungsstadt;06352/42589;06361/95403;0175/579214;;Meier22@dhbw.tst;Andreas@dhbw.vgl;O;ledig;0;0;N
+K00213;Meyer 22;Norbert;;31.10.1966;Kiel;Berliner Strasse;40;63501;Versicherungsstadt;06352/41174;06361/57672;0175/579213;;Meyer22@dhbw.tst;Norbert@dhbw.vgl;N;ledig;0;0;N
+K00212;Maier 22;Jürgen;Egon;21.10.1966;Düsseldorf;Musterstrasse;17;63500;Musterdorff;06351/62543;06360/58441;0175/579212;06351/20848;Maier22@dhbw.tst;Jürgen@dhbw.vgl;M;eingetr. Partnerschaft;0;0;J
+K00211;Müller 22;Karl-Heinz;;11.10.1966;Zuffenhausen;Kurze Strasse;58;63500;Musterdorff;06351/83937;06360/31596;0175/579211;;Müller22@dhbw.tst;Karl-Heinz@dhbw.vgl;L;ledig;0;0;N
+K00210;Dietrich 21;Toni;;01.10.1966;Hofgeismar;Lange Strasse;20;63500;Musterdorff;06351/14559;06360/98002;0175/579210;;Dietrich21@dhbw.tst;Toni@dhbw.vgl;G;verwitwet;0;0;N
+K00209;Otto 21;Holger;;21.09.1966;Hamburg;Kreuzweg;65;63505;Mosbach;06356/63047;06365/40452;0175/579209;;Otto21@dhbw.tst;Holger@dhbw.vgl;P;ledig;0;0;N
+K00208;Zimmermann 21;Tom;;11.09.1966;Stuttgart;Im Tal;82;63504;Mittelstadt;06355/52025;06364/71960;0175/579208;;Zimmermann21@dhbw.tst;Tom@dhbw.vgl;O;eingetr. Partnerschaft;2;1;J
+K00207;Zöller 21;Christine;Maria;01.09.1966;Paris;Auf der Höhe;9;63504;Mittelstadt;06355/90317;06364/32603;0175/579207;;Zöller21@dhbw.tst;Christine@dhbw.vgl;N;geschieden;3;2;N
+K00206;Musterfrau 21;Hartwigk;;22.08.1966;Hanau;Severinstr.;27;63504;Mittelstadt;06355/42935;06364/93985;0175/579206;06355/2174;Musterfrau21@dhbw.tst;Hartwigk@dhbw.vgl;M;verheiratet;5;4;N
+K00205;Mueller 21;Tina;;12.08.1966;Wolfsburg;Kanzlerweg;5;63504;Mittelstadt;06355/11451;;0175/579205;;Mueller21@dhbw.tst;Tina@dhbw.vgl;L;ledig;0;0;N
+K00204;Meier 21;Ansgar;;02.08.1966;Wiesbaden;Kreuzberger Str.;80;63504;Mittelstadt;06355/42391;;0175/579204;;Meier21@dhbw.tst;Ansgar@dhbw.vgl;G;geschieden;3;2;N
+K00203;Meyer 21;Wolfgang;;23.07.1966;New York;Im Gewann;42;63503;Altstadt;06354/87682;;0175/579203;;Meyer21@dhbw.tst;Wolfgang@dhbw.vgl;P;eingetr. Partnerschaft;2;1;J
+K00202;Maier 21;Egon;Putinowitsch;13.07.1966;Düsseldorf;Berliner Strasse;29;63503;Altstadt;06354/58124;;0175/579202;;Maier21@dhbw.tst;Egon@dhbw.vgl;O;geschieden;0;0;N
+K00201;Müller 21;Marcus;;03.07.1966;New York;Musterstrasse;82;63503;Altstadt;06354/48047;;0175/579201;;Müller21@dhbw.tst;Marcus@dhbw.vgl;N;eingetr. Partnerschaft;0;0;N
+K00200;Dietrich 20;Walter;;23.06.1966;Erfurt;Kurze Strasse;30;63502;Neustadt;06353/35296;;0175/579200;;Dietrich20@dhbw.tst;Walter@dhbw.vgl;M;ledig;0;0;N
+K00199;Otto 20;Torsten;;13.06.1966;Zuffenhausen;Lange Strasse;66;63502;Neustadt;06353/25945;06362/58333;0175/579199;;Otto20@dhbw.tst;Torsten@dhbw.vgl;L;ledig;0;0;N
+K00198;Zimmermann 20;Johann;Paul;03.06.1966;Moskau;Kreuzweg;67;63502;Neustadt;06353/52586;06362/72007;0175/579198;;Zimmermann20@dhbw.tst;Johann@dhbw.vgl;G;verwitwet;2;1;N
+K00197;Zöller 20;Christiane;;24.05.1966;Stralsund;Im Tal;51;63502;Neustadt;06353/63335;06362/90067;0175/579197;;Zöller20@dhbw.tst;Christiane@dhbw.vgl;P;verwitwet;0;0;N
+K00196;Musterfrau 20;Anne;;14.05.1966;Hannover;Auf der Höhe;48;63502;Neustadt;06353/69587;06362/32692;0175/579196;06353/50054;Musterfrau20@dhbw.tst;Anne@dhbw.vgl;O;eingetr. Partnerschaft;0;0;N
+K00195;Mueller 20;Sabine;Clara;04.05.1966;London;Severinstr.;67;63501;Versicherungsstadt;06352/3037;06361/11634;0175/579195;;Mueller20@dhbw.tst;Sabine@dhbw.vgl;N;verheiratet;4;3;J
+K00194;Meier 20;Carsten;Herrmann;24.04.1966;Marburg;Kanzlerweg;24;63501;Versicherungsstadt;06352/84839;06361/19139;0175/579194;;Meier20@dhbw.tst;Carsten@dhbw.vgl;M;eingetr. Partnerschaft;0;0;N
+K00193;Meyer 20;Sebastian;;14.04.1966;Dortmund;Kreuzberger Str.;97;63500;Musterdorff;06351/72640;06360/4363;0175/579193;;Meyer20@dhbw.tst;Sebastian@dhbw.vgl;L;verheiratet;1;0;N
+K00192;Maier 20;Markus;;04.04.1966;Wiesbaden;Im Gewann;33;63500;Musterdorff;06351/50585;06360/58925;0175/579192;;Maier20@dhbw.tst;Markus@dhbw.vgl;G;ledig;0;0;N
+K00191;Müller 20;Michael;;25.03.1966;Zuffenhausen;Berliner Strasse;5;63500;Musterdorff;06351/48716;06360/32772;0175/579191;;Müller20@dhbw.tst;Michael@dhbw.vgl;P;verwitwet;3;2;N
+K00190;Dietrich 19;Ernst;;15.03.1966;Zuffenhausen;Musterstrasse;57;63505;Mosbach;06356/86817;06365/9437;0175/579190;06356/23452;Dietrich19@dhbw.tst;Ernst@dhbw.vgl;O;verwitwet;0;0;N
+K00189;Otto 19;Karl-Heinz;Egon;05.03.1966;Wolfsburg;Kurze Strasse;51;63504;Mittelstadt;06355/42952;06364/99662;0175/579189;;Otto19@dhbw.tst;Karl-Heinz@dhbw.vgl;N;eingetr. Partnerschaft;0;0;J
+K00188;Zimmermann 19;Hugo;;23.02.1966;Kiel;Lange Strasse;97;63504;Mittelstadt;06355/9042;06364/78077;0175/579188;;Zimmermann19@dhbw.tst;Hugo@dhbw.vgl;M;eingetr. Partnerschaft;0;0;J
+K00187;Zöller 19;Christian;;13.02.1966;Hamburg;Kreuzweg;54;63504;Mittelstadt;06355/6591;06364/99088;;;Zöller19@dhbw.tst;Christian@dhbw.vgl;L;verwitwet;3;2;N
+K00186;Musterfrau 19;Martina;;03.02.1966;Fulda;Im Tal;18;63504;Mittelstadt;06355/29609;06364/54229;;;Musterfrau19@dhbw.tst;Martina@dhbw.vgl;G;eingetr. Partnerschaft;0;0;N
+K00185;Mueller 19;Andreas;;24.01.1966;Kassel;Auf der Höhe;80;63504;Mittelstadt;06355/71542;06364/40434;;;Mueller19@dhbw.tst;Andreas@dhbw.vgl;P;eingetr. Partnerschaft;2;1;J
+K00184;Meier 19;Toni;Maria;14.01.1966;Flensburg;Severinstr.;46;63503;Altstadt;06354/53650;06363/33993;;06354/84117;Meier19@dhbw.tst;Toni@dhbw.vgl;O;geschieden;0;0;N
+K00183;Meyer 19;Jürgen;;04.01.1966;Frankfurt;Kanzlerweg;33;63503;Altstadt;06354/75534;06363/72647;;;Meyer19@dhbw.tst;Jürgen@dhbw.vgl;N;verwitwet;2;1;N
+K00182;Maier 19;Karla;;25.12.1965;Hanau;Kreuzberger Str.;51;63503;Altstadt;06354/47386;06363/69022;;;Maier19@dhbw.tst;Karla@dhbw.vgl;M;eingetr. Partnerschaft;1;0;N
+K00181;Müller 19;Norbert;;15.12.1965;Frankfurt (Oder);Im Gewann;37;63502;Neustadt;06353/26432;06362/64116;;;Müller19@dhbw.tst;Norbert@dhbw.vgl;L;eingetr. Partnerschaft;0;0;N
+K00180;Dietrich 18;Kristijan;;05.12.1965;Kiel;Berliner Strasse;55;63502;Neustadt;06353/1038;06362/29689;;;Dietrich18@dhbw.tst;Kristijan@dhbw.vgl;G;geschieden;3;2;N
+K00179;Otto 18;Marcus;Putinowitsch;25.11.1965;London;Musterstrasse;66;63502;Neustadt;06353/18152;06362/36226;;;Otto18@dhbw.tst;Marcus@dhbw.vgl;P;verwitwet;0;0;N
+K00178;Zimmermann 18;Hartwigk;;15.11.1965;Kassel;Kurze Strasse;33;63502;Neustadt;06353/73107;06362/11070;;06353/75135;Zimmermann18@dhbw.tst;Hartwigk@dhbw.vgl;O;ledig;2;1;N
+K00177;Zöller 18;Holger;;05.11.1965;Basel;Lange Strasse;10;63502;Neustadt;06353/8528;06362/49074;;;Zöller18@dhbw.tst;Holger@dhbw.vgl;N;eingetr. Partnerschaft;1;0;N
+K00176;Musterfrau 18;Tina;;26.10.1965;Hannover;Kreuzweg;78;63501;Versicherungsstadt;06352/13280;06361/60758;;;Musterfrau18@dhbw.tst;Tina@dhbw.vgl;M;eingetr. Partnerschaft;0;0;N
+K00175;Mueller 18;Ansgar;Paul;16.10.1965;Köln;Im Tal;83;63501;Versicherungsstadt;06352/35420;06361/60862;;;Mueller18@dhbw.tst;Ansgar@dhbw.vgl;L;verheiratet;3;2;N
+K00174;Meier 18;Walter;;06.10.1965;Duisburg;Auf der Höhe;32;63500;Musterdorff;06351/53844;06360/57886;;;Meier18@dhbw.tst;Walter@dhbw.vgl;G;eingetr. Partnerschaft;0;0;J
+K00173;Meyer 18;Egon;;26.09.1965;Frankfurt;Severinstr.;92;63500;Musterdorff;06351/36244;;;;Meyer18@dhbw.tst;Egon@dhbw.vgl;P;verheiratet;0;0;J
+K00172;Maier 18;Erika;Clara;16.09.1965;Hanau;Kanzlerweg;64;63500;Musterdorff;06351/12186;;;06351/73869;Maier18@dhbw.tst;Erika@dhbw.vgl;O;geschieden;3;2;N
+K00171;Müller 18;Wolfgang;Herrmann;06.09.1965;London;Kreuzberger Str.;74;63505;Mosbach;06356/49890;;;;Müller18@dhbw.tst;Wolfgang@dhbw.vgl;N;verwitwet;3;2;N
+K00170;Dietrich 17;Christine;;27.08.1965;Moskau;Im Gewann;2;63504;Mittelstadt;06355/2451;;;;Dietrich17@dhbw.tst;Christine@dhbw.vgl;M;verheiratet;3;2;N
+K00169;Otto 17;Michael;;17.08.1965;Wolfsburg;Berliner Strasse;8;63504;Mittelstadt;06355/26937;;;;Otto17@dhbw.tst;Michael@dhbw.vgl;L;geschieden;3;2;N
+K00168;Zimmermann 17;Anne;;07.08.1965;Sidney;Musterstrasse;23;63504;Mittelstadt;06355/15279;;;;Zimmermann17@dhbw.tst;Anne@dhbw.vgl;G;verwitwet;0;0;N
+K00167;Zöller 17;Torsten;;28.07.1965;Wolfsburg;Kurze Strasse;94;63504;Mittelstadt;06355/82191;;;;Zöller17@dhbw.tst;Torsten@dhbw.vgl;P;eingetr. Partnerschaft;1;0;N
+K00166;Musterfrau 17;Sabine;Egon;18.07.1965;Paris;Lange Strasse;37;63504;Mittelstadt;06355/50489;;;06355/79967;Musterfrau17@dhbw.tst;Sabine@dhbw.vgl;O;ledig;0;0;N
+K00165;Mueller 17;Carsten;;08.07.1965;Hofgeismar;Kreuzweg;43;63503;Altstadt;06354/15783;06363/79379;;;Mueller17@dhbw.tst;Carsten@dhbw.vgl;N;verwitwet;0;0;N
+K00164;Meier 17;Ernst;;28.06.1965;Wolfsburg;Im Tal;51;63503;Altstadt;06354/48836;06363/27637;;;Meier17@dhbw.tst;Ernst@dhbw.vgl;M;geschieden;0;0;N
+K00163;Meyer 17;Markus;;18.06.1965;Köln;Auf der Höhe;4;63503;Altstadt;06354/70815;06363/22150;;;Meyer17@dhbw.tst;Markus@dhbw.vgl;L;eingetr. Partnerschaft;2;1;J
+K00162;Maier 17;Alfred;;08.06.1965;Frankfurt;Severinstr.;75;63502;Neustadt;06353/59114;06362/78129;;;Maier17@dhbw.tst;Alfred@dhbw.vgl;G;eingetr. Partnerschaft;0;0;N
+K00161;Müller 17;Sebastian;Maria;29.05.1965;Düsseldorf;Kanzlerweg;73;63502;Neustadt;06353/22562;06362/16123;;;Müller17@dhbw.tst;Sebastian@dhbw.vgl;P;ledig;0;0;N
+K00160;Dietrich 16;Christiane;;19.05.1965;Kiel;Kreuzberger Str.;3;63502;Neustadt;06353/70214;06362/63470;;;Dietrich16@dhbw.tst;Christiane@dhbw.vgl;O;geschieden;0;0;N
+K00159;Otto 16;Norbert;;09.05.1965;Erfurt;Im Gewann;76;63502;Neustadt;06353/76852;06362/96600;;;Otto16@dhbw.tst;Norbert@dhbw.vgl;N;verwitwet;0;0;N
+K00158;Zimmermann 16;Martina;;29.04.1965;Würzburg;Berliner Strasse;42;63502;Neustadt;06353/55985;06362/48772;;;Zimmermann16@dhbw.tst;Martina@dhbw.vgl;M;verwitwet;0;0;N
+K00157;Zöller 16;Karl-Heinz;;19.04.1965;Hannover;Musterstrasse;33;63501;Versicherungsstadt;06352/56952;06361/82706;;;Zöller16@dhbw.tst;Karl-Heinz@dhbw.vgl;L;verwitwet;2;1;N
+K00156;Musterfrau 16;Andreas;Putinowitsch;09.04.1965;Leipzig;Kurze Strasse;31;63501;Versicherungsstadt;06352/88375;06361/26464;;06352/77540;Musterfrau16@dhbw.tst;Andreas@dhbw.vgl;G;verwitwet;3;2;N
+K00155;Mueller 16;Toni;;30.03.1965;Fulda;Lange Strasse;17;63500;Musterdorff;06351/88092;06360/88532;;;Mueller16@dhbw.tst;Toni@dhbw.vgl;P;verheiratet;0;0;J
+K00154;Meier 16;Kristijan;;20.03.1965;Frankfurt (Oder);Kreuzweg;3;63500;Musterdorff;06351/81382;06360/65822;;;Meier16@dhbw.tst;Kristijan@dhbw.vgl;O;verheiratet;3;2;N
+K00153;Meyer 16;Karla;;10.03.1965;Kassel;Im Tal;68;63500;Musterdorff;06351/51569;06360/82897;;;Meyer16@dhbw.tst;Karla@dhbw.vgl;N;verwitwet;2;1;N
+K00152;Maier 16;Thomas;Paul;28.02.1965;Hanau;Auf der Höhe;42;63505;Mosbach;06356/53762;06365/67703;;;Maier16@dhbw.tst;Thomas@dhbw.vgl;M;ledig;0;0;N
+K00151;Müller 16;Jürgen;;18.02.1965;München;Severinstr.;48;63504;Mittelstadt;06355/37191;06364/70384;;;Müller16@dhbw.tst;Jürgen@dhbw.vgl;L;geschieden;1;0;N
+K00150;Dietrich 15;Christian;;08.02.1965;Basel;Kanzlerweg;52;63504;Mittelstadt;06355/92174;06364/49602;;06355/87995;Dietrich15@dhbw.tst;Christian@dhbw.vgl;G;geschieden;3;2;N
+K00149;Otto 15;Wolfgang;Clara;29.01.1965;Paris;Kreuzberger Str.;41;63504;Mittelstadt;06355/32211;06364/8124;;;Otto15@dhbw.tst;Wolfgang@dhbw.vgl;P;geschieden;3;2;N
+K00148;Zimmermann 15;Tina;Herrmann;19.01.1965;Sidney;Im Gewann;42;63504;Mittelstadt;06355/60057;06364/17927;;;Zimmermann15@dhbw.tst;Tina@dhbw.vgl;O;verwitwet;0;0;N
+K00147;Zöller 15;Marcus;;09.01.1965;Paris;Berliner Strasse;24;63504;Mittelstadt;06355/86379;06364/89038;0175/579147;;Zöller15@dhbw.tst;Marcus@dhbw.vgl;N;geschieden;0;0;N
+K00146;Musterfrau 15;Ansgar;;30.12.1964;Dortmund;Musterstrasse;76;63503;Altstadt;06354/25640;06363/93519;0175/579146;;Musterfrau15@dhbw.tst;Ansgar@dhbw.vgl;M;ledig;0;0;N
+K00145;Mueller 15;Walter;;20.12.1964;Stuttgart;Kurze Strasse;20;63503;Altstadt;06354/77199;06363/39389;0175/579145;;Mueller15@dhbw.tst;Walter@dhbw.vgl;L;verwitwet;2;1;N
+K00144;Meier 15;Christine;;10.12.1964;Wien;Lange Strasse;16;63503;Altstadt;06354/45868;06363/6501;0175/579144;06354/44781;Meier15@dhbw.tst;Christine@dhbw.vgl;G;ledig;0;0;N
+K00143;Meyer 15;Erika;Egon;30.11.1964;Kassel;Kreuzweg;39;63502;Neustadt;06353/84110;06362/93284;0175/579143;;Meyer15@dhbw.tst;Erika@dhbw.vgl;P;verheiratet;3;2;N
+K00142;Maier 15;Tom;;20.11.1964;Mainz;Im Tal;11;63502;Neustadt;06353/80549;06362/71651;0175/579142;;Maier15@dhbw.tst;Tom@dhbw.vgl;O;verwitwet;3;2;N
+K00141;Müller 15;Egon;;10.11.1964;München;Auf der Höhe;82;63502;Neustadt;06353/94099;06362/27995;0175/579141;;Müller15@dhbw.tst;Egon@dhbw.vgl;N;ledig;0;0;N
+K00140;Dietrich 14;Holger;;31.10.1964;Freiburg;Severinstr.;53;63502;Neustadt;06353/57942;06362/57731;0175/579140;;Dietrich14@dhbw.tst;Holger@dhbw.vgl;M;verwitwet;2;1;N
+K00139;Otto 14;Sebastian;;21.10.1964;Frankfurt;Kanzlerweg;59;63502;Neustadt;06353/74247;06362/66527;0175/579139;;Otto14@dhbw.tst;Sebastian@dhbw.vgl;L;eingetr. Partnerschaft;0;0;N
+K00138;Zimmermann 14;Sabine;Maria;11.10.1964;Moskau;Kreuzberger Str.;97;63501;Versicherungsstadt;06352/28161;;0175/579138;06352/77989;Zimmermann14@dhbw.tst;Sabine@dhbw.vgl;G;eingetr. Partnerschaft;2;1;J
+K00137;Zöller 14;Michael;;01.10.1964;Hannover;Im Gewann;22;63501;Versicherungsstadt;06352/28603;;0175/579137;;Zöller14@dhbw.tst;Michael@dhbw.vgl;P;verheiratet;3;2;N
+K00136;Musterfrau 14;Carsten;;21.09.1964;Flensburg;Berliner Strasse;76;63500;Musterdorff;06351/91356;;0175/579136;;Musterfrau14@dhbw.tst;Carsten@dhbw.vgl;O;geschieden;0;0;N
+K00135;Mueller 14;Ernst;;11.09.1964;Hannover;Musterstrasse;49;63500;Musterdorff;06351/19607;;0175/579135;;Mueller14@dhbw.tst;Ernst@dhbw.vgl;N;verheiratet;0;0;J
+K00134;Meier 14;Christiane;;01.09.1964;Frankfurt (Oder);Kurze Strasse;42;63500;Musterdorff;06351/49720;;0175/579134;;Meier14@dhbw.tst;Christiane@dhbw.vgl;M;verheiratet;0;0;J
+K00133;Meyer 14;Alfred;Putinowitsch;22.08.1964;München;Lange Strasse;87;63505;Mosbach;06356/26415;;0175/579133;;Meyer14@dhbw.tst;Alfred@dhbw.vgl;L;verwitwet;0;0;N
+K00132;Maier 14;Johann;;12.08.1964;Wien;Kreuzweg;40;63504;Mittelstadt;06355/12410;06364/98398;0175/579132;06355/4614;Maier14@dhbw.tst;Johann@dhbw.vgl;G;geschieden;2;1;N
+K00131;Müller 14;Markus;;02.08.1964;Dortmund;Im Tal;70;63504;Mittelstadt;06355/19483;06364/50290;0175/579131;;Müller14@dhbw.tst;Markus@dhbw.vgl;P;verwitwet;3;2;N
+K00130;Dietrich 13;Torsten;;23.07.1964;Hannover;Auf der Höhe;80;63504;Mittelstadt;06355/68530;06364/90089;0175/579130;;Dietrich13@dhbw.tst;Torsten@dhbw.vgl;O;verwitwet;2;1;N
+K00129;Otto 13;Jürgen;Paul;13.07.1964;Berlin;Severinstr.;40;63504;Mittelstadt;06355/40829;06364/19638;0175/579129;;Otto13@dhbw.tst;Jürgen@dhbw.vgl;N;verheiratet;5;4;N
+K00128;Zimmermann 13;Andreas;;03.07.1964;Magdeburg;Kanzlerweg;34;63504;Mittelstadt;06355/2832;06364/67657;0175/579128;;Zimmermann13@dhbw.tst;Andreas@dhbw.vgl;M;geschieden;3;2;N
+K00127;Zöller 13;Norbert;;23.06.1964;Duisburg;Kreuzberger Str.;89;63503;Altstadt;06354/88236;06363/33427;0175/579127;;Zöller13@dhbw.tst;Norbert@dhbw.vgl;L;geschieden;0;0;N
+K00126;Musterfrau 13;Toni;Clara;13.06.1964;Würzburg;Im Gewann;24;63503;Altstadt;06354/29323;06363/46459;0175/579126;06354/75601;Musterfrau13@dhbw.tst;Toni@dhbw.vgl;G;ledig;0;0;N
+K00125;Mueller 13;Kristijan;Herrmann;03.06.1964;Erfurt;Berliner Strasse;85;63503;Altstadt;06354/54353;06363/6023;0175/579125;;Mueller13@dhbw.tst;Kristijan@dhbw.vgl;P;ledig;0;0;N
+K00124;Meier 13;Christian;;24.05.1964;Freiburg;Musterstrasse;55;63502;Neustadt;06353/15115;06362/92202;0175/579124;;Meier13@dhbw.tst;Christian@dhbw.vgl;O;verheiratet;3;2;N
+K00123;Meyer 13;Thomas;;14.05.1964;Kassel;Kurze Strasse;59;63502;Neustadt;06353/10649;06362/52843;0175/579123;;Meyer13@dhbw.tst;Thomas@dhbw.vgl;N;eingetr. Partnerschaft;2;1;J
+K00122;Maier 13;Hugo;;04.05.1964;Frankfurt (Oder);Lange Strasse;85;63502;Neustadt;06353/54190;06362/98105;0175/579122;;Maier13@dhbw.tst;Hugo@dhbw.vgl;M;verwitwet;2;1;N
+K00121;Müller 13;Karla;;24.04.1964;Leipzig;Kreuzweg;33;63502;Neustadt;06353/95413;06362/46369;0175/579121;;Müller13@dhbw.tst;Karla@dhbw.vgl;L;geschieden;2;1;N
+K00120;Dietrich 12;Karl-Heinz;Egon;14.04.1964;Sidney;Im Tal;44;63502;Neustadt;06353/65141;06362/59574;0175/579120;;Dietrich12@dhbw.tst;Karl-Heinz@dhbw.vgl;G;geschieden;1;0;N
+K00119;Otto 12;Egon;;04.04.1964;Berlin;Auf der Höhe;14;63501;Versicherungsstadt;06352/67157;06361/41418;0175/579119;;Otto12@dhbw.tst;Egon@dhbw.vgl;P;eingetr. Partnerschaft;0;0;J
+K00118;Zimmermann 12;Ansgar;;25.03.1964;Düsseldorf;Severinstr.;45;63501;Versicherungsstadt;06352/64010;06361/61964;0175/579118;;Zimmermann12@dhbw.tst;Ansgar@dhbw.vgl;O;eingetr. Partnerschaft;1;0;N
+K00117;Zöller 12;Wolfgang;;15.03.1964;Moskau;Kanzlerweg;40;63500;Musterdorff;06351/89105;06360/21876;0175/579117;;Zöller12@dhbw.tst;Wolfgang@dhbw.vgl;N;verheiratet;3;2;N
+K00116;Musterfrau 12;Walter;;05.03.1964;Mainz;Kreuzberger Str.;62;63500;Musterdorff;06351/3449;06360/64160;0175/579116;06351/6208;Musterfrau12@dhbw.tst;Walter@dhbw.vgl;M;geschieden;1;0;N
+K00115;Mueller 12;Christine;Maria;24.02.1964;Obersdorf;Im Gewann;78;63500;Musterdorff;06351/61229;06360/21935;0175/579115;;Mueller12@dhbw.tst;Christine@dhbw.vgl;L;eingetr. Partnerschaft;1;0;N
+K00114;Meier 12;Holger;;14.02.1964;Zuffenhausen;Berliner Strasse;27;63505;Mosbach;06356/39759;06365/50875;0175/579114;;Meier12@dhbw.tst;Holger@dhbw.vgl;G;geschieden;2;1;N
+K00113;Meyer 12;Tom;;04.02.1964;Wiesbaden;Musterstrasse;41;63504;Mittelstadt;06355/85215;06364/99575;0175/579113;;Meyer12@dhbw.tst;Tom@dhbw.vgl;P;geschieden;3;2;N
+K00112;Maier 12;Hartwigk;;25.01.1964;Leipzig;Kurze Strasse;81;63504;Mittelstadt;06355/29376;06364/37274;0175/579112;;Maier12@dhbw.tst;Hartwigk@dhbw.vgl;O;eingetr. Partnerschaft;1;0;N
+K00111;Müller 12;Erika;;15.01.1964;Leipzig;Lange Strasse;9;63504;Mittelstadt;06355/82847;06364/49791;0175/579111;;Müller12@dhbw.tst;Erika@dhbw.vgl;N;ledig;0;0;N
+K00110;Dietrich 11;Marcus;Putinowitsch;05.01.1964;Moskau;Kreuzweg;5;63504;Mittelstadt;06355/65596;06364/62378;;06355/73716;Dietrich11@dhbw.tst;Marcus@dhbw.vgl;M;verheiratet;0;0;J
+K00109;Otto 11;Markus;;26.12.1963;Düsseldorf;Im Tal;43;63504;Mittelstadt;06355/927;06364/46365;;;Otto11@dhbw.tst;Markus@dhbw.vgl;L;geschieden;3;2;N
+K00108;Zimmermann 11;Carsten;;16.12.1963;Fulda;Auf der Höhe;13;63503;Altstadt;06354/22597;06363/6859;;;Zimmermann11@dhbw.tst;Carsten@dhbw.vgl;G;verheiratet;0;0;J
+K00107;Zöller 11;Sebastian;;06.12.1963;München;Severinstr.;73;63503;Altstadt;06354/68384;06363/7022;;;Zöller11@dhbw.tst;Sebastian@dhbw.vgl;P;verwitwet;0;0;N
+K00106;Musterfrau 11;Ernst;Paul;26.11.1963;Sidney;Kanzlerweg;74;63503;Altstadt;06354/57287;06363/21538;;;Musterfrau11@dhbw.tst;Ernst@dhbw.vgl;O;ledig;0;0;N
+K00105;Mueller 11;Christiane;;16.11.1963;Erfurt;Kreuzberger Str.;94;63502;Neustadt;06353/15511;06362/33211;;;Mueller11@dhbw.tst;Christiane@dhbw.vgl;N;ledig;0;0;N
+K00104;Brandt;Willy;;06.11.1963;Fulda;Im Gewann;21;63502;Neustadt;06353/30085;;;06353/38071;Brandt@dhbw.tst;Willy@dhbw.vgl;M;ledig;1;0;N
+K00103;Meyer 11;Johann;Clara;27.10.1963;Obersdorf;Berliner Strasse;43;63502;Neustadt;06353/77353;;0175/579103;;Meyer11@dhbw.tst;Johann@dhbw.vgl;L;verheiratet;2;1;J
+K00102;Maier 11;Anne;Herrmann;17.10.1963;Peking;Musterstrasse;81;63502;Neustadt;06353/27276;;0175/579102;;Maier11@dhbw.tst;Anne@dhbw.vgl;G;geschieden;0;0;N
+K00101;Schmidt;Helmut;;07.10.1963;Peking;Kurze Strasse;1;63502;Neustadt;06353/60817;;0175/579101;;Schmidt@dhbw.tst;Helmut@dhbw.vgl;P;verwitwet;1;0;N
+K00100;Müntefering;Franz;;27.09.1963;Wiesbaden;Lange Strasse;16;63501;Versicherungsstadt;06352/36920;;0175/579100;;Müntefering@dhbw.tst;Franz@dhbw.vgl;O;eingetr. Partnerschaft;1;0;N
+K00099;Otto 10;Karla;;17.09.1963;Magdeburg;Kreuzweg;15;63501;Versicherungsstadt;06352/75411;06361/28783;0175/579099;;Otto10@dhbw.tst;Karla@dhbw.vgl;N;verheiratet;2;1;J
+K00098;von der Leyen;Ursula;;07.09.1963;Köln;Im Tal;18;63500;Musterdorff;06351/76127;06360/91560;0175/579098;06351/91279;vonderLeyen@dhbw.tst;Ursula@dhbw.vgl;M;ledig;2;1;N
+K00097;Zöller 10;Jürgen;Egon;28.08.1963;Bremen;Auf der Höhe;21;63500;Musterdorff;06351/35642;06360/91880;0175/579097;;Zöller10@dhbw.tst;Jürgen@dhbw.vgl;L;ledig;2;1;N
+K00096;Musterfrau 10;Kristijan;;18.08.1963;Duisburg;Severinstr.;1;63500;Musterdorff;06351/65227;06360/75897;0175/579096;;Musterfrau10@dhbw.tst;Kristijan@dhbw.vgl;G;eingetr. Partnerschaft;1;0;N
+K00095;Graf Lambsdorf;Otto;;08.08.1963;Fulda;Kanzlerweg;82;63505;Mosbach;06356/62061;06365/77127;0175/579095;;GrafLambsdorf@dhbw.tst;Otto@dhbw.vgl;P;verwitwet;2;1;N
+K00094;Meier 10;Karl-Heinz;;29.07.1963;Peking;Kreuzberger Str.;68;63504;Mittelstadt;06355/73535;06364/75309;0175/579094;;Meier10@dhbw.tst;Karl-Heinz@dhbw.vgl;O;verheiratet;5;4;N
+K00093;Kohl;Helmut;;19.07.1963;New York;Im Gewann;5;63504;Mittelstadt;06355/9825;06364/19654;;;Kohl@dhbw.tst;Helmut@dhbw.vgl;N;geschieden;1;0;N
+K00092;Maier 10;Martina;Maria;09.07.1963;Hanau;Berliner Strasse;99;63504;Mittelstadt;06355/55047;06364/10535;;06355/24434;Maier10@dhbw.tst;Martina@dhbw.vgl;M;geschieden;0;0;N
+K00091;Müller 10;Thomas;;29.06.1963;Leipzig;Musterstrasse;24;63504;Mittelstadt;06355/32679;06364/5785;;;Müller10@dhbw.tst;Thomas@dhbw.vgl;L;verwitwet;3;2;N
+K00090;Dietrich 09;Norbert;;19.06.1963;Stuttgart;Kurze Strasse;52;63504;Mittelstadt;06355/70001;06364/97801;;;Dietrich09@dhbw.tst;Norbert@dhbw.vgl;G;verheiratet;0;0;J
+K00089;Otto 09;Erika;;09.06.1963;Magdeburg;Lange Strasse;35;63503;Altstadt;06354/78127;06363/80179;;;Otto09@dhbw.tst;Erika@dhbw.vgl;P;eingetr. Partnerschaft;1;0;N
+K00088;Zimmermann 09;Walter;;30.05.1963;Wiesbaden;Kreuzweg;5;63503;Altstadt;06354/9890;06363/92020;;;Zimmermann09@dhbw.tst;Walter@dhbw.vgl;O;verheiratet;5;4;N
+K00087;Zöller 09;Egon;Putinowitsch;20.05.1963;Bremen;Im Tal;93;63503;Altstadt;06354/79268;06363/64096;;;Zöller09@dhbw.tst;Egon@dhbw.vgl;N;verwitwet;2;1;N
+K00086;Musterfrau 09;Christine;;10.05.1963;Marburg;Auf der Höhe;71;63502;Neustadt;06353/31378;06362/63412;;06353/32757;Musterfrau09@dhbw.tst;Christine@dhbw.vgl;M;verwitwet;2;1;N
+K00085;Mueller 09;Holger;;30.04.1963;Wolfsburg;Severinstr.;98;63502;Neustadt;06353/62723;06362/17068;;;Mueller09@dhbw.tst;Holger@dhbw.vgl;L;verheiratet;2;1;J
+K00084;Meier 09;Marcus;;20.04.1963;Wien;Kanzlerweg;39;63502;Neustadt;06353/91992;06362/55170;;;Meier09@dhbw.tst;Marcus@dhbw.vgl;G;ledig;0;0;N
+K00083;Meyer 09;Hartwigk;Paul;10.04.1963;Magdeburg;Kreuzberger Str.;53;63502;Neustadt;06353/45470;06362/19304;;;Meyer09@dhbw.tst;Hartwigk@dhbw.vgl;P;verwitwet;2;1;N
+K00082;Maier 09;Tina;;31.03.1963;Peking;Im Gewann;51;63502;Neustadt;06353/48585;06362/14873;;;Maier09@dhbw.tst;Tina@dhbw.vgl;O;geschieden;0;0;N
+K00081;Müller 09;Tom;;21.03.1963;Köln;Berliner Strasse;12;63501;Versicherungsstadt;06352/20466;06361/79605;;;Müller09@dhbw.tst;Tom@dhbw.vgl;N;verheiratet;3;2;N
+K00080;Dietrich 08;Wolfgang;Clara;11.03.1963;Wien;Musterstrasse;17;63501;Versicherungsstadt;06352/15980;06361/16273;;;Dietrich08@dhbw.tst;Wolfgang@dhbw.vgl;M;ledig;0;0;N
+K00079;Otto 08;Alfred;Herrmann;01.03.1963;Berlin;Kurze Strasse;22;63500;Musterdorff;06351/31984;06360/46350;;;Otto08@dhbw.tst;Alfred@dhbw.vgl;L;geschieden;0;0;N
+K00078;Zimmermann 08;Ernst;;19.02.1963;Peking;Lange Strasse;9;63500;Musterdorff;06351/42663;06360/18477;;;Zimmermann08@dhbw.tst;Ernst@dhbw.vgl;G;eingetr. Partnerschaft;0;0;J
+K00077;Zöller 08;Markus;;09.02.1963;Frankfurt;Kreuzweg;30;63500;Musterdorff;06351/14453;06360/29117;;;Zöller08@dhbw.tst;Markus@dhbw.vgl;P;verheiratet;3;2;N
+K00076;Musterfrau 08;Christiane;;30.01.1963;Duisburg;Im Tal;83;63505;Mosbach;06356/59284;06365/37768;;06356/83145;Musterfrau08@dhbw.tst;Christiane@dhbw.vgl;O;eingetr. Partnerschaft;0;0;J
+K00075;Kiesinger;Kurt;Georg;20.01.1963;Hofgeismar;Auf der Höhe;45;63504;Mittelstadt;06355/53867;06364/82147;0175/579075;;Kiesinger@dhbw.tst;Kurt@dhbw.vgl;N;geschieden;1;0;N
+K00074;Meier 08;Michael;Egon;10.01.1963;Sidney;Severinstr.;55;63504;Mittelstadt;06355/43144;06364/73556;0175/579074;;Meier08@dhbw.tst;Michael@dhbw.vgl;M;ledig;0;0;N
+K00073;Meyer 08;Anne;;31.12.1962;New York;Kanzlerweg;0;63504;Mittelstadt;06355/52977;06364/80102;0175/579073;;Meyer08@dhbw.tst;Anne@dhbw.vgl;L;verheiratet;0;0;J
+K00072;Maier 08;Sabine;;21.12.1962;Wien;Kreuzberger Str.;9;63504;Mittelstadt;06355/71956;;0175/579072;;Maier08@dhbw.tst;Sabine@dhbw.vgl;G;verwitwet;3;2;N
+K00071;Müller 08;Johann;;11.12.1962;Marburg;Im Gewann;79;63504;Mittelstadt;06355/32955;;0175/579071;;Müller08@dhbw.tst;Johann@dhbw.vgl;P;ledig;1;0;N
+K00070;Dietrich 07;Sebastian;;01.12.1962;Berlin;Berliner Strasse;39;63503;Altstadt;06354/94917;;0175/579070;06354/10787;Dietrich07@dhbw.tst;Sebastian@dhbw.vgl;O;geschieden;0;0;N
+K00069;Otto 07;Thomas;Maria;21.11.1962;Magdeburg;Musterstrasse;65;63503;Altstadt;06354/86929;;0175/579069;;Otto07@dhbw.tst;Thomas@dhbw.vgl;N;geschieden;3;2;N
+K00068;Zimmermann 07;Kristijan;;11.11.1962;Stuttgart;Kurze Strasse;64;63503;Altstadt;06354/10181;;0175/579068;;Zimmermann07@dhbw.tst;Kristijan@dhbw.vgl;M;verwitwet;2;1;N
+K00067;Heinemann;Gustav;;01.11.1962;Erfurt;Lange Strasse;34;63502;Neustadt;06353/27544;06362/27314;0175/579067;;Heinemann@dhbw.tst;Gustav@dhbw.vgl;L;verwitwet;3;2;N
+K00066;von und zu Gutenberg;Karl;Theodor;22.10.1962;Stralsund;Kreuzweg;15;63502;Neustadt;06353/69356;06362/22070;0175/579066;;vonundzuGutenberg@dhbw.tst;Karl@dhbw.vgl;G;eingetr. Partnerschaft;0;0;J
+K00065;Engholm;Björn;;12.10.1962;Kassel;Im Tal;83;63502;Neustadt;06353/66053;06362/58272;0175/579065;;Engholm@dhbw.tst;Björn@dhbw.vgl;P;verwitwet;2;1;N
+K00064;Meier 07;Norbert;Putinowitsch;02.10.1962;Mainz;Auf der Höhe;12;63502;Neustadt;06353/5030;06362/63168;0175/579064;06353/18812;Meier07@dhbw.tst;Norbert@dhbw.vgl;O;ledig;0;0;N
+K00063;Meyer 07;Martina;;22.09.1962;Kassel;Severinstr.;53;63502;Neustadt;06353/71254;06362/36089;0175/579063;;Meyer07@dhbw.tst;Martina@dhbw.vgl;N;verheiratet;0;0;J
+K00062;Maier 07;Andreas;;12.09.1962;Rostock;Kanzlerweg;2;63501;Versicherungsstadt;06352/71203;06361/5928;0175/579062;;Maier07@dhbw.tst;Andreas@dhbw.vgl;M;verheiratet;3;2;N
+K00061;Müller 07;Hugo;;02.09.1962;Erfurt;Kreuzberger Str.;14;63501;Versicherungsstadt;06352/91917;06361/7364;0175/579061;;Müller07@dhbw.tst;Hugo@dhbw.vgl;L;geschieden;1;0;N
+K00060;Friedrich;Hans-Peter;Paul;23.08.1962;Kiel;Im Gewann;37;63500;Musterdorff;06351/27151;06360/55539;0175/579060;;Friedrich@dhbw.tst;Hans-Peter@dhbw.vgl;G;ledig;0;0;N
+K00059;von Dohnany;Klaus;;13.08.1962;Köln;Berliner Strasse;60;63500;Musterdorff;06351/75163;06360/43101;0175/579059;;vonDohnany@dhbw.tst;Klaus@dhbw.vgl;P;ledig;1;0;N
+K00058;Brüderle;Rainer;;03.08.1962;Flensburg;Musterstrasse;44;63500;Musterdorff;06351/57826;06360/77164;0175/579058;06351/65238;Brüderle@dhbw.tst;Rainer@dhbw.vgl;O;eingetr. Partnerschaft;1;0;N
+K00057;Zöller 06;Erika;Clara;24.07.1962;Rostock;Kurze Strasse;35;63505;Mosbach;06356/70325;06365/15957;0175/579057;;Zöller06@dhbw.tst;Erika@dhbw.vgl;N;verwitwet;2;1;N
+K00056;Musterfrau 06;Holger;Herrmann;14.07.1962;Hannover;Lange Strasse;1;63504;Mittelstadt;06355/78345;06364/79201;;;Musterfrau06@dhbw.tst;Holger@dhbw.vgl;M;ledig;1;0;N
+K00055;Mueller 06;Marcus;;04.07.1962;Obersdorf;Kreuzweg;32;63504;Mittelstadt;06355/92539;06364/1504;;;Mueller06@dhbw.tst;Marcus@dhbw.vgl;L;eingetr. Partnerschaft;0;0;J
+K00054;Wulff;Christian;;24.06.1962;Zuffenhausen;Im Tal;99;63504;Mittelstadt;06355/50849;06364/32425;;;Wulff@dhbw.tst;Christian@dhbw.vgl;G;ledig;0;0;N
+K00053;Meyer 06;Tina;;14.06.1962;New York;Auf der Höhe;8;63504;Mittelstadt;06355/96685;06364/86961;;;Meyer06@dhbw.tst;Tina@dhbw.vgl;P;verheiratet;0;0;J
+K00052;Adenauer;Konrad;;04.06.1962;Wiesbaden;Severinstr.;31;63504;Mittelstadt;06355/5783;06364/64508;;06355/11506;Adenauer@dhbw.tst;Konrad@dhbw.vgl;O;verheiratet;2;1;J
+K00051;Müller 06;Hartwigk;Egon;25.05.1962;Rostock;Kanzlerweg;19;63503;Altstadt;06354/54097;06363/34317;;;Müller06@dhbw.tst;Hartwigk@dhbw.vgl;N;geschieden;2;1;N
+K00050;Dietrich 05;Egon;;15.05.1962;Hamburg;Kreuzberger Str.;41;63503;Altstadt;06354/65936;06363/68641;;;Dietrich05@dhbw.tst;Egon@dhbw.vgl;M;geschieden;1;0;N
+K00049;Otto 05;Johann;;05.05.1962;Hofgeismar;Im Gewann;51;63503;Altstadt;06354/69180;06363/23062;;;Otto05@dhbw.tst;Johann@dhbw.vgl;L;eingetr. Partnerschaft;0;0;J
+K00048;Zimmermann 05;Christiane;;25.04.1962;Stuttgart;Berliner Strasse;65;63502;Neustadt;06353/88569;06362/50456;;;Zimmermann05@dhbw.tst;Christiane@dhbw.vgl;G;verwitwet;2;1;N
+K00047;Zöller 05;Alfred;;15.04.1962;Bremen;Musterstrasse;2;63502;Neustadt;06353/87653;06362/46901;;;Zöller05@dhbw.tst;Alfred@dhbw.vgl;P;verheiratet;0;0;J
+K00046;Musterfrau 05;Torsten;Maria;05.04.1962;Sidney;Kurze Strasse;96;63502;Neustadt;06353/9462;06362/61088;;06353/27660;Musterfrau05@dhbw.tst;Torsten@dhbw.vgl;O;geschieden;2;1;N
+K00045;Mueller 05;Michael;;26.03.1962;Peking;Lange Strasse;28;63502;Neustadt;06353/24713;06362/23790;0175/579045;;Mueller05@dhbw.tst;Michael@dhbw.vgl;N;eingetr. Partnerschaft;1;0;N
+K00044;Meier 05;Sebastian;;16.03.1962;Bremen;Kreuzweg;67;63502;Neustadt;06353/40548;06362/78718;0175/579044;;Meier05@dhbw.tst;Sebastian@dhbw.vgl;M;verheiratet;0;0;J
+K00043;Backus;Gus;;06.03.1962;Duisburg;Im Tal;92;63501;Versicherungsstadt;06352/90466;06361/66022;0175/579043;;Backus@dhbw.tst;Gus@dhbw.vgl;L;geschieden;3;2;N
+K00042;Van Zant;Gus;;24.02.1962;Stuttgart;Auf der Höhe;20;63501;Versicherungsstadt;06352/98492;06361/60026;0175/579042;;VanZant@dhbw.tst;Gus@dhbw.vgl;G;verheiratet;3;2;N
+K00041;Müller 05;Anne;Putinowitsch;14.02.1962;London;Severinstr.;62;63500;Musterdorff;06351/41968;06360/83020;0175/579041;;Müller05@dhbw.tst;Anne@dhbw.vgl;P;ledig;0;0;N
+K00040;Blackmore;Ritchie;;04.02.1962;Hofgeismar;Kanzlerweg;16;63500;Musterdorff;06351/47140;06360/20588;0175/579040;;Blackmore@dhbw.tst;Ritchie@dhbw.vgl;O;ledig;0;0;N
+K00039;Otto 04;Hugo;;25.01.1962;Duisburg;Kreuzberger Str.;62;63500;Musterdorff;06351/38632;06360/46948;0175/579039;;Otto04@dhbw.tst;Hugo@dhbw.vgl;N;verheiratet;5;4;N
+K00038;Zimmermann 04;Christian;Herrmann;15.01.1962;Wolfsburg;Im Gewann;87;63505;Mosbach;06356/46124;06365/30960;0175/579038;;Zimmermann04@dhbw.tst;Christian@dhbw.vgl;M;eingetr. Partnerschaft;1;0;N
+K00037;Zöller 04;Thomas;Paul;05.01.1962;Rostock;Berliner Strasse;10;63504;Mittelstadt;06355/83118;06364/63637;0175/579037;;Zöller04@dhbw.tst;Thomas@dhbw.vgl;L;verheiratet;3;2;N
+K00036;Musterfrau 04;Karl-Heinz;;26.12.1961;New York;Musterstrasse;25;63504;Mittelstadt;06355/10736;06364/75621;0175/579036;06355/93985;Musterfrau04@dhbw.tst;Karl-Heinz@dhbw.vgl;G;ledig;2;1;N
+K00035;Mueller 04;Norbert;;16.12.1961;Wiesbaden;Kurze Strasse;55;63504;Mittelstadt;06355/89183;06364/27618;0175/579035;;Mueller04@dhbw.tst;Norbert@dhbw.vgl;P;eingetr. Partnerschaft;0;0;J
+K00034;Meier 04;Jürgen;Clara;06.12.1961;Hamburg;Lange Strasse;33;63504;Mittelstadt;06355/15541;06364/52054;0175/579034;;Meier04@dhbw.tst;Jürgen@dhbw.vgl;O;eingetr. Partnerschaft;1;0;N
+K00033;Jovi;Bon Jon;;26.11.1961;Hanau;Kreuzweg;98;63504;Mittelstadt;06355/8460;06364/98140;0175/579033;;Jovi@dhbw.tst;BonJon@dhbw.vgl;N;eingetr. Partnerschaft;0;0;J
+K00032;Gott;Karel;;16.11.1961;Kiel;Im Tal;94;63503;Altstadt;06354/83146;06363/95440;0175/579032;;Gott@dhbw.tst;Karel@dhbw.vgl;M;verwitwet;1;0;N
+K00031;Leber;Georg;;06.11.1961;Mainz;Auf der Höhe;75;63503;Altstadt;06354/98294;;0175/579031;;Leber@dhbw.tst;Georg@dhbw.vgl;L;ledig;0;0;N
+K00030;Schwarzhaupt;Elisabeth;;27.10.1961;Stralsund;Severinstr.;13;63503;Altstadt;06354/77747;;0175/579030;06354/21504;Schwarzhaupt@dhbw.tst;Elisabeth@dhbw.vgl;G;geschieden;2;1;N
+K00029;Otto 03;Hartwigk;;17.10.1961;Stralsund;Kanzlerweg;11;63502;Neustadt;06353/99362;;0175/579029;;Otto03@dhbw.tst;Hartwigk@dhbw.vgl;P;verheiratet;4;3;J
+K00028;Zimmermann 03;Holger;Egon;07.10.1961;Sidney;Kreuzberger Str.;89;63502;Neustadt;06353/94058;;0175/579028;;Zimmermann03@dhbw.tst;Holger@dhbw.vgl;O;eingetr. Partnerschaft;0;0;J
+K00027;Zöller 03;Tom;;27.09.1961;Dortmund;Im Gewann;38;63502;Neustadt;06353/20009;;0175/579027;;Zöller03@dhbw.tst;Tom@dhbw.vgl;N;ledig;0;0;N
+K00026;Musterfrau 03;Marcus;;17.09.1961;Marburg;Berliner Strasse;78;63502;Neustadt;06353/51453;;0175/579026;;Musterfrau03@dhbw.tst;Marcus@dhbw.vgl;M;verwitwet;2;1;N
+K00025;Mueller 03;Wolfgang;;07.09.1961;Obersdorf;Musterstrasse;80;63502;Neustadt;06353/34977;06362/33206;0175/579025;;Mueller03@dhbw.tst;Wolfgang@dhbw.vgl;L;eingetr. Partnerschaft;1;0;N
+K00024;Meier 03;Egon;;28.08.1961;Basel;Kurze Strasse;95;63501;Versicherungsstadt;06352/20238;06361/18741;0175/579024;06352/33960;Meier03@dhbw.tst;Egon@dhbw.vgl;G;verheiratet;5;4;N
+K00023;Leuthäuser-Schnarrenberger;Katharina;Maria;18.08.1961;Dortmund;Lange Strasse;53;63501;Versicherungsstadt;06352/58315;06361/29943;0175/579023;;Leuthäuser-Schnarrenberger@dhbw.tst;Katharina@dhbw.vgl;P;eingetr. Partnerschaft;0;0;J
+K00022;Scheich-Weich;Sabine;;08.08.1961;Obersdorf;Kreuzweg;74;63500;Musterdorff;06351/66706;06360/69956;0175/579022;;Scheich-Weich@dhbw.tst;Sabine@dhbw.vgl;O;geschieden;3;2;N
+K00021;Funk;Wolfgang;;29.07.1961;Marburg;Im Tal;7;63500;Musterdorff;06351/78642;06360/53664;0175/579021;;Funk@dhbw.tst;Wolfgang@dhbw.vgl;N;verwitwet;2;1;N
+K00020;Kollas;Markus;;19.07.1961;München;Auf der Höhe;82;63500;Musterdorff;06351/30176;06360/79115;0175/579020;;Kollas@dhbw.tst;Markus@dhbw.vgl;M;ledig;0;0;N
+K00019;Obama;Barack;;09.07.1961;Leipzig;Severinstr.;0;63505;Mosbach;06356/69519;06365/54525;0175/579019;;Obama@dhbw.tst;Barack@dhbw.vgl;L;geschieden;1;0;N
+K00018;Putin;Wladimir;Putinowitsch;29.06.1961;Flensburg;Kanzlerweg;11;63504;Mittelstadt;06355/80876;06364/34478;0175/579018;06355/96326;Putin@dhbw.tst;Wladimir@dhbw.vgl;G;verheiratet;2;1;J
+K00017;Schäuble;Wolfgang;;19.06.1961;Hofgeismar;Kreuzberger Str.;3;63504;Mittelstadt;06355/88703;06364/10683;0175/579017;;Schäuble@dhbw.tst;Wolfgang@dhbw.vgl;P;geschieden;2;1;N
+K00016;Steinmeier;Frank-Walter;;09.06.1961;Köln;Im Gewann;2;63504;Mittelstadt;06355/28964;06364/53343;;;Steinmeier@dhbw.tst;Frank-Walter@dhbw.vgl;O;verwitwet;2;1;N
+K00015;Merkel;Angela;;30.05.1961;Paris;Berliner Strasse;1;63504;Mittelstadt;06355/96974;06364/79231;;;Merkel@dhbw.tst;Angela@dhbw.vgl;N;eingetr. Partnerschaft;0;0;J
+K00014;Meier 02;Markus;Paul;20.05.1961;Berlin;Musterstrasse;19;63504;Mittelstadt;06355/22243;06364/81835;;;Meier02@dhbw.tst;Markus@dhbw.vgl;M;eingetr. Partnerschaft;1;0;N
+K00013;Meyer 02;Carsten;;10.05.1961;Würzburg;Kurze Strasse;83;63503;Altstadt;06354/84640;06363/32157;;;Meyer02@dhbw.tst;Carsten@dhbw.vgl;L;ledig;0;0;N
+K00012;Maier 02;Ernst;;30.04.1961;New York;Lange Strasse;91;63503;Altstadt;06354/13121;06363/51557;;06354/20733;Maier02@dhbw.tst;Ernst@dhbw.vgl;G;verwitwet;2;1;N
+K00011;Müller 02;Sabine;Clara;20.04.1961;Marburg;Kreuzweg;80;63503;Altstadt;06354/28501;06363/46360;;;Müller02@dhbw.tst;Sabine@dhbw.vgl;P;verheiratet;3;2;N
+K00010;Dietrich 01;Alfred;Herrmann;10.04.1961;Hamburg;Im Tal;14;63502;Neustadt;06353/74250;06362/78683;;;Dietrich01@dhbw.tst;Alfred@dhbw.vgl;O;ledig;0;0;N
+K00009;Otto 01;Martina;;31.03.1961;Leipzig;Auf der Höhe;84;63502;Neustadt;06353/86811;06362/44816;;;Otto01@dhbw.tst;Martina@dhbw.vgl;N;ledig;0;0;N
+K00008;Zimmermann 01;Karl-Heinz;;21.03.1961;London;Severinstr.;50;63502;Neustadt;06353/35028;06362/75177;;;Zimmermann01@dhbw.tst;Karl-Heinz@dhbw.vgl;M;eingetr. Partnerschaft;1;0;N
+K00007;Zöller 01;Hugo;;11.03.1961;Stuttgart;Kanzlerweg;59;63502;Neustadt;06353/35770;06362/75307;;;Zöller01@dhbw.tst;Hugo@dhbw.vgl;L;ledig;2;1;N
+K00006;Musterfrau 01;Norbert;;01.03.1961;Köln;Kreuzberger Str.;36;63502;Neustadt;06353/23665;06362/39573;0175/579006;06353/70631;Musterfrau01@dhbw.tst;Norbert@dhbw.vgl;G;verwitwet;2;1;N
+K00005;Mueller 01;Jürgen;Egon;19.02.1961;Basel;Im Gewann;70;63501;Versicherungsstadt;06352/26989;06361/31949;0175/579005;;Mueller01@dhbw.tst;Jürgen@dhbw.vgl;P;verwitwet;2;1;N
+K00004;Meier 01;Karla;;09.02.1961;Rostock;Berliner Strasse;67;63501;Versicherungsstadt;06352/82144;06361/34227;0175/579004;;Meier01@dhbw.tst;Karla@dhbw.vgl;O;ledig;1;0;N
+K00003;Meyer 01;Toni;;30.01.1961;Hanau;Musterstrasse;0;63500;Musterdorff;06351/6062;06360/72884;0175/579003;;Meyer01@dhbw.tst;Toni@dhbw.vgl;N;eingetr. Partnerschaft;0;0;J
+K00002;Maier 01;Kristijan;;20.01.1961;Mainz;Kurze Strasse;70;63500;Musterdorff;06351/98548;06360/8832;0175/579002;;Maier01@dhbw.tst;Kristijan@dhbw.vgl;M;geschieden;2;1;N
+K00001;Müller 01;Andreas;;10.01.1961;Stralsund;Lange Strasse;75;63500;Musterdorff;06351/11217;06360/613;0175/579001;;Müller01@dhbw.tst;Andreas@dhbw.vgl;L;ledig;0;0;N
