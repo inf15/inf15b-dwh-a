@@ -10,9 +10,9 @@ Das Tool kann [hier](https://sourceforge.net/projects/pentaho/files/latest/downl
 
 Die Dokumentation dazu findet sich [hier](https://help.pentaho.com/Documentation/8.0/Products/Data_Integration).
 
-Ein Tutorial zur Verwendung des Tools findet sich [hier](https://www.acando.de/fileadmin/redaktion/was-wir-tun/digital-strategy-and-transformation/pentaho/pentaho-anleitung.pdf)
+Ein Tutorial zur Verwendung des Tools findet sich [hier](https://www.acando.de/fileadmin/redaktion/was-wir-tun/digital-strategy-and-transformation/pentaho/pentaho-anleitung.pdf).
 
 **Wichtig:** Zur Anbindung von Datenbanken müssen manuell _.jar_'s hinzugefügt werden. 
-* Im Falle der MariaDb kann die Datei [hier](https://downloads.mariadb.org/connector-java/) heruntergeladen werden.
+* Im Falle der MariaDb kann die _.jar_-Datei [hier](https://downloads.mariadb.org/connector-java/) heruntergeladen werden.
 * Nach dem herunterladen muss die _.jar_ entpackt und in den _lib_-Ordner des "Pentaho Data-Integration"-Tools abgelegt werde.
 * Nach einem Neustart des Tools können nun MariaDb's angebunden werden.
