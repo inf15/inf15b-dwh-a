@@ -31,7 +31,7 @@ Jobs haben die Aufgaben Transformationen vorzubereiten und durchzuführen.
 Dazu gehört das Leeren und Erstellen der Datenbanken und der Tabellen.
 Als Vorbereitung zur Ausführung des Jobs muss die entsprechende Datenbank bereits existieren.
 
-ETL.Jobs werden in _.kjb_-Datien gespeichert.
+ETL-Jobs werden in _.kjb_-Datien gespeichert.
 Diese Dateien können im Pentaho Data-Integration-Toole(spoon.bat) geöffnet werden.
 Die Benennung muss im Schema _<zone>.kjb_ erfolgen.
 Alle verwendeten Pfade sollten relativ sein.
