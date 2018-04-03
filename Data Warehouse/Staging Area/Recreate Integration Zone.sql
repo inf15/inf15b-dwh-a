@@ -131,7 +131,6 @@ CREATE TABLE LV_ERROR (
 	Vbeginn VARCHAR(200),
 	Laufzeit VARCHAR(200),
 	Rate_Monat VARCHAR(200),
-	Rate_Quartal VARCHAR(200),
 	Rate_Halbjahr VARCHAR(200),
 	Rate_Jahr VARCHAR(200),
 	Beguenstigter VARCHAR(200),
