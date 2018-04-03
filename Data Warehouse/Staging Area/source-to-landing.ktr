@@ -441,7 +441,7 @@
     <server>localhost</server>
     <type>MARIADB</type>
     <access>Native</access>
-    <database>data_warehouse</database>
+    <database>landing_zone</database>
     <port>3306</port>
     <username>root</username>
     <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
@@ -651,7 +651,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>64</xloc>
+      <xloc>192</xloc>
       <yloc>400</yloc>
       <draw>Y</draw>
     </GUI>
@@ -913,7 +913,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>208</xloc>
+      <xloc>336</xloc>
       <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1076,7 +1076,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>208</xloc>
+      <xloc>336</xloc>
       <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1239,7 +1239,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>208</xloc>
+      <xloc>336</xloc>
       <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1369,7 +1369,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>208</xloc>
+      <xloc>336</xloc>
       <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1488,7 +1488,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>208</xloc>
+      <xloc>336</xloc>
       <yloc>400</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1669,7 +1669,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>64</xloc>
+      <xloc>192</xloc>
       <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1886,7 +1886,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>64</xloc>
+      <xloc>192</xloc>
       <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2103,7 +2103,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>64</xloc>
+      <xloc>192</xloc>
       <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2428,7 +2428,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>64</xloc>
+      <xloc>192</xloc>
       <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>
