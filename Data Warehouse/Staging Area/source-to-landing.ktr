@@ -459,7 +459,7 @@
     <hop>
       <from>Stammdaten - Excel Input</from>
       <to>Insert / Update</to>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Stammdaten - Excel Input</from>
@@ -482,6 +482,11 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
+      <from>Stammdaten - Excel Input</from>
+      <to>Insert / Update</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
       <from>BU - Excel Input</from>
       <to>Insert / Update 5</to>
       <enabled>Y</enabled>
@@ -489,6 +494,21 @@
     <hop>
       <from>KFZ - Excel Input</from>
       <to>Insert / Update 6</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get table names</from>
+      <to>Join Rows (cartesian product)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get Timestamp</from>
+      <to>Join Rows (cartesian product)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Join Rows (cartesian product)</from>
+      <to>Insert / Update 7</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -1499,6 +1519,524 @@
     </GUI>
   </step>
   <step>
+    <name>Insert / Update 6</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Data-Warehouse</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>KFZ_LANDING</table>
+      <key>
+        <name>VNr</name>
+        <field>VNr</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>KuNr</name>
+        <field>KuNr</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>KFZ-KZ</name>
+        <field>KFZ_KZ</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Art</name>
+        <field>Art</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Neuwert</name>
+        <field>Neuwert</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Erstzulassung</name>
+        <field>Erstzulassung</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Vbeginn</name>
+        <field>VBeginn</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>HP/Monat</name>
+        <field>HP_Monat</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>TK/Monat</name>
+        <field>TK_Monat</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>VK/Monat</name>
+        <field>VK_Monat</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>HP-Satz</name>
+        <field>HPSatz</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>TK-Satz</name>
+        <field>TKSatz</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>VK-Satz</name>
+        <field>VKSatz</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>SB TK</name>
+        <field>SB_TK</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>SBVK</name>
+        <field>SB_VK</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>VK J/N</name>
+        <field>VK</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Schadensumme Sach</name>
+        <field>Schadenssumme_Sach</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Schadensumme Person</name>
+        <field>Schadenssumme_Person</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>VNr</name>
+        <rename>VNr</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>KuNr</name>
+        <rename>KuNr</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>KFZ_KZ</name>
+        <rename>KFZ-KZ</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Art</name>
+        <rename>Art</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Neuwert</name>
+        <rename>Neuwert</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Erstzulassung</name>
+        <rename>Erstzulassung</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>VBeginn</name>
+        <rename>Vbeginn</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>HP_Monat</name>
+        <rename>HP/Monat</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>TK_Monat</name>
+        <rename>TK/Monat</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>VK_Monat</name>
+        <rename>VK/Monat</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>HPSatz</name>
+        <rename>HP-Satz</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>TKSatz</name>
+        <rename>TK-Satz</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>VKSatz</name>
+        <rename>VK-Satz</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>SB_TK</name>
+        <rename>SB TK</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>SB_VK</name>
+        <rename>SBVK</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>VK</name>
+        <rename>VK J/N</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Schadenssumme_Sach</name>
+        <rename>Schadensumme Sach</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Schadenssumme_Person</name>
+        <rename>Schadensumme Person</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>336</xloc>
+      <yloc>480</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>KFZ - Excel Input</name>
+    <type>ExcelInput</type>
+    <description>Stammdaten</description>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <header>Y</header>
+    <noempty>Y</noempty>
+    <stoponempty>N</stoponempty>
+    <filefield/>
+    <sheetfield/>
+    <sheetrownumfield/>
+    <rownumfield/>
+    <sheetfield/>
+    <filefield/>
+    <limit>0</limit>
+    <encoding/>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <accept_filenames>N</accept_filenames>
+    <accept_field/>
+    <accept_stepname/>
+    <file>
+      <name>${Internal.Entry.Current.Directory}\..\..\Rohdaten\DHBW Mosbach Versicherungen A.xlsx</name>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+    </file>
+    <fields>
+      <field>
+        <name>VNr</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>KuNr</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>KFZ-KZ</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Art</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Neuwert</name>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Erstzulassung</name>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Vbeginn</name>
+        <type>Date</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>HP/Monat</name>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>TK/Monat</name>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>VK/Monat</name>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>HP-Satz</name>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>TK-Satz</name>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>VK-Satz</name>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>SB TK</name>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>SBVK</name>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>VK J/N</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Schadensumme Sach</name>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Schadensumme Person</name>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+    </fields>
+    <sheets>
+      <sheet>
+        <name>KFZ</name>
+        <startrow>0</startrow>
+        <startcol>0</startcol>
+      </sheet>
+    </sheets>
+    <strict_types>N</strict_types>
+    <error_ignored>N</error_ignored>
+    <error_line_skipped>N</error_line_skipped>
+    <bad_line_files_destination_directory/>
+    <bad_line_files_extension>warning</bad_line_files_extension>
+    <error_line_files_destination_directory/>
+    <error_line_files_extension>error</error_line_files_extension>
+    <line_number_files_destination_directory/>
+    <line_number_files_extension>line</line_number_files_extension>
+    <shortFileFieldName/>
+    <pathFieldName/>
+    <hiddenFieldName/>
+    <lastModificationTimeFieldName/>
+    <uriNameFieldName/>
+    <rootUriNameFieldName/>
+    <extensionFieldName/>
+    <sizeFieldName/>
+    <spreadsheet_type>POI</spreadsheet_type>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>192</xloc>
+      <yloc>480</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>KV - Excel Input</name>
     <type>ExcelInput</type>
     <description>Stammdaten</description>
@@ -2117,7 +2655,7 @@
     <name>Stammdaten - Excel Input</name>
     <type>ExcelInput</type>
     <description>Stammdaten</description>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -2433,15 +2971,15 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>192</xloc>
+      <xloc>176</xloc>
       <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>KFZ - Excel Input</name>
-    <type>ExcelInput</type>
-    <description>Stammdaten</description>
+    <name>Get Timestamp</name>
+    <type>SystemInfo</type>
+    <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
@@ -2449,271 +2987,12 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <header>Y</header>
-    <noempty>Y</noempty>
-    <stoponempty>N</stoponempty>
-    <filefield/>
-    <sheetfield/>
-    <sheetrownumfield/>
-    <rownumfield/>
-    <sheetfield/>
-    <filefield/>
-    <limit>0</limit>
-    <encoding/>
-    <add_to_result_filenames>Y</add_to_result_filenames>
-    <accept_filenames>N</accept_filenames>
-    <accept_field/>
-    <accept_stepname/>
-    <file>
-      <name>${Internal.Entry.Current.Directory}\..\..\Rohdaten\DHBW Mosbach Versicherungen A.xlsx</name>
-      <filemask/>
-      <exclude_filemask/>
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-    </file>
     <fields>
       <field>
-        <name>VNr</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>KuNr</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>KFZ-KZ</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>Art</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>Neuwert</name>
-        <type>Number</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>Erstzulassung</name>
-        <type>Number</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>Vbeginn</name>
-        <type>Date</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>HP/Monat</name>
-        <type>Number</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>TK/Monat</name>
-        <type>Number</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>VK/Monat</name>
-        <type>Number</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>HP-Satz</name>
-        <type>Number</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>TK-Satz</name>
-        <type>Number</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>VK-Satz</name>
-        <type>Number</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>SB TK</name>
-        <type>Number</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>SBVK</name>
-        <type>Number</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>VK J/N</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>Schadensumme Sach</name>
-        <type>Number</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>Schadensumme Person</name>
-        <type>Number</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <name>timestamp</name>
+        <type>system date (variable)</type>
       </field>
     </fields>
-    <sheets>
-      <sheet>
-        <name>KFZ</name>
-        <startrow>0</startrow>
-        <startcol>0</startcol>
-      </sheet>
-    </sheets>
-    <strict_types>N</strict_types>
-    <error_ignored>N</error_ignored>
-    <error_line_skipped>N</error_line_skipped>
-    <bad_line_files_destination_directory/>
-    <bad_line_files_extension>warning</bad_line_files_extension>
-    <error_line_files_destination_directory/>
-    <error_line_files_extension>error</error_line_files_extension>
-    <line_number_files_destination_directory/>
-    <line_number_files_extension>line</line_number_files_extension>
-    <shortFileFieldName/>
-    <pathFieldName/>
-    <hiddenFieldName/>
-    <lastModificationTimeFieldName/>
-    <uriNameFieldName/>
-    <rootUriNameFieldName/>
-    <extensionFieldName/>
-    <sizeFieldName/>
-    <spreadsheet_type>POI</spreadsheet_type>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -2722,13 +3001,52 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>192</xloc>
-      <yloc>480</yloc>
+      <xloc>464</xloc>
+      <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Insert / Update 6</name>
+    <name>Get table names</name>
+    <type>GetTableNames</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Data-Warehouse</connection>
+    <schemaname/>
+    <tablenamefieldname>tablename</tablenamefieldname>
+    <objecttypefieldname>type</objecttypefieldname>
+    <issystemobjectfieldname>is system</issystemobjectfieldname>
+    <sqlcreationfieldname/>
+    <includeCatalog>N</includeCatalog>
+    <includeSchema>N</includeSchema>
+    <includeTable>Y</includeTable>
+    <includeView>Y</includeView>
+    <includeProcedure>Y</includeProcedure>
+    <includeSynonym>Y</includeSynonym>
+    <addSchemaInOutput>N</addSchemaInOutput>
+    <dynamicSchema>N</dynamicSchema>
+    <schemaNameField/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>464</xloc>
+      <yloc>80</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Insert / Update 7</name>
     <type>InsertUpdate</type>
     <description/>
     <distribute>Y</distribute>
@@ -2743,203 +3061,27 @@
     <update_bypassed>N</update_bypassed>
     <lookup>
       <schema/>
-      <table>KFZ_LANDING</table>
+      <table>METADATA</table>
       <key>
-        <name>VNr</name>
-        <field>VNr</field>
+        <name>tablename</name>
+        <field>Import_Table</field>
         <condition>=</condition>
         <name2/>
       </key>
       <key>
-        <name>KuNr</name>
-        <field>KuNr</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>KFZ-KZ</name>
-        <field>KFZ_KZ</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>Art</name>
-        <field>Art</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>Neuwert</name>
-        <field>Neuwert</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>Erstzulassung</name>
-        <field>Erstzulassung</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>Vbeginn</name>
-        <field>VBeginn</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>HP/Monat</name>
-        <field>HP_Monat</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>TK/Monat</name>
-        <field>TK_Monat</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>VK/Monat</name>
-        <field>VK_Monat</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>HP-Satz</name>
-        <field>HPSatz</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>TK-Satz</name>
-        <field>TKSatz</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>VK-Satz</name>
-        <field>VKSatz</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>SB TK</name>
-        <field>SB_TK</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>SBVK</name>
-        <field>SB_VK</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>VK J/N</name>
-        <field>VK</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>Schadensumme Sach</name>
-        <field>Schadenssumme_Sach</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>Schadensumme Person</name>
-        <field>Schadenssumme_Person</field>
+        <name>timestamp</name>
+        <field>Import_Table</field>
         <condition>=</condition>
         <name2/>
       </key>
       <value>
-        <name>VNr</name>
-        <rename>VNr</rename>
+        <name>Import_Table</name>
+        <rename>tablename</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>KuNr</name>
-        <rename>KuNr</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>KFZ_KZ</name>
-        <rename>KFZ-KZ</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Art</name>
-        <rename>Art</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Neuwert</name>
-        <rename>Neuwert</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Erstzulassung</name>
-        <rename>Erstzulassung</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>VBeginn</name>
-        <rename>Vbeginn</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>HP_Monat</name>
-        <rename>HP/Monat</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>TK_Monat</name>
-        <rename>TK/Monat</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>VK_Monat</name>
-        <rename>VK/Monat</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>HPSatz</name>
-        <rename>HP-Satz</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>TKSatz</name>
-        <rename>TK-Satz</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>VKSatz</name>
-        <rename>VK-Satz</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>SB_TK</name>
-        <rename>SB TK</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>SB_VK</name>
-        <rename>SBVK</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>VK</name>
-        <rename>VK J/N</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Schadenssumme_Sach</name>
-        <rename>Schadensumme Sach</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>Schadenssumme_Person</name>
-        <rename>Schadensumme Person</rename>
+        <name>Integration_Time</name>
+        <rename>timestamp</rename>
         <update>Y</update>
       </value>
     </lookup>
@@ -2951,12 +3093,60 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>336</xloc>
-      <yloc>480</yloc>
+      <xloc>720</xloc>
+      <yloc>112</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Join Rows (cartesian product)</name>
+    <type>JoinRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <cache_size>500</cache_size>
+    <main/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue/>
+        <function>=</function>
+        <rightvalue/>
+      </condition>
+    </compare>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>592</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step_error_handling>
+    <error>
+      <source_step>Insert / Update</source_step>
+      <target_step>Get File Names</target_step>
+      <is_enabled>Y</is_enabled>
+      <nr_valuename/>
+      <descriptions_valuename/>
+      <fields_valuename/>
+      <codes_valuename/>
+      <max_errors/>
+      <max_pct_errors/>
+      <min_pct_rows/>
+    </error>
   </step_error_handling>
   <slave-step-copy-partition-distribution>
   </slave-step-copy-partition-distribution>
