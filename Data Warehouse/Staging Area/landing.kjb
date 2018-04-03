@@ -17,7 +17,7 @@
     <server>localhost</server>
     <type>MARIADB</type>
     <access>Native</access>
-    <database>data_warehouse</database>
+    <database>landing_zone</database>
     <port>3306</port>
     <username>root</username>
     <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
