@@ -200,5 +200,5 @@ CREATE TABLE BU_ERROR (
 CREATE TABLE METADATA (
 	Source VARCHAR(200),
 	Import_Table VARCHAR(200),
-	Integration_Time DATE
+	Integration_Time DATETIME
 );
