@@ -99,3 +99,9 @@ CREATE TABLE BU_LANDING (
 	Rate_Jahr VARCHAR(200),
 	Zahlungsweise VARCHAR(200)
 );
+
+CREATE TABLE METADATA (
+	Source VARCHAR(200),
+	Import_Table VARCHAR(200),
+	Integration_Time DATE
+);
