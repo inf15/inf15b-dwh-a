@@ -437,14 +437,14 @@
   <notepads>
   </notepads>
   <connection>
-    <name>getLanding</name>
-    <server>localhost</server>
+    <name>Remote Landing-Zone</name>
+    <server>mariadb.smackmack.industries</server>
     <type>MARIADB</type>
     <access>Native</access>
     <database>landing_zone</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
+    <password>Encrypted 6473616668757369666875737066686477cde8c7bb1fcf9391b81dbe76d696badc</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -456,14 +456,14 @@
     </attributes>
   </connection>
   <connection>
-    <name>intoIntegration</name>
-    <server>localhost</server>
+    <name>Remote Integration-Zone</name>
+    <server>mariadb.smackmack.industries</server>
     <type>MARIADB</type>
     <access>Native</access>
     <database>integration_zone</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
+    <password>Encrypted 6473616668757369666875737066686477cde8c7bb1fcf9391b81dbe76d696badc</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -517,7 +517,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>getLanding</connection>
+    <connection>Remote Landing-Zone</connection>
     <sql>SELECT * FROM STAMMDATEN_LANDING</sql>
     <limit>0</limit>
     <lookup/>
@@ -548,7 +548,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>intoIntegration</connection>
+    <connection>Remote Integration-Zone</connection>
     <commit>100</commit>
     <update_bypassed>N</update_bypassed>
     <lookup>
@@ -810,7 +810,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>getLanding</connection>
+    <connection>Remote Landing-Zone</connection>
     <sql>SELECT * FROM LV_LANDING</sql>
     <limit>0</limit>
     <lookup/>
@@ -841,7 +841,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>intoIntegration</connection>
+    <connection>Remote Integration-Zone</connection>
     <commit>100</commit>
     <update_bypassed>N</update_bypassed>
     <lookup>
@@ -1004,7 +1004,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>getLanding</connection>
+    <connection>Remote Landing-Zone</connection>
     <sql>SELECT * FROM KV_LANDING</sql>
     <limit>0</limit>
     <lookup/>
@@ -1035,7 +1035,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>intoIntegration</connection>
+    <connection>Remote Integration-Zone</connection>
     <commit>100</commit>
     <update_bypassed>N</update_bypassed>
     <lookup>
@@ -1165,7 +1165,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>getLanding</connection>
+    <connection>Remote Landing-Zone</connection>
     <sql>SELECT * FROM KFZ_LANDING</sql>
     <limit>0</limit>
     <lookup/>
@@ -1196,7 +1196,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>intoIntegration</connection>
+    <connection>Remote Integration-Zone</connection>
     <commit>100</commit>
     <update_bypassed>N</update_bypassed>
     <lookup>
@@ -1425,7 +1425,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>getLanding</connection>
+    <connection>Remote Landing-Zone</connection>
     <sql>SELECT * FROM SACH_LANDING</sql>
     <limit>0</limit>
     <lookup/>
@@ -1456,7 +1456,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>intoIntegration</connection>
+    <connection>Remote Integration-Zone</connection>
     <commit>100</commit>
     <update_bypassed>N</update_bypassed>
     <lookup>
@@ -1619,7 +1619,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>getLanding</connection>
+    <connection>Remote Landing-Zone</connection>
     <sql>SELECT * FROM BU_LANDING</sql>
     <limit>0</limit>
     <lookup/>
@@ -1650,7 +1650,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>intoIntegration</connection>
+    <connection>Remote Integration-Zone</connection>
     <commit>100</commit>
     <update_bypassed>N</update_bypassed>
     <lookup>

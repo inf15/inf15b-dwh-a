@@ -12,14 +12,14 @@
   <parameters>
     </parameters>
   <connection>
-    <name>integrationConnection</name>
-    <server>localhost</server>
+    <name>Remote Integration-Zone</name>
+    <server>mariadb.smackmack.industries</server>
     <type>MARIADB</type>
     <access>Native</access>
-    <database>integration_zone</database>
+    <database>landing_zone</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
+    <password>Encrypted 6473616668757369666875737066686477cde8c7bb1fcf9391b81dbe76d696badc</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -358,19 +358,19 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>304</xloc>
+      <xloc>352</xloc>
       <yloc>64</yloc>
     </entry>
     <entry>
-      <name>SQL</name>
+      <name>Recreate Integration Zone</name>
       <description/>
       <type>SQL</type>
       <sql/>
       <useVariableSubstitution>F</useVariableSubstitution>
       <sqlfromfile>T</sqlfromfile>
-      <sqlfilename>C:\Users\lsc\Desktop\Datenbanken\inf15b-dwh-a\Data Warehouse\Staging Area\Recreate Integration Zone.sql</sqlfilename>
+      <sqlfilename>${Internal.Job.Filename.Directory}\Recreate Integration Zone.sql</sqlfilename>
       <sendOneStatement>F</sendOneStatement>
-      <connection>integrationConnection</connection>
+      <connection>Remote Integration-Zone</connection>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
@@ -384,14 +384,14 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>416</xloc>
+      <xloc>464</xloc>
       <yloc>64</yloc>
     </entry>
   </entries>
   <hops>
     <hop>
       <from>START</from>
-      <to>SQL</to>
+      <to>Recreate Integration Zone</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -399,7 +399,7 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>SQL</from>
+      <from>Recreate Integration Zone</from>
       <to>Transformation</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
