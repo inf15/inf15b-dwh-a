@@ -431,20 +431,20 @@
     <created_date>2018/04/03 15:44:11.280</created_date>
     <modified_user>-</modified_user>
     <modified_date>2018/04/03 15:44:11.280</modified_date>
-    <key_for_session_key/>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
   </notepads>
   <connection>
-    <name>Remote Landing-Zone</name>
-    <server>mariadb.smackmack.industries</server>
+    <name>getLanding</name>
+    <server>localhost</server>
     <type>MARIADB</type>
     <access>Native</access>
     <database>landing_zone</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 6473616668757369666875737066686477cde8c7bb1fcf9391b81dbe76d696badc</password>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -456,14 +456,14 @@
     </attributes>
   </connection>
   <connection>
-    <name>Remote Integration-Zone</name>
-    <server>mariadb.smackmack.industries</server>
+    <name>intoIntegration</name>
+    <server>localhost</server>
     <type>MARIADB</type>
     <access>Native</access>
     <database>integration_zone</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 6473616668757369666875737066686477cde8c7bb1fcf9391b81dbe76d696badc</password>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -476,38 +476,136 @@
   </connection>
   <order>
     <hop>
-      <from>LV_LANDING</from>
-      <to>LV_TRANSFORM</to>
+      <from>STAMMDATEN_LANDING 2</from>
+      <to>CONVERT</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>KV_LANDING</from>
-      <to>KV_TRANSFORM</to>
+      <from>CONVERT</from>
+      <to>STAMMDATEN_TRANSFORM 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>KFZ_LANDING</from>
-      <to>KFZ_TRANSFORM</to>
+      <from>STAMMDATEN_LANDING 1</from>
+      <to>STAMMDATEN_TRANSFORM 1</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>SACH_LANDING</from>
-      <to>SACH_TRANSFORM</to>
+      <from>LV_LANDING 1</from>
+      <to>LV_TRANSFORM 1</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>BU_LANDING</from>
-      <to>BU_TRANSFORM</to>
+      <from>LV_LANDING 2</from>
+      <to>CONVERT 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>STAMMDATEN_LANDING</from>
-      <to>STAMMDATEN_TRANSFORM</to>
+      <from>CONVERT 2</from>
+      <to>LV_TRANSFORM 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>KV_LANDING 1</from>
+      <to>KV_TRANSFORM 1</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>KV_LANDING 2</from>
+      <to>CONVERT 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>CONVERT 3</from>
+      <to>KV_TRANSFORM 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>KFZ_LANDING 1</from>
+      <to>KFZ_TRANSFORM 1</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>KFZ_LANDING 2</from>
+      <to>CONVERT 4</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>CONVERT 4</from>
+      <to>KFZ_TRANSFORM 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>SACH_LANDING 1</from>
+      <to>SACH_TRANSFORM 1</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>SACH_LANDING 2</from>
+      <to>CONVERT 5</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>CONVERT 5</from>
+      <to>SACH_TRANSFORM 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>BU_LANDING 1</from>
+      <to>BU_TRANSFORM 1</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>STAMMDATEN_LANDING</name>
+    <name>CONVERT</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>GebDatum</name>
+        <rename/>
+      </field>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>GebDatum</name>
+        <rename>GebDatum</rename>
+        <type>Date</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>yyyy-MM-dd HH:mm:ss</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>240</xloc>
+      <yloc>80</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>STAMMDATEN_LANDING 2</name>
     <type>TableInput</type>
     <description/>
     <distribute>N</distribute>
@@ -517,7 +615,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>Remote Landing-Zone</connection>
+    <connection>getLanding</connection>
     <sql>SELECT * FROM STAMMDATEN_LANDING</sql>
     <limit>0</limit>
     <lookup/>
@@ -532,13 +630,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>64</xloc>
-      <yloc>32</yloc>
+      <xloc>80</xloc>
+      <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>STAMMDATEN_TRANSFORM</name>
+    <name>STAMMDATEN_TRANSFORM 2</name>
     <type>InsertUpdate</type>
     <description/>
     <distribute>Y</distribute>
@@ -548,7 +646,80 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>Remote Integration-Zone</connection>
+    <connection>intoIntegration</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>STAMMDATEN_TRANSFORM</table>
+      <key>
+        <name>GebDatum</name>
+        <field>GebDatum</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>GebDatum</name>
+        <rename>GebDatum</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>400</xloc>
+      <yloc>80</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>STAMMDATEN_LANDING 1</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>getLanding</connection>
+    <sql>SELECT * FROM STAMMDATEN_LANDING</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>80</xloc>
+      <yloc>16</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>STAMMDATEN_TRANSFORM 1</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>intoIntegration</connection>
     <commit>100</commit>
     <update_bypassed>N</update_bypassed>
     <lookup>
@@ -575,12 +746,6 @@
       <key>
         <name>Vorname2</name>
         <field>Vorname2</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>GebDatum</name>
-        <field>GebDatum</field>
         <condition>=</condition>
         <name2/>
       </key>
@@ -701,11 +866,6 @@
         <update>Y</update>
       </value>
       <value>
-        <name>GebDatum</name>
-        <rename>GebDatum</rename>
-        <update>Y</update>
-      </value>
-      <value>
         <name>GebOrt</name>
         <rename>GebOrt</rename>
         <update>Y</update>
@@ -794,44 +954,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>224</xloc>
-      <yloc>32</yloc>
+      <xloc>240</xloc>
+      <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>LV_LANDING</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>Remote Landing-Zone</connection>
-    <sql>SELECT * FROM LV_LANDING</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>64</xloc>
-      <yloc>112</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>LV_TRANSFORM</name>
+    <name>LV_TRANSFORM 1</name>
     <type>InsertUpdate</type>
     <description/>
     <distribute>Y</distribute>
@@ -841,7 +970,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>Remote Integration-Zone</connection>
+    <connection>intoIntegration</connection>
     <commit>100</commit>
     <update_bypassed>N</update_bypassed>
     <lookup>
@@ -862,12 +991,6 @@
       <key>
         <name>Wertfaktor</name>
         <field>Wertfaktor</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>Vbeginn</name>
-        <field>Vbeginn</field>
         <condition>=</condition>
         <name2/>
       </key>
@@ -935,11 +1058,6 @@
         <update>Y</update>
       </value>
       <value>
-        <name>Vbeginn</name>
-        <rename>Vbeginn</rename>
-        <update>Y</update>
-      </value>
-      <value>
         <name>Laufzeit</name>
         <rename>Laufzeit</rename>
         <update>Y</update>
@@ -988,13 +1106,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>224</xloc>
-      <yloc>112</yloc>
+      <xloc>240</xloc>
+      <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>KV_LANDING</name>
+    <name>LV_LANDING 1</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -1004,8 +1122,8 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>Remote Landing-Zone</connection>
-    <sql>SELECT * FROM KV_LANDING</sql>
+    <connection>getLanding</connection>
+    <sql>SELECT * FROM LV_LANDING</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -1019,13 +1137,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>64</xloc>
-      <yloc>192</yloc>
+      <xloc>80</xloc>
+      <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>KV_TRANSFORM</name>
+    <name>LV_TRANSFORM 2</name>
     <type>InsertUpdate</type>
     <description/>
     <distribute>Y</distribute>
@@ -1035,7 +1153,128 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>Remote Integration-Zone</connection>
+    <connection>intoIntegration</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>LV_TRANSFORM</table>
+      <key>
+        <name>Vbeginn</name>
+        <field>Vbeginn</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>Vbeginn</name>
+        <rename>Vbeginn</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>400</xloc>
+      <yloc>240</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>LV_LANDING 2</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>getLanding</connection>
+    <sql>SELECT * FROM LV_LANDING</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>80</xloc>
+      <yloc>240</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>CONVERT 2</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>Vbeginn</name>
+        <rename/>
+      </field>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>Vbeginn</name>
+        <rename>Vbeginn</rename>
+        <type>Date</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>yyyyMMdd</conversion_mask>
+        <date_format_lenient>true</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>240</xloc>
+      <yloc>240</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>KV_TRANSFORM 1</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>intoIntegration</connection>
     <commit>100</commit>
     <update_bypassed>N</update_bypassed>
     <lookup>
@@ -1056,12 +1295,6 @@
       <key>
         <name>Art</name>
         <field>Art</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>VBeginn</name>
-        <field>VBeginn</field>
         <condition>=</condition>
         <name2/>
       </key>
@@ -1111,11 +1344,6 @@
         <update>Y</update>
       </value>
       <value>
-        <name>VBeginn</name>
-        <rename>VBeginn</rename>
-        <update>Y</update>
-      </value>
-      <value>
         <name>Rate</name>
         <rename>Rate</rename>
         <update>Y</update>
@@ -1149,13 +1377,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>224</xloc>
-      <yloc>192</yloc>
+      <xloc>240</xloc>
+      <yloc>336</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>KFZ_LANDING</name>
+    <name>KV_LANDING 1</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -1165,8 +1393,8 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>Remote Landing-Zone</connection>
-    <sql>SELECT * FROM KFZ_LANDING</sql>
+    <connection>getLanding</connection>
+    <sql>SELECT * FROM KV_LANDING</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -1180,13 +1408,44 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>64</xloc>
-      <yloc>272</yloc>
+      <xloc>80</xloc>
+      <yloc>336</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>KFZ_TRANSFORM</name>
+    <name>KV_LANDING 2</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>getLanding</connection>
+    <sql>SELECT * FROM KV_LANDING</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>80</xloc>
+      <yloc>400</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>KV_TRANSFORM 2</name>
     <type>InsertUpdate</type>
     <description/>
     <distribute>Y</distribute>
@@ -1196,7 +1455,97 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>Remote Integration-Zone</connection>
+    <connection>intoIntegration</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>KV_TRANSFORM</table>
+      <key>
+        <name>VBeginn</name>
+        <field>VBeginn</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>VBeginn</name>
+        <rename>VBeginn</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>400</xloc>
+      <yloc>400</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>CONVERT 3</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>VBeginn</name>
+        <rename/>
+      </field>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>VBeginn</name>
+        <rename>VBeginn</rename>
+        <type>Date</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>yyyyMMdd</conversion_mask>
+        <date_format_lenient>true</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>240</xloc>
+      <yloc>400</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>KFZ_TRANSFORM 1</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>intoIntegration</connection>
     <commit>100</commit>
     <update_bypassed>N</update_bypassed>
     <lookup>
@@ -1229,18 +1578,6 @@
       <key>
         <name>Neuwert</name>
         <field>Neuwert</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>Erstzulassung</name>
-        <field>Erstzulassung</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>VBeginn</name>
-        <field>VBeginn</field>
         <condition>=</condition>
         <name2/>
       </key>
@@ -1336,16 +1673,6 @@
         <update>Y</update>
       </value>
       <value>
-        <name>Erstzulassung</name>
-        <rename>Erstzulassung</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>VBeginn</name>
-        <rename>VBeginn</rename>
-        <update>Y</update>
-      </value>
-      <value>
         <name>HP_Monat</name>
         <rename>HP_Monat</rename>
         <update>Y</update>
@@ -1409,13 +1736,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>224</xloc>
-      <yloc>272</yloc>
+      <xloc>240</xloc>
+      <yloc>496</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>SACH_LANDING</name>
+    <name>KFZ_LANDING 1</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -1425,8 +1752,8 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>Remote Landing-Zone</connection>
-    <sql>SELECT * FROM SACH_LANDING</sql>
+    <connection>getLanding</connection>
+    <sql>SELECT * FROM KFZ_LANDING</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -1440,13 +1767,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>64</xloc>
-      <yloc>352</yloc>
+      <xloc>80</xloc>
+      <yloc>496</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>SACH_TRANSFORM</name>
+    <name>KFZ_TRANSFORM 2</name>
     <type>InsertUpdate</type>
     <description/>
     <distribute>Y</distribute>
@@ -1456,7 +1783,160 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>Remote Integration-Zone</connection>
+    <connection>intoIntegration</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>KFZ_TRANSFORM</table>
+      <key>
+        <name>Erstzulassung</name>
+        <field>Erstzulassung</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>VBeginn</name>
+        <field>VBeginn</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>Erstzulassung</name>
+        <rename>Erstzulassung</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>VBeginn</name>
+        <rename>VBeginn</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>400</xloc>
+      <yloc>560</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>KFZ_LANDING 2</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>getLanding</connection>
+    <sql>SELECT * FROM KFZ_LANDING</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>80</xloc>
+      <yloc>560</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>CONVERT 4</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>Erstzulassung</name>
+        <rename/>
+      </field>
+      <field>
+        <name>VBeginn</name>
+        <rename/>
+      </field>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>Erstzulassung</name>
+        <rename>Erstzulassung</rename>
+        <type>Date</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>yyyyMMdd</conversion_mask>
+        <date_format_lenient>true</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>VBeginn</name>
+        <rename>VBeginn</rename>
+        <type>Date</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>yyyy-MM-dd HH:mm:ss</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>240</xloc>
+      <yloc>560</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>SACH_TRANSFORM 1</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>intoIntegration</connection>
     <commit>100</commit>
     <update_bypassed>N</update_bypassed>
     <lookup>
@@ -1483,12 +1963,6 @@
       <key>
         <name>VWert</name>
         <field>VWert</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>VBeginn</name>
-        <field>VBeginn</field>
         <condition>=</condition>
         <name2/>
       </key>
@@ -1555,11 +2029,6 @@
         <update>Y</update>
       </value>
       <value>
-        <name>VBeginn</name>
-        <rename>VBeginn</rename>
-        <update>Y</update>
-      </value>
-      <value>
         <name>Laufzeit</name>
         <rename>Laufzeit</rename>
         <update>Y</update>
@@ -1603,13 +2072,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>224</xloc>
-      <yloc>352</yloc>
+      <xloc>240</xloc>
+      <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>BU_LANDING</name>
+    <name>SACH_LANDING 1</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -1619,8 +2088,8 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>Remote Landing-Zone</connection>
-    <sql>SELECT * FROM BU_LANDING</sql>
+    <connection>getLanding</connection>
+    <sql>SELECT * FROM SACH_LANDING</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -1634,13 +2103,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>64</xloc>
-      <yloc>432</yloc>
+      <xloc>80</xloc>
+      <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>BU_TRANSFORM</name>
+    <name>SACH_TRANSFORM 2</name>
     <type>InsertUpdate</type>
     <description/>
     <distribute>Y</distribute>
@@ -1650,7 +2119,128 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>Remote Integration-Zone</connection>
+    <connection>intoIntegration</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>SACH_TRANSFORM</table>
+      <key>
+        <name>VBeginn</name>
+        <field>VBeginn</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>VBeginn</name>
+        <rename>VBeginn</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>400</xloc>
+      <yloc>720</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>SACH_LANDING 2</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>getLanding</connection>
+    <sql>SELECT * FROM SACH_LANDING</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>80</xloc>
+      <yloc>720</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>CONVERT 5</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>VBeginn</name>
+        <rename/>
+      </field>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>VBeginn</name>
+        <rename>VBeginn</rename>
+        <type>Date</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>yyyy-MM-dd HH:mm:ss</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>240</xloc>
+      <yloc>720</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>BU_TRANSFORM 1</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>intoIntegration</connection>
     <commit>100</commit>
     <update_bypassed>N</update_bypassed>
     <lookup>
@@ -1753,8 +2343,39 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>224</xloc>
-      <yloc>432</yloc>
+      <xloc>240</xloc>
+      <yloc>816</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>BU_LANDING 1</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>getLanding</connection>
+    <sql>SELECT * FROM BU_LANDING</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>80</xloc>
+      <yloc>816</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
