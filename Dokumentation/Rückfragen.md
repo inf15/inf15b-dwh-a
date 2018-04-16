@@ -24,6 +24,12 @@
 * Sachversicherung-Report: Was ist mit kundenbezogen gemeint? Wie sollen die Kunden zusammengefasst werden?
 **Geschlecht/Alter/etc**
 
+* LV mit BU - gibt es einen Link?
+**Ja, gibt es der Link wird über die Kundennummer aufgelöst. BU ist immer vollständig von LV abhängig**
+
 ## Fachliche Rückfragen
  * Was geschieht mit den Daten in den Fehlertabellen der Integration-Zone?
  **Direkte Behandlung hier oder Error-Datamart**
+
+ * Soll die Möglichkeit zur Versionierung technisch umgesetzt werden?
+ **Eigene Entscheidung, nicht zwingend notwendig**
