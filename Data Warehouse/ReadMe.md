@@ -28,7 +28,7 @@ Die Benennung muss im Schema _<source-name>-to-<target-name>.ktr_ erfolgen.
 ## Jobs
 
 Jobs haben die Aufgaben Transformationen vorzubereiten und durchzuführen.
-Dazu gehört das Leeren und Erstellen der Datenbanken und der Tabellen.
+Dazu gehört das evtl. Leeren und Erstellen der Datenbanken und der Tabellen.
 Als Vorbereitung zur Ausführung des Jobs muss die entsprechende Datenbank bereits existieren.
 
 ETL-Jobs werden in _.kjb_-Datien gespeichert.
