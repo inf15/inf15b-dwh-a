@@ -489,16 +489,6 @@
   </connection>
   <order>
     <hop>
-      <from>Stammdaten - Excel Input</from>
-      <to>Insert / Update</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Stammdaten - Excel Input</from>
-      <to>Insert / Update</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Sach - Excel Input</from>
       <to>Insert / Update 2</to>
       <enabled>Y</enabled>
@@ -511,11 +501,6 @@
     <hop>
       <from>KV - Excel Input</from>
       <to>Insert / Update 4</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Stammdaten - Excel Input</from>
-      <to>Insert / Update</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -541,6 +526,11 @@
     <hop>
       <from>Join Rows (cartesian product)</from>
       <to>Insert / Update 7</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Stammdaten - Excel Input</from>
+      <to>Insert / Update</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -3161,7 +3151,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>176</xloc>
+      <xloc>192</xloc>
       <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>
