@@ -437,7 +437,7 @@
   <notepads>
   </notepads>
   <connection>
-    <name>Local Landing-Zone</name>
+    <name>landing_zone</name>
     <server>localhost</server>
     <type>MARIADB</type>
     <access>Native</access>
@@ -450,27 +450,40 @@
     <index_tablespace/>
     <attributes>
       <attribute>
-        <code>PORT_NUMBER</code>
-        <attribute>3306</attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
       </attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>Remote Landing-Zone</name>
-    <server>mariadb.smackmack.industries</server>
-    <type>MARIADB</type>
-    <access>Native</access>
-    <database>landing_zone</database>
-    <port>3306</port>
-    <username>root</username>
-    <password>Encrypted 6473616668757369666875737066686477cde8c7bb1fcf9391b81dbe76d696badc</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
       <attribute>
         <code>PORT_NUMBER</code>
         <attribute>3306</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
       </attribute>
     </attributes>
   </connection>
@@ -741,7 +754,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>Remote Landing-Zone</connection>
+    <connection>landing_zone</connection>
     <schemaname/>
     <tablenamefieldname>tablename</tablenamefieldname>
     <objecttypefieldname>type</objecttypefieldname>
@@ -780,7 +793,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>Remote Landing-Zone</connection>
+    <connection>landing_zone</connection>
     <commit>100</commit>
     <update_bypassed>N</update_bypassed>
     <lookup>
@@ -1042,7 +1055,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>Remote Landing-Zone</connection>
+    <connection>landing_zone</connection>
     <commit>100</commit>
     <update_bypassed>N</update_bypassed>
     <lookup>
@@ -1205,7 +1218,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>Remote Landing-Zone</connection>
+    <connection>landing_zone</connection>
     <commit>100</commit>
     <update_bypassed>N</update_bypassed>
     <lookup>
@@ -1368,7 +1381,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>Remote Landing-Zone</connection>
+    <connection>landing_zone</connection>
     <commit>100</commit>
     <update_bypassed>N</update_bypassed>
     <lookup>
@@ -1498,7 +1511,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>Remote Landing-Zone</connection>
+    <connection>landing_zone</connection>
     <commit>100</commit>
     <update_bypassed>N</update_bypassed>
     <lookup>
@@ -1617,7 +1630,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>Remote Landing-Zone</connection>
+    <connection>landing_zone</connection>
     <commit>100</commit>
     <update_bypassed>N</update_bypassed>
     <lookup>
@@ -1846,7 +1859,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>Remote Landing-Zone</connection>
+    <connection>landing_zone</connection>
     <commit>100</commit>
     <update_bypassed>N</update_bypassed>
     <lookup>

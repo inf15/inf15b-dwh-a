@@ -11,6 +11,12 @@ Jede Datenbank repräsentiert eine Zone des Data-Warehouses. Somit existieren fo
 * enterprise_data_warehouse
 * subject_zone
 
+### DB-Server ändern
+
+Um z.b. von localhost auf mariadb.smackmack.industries zu wechseln, kann in spoon
+nachdem die Transformation geöffnet wurde unter dem Punkt "Database connections"
+die verschiedenen dankenbanken und deren hosts konfiguriert werden.
+
 ## Tabellen
 
 Tabellen werden über die _.sql_-Skripte aufgebaut.
