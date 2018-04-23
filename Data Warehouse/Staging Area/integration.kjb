@@ -11,6 +11,57 @@
   <modified_date>2018/04/03 15:42:49.433</modified_date>
   <parameters>
     </parameters>
+  <connection>
+    <name>integration_zone</name>
+    <server>localhost</server>
+    <type>MARIADB</type>
+    <access>Native</access>
+    <database>integration_zone</database>
+    <port>3306</port>
+    <username>root</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>3306</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
   <slaveservers>
     </slaveservers>
   <job-log-table>
@@ -351,7 +402,7 @@
       <sqlfromfile>T</sqlfromfile>
       <sqlfilename>${Internal.Job.Filename.Directory}\Recreate Integration Zone.sql</sqlfilename>
       <sendOneStatement>F</sendOneStatement>
-      <connection>Remote Integration-Zone</connection>
+      <connection>integration_zone</connection>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
