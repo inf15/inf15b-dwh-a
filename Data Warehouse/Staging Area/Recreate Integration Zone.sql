@@ -29,13 +29,13 @@ CREATE TABLE STAMMDATEN_TRANSFORM (
 CREATE TABLE LV_TRANSFORM (
 	VNr VARCHAR(8),
 	KuNr VARCHAR(6),
-	Wertfaktor DECIMAL(3,2),
+	Wertfaktor VARCHAR(200),
 	Vbeginn DATE,
 	Laufzeit VARCHAR(200),
-	Monatsrate DECIMAL(12,2),
-	Quartalsrate DECIMAL(12,2),
-	Halbjahresrate DECIMAL(12,2),
-	Jahresrate DECIMAL(12,2),
+	Monatsrate VARCHAR(200),
+	Quartalsrate VARCHAR(200),
+	Halbjahresrate VARCHAR(200),
+	Jahresrate VARCHAR(200),
 	Beguenstigter VARCHAR(2),
 	BU VARCHAR(1),
 	Zahlungsweise VARCHAR(1)
@@ -46,11 +46,11 @@ CREATE TABLE KV_TRANSFORM (
 	KuNr VARCHAR(6),
 	Art VARCHAR(200),
 	VBeginn DATE,
-	Rate  DECIMAL(12,2),
-	SB  DECIMAL(12,2),
-	R1  DECIMAL(12,2),
-	R2  DECIMAL(12,2),
-	R3  DECIMAL(12,2)
+	Rate  VARCHAR(200),
+	SB  VARCHAR(200),
+	R1  VARCHAR(200),
+	R2  VARCHAR(200),
+	R3  VARCHAR(200)
 );
 
 CREATE TABLE KFZ_TRANSFORM (
@@ -58,45 +58,45 @@ CREATE TABLE KFZ_TRANSFORM (
 	KuNr VARCHAR(6),
 	KFZ_KZ VARCHAR(9),
 	Art VARCHAR(1),
-	Neuwert DECIMAL(12,2),
+	Neuwert VARCHAR(200),
 	Erstzulassung DATE,
 	VBeginn DATE,
-	HP_Monat DECIMAL(12,2),
-	TK_Monat DECIMAL(12,2),
-	VK_Monat DECIMAL(12,2),
+	HP_Monat VARCHAR(200),
+	TK_Monat VARCHAR(200),
+	VK_Monat VARCHAR(200),
 	HPSatz INTEGER,
 	TKSatz INTEGER,
 	VKSatz INTEGER,
-	SB_TK DECIMAL(12,2),
-	SB_VK DECIMAL(12,2),
+	SB_TK VARCHAR(200),
+	SB_VK VARCHAR(200),
 	VK VARCHAR(1),
-	Schadenssumme_Sach DECIMAL(12,2),
-	Schadenssumme_Person DECIMAL(12,2)
+	Schadenssumme_Sach VARCHAR(200),
+	Schadenssumme_Person VARCHAR(200)
 );
 
 CREATE TABLE SACH_TRANSFORM (
 	VNr VARCHAR(8),
 	KuNr VARCHAR(6),
 	Art VARCHAR(3),
-	VWert DECIMAL(12,2),
+	VWert VARCHAR(200),
 	VBeginn DATE,
 	Laufzeit INTEGER,
 	K_Frist INTEGER,
-	Rate_Monat DECIMAL(12,2),
-	Rate_Quartal DECIMAL(12,2),
-	Rate_Halbjahr DECIMAL(12,2),
-	Rate_Jahr DECIMAL(12,2),
+	Rate_Monat VARCHAR(200),
+	Rate_Quartal VARCHAR(200),
+	Rate_Halbjahr VARCHAR(200),
+	Rate_Jahr VARCHAR(200),
 	Zahlungsweise VARCHAR(1)
 );
 
 CREATE TABLE BU_TRANSFORM (
 	VNr VARCHAR(8),
 	KuNr VARCHAR(6),
-	Wertbetrag DECIMAL(12,2),
-	Rate_Monat DECIMAL(12,2),
-	Rate_Quartal DECIMAL(12,2),
-	Rate_Halbjahr DECIMAL(12,2),
-	Rate_Jahr DECIMAL(12,2),
+	Wertbetrag VARCHAR(200),
+	Rate_Monat VARCHAR(200),
+	Rate_Quartal VARCHAR(200),
+	Rate_Halbjahr VARCHAR(200),
+	Rate_Jahr VARCHAR(200),
 	Zahlungsweise VARCHAR(200)
 );
 
@@ -130,9 +130,10 @@ CREATE TABLE LV_ERROR (
 	Wertfaktor VARCHAR(200),
 	Vbeginn VARCHAR(200),
 	Laufzeit VARCHAR(200),
-	Rate_Monat VARCHAR(200),
-	Rate_Halbjahr VARCHAR(200),
-	Rate_Jahr VARCHAR(200),
+	Monatsrate VARCHAR(200),
+	Quartalsrate VARCHAR(200),
+	Halbjahresrate VARCHAR(200),
+	Jahresrate VARCHAR(200),
 	Beguenstigter VARCHAR(200),
 	BU VARCHAR(200),
 	Zahlungsweise VARCHAR(200)
@@ -143,11 +144,11 @@ CREATE TABLE KV_ERROR (
 	KuNr VARCHAR(200),
 	Art VARCHAR(200),
 	VBeginn VARCHAR(200),
-	Rate VARCHAR(200),
-	SB VARCHAR(200),
-	R1 VARCHAR(200),
-	R2 VARCHAR(200),
-	R3 VARCHAR(200)
+	Rate  VARCHAR(200),
+	SB  VARCHAR(200),
+	R1  VARCHAR(200),
+	R2  VARCHAR(200),
+	R3  VARCHAR(200)
 );
 
 CREATE TABLE KFZ_ERROR (
@@ -197,7 +198,4 @@ CREATE TABLE BU_ERROR (
 	Zahlungsweise VARCHAR(200)
 );
 
-CREATE TABLE METADATA (
-	Import_Table VARCHAR(200),
-	Integration_Time DATETIME
-);
+
