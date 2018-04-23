@@ -430,7 +430,7 @@
     <created_date>2018/04/23 15:42:38.494</created_date>
     <modified_user>-</modified_user>
     <modified_date>2018/04/23 15:42:38.494</modified_date>
-    <key_for_session_key/>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -476,7 +476,7 @@
   <order>
     <hop>
       <from>Kunden_KuNr</from>
-      <to>Join Rows (cartesian product) 2</to>
+      <to>Join Rows (cartesian product)</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -485,13 +485,43 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Join Rows (cartesian product) 2</from>
+      <from>Join Rows (cartesian product)</from>
       <to>Insert in H_KUNDEN</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>METADATA_DTS 2</from>
+      <from>METADATA_DTS</from>
+      <to>Join Rows (cartesian product)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add a checksum KuNr</from>
+      <to>Join Rows (cartesian product)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>KUNDE_persönliche_informationen</from>
       <to>Join Rows (cartesian product) 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>KUNDE_persönliche_informationen</from>
+      <to>Concat Fields</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Concat Fields</from>
+      <to>Add a checksum persönlicheInfo</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add a checksum persönlicheInfo</from>
+      <to>Join Rows (cartesian product) 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Join Rows (cartesian product) 2</from>
+      <to>Insert in S_KUNDE_PERSÖNLICHE_INFORMATION</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -499,10 +529,90 @@
       <to>Join Rows (cartesian product) 2</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>METADATA_DTS</from>
+      <to>Join Rows (cartesian product) 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>KUNDE_status</from>
+      <to>Join Rows (cartesian product) 2 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>KUNDE_status</from>
+      <to>Concat Fields 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Join Rows (cartesian product) 2 2</from>
+      <to>Insert in S_KUNDE_STATUS</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add a checksum status</from>
+      <to>Join Rows (cartesian product) 2 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Concat Fields 2</from>
+      <to>Add a checksum status</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>METADATA_DTS 2</from>
+      <to>Join Rows (cartesian product) 2 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Kunden_KuNr 2</from>
+      <to>Add a checksum KuNr 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add a checksum KuNr 2</from>
+      <to>Join Rows (cartesian product) 2 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>KUNDE_Adresse</from>
+      <to>Join Rows (cartesian product) 2 2 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>KUNDE_Adresse</from>
+      <to>Concat Fields 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Join Rows (cartesian product) 2 2 2</from>
+      <to>Insert in S_KUNDE_ADRESSE</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add a checksum adresse</from>
+      <to>Join Rows (cartesian product) 2 2 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Concat Fields 3</from>
+      <to>Add a checksum adresse</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>METADATA_DTS 2</from>
+      <to>Join Rows (cartesian product) 2 2 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add a checksum KuNr 2</from>
+      <to>Join Rows (cartesian product) 2 2 2</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
   <step>
-    <name>Kunden_KuNr</name>
-    <type>TableInput</type>
+    <name>Add a checksum KuNr</name>
+    <type>CheckSum</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -511,16 +621,15 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>integration_zone</connection>
-    <sql>SELECT
-  KuNr
-FROM STAMMDATEN_TRANSFORM
-</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
+    <checksumtype>MD5</checksumtype>
+    <resultfieldName>KuNr-Hash</resultfieldName>
+    <resultType>hexadecimal</resultType>
+    <compatibilityMode>N</compatibilityMode>
+    <fields>
+      <field>
+        <name>KuNr</name>
+      </field>
+    </fields>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -530,43 +639,7 @@ FROM STAMMDATEN_TRANSFORM
     </remotesteps>
     <GUI>
       <xloc>64</xloc>
-      <yloc>32</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Join Rows (cartesian product) 2</name>
-    <type>JoinRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <cache_size>500</cache_size>
-    <main/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue/>
-        <function>=</function>
-        <rightvalue/>
-      </condition>
-    </compare>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>256</xloc>
-      <yloc>32</yloc>
+      <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -606,7 +679,7 @@ FROM STAMMDATEN_TRANSFORM
         <name2/>
       </key>
       <key>
-        <name>KuNr_1</name>
+        <name>KuNr-Hash</name>
         <field>hash_key</field>
         <condition>=</condition>
         <name2/>
@@ -628,7 +701,7 @@ FROM STAMMDATEN_TRANSFORM
       </value>
       <value>
         <name>hash_key</name>
-        <rename>KuNr_1</rename>
+        <rename>KuNr-Hash</rename>
         <update>Y</update>
       </value>
     </lookup>
@@ -640,8 +713,831 @@ FROM STAMMDATEN_TRANSFORM
       </output>
     </remotesteps>
     <GUI>
-      <xloc>448</xloc>
+      <xloc>768</xloc>
       <yloc>32</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Join Rows (cartesian product)</name>
+    <type>JoinRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <cache_size>500</cache_size>
+    <main/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue/>
+        <function>=</function>
+        <rightvalue/>
+      </condition>
+    </compare>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>400</xloc>
+      <yloc>32</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Kunden_KuNr</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>integration_zone</connection>
+    <sql>SELECT
+  KuNr
+FROM STAMMDATEN_TRANSFORM
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>64</xloc>
+      <yloc>32</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>METADATA_DTS</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>integration_zone</connection>
+    <sql>SELECT
+  Import_Table
+, Integration_Time
+FROM METADATA
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>400</xloc>
+      <yloc>144</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>KUNDE_persönliche_informationen</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>integration_zone</connection>
+    <sql>SELECT
+ Name
+, Vorname
+, Vorname2
+, GebDatum
+, GebOrt
+, FamStand
+, AnzKinder
+FROM STAMMDATEN_TRANSFORM
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>64</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Join Rows (cartesian product) 2</name>
+    <type>JoinRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <cache_size>500</cache_size>
+    <main/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue/>
+        <function>=</function>
+        <rightvalue/>
+      </condition>
+    </compare>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>400</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Add a checksum persönlicheInfo</name>
+    <type>CheckSum</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <checksumtype>MD5</checksumtype>
+    <resultfieldName>persönlicheInfo-hash</resultfieldName>
+    <resultType>hexadecimal</resultType>
+    <compatibilityMode>N</compatibilityMode>
+    <fields>
+      <field>
+        <name>concat_persönliche_info</name>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>400</xloc>
+      <yloc>336</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Concat Fields</name>
+    <type>ConcatFields</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <separator>~</separator>
+    <enclosure>"</enclosure>
+    <enclosure_forced>N</enclosure_forced>
+    <enclosure_fix_disabled>N</enclosure_fix_disabled>
+    <header>N</header>
+    <footer>N</footer>
+    <format>DOS</format>
+    <compression>None</compression>
+    <encoding/>
+    <endedLine/>
+    <fileNameInField>N</fileNameInField>
+    <fileNameField/>
+    <create_parent_folder>Y</create_parent_folder>
+    <file>
+      <name>file</name>
+      <is_command>N</is_command>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>N</do_not_open_new_file_init>
+      <extention>txt</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>N</fast_dump>
+      <splitevery>0</splitevery>
+    </file>
+    <fields>
+      <field>
+        <name>Name</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>200</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Vorname</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>200</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Vorname2</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>200</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>GebDatum</name>
+        <type>Date</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>GebOrt</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>200</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>FamStand</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>200</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>AnzKinder</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>9</length>
+        <precision>0</precision>
+      </field>
+    </fields>
+    <ConcatFields>
+      <targetFieldName>concat_persönliche_info</targetFieldName>
+      <targetFieldLength>0</targetFieldLength>
+      <removeSelectedFields>N</removeSelectedFields>
+    </ConcatFields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>64</xloc>
+      <yloc>336</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Insert in S_KUNDE_PERSÖNLICHE_INFORMATION</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>dwh</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>S_KUNDE_PERSÖNLICHE_INFORMATION</table>
+      <key>
+        <name>Name</name>
+        <field>name</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Vorname</name>
+        <field>vorname_1</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Vorname2</name>
+        <field>vorname_2</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>GebDatum</name>
+        <field>geburtstag</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>GebOrt</name>
+        <field>geburtsort</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>FamStand</name>
+        <field>familien_stand</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>AnzKinder</name>
+        <field>anzahl_kinder</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>persönlicheInfo-hash</name>
+        <field>detail_hash_diff</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>KuNr-Hash</name>
+        <field>kunde_hash</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Import_Table</name>
+        <field>record_source</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Integration_Time</name>
+        <field>load_dts</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>name</name>
+        <rename>Name</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>vorname_1</name>
+        <rename>Vorname</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>vorname_2</name>
+        <rename>Vorname2</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>geburtstag</name>
+        <rename>GebDatum</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>geburtsort</name>
+        <rename>GebOrt</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>familien_stand</name>
+        <rename>FamStand</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>anzahl_kinder</name>
+        <rename>AnzKinder</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>detail_hash_diff</name>
+        <rename>persönlicheInfo-hash</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>kunde_hash</name>
+        <rename>KuNr-Hash</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>record_source</name>
+        <rename>Import_Table</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>load_dts</name>
+        <rename>Integration_Time</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>768</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>KUNDE_status</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>integration_zone</connection>
+    <sql>SELECT
+ Prio
+, AnzKinderMV
+, EhepartnerMV
+FROM STAMMDATEN_TRANSFORM
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>64</xloc>
+      <yloc>560</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Join Rows (cartesian product) 2 2</name>
+    <type>JoinRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <cache_size>500</cache_size>
+    <main/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue/>
+        <function>=</function>
+        <rightvalue/>
+      </condition>
+    </compare>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>400</xloc>
+      <yloc>560</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Add a checksum status</name>
+    <type>CheckSum</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <checksumtype>MD5</checksumtype>
+    <resultfieldName>status-hash</resultfieldName>
+    <resultType>hexadecimal</resultType>
+    <compatibilityMode>N</compatibilityMode>
+    <fields>
+      <field>
+        <name>concat_status</name>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>400</xloc>
+      <yloc>448</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Concat Fields 2</name>
+    <type>ConcatFields</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <separator>~</separator>
+    <enclosure>"</enclosure>
+    <enclosure_forced>N</enclosure_forced>
+    <enclosure_fix_disabled>N</enclosure_fix_disabled>
+    <header>N</header>
+    <footer>N</footer>
+    <format>DOS</format>
+    <compression>None</compression>
+    <encoding/>
+    <endedLine/>
+    <fileNameInField>N</fileNameInField>
+    <fileNameField/>
+    <create_parent_folder>Y</create_parent_folder>
+    <file>
+      <name>file</name>
+      <is_command>N</is_command>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>N</do_not_open_new_file_init>
+      <extention>txt</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>N</fast_dump>
+      <splitevery>0</splitevery>
+    </file>
+    <fields>
+      <field>
+        <name>Prio</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>AnzKinderMV</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>9</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>EhepartnerMV</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>1</length>
+        <precision>-1</precision>
+      </field>
+    </fields>
+    <ConcatFields>
+      <targetFieldName>concat_status</targetFieldName>
+      <targetFieldLength>0</targetFieldLength>
+      <removeSelectedFields>N</removeSelectedFields>
+    </ConcatFields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>64</xloc>
+      <yloc>448</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Insert in S_KUNDE_STATUS</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>dwh</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>S_KUNDE_STATUS</table>
+      <key>
+        <name>Prio</name>
+        <field>priorität</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>AnzKinderMV</name>
+        <field>anzahl_kinder_mv</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>EhepartnerMV</name>
+        <field>ehepartner_mv</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>status-hash</name>
+        <field>detail_hash_diff</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Import_Table</name>
+        <field>record_source</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Integration_Time</name>
+        <field>load_dts</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>KuNr-Hash</name>
+        <field>kunde_hash</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>record_source</name>
+        <rename>Import_Table</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>priorität</name>
+        <rename>Prio</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>load_dts</name>
+        <rename>Integration_Time</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>kunde_hash</name>
+        <rename>KuNr-Hash</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ehepartner_mv</name>
+        <rename>EhepartnerMV</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>detail_hash_diff</name>
+        <rename>status-hash</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>anzahl_kinder_mv</name>
+        <rename>AnzKinderMV</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>768</xloc>
+      <yloc>560</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -675,13 +1571,13 @@ FROM METADATA
       </output>
     </remotesteps>
     <GUI>
-      <xloc>256</xloc>
-      <yloc>144</yloc>
+      <xloc>400</xloc>
+      <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Add a checksum KuNr</name>
+    <name>Add a checksum KuNr 2</name>
     <type>CheckSum</type>
     <description/>
     <distribute>Y</distribute>
@@ -692,7 +1588,7 @@ FROM METADATA
       <schema_name/>
     </partitioning>
     <checksumtype>MD5</checksumtype>
-    <resultfieldName/>
+    <resultfieldName>KuNr-Hash</resultfieldName>
     <resultType>hexadecimal</resultType>
     <compatibilityMode>N</compatibilityMode>
     <fields>
@@ -708,8 +1604,521 @@ FROM METADATA
       </output>
     </remotesteps>
     <GUI>
+      <xloc>224</xloc>
+      <yloc>656</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Kunden_KuNr 2</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>integration_zone</connection>
+    <sql>SELECT
+  KuNr
+FROM STAMMDATEN_TRANSFORM
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>64</xloc>
-      <yloc>144</yloc>
+      <yloc>656</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>KUNDE_Adresse</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>integration_zone</connection>
+    <sql>SELECT
+ Strasse
+, HausNr
+, PLZ
+, Ort
+, TelPrivat
+, TelArbeit
+, TelMobil
+, Fax
+, Email1
+, Email2
+FROM STAMMDATEN_TRANSFORM
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>64</xloc>
+      <yloc>784</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Join Rows (cartesian product) 2 2 2</name>
+    <type>JoinRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <cache_size>500</cache_size>
+    <main/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue/>
+        <function>=</function>
+        <rightvalue/>
+      </condition>
+    </compare>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>400</xloc>
+      <yloc>784</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Add a checksum adresse</name>
+    <type>CheckSum</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <checksumtype>MD5</checksumtype>
+    <resultfieldName>adresse-hash</resultfieldName>
+    <resultType>hexadecimal</resultType>
+    <compatibilityMode>N</compatibilityMode>
+    <fields>
+      <field>
+        <name>concat_adresse</name>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>400</xloc>
+      <yloc>912</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Concat Fields 3</name>
+    <type>ConcatFields</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <separator>~</separator>
+    <enclosure>"</enclosure>
+    <enclosure_forced>N</enclosure_forced>
+    <enclosure_fix_disabled>N</enclosure_fix_disabled>
+    <header>N</header>
+    <footer>N</footer>
+    <format>DOS</format>
+    <compression>None</compression>
+    <encoding/>
+    <endedLine/>
+    <fileNameInField>N</fileNameInField>
+    <fileNameField/>
+    <create_parent_folder>Y</create_parent_folder>
+    <file>
+      <name>file</name>
+      <is_command>N</is_command>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>N</do_not_open_new_file_init>
+      <extention>txt</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>N</fast_dump>
+      <splitevery>0</splitevery>
+    </file>
+    <fields>
+      <field>
+        <name>Strasse</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>200</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>HausNr</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>200</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>PLZ</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>200</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Ort</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>200</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>TelPrivat</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>200</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>TelArbeit</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>200</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>TelMobil</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>200</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Fax</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>200</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Email1</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>200</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Email2</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>200</length>
+        <precision>-1</precision>
+      </field>
+    </fields>
+    <ConcatFields>
+      <targetFieldName>concat_adresse</targetFieldName>
+      <targetFieldLength>0</targetFieldLength>
+      <removeSelectedFields>N</removeSelectedFields>
+    </ConcatFields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>64</xloc>
+      <yloc>912</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Insert in S_KUNDE_ADRESSE</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>dwh</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>S_KUNDE_ADRESSE</table>
+      <key>
+        <name>Strasse</name>
+        <field>straße</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>HausNr</name>
+        <field>hausnummer</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>PLZ</name>
+        <field>plz</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Ort</name>
+        <field>ort</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>TelPrivat</name>
+        <field>telefon_privat</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>TelArbeit</name>
+        <field>telefon_arbeit</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>TelMobil</name>
+        <field>mobil</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Fax</name>
+        <field>fax</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Email1</name>
+        <field>email_1</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Email2</name>
+        <field>email_2</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>adresse-hash</name>
+        <field>detail_hash_diff</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Import_Table</name>
+        <field>record_source</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Integration_Time</name>
+        <field>load_dts</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>KuNr-Hash</name>
+        <field>kunde_hash</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>record_source</name>
+        <rename>Import_Table</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>load_dts</name>
+        <rename>Integration_Time</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>kunde_hash</name>
+        <rename>KuNr-Hash</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>straße</name>
+        <rename>Strasse</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>hausnummer</name>
+        <rename>HausNr</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>plz</name>
+        <rename>PLZ</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ort</name>
+        <rename>Ort</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>telefon_privat</name>
+        <rename>TelPrivat</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>telefon_arbeit</name>
+        <rename>TelArbeit</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>mobil</name>
+        <rename>TelMobil</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>fax</name>
+        <rename>Fax</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>email_1</name>
+        <rename>Email1</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>email_2</name>
+        <rename>Email2</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>detail_hash_diff</name>
+        <rename>adresse-hash</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>768</xloc>
+      <yloc>784</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

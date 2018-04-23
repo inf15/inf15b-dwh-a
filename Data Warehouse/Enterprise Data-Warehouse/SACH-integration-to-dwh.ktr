@@ -430,7 +430,7 @@
     <created_date>2018/04/23 15:44:34.904</created_date>
     <modified_user>-</modified_user>
     <modified_date>2018/04/23 15:44:34.904</modified_date>
-    <key_for_session_key/>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -476,33 +476,153 @@
   <order>
     <hop>
       <from>Sach_VNr</from>
-      <to>Join Rows (cartesian product) 2 2</to>
+      <to>Join Rows (cartesian product)</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Sach_VNr</from>
-      <to>Add a checksum VNr 2</to>
+      <to>Add a checksum VNr</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Join Rows (cartesian product) 2 2</from>
+      <from>Join Rows (cartesian product)</from>
       <to>Insert in H_SACH</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>METADATA_DTS 2 2</from>
-      <to>Join Rows (cartesian product) 2 2</to>
+      <from>METADATA_DTS</from>
+      <to>Join Rows (cartesian product)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add a checksum VNr</from>
+      <to>Join Rows (cartesian product)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>METADATA_DTS</from>
+      <to>Join Rows (cartesian product) 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add a checksum leistung</from>
+      <to>Join Rows (cartesian product) 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Concat Fields</from>
+      <to>Add a checksum leistung</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>SACH_leistung</from>
+      <to>Concat Fields</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>SACH_leistung</from>
+      <to>Join Rows (cartesian product) 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Join Rows (cartesian product) 2</from>
+      <to>Insert in S_SACH_LEISTUNG</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add a checksum VNr</from>
+      <to>Join Rows (cartesian product) 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>SACH_raten</from>
+      <to>Concat Fields 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>SACH_raten</from>
+      <to>Join Rows (cartesian product) 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Concat Fields 2</from>
+      <to>Add a checksum raten</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add a checksum raten</from>
+      <to>Join Rows (cartesian product) 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Join Rows (cartesian product) 3</from>
+      <to>Insert in S_SACH_RATEN</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sach_VNr 2</from>
+      <to>Add a checksum VNr 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Add a checksum VNr 2</from>
-      <to>Join Rows (cartesian product) 2 2</to>
+      <to>Join Rows (cartesian product) 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>METADATA_DTS 2</from>
+      <to>Join Rows (cartesian product) 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add a checksum VNr 2</from>
+      <to>Join Rows (cartesian product) 3 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>SACH_link</from>
+      <to>Add a checksum VNr 2 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add a checksum VNr 2</from>
+      <to>Concat Fields 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add a checksum VNr 2 2</from>
+      <to>Concat Fields 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Concat Fields 3</from>
+      <to>Add a checksum VNr 2 2 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add a checksum VNr 2 2 2</from>
+      <to>Join Rows (cartesian product) 3 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add a checksum VNr 2 2</from>
+      <to>Join Rows (cartesian product) 3 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>METADATA_DTS 2</from>
+      <to>Join Rows (cartesian product) 3 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Join Rows (cartesian product) 3 2</from>
+      <to>Insert in L_KUNDE_SACH</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Sach_VNr</name>
-    <type>TableInput</type>
+    <name>Add a checksum VNr</name>
+    <type>CheckSum</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -511,16 +631,15 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>integration_zone</connection>
-    <sql>SELECT
-  VNr
-FROM SACH_TRANSFORM
-</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
+    <checksumtype>MD5</checksumtype>
+    <resultfieldName>VNr-hash</resultfieldName>
+    <resultType>hexadecimal</resultType>
+    <compatibilityMode>N</compatibilityMode>
+    <fields>
+      <field>
+        <name>VNr</name>
+      </field>
+    </fields>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -530,43 +649,7 @@ FROM SACH_TRANSFORM
     </remotesteps>
     <GUI>
       <xloc>48</xloc>
-      <yloc>16</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Join Rows (cartesian product) 2 2</name>
-    <type>JoinRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <cache_size>500</cache_size>
-    <main/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue/>
-        <function>=</function>
-        <rightvalue/>
-      </condition>
-    </compare>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>240</xloc>
-      <yloc>16</yloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -640,13 +723,49 @@ FROM SACH_TRANSFORM
       </output>
     </remotesteps>
     <GUI>
-      <xloc>432</xloc>
+      <xloc>848</xloc>
       <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>METADATA_DTS 2 2</name>
+    <name>Join Rows (cartesian product)</name>
+    <type>JoinRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <cache_size>500</cache_size>
+    <main/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue/>
+        <function>=</function>
+        <rightvalue/>
+      </condition>
+    </compare>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>416</xloc>
+      <yloc>16</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>METADATA_DTS</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -675,8 +794,771 @@ FROM METADATA
       </output>
     </remotesteps>
     <GUI>
-      <xloc>240</xloc>
+      <xloc>416</xloc>
       <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sach_VNr</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>integration_zone</connection>
+    <sql>SELECT
+  VNr
+FROM SACH_TRANSFORM
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>48</xloc>
+      <yloc>16</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>SACH_leistung</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>integration_zone</connection>
+    <sql>SELECT
+ Art
+, VWert
+, VBeginn
+, Laufzeit
+, K_Frist
+FROM SACH_TRANSFORM
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>48</xloc>
+      <yloc>240</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Concat Fields</name>
+    <type>ConcatFields</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <separator>~</separator>
+    <enclosure>"</enclosure>
+    <enclosure_forced>N</enclosure_forced>
+    <enclosure_fix_disabled>N</enclosure_fix_disabled>
+    <header>N</header>
+    <footer>N</footer>
+    <format>DOS</format>
+    <compression>None</compression>
+    <encoding/>
+    <endedLine/>
+    <fileNameInField>N</fileNameInField>
+    <fileNameField/>
+    <create_parent_folder>Y</create_parent_folder>
+    <file>
+      <name>file</name>
+      <is_command>N</is_command>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>N</do_not_open_new_file_init>
+      <extention>txt</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>N</fast_dump>
+      <splitevery>0</splitevery>
+    </file>
+    <fields>
+      <field>
+        <name>Art</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>3</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>VWert</name>
+        <type>Number</type>
+        <format>0000000000.00</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>12</length>
+        <precision>2</precision>
+      </field>
+      <field>
+        <name>VBeginn</name>
+        <type>Date</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Laufzeit</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>9</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>K_Frist</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>9</length>
+        <precision>0</precision>
+      </field>
+    </fields>
+    <ConcatFields>
+      <targetFieldName>concat_leistung</targetFieldName>
+      <targetFieldLength>0</targetFieldLength>
+      <removeSelectedFields>N</removeSelectedFields>
+    </ConcatFields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>48</xloc>
+      <yloc>352</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Add a checksum leistung</name>
+    <type>CheckSum</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <checksumtype>MD5</checksumtype>
+    <resultfieldName>leistung-hash</resultfieldName>
+    <resultType>hexadecimal</resultType>
+    <compatibilityMode>N</compatibilityMode>
+    <fields>
+      <field>
+        <name>concat_leistung</name>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>416</xloc>
+      <yloc>352</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Join Rows (cartesian product) 2</name>
+    <type>JoinRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <cache_size>500</cache_size>
+    <main/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue/>
+        <function>=</function>
+        <rightvalue/>
+      </condition>
+    </compare>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>416</xloc>
+      <yloc>240</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Insert in S_SACH_LEISTUNG</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>dwh</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>S_SACH_LEISTUNG</table>
+      <key>
+        <name>Import_Table</name>
+        <field>record_source</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Integration_Time</name>
+        <field>load_dts</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Art</name>
+        <field>art</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>VWert</name>
+        <field>versicherungswert</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>VBeginn</name>
+        <field>versicherung_beginn</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Laufzeit</name>
+        <field>laufzeit</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>K_Frist</name>
+        <field>kündigungsfrist</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>leistung-hash</name>
+        <field>detail_hash_diff</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>VNr-hash</name>
+        <field>sach_hash</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>detail_hash_diff</name>
+        <rename>leistung-hash</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>record_source</name>
+        <rename>Import_Table</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>load_dts</name>
+        <rename>Integration_Time</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>art</name>
+        <rename>Art</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>versicherungswert</name>
+        <rename>VWert</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>kündigungsfrist</name>
+        <rename>K_Frist</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>laufzeit</name>
+        <rename>Laufzeit</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>versicherung_beginn</name>
+        <rename>VBeginn</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>sach_hash</name>
+        <rename>VNr-hash</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>848</xloc>
+      <yloc>240</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>SACH_raten</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>integration_zone</connection>
+    <sql>SELECT
+ Rate_Monat
+, Rate_Quartal
+, Rate_Jahr
+, Zahlungsweise
+FROM SACH_TRANSFORM
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>48</xloc>
+      <yloc>560</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Concat Fields 2</name>
+    <type>ConcatFields</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <separator>~</separator>
+    <enclosure>"</enclosure>
+    <enclosure_forced>N</enclosure_forced>
+    <enclosure_fix_disabled>N</enclosure_fix_disabled>
+    <header>N</header>
+    <footer>N</footer>
+    <format>DOS</format>
+    <compression>None</compression>
+    <encoding/>
+    <endedLine/>
+    <fileNameInField>N</fileNameInField>
+    <fileNameField/>
+    <create_parent_folder>Y</create_parent_folder>
+    <file>
+      <name>file</name>
+      <is_command>N</is_command>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>N</do_not_open_new_file_init>
+      <extention>txt</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>N</fast_dump>
+      <splitevery>0</splitevery>
+    </file>
+    <fields>
+      <field>
+        <name>Rate_Monat</name>
+        <type>Number</type>
+        <format>0000000000.00</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>12</length>
+        <precision>2</precision>
+      </field>
+      <field>
+        <name>Rate_Quartal</name>
+        <type>Number</type>
+        <format>0000000000.00</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>12</length>
+        <precision>2</precision>
+      </field>
+      <field>
+        <name>Rate_Jahr</name>
+        <type>Number</type>
+        <format>0000000000.00</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>12</length>
+        <precision>2</precision>
+      </field>
+      <field>
+        <name>Zahlungsweise</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>1</length>
+        <precision>-1</precision>
+      </field>
+    </fields>
+    <ConcatFields>
+      <targetFieldName>concat_raten</targetFieldName>
+      <targetFieldLength>0</targetFieldLength>
+      <removeSelectedFields>N</removeSelectedFields>
+    </ConcatFields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>48</xloc>
+      <yloc>448</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Add a checksum raten</name>
+    <type>CheckSum</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <checksumtype>MD5</checksumtype>
+    <resultfieldName>raten-hash</resultfieldName>
+    <resultType>hexadecimal</resultType>
+    <compatibilityMode>N</compatibilityMode>
+    <fields>
+      <field>
+        <name>concat_raten</name>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>416</xloc>
+      <yloc>448</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Join Rows (cartesian product) 3</name>
+    <type>JoinRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <cache_size>500</cache_size>
+    <main/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue/>
+        <function>=</function>
+        <rightvalue/>
+      </condition>
+    </compare>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>416</xloc>
+      <yloc>560</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Insert in S_SACH_RATEN</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>dwh</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>S_SACH_RATEN</table>
+      <key>
+        <name>Rate_Monat</name>
+        <field>monat_rate</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Rate_Quartal</name>
+        <field>quartal_rate</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Rate_Jahr</name>
+        <field>jahr_rate</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Zahlungsweise</name>
+        <field>zahlungsweise</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>raten-hash</name>
+        <field>detail_hash_diff</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>VNr-hash</name>
+        <field>sach_hash</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Import_Table</name>
+        <field>record_source</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Integration_Time</name>
+        <field>load_dts</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>record_source</name>
+        <rename>Import_Table</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>load_dts</name>
+        <rename>Integration_Time</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>sach_hash</name>
+        <rename>VNr-hash</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>monat_rate</name>
+        <rename>Rate_Monat</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>quartal_rate</name>
+        <rename>Rate_Quartal</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>jahr_rate</name>
+        <rename>Rate_Jahr</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>zahlungsweise</name>
+        <rename>Zahlungsweise</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>detail_hash_diff</name>
+        <rename>raten-hash</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>848</xloc>
+      <yloc>560</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>METADATA_DTS 2</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>integration_zone</connection>
+    <sql>SELECT
+  Import_Table
+, Integration_Time
+FROM METADATA
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>448</xloc>
+      <yloc>672</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -691,8 +1573,8 @@ FROM METADATA
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <checksumtype>CRC32</checksumtype>
-    <resultfieldName/>
+    <checksumtype>MD5</checksumtype>
+    <resultfieldName>VNr-hash</resultfieldName>
     <resultType>hexadecimal</resultType>
     <compatibilityMode>N</compatibilityMode>
     <fields>
@@ -708,8 +1590,350 @@ FROM METADATA
       </output>
     </remotesteps>
     <GUI>
+      <xloc>256</xloc>
+      <yloc>672</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sach_VNr 2</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>integration_zone</connection>
+    <sql>SELECT
+  VNr
+FROM SACH_TRANSFORM
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>48</xloc>
-      <yloc>128</yloc>
+      <yloc>672</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Insert in L_KUNDE_SACH</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>dwh</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>L_KUNDE_SACH</table>
+      <key>
+        <name>VNr-hash</name>
+        <field>sach_hash</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>KuNr-hash</name>
+        <field>kunde_hash</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>hash-hash</name>
+        <field>hash_key</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Import_Table</name>
+        <field>record_source</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Integration_Time</name>
+        <field>load_dts</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>hash_key</name>
+        <rename>hash-hash</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>kunde_hash</name>
+        <rename>KuNr-hash</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>sach_hash</name>
+        <rename>VNr-hash</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>load_dts</name>
+        <rename>Integration_Time</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>record_source</name>
+        <rename>Import_Table</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>864</xloc>
+      <yloc>944</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Join Rows (cartesian product) 3 2</name>
+    <type>JoinRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <cache_size>500</cache_size>
+    <main/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue/>
+        <function>=</function>
+        <rightvalue/>
+      </condition>
+    </compare>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>544</xloc>
+      <yloc>944</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>SACH_link</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>integration_zone</connection>
+    <sql>SELECT
+	KuNr
+FROM SACH_TRANSFORM
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>48</xloc>
+      <yloc>944</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Add a checksum VNr 2 2</name>
+    <type>CheckSum</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <checksumtype>MD5</checksumtype>
+    <resultfieldName>KuNr-hash</resultfieldName>
+    <resultType>hexadecimal</resultType>
+    <compatibilityMode>N</compatibilityMode>
+    <fields>
+      <field>
+        <name>KuNr</name>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>256</xloc>
+      <yloc>944</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Add a checksum VNr 2 2 2</name>
+    <type>CheckSum</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <checksumtype>MD5</checksumtype>
+    <resultfieldName>hash-hash</resultfieldName>
+    <resultType>hexadecimal</resultType>
+    <compatibilityMode>N</compatibilityMode>
+    <fields>
+      <field>
+        <name>concat_hashes</name>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>368</xloc>
+      <yloc>864</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Concat Fields 3</name>
+    <type>ConcatFields</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <separator>~</separator>
+    <enclosure>"</enclosure>
+    <enclosure_forced>N</enclosure_forced>
+    <enclosure_fix_disabled>N</enclosure_fix_disabled>
+    <header>N</header>
+    <footer>N</footer>
+    <format>DOS</format>
+    <compression>None</compression>
+    <encoding/>
+    <endedLine/>
+    <fileNameInField>N</fileNameInField>
+    <fileNameField/>
+    <create_parent_folder>Y</create_parent_folder>
+    <file>
+      <name>file</name>
+      <is_command>N</is_command>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>N</do_not_open_new_file_init>
+      <extention>txt</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>N</fast_dump>
+      <splitevery>0</splitevery>
+    </file>
+    <fields>
+      <field>
+        <name>KuNr-hash</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>VNr-hash</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+    </fields>
+    <ConcatFields>
+      <targetFieldName>concat_hashes</targetFieldName>
+      <targetFieldLength>0</targetFieldLength>
+      <removeSelectedFields>N</removeSelectedFields>
+    </ConcatFields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>256</xloc>
+      <yloc>816</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
