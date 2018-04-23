@@ -437,57 +437,6 @@
   <notepads>
   </notepads>
   <connection>
-    <name>landing_zone</name>
-    <server>localhost</server>
-    <type>MARIADB</type>
-    <access>Native</access>
-    <database>landing_zone</database>
-    <port>3306</port>
-    <username>root</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute>
-        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>IS_CLUSTERED</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>PORT_NUMBER</code>
-        <attribute>3306</attribute>
-      </attribute>
-      <attribute>
-        <code>PRESERVE_RESERVED_WORD_CASE</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>QUOTE_ALL_FIELDS</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>USE_POOLING</code>
-        <attribute>N</attribute>
-      </attribute>
-    </attributes>
-  </connection>
-  <connection>
     <name>integration_zone</name>
     <server>localhost</server>
     <type>MARIADB</type>
@@ -538,93 +487,434 @@
       </attribute>
     </attributes>
   </connection>
+  <connection>
+    <name>landing_zone</name>
+    <server>localhost</server>
+    <type>MARIADB</type>
+    <access>Native</access>
+    <database>landing_zone</database>
+    <port>3306</port>
+    <username>root</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>3306</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
   <order>
     <hop>
-      <from>STAMMDATEN_LANDING 2</from>
-      <to>CONVERT</to>
+      <from>KFZ_LANDING</from>
+      <to>KFZ Datatype Conversion</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>CONVERT</from>
-      <to>STAMMDATEN_TRANSFORM 2</to>
+      <from>SACH_LANDING</from>
+      <to>SACH Datatype Conversion</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>STAMMDATEN_LANDING 1</from>
-      <to>STAMMDATEN_TRANSFORM 1</to>
+      <from>SACH Datatype Conversion</from>
+      <to>SACH_ERROR</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>LV_LANDING 1</from>
-      <to>LV_TRANSFORM 1</to>
+      <from>KFZ Datatype Conversion</from>
+      <to>KFZ_ERROR</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>LV_LANDING 2</from>
-      <to>CONVERT 2</to>
+      <from>Stammdaten Validator</from>
+      <to>STAMMDATEN_TRANSFORM</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>CONVERT 2</from>
-      <to>LV_TRANSFORM 2</to>
+      <from>Stammdaten Validator</from>
+      <to>STAMMDATEN_ERROR</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>KV_LANDING 1</from>
-      <to>KV_TRANSFORM 1</to>
+      <from>LV Validator</from>
+      <to>LV_TRANSFORM</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>KV_LANDING 2</from>
-      <to>CONVERT 3</to>
+      <from>LV Validator</from>
+      <to>LV_ERROR</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>CONVERT 3</from>
-      <to>KV_TRANSFORM 2</to>
+      <from>LV Datatype Conversion</from>
+      <to>LV Validator</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>KFZ_LANDING 1</from>
-      <to>KFZ_TRANSFORM 1</to>
+      <from>LV Datatype Conversion</from>
+      <to>LV_ERROR</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>KV_LANDING</from>
+      <to>KV Datatype Conversion</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>KFZ_LANDING 2</from>
-      <to>CONVERT 4</to>
+      <from>KV Datatype Conversion</from>
+      <to>KV_ERROR</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>CONVERT 4</from>
-      <to>KFZ_TRANSFORM 2</to>
+      <from>KV Validator</from>
+      <to>KV_ERROR</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>SACH_LANDING 1</from>
-      <to>SACH_TRANSFORM 1</to>
+      <from>KV Validator</from>
+      <to>KV_TRANSFORM</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>SACH_LANDING 2</from>
-      <to>CONVERT 5</to>
+      <from>KV Datatype Conversion</from>
+      <to>KV Validator</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>CONVERT 5</from>
-      <to>SACH_TRANSFORM 2</to>
+      <from>KFZ Datatype Conversion</from>
+      <to>KFZ Validator</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>BU_LANDING 1</from>
-      <to>BU_TRANSFORM 1</to>
+      <from>KFZ Validator</from>
+      <to>KFZ_TRANSFORM</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>KFZ Validator</from>
+      <to>KFZ_ERROR</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>SACH Datatype Conversion</from>
+      <to>SACH Validator</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>SACH Validator</from>
+      <to>SACH_TRANSFORM</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>SACH Validator</from>
+      <to>SACH_ERROR</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>BU_LANDING</from>
+      <to>BU Validator</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>BU Validator</from>
+      <to>BU_TRANSFORM</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>BU Validator</from>
+      <to>BU_ERROR</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Stammdaten Datatype Conversion</from>
+      <to>Stammdaten Validator</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Stammdaten Datatype Conversion</from>
+      <to>STAMMDATEN_ERROR</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>STAMMDATEN_LANDING</from>
+      <to>Stammdaten Datatype Conversion</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>LV_LANDING</from>
+      <to>LV Datatype Conversion</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>BU_LANDING 1</name>
-    <type>TableInput</type>
+    <name>BU Validator</name>
+    <type>Validator</type>
     <description/>
     <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <validate_all>Y</validate_all>
+    <concat_errors>N</concat_errors>
+    <concat_separator>|</concat_separator>
+    <validator_field>
+      <name>VNr</name>
+      <validation_name>VNr</validation_name>
+      <max_length/>
+      <min_length/>
+      <null_allowed>Y</null_allowed>
+      <only_null_allowed>N</only_null_allowed>
+      <only_numeric_allowed>N</only_numeric_allowed>
+      <data_type>None</data_type>
+      <data_type_verified>N</data_type_verified>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <max_value/>
+      <min_value/>
+      <start_string/>
+      <end_string/>
+      <start_string_not_allowed/>
+      <end_string_not_allowed/>
+      <regular_expression>BU\d\d\d\d\d</regular_expression>
+      <regular_expression_not_allowed/>
+      <error_code/>
+      <error_description/>
+      <is_sourcing_values>N</is_sourcing_values>
+      <sourcing_step/>
+      <sourcing_field/>
+      <allowed_value/>
+    </validator_field>
+    <validator_field>
+      <name>KuNr</name>
+      <validation_name>KuNr</validation_name>
+      <max_length/>
+      <min_length/>
+      <null_allowed>Y</null_allowed>
+      <only_null_allowed>N</only_null_allowed>
+      <only_numeric_allowed>N</only_numeric_allowed>
+      <data_type>None</data_type>
+      <data_type_verified>N</data_type_verified>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <max_value/>
+      <min_value/>
+      <start_string/>
+      <end_string/>
+      <start_string_not_allowed/>
+      <end_string_not_allowed/>
+      <regular_expression>K\d\d\d\d\d</regular_expression>
+      <regular_expression_not_allowed/>
+      <error_code/>
+      <error_description/>
+      <is_sourcing_values>N</is_sourcing_values>
+      <sourcing_step/>
+      <sourcing_field/>
+      <allowed_value/>
+    </validator_field>
+    <validator_field>
+      <name>Zahlungsweise</name>
+      <validation_name>Zahlungsweise</validation_name>
+      <max_length/>
+      <min_length/>
+      <null_allowed>Y</null_allowed>
+      <only_null_allowed>N</only_null_allowed>
+      <only_numeric_allowed>N</only_numeric_allowed>
+      <data_type>None</data_type>
+      <data_type_verified>N</data_type_verified>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <max_value/>
+      <min_value/>
+      <start_string/>
+      <end_string/>
+      <start_string_not_allowed/>
+      <end_string_not_allowed/>
+      <regular_expression>wie zugeh. LV</regular_expression>
+      <regular_expression_not_allowed/>
+      <error_code/>
+      <error_description/>
+      <is_sourcing_values>N</is_sourcing_values>
+      <sourcing_step/>
+      <sourcing_field/>
+      <allowed_value/>
+    </validator_field>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>432</xloc>
+      <yloc>880</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>BU_ERROR</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>integration_zone</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>bu_error</table>
+      <key>
+        <name>VNr</name>
+        <field>VNr</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>KuNr</name>
+        <field>KuNr</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Wertbetrag</name>
+        <field>Wertbetrag</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Rate_Monat</name>
+        <field>Rate_Monat</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Rate_Quartal</name>
+        <field>Rate_Quartal</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Rate_Halbjahr</name>
+        <field>Rate_Halbjahr</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Rate_Jahr</name>
+        <field>Rate_Jahr</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Zahlungsweise</name>
+        <field>Zahlungsweise</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>VNr</name>
+        <rename>VNr</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>KuNr</name>
+        <rename>KuNr</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Wertbetrag</name>
+        <rename>Wertbetrag</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Rate_Monat</name>
+        <rename>Rate_Monat</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Rate_Quartal</name>
+        <rename>Rate_Quartal</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Rate_Halbjahr</name>
+        <rename>Rate_Halbjahr</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Rate_Jahr</name>
+        <rename>Rate_Jahr</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Zahlungsweise</name>
+        <rename>Zahlungsweise</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>624</xloc>
+      <yloc>944</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>BU_LANDING</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -646,13 +936,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>80</xloc>
-      <yloc>816</yloc>
+      <xloc>96</xloc>
+      <yloc>880</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>BU_TRANSFORM 1</name>
+    <name>BU_TRANSFORM</name>
     <type>InsertUpdate</type>
     <description/>
     <distribute>Y</distribute>
@@ -765,13 +1055,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>240</xloc>
-      <yloc>816</yloc>
+      <xloc>624</xloc>
+      <yloc>880</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>CONVERT</name>
+    <name>KFZ Datatype Conversion</name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
@@ -783,151 +1073,76 @@
     </partitioning>
     <fields>
       <field>
-        <name>GebDatum</name>
+        <name>VNr</name>
+        <rename/>
       </field>
-      <select_unspecified>N</select_unspecified>
-      <meta>
-        <name>GebDatum</name>
-        <rename>GebDatum</rename>
-        <type>Date</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask>yyyy-MM-dd HH:mm:ss</conversion_mask>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>240</xloc>
-      <yloc>80</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>CONVERT 2</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
       <field>
-        <name>Vbeginn</name>
+        <name>KuNr</name>
+        <rename/>
       </field>
-      <select_unspecified>N</select_unspecified>
-      <meta>
-        <name>Vbeginn</name>
-        <rename>Vbeginn</rename>
-        <type>Date</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask>yyyyMMdd</conversion_mask>
-        <date_format_lenient>true</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>240</xloc>
-      <yloc>240</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>CONVERT 3</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
       <field>
-        <name>VBeginn</name>
+        <name>KFZ_KZ</name>
+        <rename/>
       </field>
-      <select_unspecified>N</select_unspecified>
-      <meta>
-        <name>VBeginn</name>
-        <rename>VBeginn</rename>
-        <type>Date</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask>yyyyMMdd</conversion_mask>
-        <date_format_lenient>true</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>240</xloc>
-      <yloc>400</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>CONVERT 4</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
+      <field>
+        <name>Art</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Neuwert</name>
+        <rename/>
+      </field>
       <field>
         <name>Erstzulassung</name>
+        <rename/>
       </field>
       <field>
         <name>VBeginn</name>
+        <rename/>
+      </field>
+      <field>
+        <name>HP_Monat</name>
+        <rename/>
+      </field>
+      <field>
+        <name>TK_Monat</name>
+        <rename/>
+      </field>
+      <field>
+        <name>VK_Monat</name>
+        <rename/>
+      </field>
+      <field>
+        <name>HPSatz</name>
+        <rename/>
+      </field>
+      <field>
+        <name>TKSatz</name>
+        <rename/>
+      </field>
+      <field>
+        <name>VKSatz</name>
+        <rename/>
+      </field>
+      <field>
+        <name>SB_TK</name>
+        <rename/>
+      </field>
+      <field>
+        <name>SB_VK</name>
+        <rename/>
+      </field>
+      <field>
+        <name>VK</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Schadenssumme_Sach</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Schadenssumme_Person</name>
+        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
       <meta>
@@ -937,7 +1152,7 @@
         <length>-2</length>
         <precision>-2</precision>
         <conversion_mask>yyyyMMdd</conversion_mask>
-        <date_format_lenient>true</date_format_lenient>
+        <date_format_lenient>false</date_format_lenient>
         <date_format_locale/>
         <date_format_timezone/>
         <lenient_string_to_number>false</lenient_string_to_number>
@@ -964,43 +1179,268 @@
         <currency_symbol/>
         <storage_type/>
       </meta>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>240</xloc>
-      <yloc>560</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>CONVERT 5</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>VBeginn</name>
-      </field>
-      <select_unspecified>N</select_unspecified>
       <meta>
-        <name>VBeginn</name>
-        <rename>VBeginn</rename>
-        <type>Date</type>
-        <length>-2</length>
+        <name>VNr</name>
+        <rename>VNr</rename>
+        <type>None</type>
+        <length>200</length>
         <precision>-2</precision>
-        <conversion_mask>yyyy-MM-dd HH:mm:ss</conversion_mask>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>KuNr</name>
+        <rename>KuNr</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>KFZ_KZ</name>
+        <rename>KFZ_KZ</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Art</name>
+        <rename>Art</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Neuwert</name>
+        <rename>Neuwert</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>HP_Monat</name>
+        <rename>HP_Monat</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>TK_Monat</name>
+        <rename>TK_Monat</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>VK_Monat</name>
+        <rename>VK_Monat</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>HPSatz</name>
+        <rename>HPSatz</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>TKSatz</name>
+        <rename>TKSatz</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>VKSatz</name>
+        <rename>VKSatz</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>SB_TK</name>
+        <rename>SB_TK</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>SB_VK</name>
+        <rename>SB_VK</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>VK</name>
+        <rename>VK</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Schadenssumme_Sach</name>
+        <rename>Schadenssumme_Sach</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Schadenssumme_Person</name>
+        <rename>Schadenssumme_Person</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
         <date_format_lenient>false</date_format_lenient>
         <date_format_locale/>
         <date_format_timezone/>
@@ -1020,14 +1460,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>240</xloc>
-      <yloc>720</yloc>
+      <xloc>272</xloc>
+      <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>KFZ_LANDING 1</name>
-    <type>TableInput</type>
+    <name>KFZ Validator</name>
+    <type>Validator</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1036,13 +1476,121 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>landing_zone</connection>
-    <sql>SELECT * FROM KFZ_LANDING</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
+    <validate_all>Y</validate_all>
+    <concat_errors>N</concat_errors>
+    <concat_separator>|</concat_separator>
+    <validator_field>
+      <name>VNr</name>
+      <validation_name>VNr</validation_name>
+      <max_length/>
+      <min_length/>
+      <null_allowed>Y</null_allowed>
+      <only_null_allowed>N</only_null_allowed>
+      <only_numeric_allowed>N</only_numeric_allowed>
+      <data_type>None</data_type>
+      <data_type_verified>N</data_type_verified>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <max_value/>
+      <min_value/>
+      <start_string/>
+      <end_string/>
+      <start_string_not_allowed/>
+      <end_string_not_allowed/>
+      <regular_expression>KFZ\d\d\d\d\d</regular_expression>
+      <regular_expression_not_allowed/>
+      <error_code/>
+      <error_description/>
+      <is_sourcing_values>N</is_sourcing_values>
+      <sourcing_step/>
+      <sourcing_field/>
+      <allowed_value/>
+    </validator_field>
+    <validator_field>
+      <name>KuNr</name>
+      <validation_name>KuNr</validation_name>
+      <max_length/>
+      <min_length/>
+      <null_allowed>Y</null_allowed>
+      <only_null_allowed>N</only_null_allowed>
+      <only_numeric_allowed>N</only_numeric_allowed>
+      <data_type>None</data_type>
+      <data_type_verified>N</data_type_verified>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <max_value/>
+      <min_value/>
+      <start_string/>
+      <end_string/>
+      <start_string_not_allowed/>
+      <end_string_not_allowed/>
+      <regular_expression>K\d\d\d\d\d</regular_expression>
+      <regular_expression_not_allowed/>
+      <error_code/>
+      <error_description/>
+      <is_sourcing_values>N</is_sourcing_values>
+      <sourcing_step/>
+      <sourcing_field/>
+      <allowed_value/>
+    </validator_field>
+    <validator_field>
+      <name>Art</name>
+      <validation_name>Art</validation_name>
+      <max_length/>
+      <min_length/>
+      <null_allowed>Y</null_allowed>
+      <only_null_allowed>N</only_null_allowed>
+      <only_numeric_allowed>N</only_numeric_allowed>
+      <data_type>None</data_type>
+      <data_type_verified>N</data_type_verified>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <max_value/>
+      <min_value/>
+      <start_string/>
+      <end_string/>
+      <start_string_not_allowed/>
+      <end_string_not_allowed/>
+      <regular_expression>[PSVKC]</regular_expression>
+      <regular_expression_not_allowed/>
+      <error_code/>
+      <error_description/>
+      <is_sourcing_values>N</is_sourcing_values>
+      <sourcing_step/>
+      <sourcing_field/>
+      <allowed_value/>
+    </validator_field>
+    <validator_field>
+      <name>VK</name>
+      <validation_name>VK</validation_name>
+      <max_length/>
+      <min_length/>
+      <null_allowed>Y</null_allowed>
+      <only_null_allowed>N</only_null_allowed>
+      <only_numeric_allowed>N</only_numeric_allowed>
+      <data_type>None</data_type>
+      <data_type_verified>N</data_type_verified>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <max_value/>
+      <min_value/>
+      <start_string/>
+      <end_string/>
+      <start_string_not_allowed/>
+      <end_string_not_allowed/>
+      <regular_expression>[JN]</regular_expression>
+      <regular_expression_not_allowed/>
+      <error_code/>
+      <error_description/>
+      <is_sourcing_values>N</is_sourcing_values>
+      <sourcing_step/>
+      <sourcing_field/>
+      <allowed_value/>
+    </validator_field>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1051,44 +1599,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>80</xloc>
-      <yloc>496</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>KFZ_LANDING 2</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>landing_zone</connection>
-    <sql>SELECT * FROM KFZ_LANDING</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>80</xloc>
+      <xloc>432</xloc>
       <yloc>560</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>KFZ_TRANSFORM 1</name>
+    <name>KFZ_ERROR</name>
     <type>InsertUpdate</type>
     <description/>
     <distribute>Y</distribute>
@@ -1103,7 +1620,7 @@
     <update_bypassed>N</update_bypassed>
     <lookup>
       <schema/>
-      <table>KFZ_TRANSFORM</table>
+      <table>KFZ_ERROR</table>
       <key>
         <name>VNr</name>
         <field>VNr</field>
@@ -1131,6 +1648,18 @@
       <key>
         <name>Neuwert</name>
         <field>Neuwert</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Erstzulassung</name>
+        <field>Erstzulassung</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>VBeginn</name>
+        <field>VBeginn</field>
         <condition>=</condition>
         <name2/>
       </key>
@@ -1226,6 +1755,16 @@
         <update>Y</update>
       </value>
       <value>
+        <name>Erstzulassung</name>
+        <rename>Erstzulassung</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>VBeginn</name>
+        <rename>VBeginn</rename>
+        <update>Y</update>
+      </value>
+      <value>
         <name>HP_Monat</name>
         <rename>HP_Monat</rename>
         <update>Y</update>
@@ -1289,13 +1828,44 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>240</xloc>
-      <yloc>496</yloc>
+      <xloc>624</xloc>
+      <yloc>624</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>KFZ_TRANSFORM 2</name>
+    <name>KFZ_LANDING</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>landing_zone</connection>
+    <sql>SELECT * FROM KFZ_LANDING</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>96</xloc>
+      <yloc>592</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>KFZ_TRANSFORM</name>
     <type>InsertUpdate</type>
     <description/>
     <distribute>Y</distribute>
@@ -1312,6 +1882,36 @@
       <schema/>
       <table>KFZ_TRANSFORM</table>
       <key>
+        <name>VNr</name>
+        <field>VNr</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>KuNr</name>
+        <field>KuNr</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>KFZ_KZ</name>
+        <field>KFZ_KZ</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Art</name>
+        <field>Art</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Neuwert</name>
+        <field>Neuwert</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
         <name>Erstzulassung</name>
         <field>Erstzulassung</field>
         <condition>=</condition>
@@ -1323,6 +1923,97 @@
         <condition>=</condition>
         <name2/>
       </key>
+      <key>
+        <name>HP_Monat</name>
+        <field>HP_Monat</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>TK_Monat</name>
+        <field>TK_Monat</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>VK_Monat</name>
+        <field>VK_Monat</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>HPSatz</name>
+        <field>HPSatz</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>TKSatz</name>
+        <field>TKSatz</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>VKSatz</name>
+        <field>VKSatz</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>SB_TK</name>
+        <field>SB_TK</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>SB_VK</name>
+        <field>SB_VK</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>VK</name>
+        <field>VK</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Schadenssumme_Sach</name>
+        <field>Schadenssumme_Sach</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Schadenssumme_Person</name>
+        <field>Schadenssumme_Person</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>VNr</name>
+        <rename>VNr</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>KuNr</name>
+        <rename>KuNr</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>KFZ_KZ</name>
+        <rename>KFZ_KZ</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Art</name>
+        <rename>Art</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Neuwert</name>
+        <rename>Neuwert</rename>
+        <update>Y</update>
+      </value>
       <value>
         <name>Erstzulassung</name>
         <rename>Erstzulassung</rename>
@@ -1331,6 +2022,61 @@
       <value>
         <name>VBeginn</name>
         <rename>VBeginn</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>HP_Monat</name>
+        <rename>HP_Monat</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>TK_Monat</name>
+        <rename>TK_Monat</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>VK_Monat</name>
+        <rename>VK_Monat</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>HPSatz</name>
+        <rename>HPSatz</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>TKSatz</name>
+        <rename>TKSatz</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>VKSatz</name>
+        <rename>VKSatz</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>SB_TK</name>
+        <rename>SB_TK</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>SB_VK</name>
+        <rename>SB_VK</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>VK</name>
+        <rename>VK</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Schadenssumme_Sach</name>
+        <rename>Schadenssumme_Sach</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Schadenssumme_Person</name>
+        <rename>Schadenssumme_Person</rename>
         <update>Y</update>
       </value>
     </lookup>
@@ -1342,14 +2088,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>400</xloc>
+      <xloc>624</xloc>
       <yloc>560</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>KV_LANDING 1</name>
-    <type>TableInput</type>
+    <name>KV Datatype Conversion</name>
+    <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1358,13 +2104,189 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>landing_zone</connection>
-    <sql>SELECT * FROM KV_LANDING</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
+    <fields>
+      <field>
+        <name>VNr</name>
+      </field>
+      <field>
+        <name>KuNr</name>
+      </field>
+      <field>
+        <name>Art</name>
+      </field>
+      <field>
+        <name>VBeginn</name>
+      </field>
+      <field>
+        <name>Rate</name>
+      </field>
+      <field>
+        <name>SB</name>
+      </field>
+      <field>
+        <name>R1</name>
+      </field>
+      <field>
+        <name>R2</name>
+      </field>
+      <field>
+        <name>R3</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>VNr</name>
+        <rename>VNr</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>KuNr</name>
+        <rename>KuNr</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Art</name>
+        <rename>Art</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>VBeginn</name>
+        <rename>VBeginn</rename>
+        <type>Date</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask>yyyyMMdd</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Rate</name>
+        <rename>Rate</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>SB</name>
+        <rename>SB</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>R1</name>
+        <rename>R1</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>R2</name>
+        <rename>R2</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>R3</name>
+        <rename>R3</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+    </fields>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1373,14 +2295,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>80</xloc>
-      <yloc>336</yloc>
+      <xloc>272</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>KV_LANDING 2</name>
-    <type>TableInput</type>
+    <name>KV Validator</name>
+    <type>Validator</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1389,13 +2311,93 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>landing_zone</connection>
-    <sql>SELECT * FROM KV_LANDING</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
+    <validate_all>Y</validate_all>
+    <concat_errors>N</concat_errors>
+    <concat_separator>|</concat_separator>
+    <validator_field>
+      <name>Art</name>
+      <validation_name>Art</validation_name>
+      <max_length/>
+      <min_length/>
+      <null_allowed>N</null_allowed>
+      <only_null_allowed>N</only_null_allowed>
+      <only_numeric_allowed>N</only_numeric_allowed>
+      <data_type>None</data_type>
+      <data_type_verified>N</data_type_verified>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <max_value/>
+      <min_value/>
+      <start_string/>
+      <end_string/>
+      <start_string_not_allowed/>
+      <end_string_not_allowed/>
+      <regular_expression>((EB)?(ZB)?(ZA)?(CA)?(ZV)?(Z\d+)?|KV\d+)</regular_expression>
+      <regular_expression_not_allowed/>
+      <error_code/>
+      <error_description/>
+      <is_sourcing_values>N</is_sourcing_values>
+      <sourcing_step/>
+      <sourcing_field/>
+      <allowed_value/>
+    </validator_field>
+    <validator_field>
+      <name>VNr</name>
+      <validation_name>VNr</validation_name>
+      <max_length/>
+      <min_length/>
+      <null_allowed>Y</null_allowed>
+      <only_null_allowed>N</only_null_allowed>
+      <only_numeric_allowed>N</only_numeric_allowed>
+      <data_type>None</data_type>
+      <data_type_verified>N</data_type_verified>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <max_value/>
+      <min_value/>
+      <start_string/>
+      <end_string/>
+      <start_string_not_allowed/>
+      <end_string_not_allowed/>
+      <regular_expression>K\d\d\d\d\d\d</regular_expression>
+      <regular_expression_not_allowed/>
+      <error_code/>
+      <error_description/>
+      <is_sourcing_values>N</is_sourcing_values>
+      <sourcing_step/>
+      <sourcing_field/>
+      <allowed_value/>
+    </validator_field>
+    <validator_field>
+      <name>KuNr</name>
+      <validation_name>KuNr</validation_name>
+      <max_length/>
+      <min_length/>
+      <null_allowed>Y</null_allowed>
+      <only_null_allowed>N</only_null_allowed>
+      <only_numeric_allowed>N</only_numeric_allowed>
+      <data_type>None</data_type>
+      <data_type_verified>N</data_type_verified>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <max_value/>
+      <min_value/>
+      <start_string/>
+      <end_string/>
+      <start_string_not_allowed/>
+      <end_string_not_allowed/>
+      <regular_expression>K\d\d\d\d\d</regular_expression>
+      <regular_expression_not_allowed/>
+      <error_code/>
+      <error_description/>
+      <is_sourcing_values>N</is_sourcing_values>
+      <sourcing_step/>
+      <sourcing_field/>
+      <allowed_value/>
+    </validator_field>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1404,13 +2406,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>80</xloc>
+      <xloc>432</xloc>
       <yloc>400</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>KV_TRANSFORM 1</name>
+    <name>KV_ERROR</name>
     <type>InsertUpdate</type>
     <description/>
     <distribute>Y</distribute>
@@ -1425,7 +2427,7 @@
     <update_bypassed>N</update_bypassed>
     <lookup>
       <schema/>
-      <table>KV_TRANSFORM</table>
+      <table>KV_ERROR</table>
       <key>
         <name>VNr</name>
         <field>VNr</field>
@@ -1441,6 +2443,12 @@
       <key>
         <name>Art</name>
         <field>Art</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>VBeginn</name>
+        <field>VBeginn</field>
         <condition>=</condition>
         <name2/>
       </key>
@@ -1490,6 +2498,11 @@
         <update>Y</update>
       </value>
       <value>
+        <name>VBeginn</name>
+        <rename>VBeginn</rename>
+        <update>Y</update>
+      </value>
+      <value>
         <name>Rate</name>
         <rename>Rate</rename>
         <update>Y</update>
@@ -1523,13 +2536,44 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>240</xloc>
-      <yloc>336</yloc>
+      <xloc>624</xloc>
+      <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>KV_TRANSFORM 2</name>
+    <name>KV_LANDING</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>landing_zone</connection>
+    <sql>SELECT * FROM KV_LANDING</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>96</xloc>
+      <yloc>432</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>KV_TRANSFORM</name>
     <type>InsertUpdate</type>
     <description/>
     <distribute>Y</distribute>
@@ -1546,14 +2590,102 @@
       <schema/>
       <table>KV_TRANSFORM</table>
       <key>
+        <name>VNr</name>
+        <field>VNr</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>KuNr</name>
+        <field>KuNr</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Art</name>
+        <field>Art</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
         <name>VBeginn</name>
         <field>VBeginn</field>
         <condition>=</condition>
         <name2/>
       </key>
+      <key>
+        <name>Rate</name>
+        <field>Rate</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>SB</name>
+        <field>SB</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>R1</name>
+        <field>R1</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>R2</name>
+        <field>R2</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>R3</name>
+        <field>R3</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>VNr</name>
+        <rename>VNr</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>KuNr</name>
+        <rename>KuNr</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Art</name>
+        <rename>Art</rename>
+        <update>Y</update>
+      </value>
       <value>
         <name>VBeginn</name>
         <rename>VBeginn</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Rate</name>
+        <rename>Rate</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>SB</name>
+        <rename>SB</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>R1</name>
+        <rename>R1</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>R2</name>
+        <rename>R2</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>R3</name>
+        <rename>R3</rename>
         <update>Y</update>
       </value>
     </lookup>
@@ -1565,14 +2697,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>400</xloc>
+      <xloc>624</xloc>
       <yloc>400</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>LV_LANDING 1</name>
-    <type>TableInput</type>
+    <name>LV Datatype Conversion</name>
+    <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1581,13 +2713,261 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>landing_zone</connection>
-    <sql>SELECT * FROM LV_LANDING</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
+    <fields>
+      <field>
+        <name>VNr</name>
+        <rename/>
+      </field>
+      <field>
+        <name>KuNr</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Wertfaktor</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Vbeginn</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Laufzeit</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Monatsrate</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Quartalsrate</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Halbjahresrate</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Jahresrate</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Beguenstigter</name>
+        <rename/>
+      </field>
+      <field>
+        <name>BU</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Zahlungsweise</name>
+        <rename/>
+      </field>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>VNr</name>
+        <rename>VNr</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>KuNr</name>
+        <rename>KuNr</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Wertfaktor</name>
+        <rename>Wertfaktor</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Vbeginn</name>
+        <rename>Vbeginn</rename>
+        <type>Date</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask>yyyyMMdd</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Laufzeit</name>
+        <rename>Laufzeit</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Monatsrate</name>
+        <rename>Monatsrate</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Quartalsrate</name>
+        <rename>Quartalsrate</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Halbjahresrate</name>
+        <rename>Halbjahresrate</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Jahresrate</name>
+        <rename>Jahresrate</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Beguenstigter</name>
+        <rename>Beguenstigter</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>BU</name>
+        <rename>BU</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Zahlungsweise</name>
+        <rename>Zahlungsweise</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+    </fields>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1596,14 +2976,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>80</xloc>
-      <yloc>176</yloc>
+      <xloc>272</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>LV_LANDING 2</name>
-    <type>TableInput</type>
+    <name>LV Validator</name>
+    <type>Validator</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1612,13 +2992,149 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>landing_zone</connection>
-    <sql>SELECT * FROM LV_LANDING</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
+    <validate_all>Y</validate_all>
+    <concat_errors>N</concat_errors>
+    <concat_separator>|</concat_separator>
+    <validator_field>
+      <name>Beguenstigter</name>
+      <validation_name>Begünstigter</validation_name>
+      <max_length/>
+      <min_length/>
+      <null_allowed>Y</null_allowed>
+      <only_null_allowed>N</only_null_allowed>
+      <only_numeric_allowed>N</only_numeric_allowed>
+      <data_type>None</data_type>
+      <data_type_verified>N</data_type_verified>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <max_value/>
+      <min_value/>
+      <start_string/>
+      <end_string/>
+      <start_string_not_allowed/>
+      <end_string_not_allowed/>
+      <regular_expression>(EP|EG|NN)</regular_expression>
+      <regular_expression_not_allowed/>
+      <error_code>11</error_code>
+      <error_description>Begünstigter in Flaschem Format</error_description>
+      <is_sourcing_values>N</is_sourcing_values>
+      <sourcing_step/>
+      <sourcing_field/>
+      <allowed_value/>
+    </validator_field>
+    <validator_field>
+      <name>KuNr</name>
+      <validation_name>KuNr</validation_name>
+      <max_length/>
+      <min_length/>
+      <null_allowed>Y</null_allowed>
+      <only_null_allowed>N</only_null_allowed>
+      <only_numeric_allowed>N</only_numeric_allowed>
+      <data_type>None</data_type>
+      <data_type_verified>N</data_type_verified>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <max_value/>
+      <min_value/>
+      <start_string/>
+      <end_string/>
+      <start_string_not_allowed/>
+      <end_string_not_allowed/>
+      <regular_expression>K\d\d\d\d\d</regular_expression>
+      <regular_expression_not_allowed/>
+      <error_code>14</error_code>
+      <error_description>KuNr im falschen Format</error_description>
+      <is_sourcing_values>N</is_sourcing_values>
+      <sourcing_step/>
+      <sourcing_field/>
+      <allowed_value/>
+    </validator_field>
+    <validator_field>
+      <name>VNr</name>
+      <validation_name>VNr</validation_name>
+      <max_length/>
+      <min_length/>
+      <null_allowed>Y</null_allowed>
+      <only_null_allowed>N</only_null_allowed>
+      <only_numeric_allowed>N</only_numeric_allowed>
+      <data_type>None</data_type>
+      <data_type_verified>N</data_type_verified>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <max_value/>
+      <min_value/>
+      <start_string/>
+      <end_string/>
+      <start_string_not_allowed/>
+      <end_string_not_allowed/>
+      <regular_expression>LV\d\d\d\d\d</regular_expression>
+      <regular_expression_not_allowed/>
+      <error_code>15</error_code>
+      <error_description>VNr im falschen Format</error_description>
+      <is_sourcing_values>N</is_sourcing_values>
+      <sourcing_step/>
+      <sourcing_field/>
+      <allowed_value/>
+    </validator_field>
+    <validator_field>
+      <name>Zahlungsweise</name>
+      <validation_name>Zahlungsweise</validation_name>
+      <max_length/>
+      <min_length/>
+      <null_allowed>Y</null_allowed>
+      <only_null_allowed>N</only_null_allowed>
+      <only_numeric_allowed>N</only_numeric_allowed>
+      <data_type>None</data_type>
+      <data_type_verified>N</data_type_verified>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <max_value/>
+      <min_value/>
+      <start_string/>
+      <end_string/>
+      <start_string_not_allowed/>
+      <end_string_not_allowed/>
+      <regular_expression>[JHQM]</regular_expression>
+      <regular_expression_not_allowed/>
+      <error_code/>
+      <error_description/>
+      <is_sourcing_values>N</is_sourcing_values>
+      <sourcing_step/>
+      <sourcing_field/>
+      <allowed_value/>
+    </validator_field>
+    <validator_field>
+      <name>BU</name>
+      <validation_name>BU</validation_name>
+      <max_length/>
+      <min_length/>
+      <null_allowed>Y</null_allowed>
+      <only_null_allowed>N</only_null_allowed>
+      <only_numeric_allowed>N</only_numeric_allowed>
+      <data_type>None</data_type>
+      <data_type_verified>N</data_type_verified>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <max_value/>
+      <min_value/>
+      <start_string/>
+      <end_string/>
+      <start_string_not_allowed/>
+      <end_string_not_allowed/>
+      <regular_expression>[JN]</regular_expression>
+      <regular_expression_not_allowed/>
+      <error_code/>
+      <error_description/>
+      <is_sourcing_values>N</is_sourcing_values>
+      <sourcing_step/>
+      <sourcing_field/>
+      <allowed_value/>
+    </validator_field>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1627,13 +3143,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>80</xloc>
+      <xloc>432</xloc>
       <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>LV_TRANSFORM 1</name>
+    <name>LV_ERROR</name>
     <type>InsertUpdate</type>
     <description/>
     <distribute>Y</distribute>
@@ -1648,7 +3164,7 @@
     <update_bypassed>N</update_bypassed>
     <lookup>
       <schema/>
-      <table>LV_TRANSFORM</table>
+      <table>LV_ERROR</table>
       <key>
         <name>VNr</name>
         <field>VNr</field>
@@ -1664,6 +3180,12 @@
       <key>
         <name>Wertfaktor</name>
         <field>Wertfaktor</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Vbeginn</name>
+        <field>Vbeginn</field>
         <condition>=</condition>
         <name2/>
       </key>
@@ -1731,6 +3253,11 @@
         <update>Y</update>
       </value>
       <value>
+        <name>Vbeginn</name>
+        <rename>Vbeginn</rename>
+        <update>Y</update>
+      </value>
+      <value>
         <name>Laufzeit</name>
         <rename>Laufzeit</rename>
         <update>Y</update>
@@ -1779,13 +3306,44 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>240</xloc>
-      <yloc>176</yloc>
+      <xloc>624</xloc>
+      <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>LV_TRANSFORM 2</name>
+    <name>LV_LANDING</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>landing_zone</connection>
+    <sql>SELECT * FROM LV_LANDING</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>96</xloc>
+      <yloc>272</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>LV_TRANSFORM</name>
     <type>InsertUpdate</type>
     <description/>
     <distribute>Y</distribute>
@@ -1802,14 +3360,135 @@
       <schema/>
       <table>LV_TRANSFORM</table>
       <key>
+        <name>VNr</name>
+        <field>VNr</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>KuNr</name>
+        <field>KuNr</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Wertfaktor</name>
+        <field>Wertfaktor</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
         <name>Vbeginn</name>
         <field>Vbeginn</field>
         <condition>=</condition>
         <name2/>
       </key>
+      <key>
+        <name>Laufzeit</name>
+        <field>Laufzeit</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Monatsrate</name>
+        <field>Monatsrate</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Quartalsrate</name>
+        <field>Quartalsrate</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Halbjahresrate</name>
+        <field>Halbjahresrate</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Jahresrate</name>
+        <field>Jahresrate</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Beguenstigter</name>
+        <field>Beguenstigter</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>BU</name>
+        <field>BU</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Zahlungsweise</name>
+        <field>Zahlungsweise</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>VNr</name>
+        <rename>VNr</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>KuNr</name>
+        <rename>KuNr</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Wertfaktor</name>
+        <rename>Wertfaktor</rename>
+        <update>Y</update>
+      </value>
       <value>
         <name>Vbeginn</name>
         <rename>Vbeginn</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Laufzeit</name>
+        <rename>Laufzeit</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Monatsrate</name>
+        <rename>Monatsrate</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Quartalsrate</name>
+        <rename>Quartalsrate</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Halbjahresrate</name>
+        <rename>Halbjahresrate</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Jahresrate</name>
+        <rename>Jahresrate</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Beguenstigter</name>
+        <rename>Beguenstigter</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>BU</name>
+        <rename>BU</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Zahlungsweise</name>
+        <rename>Zahlungsweise</rename>
         <update>Y</update>
       </value>
     </lookup>
@@ -1821,14 +3500,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>400</xloc>
+      <xloc>624</xloc>
       <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>SACH_LANDING 1</name>
-    <type>TableInput</type>
+    <name>SACH Datatype Conversion</name>
+    <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1837,13 +3516,249 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>landing_zone</connection>
-    <sql>SELECT * FROM SACH_LANDING</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
+    <fields>
+      <field>
+        <name>VNr</name>
+      </field>
+      <field>
+        <name>KuNr</name>
+      </field>
+      <field>
+        <name>Art</name>
+      </field>
+      <field>
+        <name>VWert</name>
+      </field>
+      <field>
+        <name>VBeginn</name>
+      </field>
+      <field>
+        <name>Laufzeit</name>
+      </field>
+      <field>
+        <name>K_Frist</name>
+      </field>
+      <field>
+        <name>Rate_Monat</name>
+      </field>
+      <field>
+        <name>Rate_Quartal</name>
+      </field>
+      <field>
+        <name>Rate_Halbjahr</name>
+      </field>
+      <field>
+        <name>Rate_Jahr</name>
+      </field>
+      <field>
+        <name>Zahlungsweise</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>VBeginn</name>
+        <rename>VBeginn</rename>
+        <type>Date</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>yyyy-MM-dd HH:mm:ss</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>VNr</name>
+        <rename>VNr</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>KuNr</name>
+        <rename>KuNr</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Art</name>
+        <rename>Art</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>VWert</name>
+        <rename>VWert</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Laufzeit</name>
+        <rename>Laufzeit</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>K_Frist</name>
+        <rename>K_Frist</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Rate_Monat</name>
+        <rename>Rate_Monat</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Rate_Quartal</name>
+        <rename>Rate_Quartal</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Rate_Halbjahr</name>
+        <rename>Rate_Halbjahr</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Rate_Jahr</name>
+        <rename>Rate_Jahr</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Zahlungsweise</name>
+        <rename>Zahlungsweise</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+    </fields>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1852,14 +3767,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>80</xloc>
-      <yloc>656</yloc>
+      <xloc>272</xloc>
+      <yloc>752</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>SACH_LANDING 2</name>
-    <type>TableInput</type>
+    <name>SACH Validator</name>
+    <type>Validator</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1868,13 +3783,121 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>landing_zone</connection>
-    <sql>SELECT * FROM SACH_LANDING</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
+    <validate_all>Y</validate_all>
+    <concat_errors>N</concat_errors>
+    <concat_separator>|</concat_separator>
+    <validator_field>
+      <name>VNr</name>
+      <validation_name>VNr</validation_name>
+      <max_length/>
+      <min_length/>
+      <null_allowed>Y</null_allowed>
+      <only_null_allowed>N</only_null_allowed>
+      <only_numeric_allowed>N</only_numeric_allowed>
+      <data_type>None</data_type>
+      <data_type_verified>N</data_type_verified>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <max_value/>
+      <min_value/>
+      <start_string/>
+      <end_string/>
+      <start_string_not_allowed/>
+      <end_string_not_allowed/>
+      <regular_expression>((GVV)|(GLA)|(HR)|(HRG)|(STH))\d\d\d\d\d</regular_expression>
+      <regular_expression_not_allowed/>
+      <error_code/>
+      <error_description/>
+      <is_sourcing_values>N</is_sourcing_values>
+      <sourcing_step/>
+      <sourcing_field/>
+      <allowed_value/>
+    </validator_field>
+    <validator_field>
+      <name>KuNr</name>
+      <validation_name>KuNr</validation_name>
+      <max_length/>
+      <min_length/>
+      <null_allowed>Y</null_allowed>
+      <only_null_allowed>N</only_null_allowed>
+      <only_numeric_allowed>N</only_numeric_allowed>
+      <data_type>None</data_type>
+      <data_type_verified>N</data_type_verified>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <max_value/>
+      <min_value/>
+      <start_string/>
+      <end_string/>
+      <start_string_not_allowed/>
+      <end_string_not_allowed/>
+      <regular_expression>K\d\d\d\d\d</regular_expression>
+      <regular_expression_not_allowed/>
+      <error_code/>
+      <error_description/>
+      <is_sourcing_values>N</is_sourcing_values>
+      <sourcing_step/>
+      <sourcing_field/>
+      <allowed_value/>
+    </validator_field>
+    <validator_field>
+      <name>Art</name>
+      <validation_name>Art</validation_name>
+      <max_length/>
+      <min_length/>
+      <null_allowed>Y</null_allowed>
+      <only_null_allowed>N</only_null_allowed>
+      <only_numeric_allowed>N</only_numeric_allowed>
+      <data_type>None</data_type>
+      <data_type_verified>N</data_type_verified>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <max_value/>
+      <min_value/>
+      <start_string/>
+      <end_string/>
+      <start_string_not_allowed/>
+      <end_string_not_allowed/>
+      <regular_expression>(GLA)|(GVV)|(HRG)|(HR)|(STH)</regular_expression>
+      <regular_expression_not_allowed/>
+      <error_code/>
+      <error_description/>
+      <is_sourcing_values>N</is_sourcing_values>
+      <sourcing_step/>
+      <sourcing_field/>
+      <allowed_value/>
+    </validator_field>
+    <validator_field>
+      <name>Zahlungsweise</name>
+      <validation_name>Zahlungsweise</validation_name>
+      <max_length/>
+      <min_length/>
+      <null_allowed>Y</null_allowed>
+      <only_null_allowed>N</only_null_allowed>
+      <only_numeric_allowed>N</only_numeric_allowed>
+      <data_type>None</data_type>
+      <data_type_verified>N</data_type_verified>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <max_value/>
+      <min_value/>
+      <start_string/>
+      <end_string/>
+      <start_string_not_allowed/>
+      <end_string_not_allowed/>
+      <regular_expression>[JHQM]</regular_expression>
+      <regular_expression_not_allowed/>
+      <error_code/>
+      <error_description/>
+      <is_sourcing_values>N</is_sourcing_values>
+      <sourcing_step/>
+      <sourcing_field/>
+      <allowed_value/>
+    </validator_field>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1883,13 +3906,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>80</xloc>
+      <xloc>432</xloc>
       <yloc>720</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>SACH_TRANSFORM 1</name>
+    <name>SACH_ERROR</name>
     <type>InsertUpdate</type>
     <description/>
     <distribute>Y</distribute>
@@ -1904,7 +3927,7 @@
     <update_bypassed>N</update_bypassed>
     <lookup>
       <schema/>
-      <table>SACH_TRANSFORM</table>
+      <table>SACH_ERROR</table>
       <key>
         <name>VNr</name>
         <field>VNr</field>
@@ -1926,6 +3949,12 @@
       <key>
         <name>VWert</name>
         <field>VWert</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>VBeginn</name>
+        <field>VBeginn</field>
         <condition>=</condition>
         <name2/>
       </key>
@@ -1992,6 +4021,11 @@
         <update>Y</update>
       </value>
       <value>
+        <name>VBeginn</name>
+        <rename>VBeginn</rename>
+        <update>Y</update>
+      </value>
+      <value>
         <name>Laufzeit</name>
         <rename>Laufzeit</rename>
         <update>Y</update>
@@ -2035,13 +4069,44 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>240</xloc>
-      <yloc>656</yloc>
+      <xloc>624</xloc>
+      <yloc>784</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>SACH_TRANSFORM 2</name>
+    <name>SACH_LANDING</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>landing_zone</connection>
+    <sql>SELECT * FROM SACH_LANDING</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>96</xloc>
+      <yloc>752</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>SACH_TRANSFORM</name>
     <type>InsertUpdate</type>
     <description/>
     <distribute>Y</distribute>
@@ -2058,14 +4123,135 @@
       <schema/>
       <table>SACH_TRANSFORM</table>
       <key>
+        <name>VNr</name>
+        <field>VNr</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>KuNr</name>
+        <field>KuNr</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Art</name>
+        <field>Art</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>VWert</name>
+        <field>VWert</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
         <name>VBeginn</name>
         <field>VBeginn</field>
         <condition>=</condition>
         <name2/>
       </key>
+      <key>
+        <name>Laufzeit</name>
+        <field>Laufzeit</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>K_Frist</name>
+        <field>K_Frist</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Rate_Monat</name>
+        <field>Rate_Monat</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Rate_Quartal</name>
+        <field>Rate_Quartal</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Rate_Halbjahr</name>
+        <field>Rate_Halbjahr</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Rate_Jahr</name>
+        <field>Rate_Jahr</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Zahlungsweise</name>
+        <field>Zahlungsweise</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>VNr</name>
+        <rename>VNr</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>KuNr</name>
+        <rename>KuNr</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Art</name>
+        <rename>Art</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>VWert</name>
+        <rename>VWert</rename>
+        <update>Y</update>
+      </value>
       <value>
         <name>VBeginn</name>
         <rename>VBeginn</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Laufzeit</name>
+        <rename>Laufzeit</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>K_Frist</name>
+        <rename>K_Frist</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Rate_Monat</name>
+        <rename>Rate_Monat</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Rate_Quartal</name>
+        <rename>Rate_Quartal</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Rate_Halbjahr</name>
+        <rename>Rate_Halbjahr</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Rate_Jahr</name>
+        <rename>Rate_Jahr</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Zahlungsweise</name>
+        <rename>Zahlungsweise</rename>
         <update>Y</update>
       </value>
     </lookup>
@@ -2077,75 +4263,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>400</xloc>
+      <xloc>624</xloc>
       <yloc>720</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>STAMMDATEN_LANDING 1</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>landing_zone</connection>
-    <sql>SELECT * FROM STAMMDATEN_LANDING</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>80</xloc>
-      <yloc>16</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>STAMMDATEN_LANDING 2</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>landing_zone</connection>
-    <sql>SELECT * FROM STAMMDATEN_LANDING</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>80</xloc>
-      <yloc>80</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>STAMMDATEN_TRANSFORM 1</name>
+    <name>STAMMDATEN_ERROR</name>
     <type>InsertUpdate</type>
     <description/>
     <distribute>Y</distribute>
@@ -2160,7 +4284,7 @@
     <update_bypassed>N</update_bypassed>
     <lookup>
       <schema/>
-      <table>STAMMDATEN_TRANSFORM</table>
+      <table>STAMMDATEN_ERROR</table>
       <key>
         <name>KuNr</name>
         <field>KuNr</field>
@@ -2182,6 +4306,12 @@
       <key>
         <name>Vorname2</name>
         <field>Vorname2</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>GebDatum</name>
+        <field>GebDatum</field>
         <condition>=</condition>
         <name2/>
       </key>
@@ -2302,6 +4432,11 @@
         <update>Y</update>
       </value>
       <value>
+        <name>GebDatum</name>
+        <rename>GebDatum</rename>
+        <update>Y</update>
+      </value>
+      <value>
         <name>GebOrt</name>
         <rename>GebOrt</rename>
         <update>Y</update>
@@ -2390,13 +4525,44 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>240</xloc>
-      <yloc>16</yloc>
+      <xloc>624</xloc>
+      <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>STAMMDATEN_TRANSFORM 2</name>
+    <name>STAMMDATEN_LANDING</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>landing_zone</connection>
+    <sql>SELECT * FROM STAMMDATEN_LANDING</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>96</xloc>
+      <yloc>112</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>STAMMDATEN_TRANSFORM</name>
     <type>InsertUpdate</type>
     <description/>
     <distribute>Y</distribute>
@@ -2413,14 +4579,234 @@
       <schema/>
       <table>STAMMDATEN_TRANSFORM</table>
       <key>
+        <name>KuNr</name>
+        <field>KuNr</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Name</name>
+        <field>Name</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Vorname</name>
+        <field>Vorname</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Vorname2</name>
+        <field>Vorname2</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
         <name>GebDatum</name>
         <field>GebDatum</field>
         <condition>=</condition>
         <name2/>
       </key>
+      <key>
+        <name>GebOrt</name>
+        <field>GebOrt</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Strasse</name>
+        <field>Strasse</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>HausNr</name>
+        <field>HausNr</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>PLZ</name>
+        <field>PLZ</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Ort</name>
+        <field>Ort</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>TelPrivat</name>
+        <field>TelPrivat</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>TelArbeit</name>
+        <field>TelArbeit</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>TelMobil</name>
+        <field>TelMobil</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Fax</name>
+        <field>Fax</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Email1</name>
+        <field>Email1</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Email2</name>
+        <field>Email2</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Prio</name>
+        <field>Prio</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>FamStand</name>
+        <field>FamStand</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>AnzKinder</name>
+        <field>AnzKinder</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>AnzKinderMV</name>
+        <field>AnzKinderMV</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>EhepartnerMV</name>
+        <field>EhepartnerMV</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>KuNr</name>
+        <rename>KuNr</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Name</name>
+        <rename>Name</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Vorname</name>
+        <rename>Vorname</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Vorname2</name>
+        <rename>Vorname2</rename>
+        <update>Y</update>
+      </value>
       <value>
         <name>GebDatum</name>
         <rename>GebDatum</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>GebOrt</name>
+        <rename>GebOrt</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Strasse</name>
+        <rename>Strasse</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>HausNr</name>
+        <rename>HausNr</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>PLZ</name>
+        <rename>PLZ</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Ort</name>
+        <rename>Ort</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>TelPrivat</name>
+        <rename>TelPrivat</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>TelArbeit</name>
+        <rename>TelArbeit</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>TelMobil</name>
+        <rename>TelMobil</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Fax</name>
+        <rename>Fax</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Email1</name>
+        <rename>Email1</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Email2</name>
+        <rename>Email2</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Prio</name>
+        <rename>Prio</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>FamStand</name>
+        <rename>FamStand</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>AnzKinder</name>
+        <rename>AnzKinder</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>AnzKinderMV</name>
+        <rename>AnzKinderMV</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>EhepartnerMV</name>
+        <rename>EhepartnerMV</rename>
         <update>Y</update>
       </value>
     </lookup>
@@ -2432,12 +4818,707 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>400</xloc>
+      <xloc>624</xloc>
       <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
+  <step>
+    <name>Stammdaten Validator</name>
+    <type>Validator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <validate_all>Y</validate_all>
+    <concat_errors>N</concat_errors>
+    <concat_separator>|</concat_separator>
+    <validator_field>
+      <name>KuNr</name>
+      <validation_name>KuNr</validation_name>
+      <max_length/>
+      <min_length/>
+      <null_allowed>N</null_allowed>
+      <only_null_allowed>N</only_null_allowed>
+      <only_numeric_allowed>N</only_numeric_allowed>
+      <data_type>Number</data_type>
+      <data_type_verified>N</data_type_verified>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <max_value/>
+      <min_value/>
+      <start_string/>
+      <end_string/>
+      <start_string_not_allowed/>
+      <end_string_not_allowed/>
+      <regular_expression>K\d\d\d\d\d</regular_expression>
+      <regular_expression_not_allowed/>
+      <error_code>1</error_code>
+      <error_description>Ungültige Kundennummer</error_description>
+      <is_sourcing_values>N</is_sourcing_values>
+      <sourcing_step/>
+      <sourcing_field/>
+      <allowed_value/>
+    </validator_field>
+    <validator_field>
+      <name>EhepartnerMV</name>
+      <validation_name>EhepartnerMV</validation_name>
+      <max_length/>
+      <min_length/>
+      <null_allowed>Y</null_allowed>
+      <only_null_allowed>N</only_null_allowed>
+      <only_numeric_allowed>N</only_numeric_allowed>
+      <data_type>None</data_type>
+      <data_type_verified>N</data_type_verified>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <max_value/>
+      <min_value/>
+      <start_string/>
+      <end_string/>
+      <start_string_not_allowed/>
+      <end_string_not_allowed/>
+      <regular_expression>J|N</regular_expression>
+      <regular_expression_not_allowed/>
+      <error_code>03</error_code>
+      <error_description>EhepartnerMV wrong format</error_description>
+      <is_sourcing_values>N</is_sourcing_values>
+      <sourcing_step/>
+      <sourcing_field/>
+      <allowed_value/>
+    </validator_field>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>432</xloc>
+      <yloc>80</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Stammdaten Datatype Conversion</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>KuNr</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Name</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Vorname</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Vorname2</name>
+        <rename/>
+      </field>
+      <field>
+        <name>GebDatum</name>
+        <rename/>
+      </field>
+      <field>
+        <name>GebOrt</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Strasse</name>
+        <rename/>
+      </field>
+      <field>
+        <name>HausNr</name>
+        <rename/>
+      </field>
+      <field>
+        <name>PLZ</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Ort</name>
+        <rename/>
+      </field>
+      <field>
+        <name>TelPrivat</name>
+        <rename/>
+      </field>
+      <field>
+        <name>TelArbeit</name>
+        <rename/>
+      </field>
+      <field>
+        <name>TelMobil</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Fax</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Email1</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Email2</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Prio</name>
+        <rename/>
+      </field>
+      <field>
+        <name>FamStand</name>
+        <rename/>
+      </field>
+      <field>
+        <name>AnzKinder</name>
+        <rename/>
+      </field>
+      <field>
+        <name>AnzKinderMV</name>
+        <rename/>
+      </field>
+      <field>
+        <name>EhepartnerMV</name>
+        <rename/>
+      </field>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>KuNr</name>
+        <rename>KuNr</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Name</name>
+        <rename>Name</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Vorname</name>
+        <rename>Vorname</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Vorname2</name>
+        <rename>Vorname2</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>GebDatum</name>
+        <rename>GebDatum</rename>
+        <type>Date</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask>yyyy-MM-dd HH:mm:ss</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>GebOrt</name>
+        <rename>GebOrt</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Strasse</name>
+        <rename>Strasse</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>HausNr</name>
+        <rename>HausNr</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>PLZ</name>
+        <rename>PLZ</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Ort</name>
+        <rename>Ort</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>TelPrivat</name>
+        <rename>TelPrivat</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>TelArbeit</name>
+        <rename>TelArbeit</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>TelMobil</name>
+        <rename>TelMobil</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Fax</name>
+        <rename>Fax</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Email1</name>
+        <rename>Email1</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Email2</name>
+        <rename>Email2</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Prio</name>
+        <rename>Prio</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>FamStand</name>
+        <rename>FamStand</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>AnzKinder</name>
+        <rename>AnzKinder</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>AnzKinderMV</name>
+        <rename>AnzKinderMV</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>EhepartnerMV</name>
+        <rename>EhepartnerMV</rename>
+        <type>None</type>
+        <length>200</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>272</xloc>
+      <yloc>112</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
   <step_error_handling>
+    <error>
+      <source_step>BU Validator</source_step>
+      <target_step>BU_ERROR</target_step>
+      <is_enabled>Y</is_enabled>
+      <nr_valuename/>
+      <descriptions_valuename/>
+      <fields_valuename/>
+      <codes_valuename/>
+      <max_errors/>
+      <max_pct_errors/>
+      <min_pct_rows/>
+    </error>
+    <error>
+      <source_step>KFZ Datatype Conversion</source_step>
+      <target_step>KFZ_ERROR</target_step>
+      <is_enabled>Y</is_enabled>
+      <nr_valuename/>
+      <descriptions_valuename/>
+      <fields_valuename/>
+      <codes_valuename/>
+      <max_errors/>
+      <max_pct_errors/>
+      <min_pct_rows/>
+    </error>
+    <error>
+      <source_step>KFZ Validator</source_step>
+      <target_step>KFZ_ERROR</target_step>
+      <is_enabled>Y</is_enabled>
+      <nr_valuename/>
+      <descriptions_valuename/>
+      <fields_valuename/>
+      <codes_valuename/>
+      <max_errors/>
+      <max_pct_errors/>
+      <min_pct_rows/>
+    </error>
+    <error>
+      <source_step>KV Datatype Conversion</source_step>
+      <target_step>KV_ERROR</target_step>
+      <is_enabled>Y</is_enabled>
+      <nr_valuename/>
+      <descriptions_valuename/>
+      <fields_valuename/>
+      <codes_valuename/>
+      <max_errors/>
+      <max_pct_errors/>
+      <min_pct_rows/>
+    </error>
+    <error>
+      <source_step>KV Validator</source_step>
+      <target_step>KV_ERROR</target_step>
+      <is_enabled>Y</is_enabled>
+      <nr_valuename/>
+      <descriptions_valuename/>
+      <fields_valuename/>
+      <codes_valuename/>
+      <max_errors/>
+      <max_pct_errors/>
+      <min_pct_rows/>
+    </error>
+    <error>
+      <source_step>LV Datatype Conversion</source_step>
+      <target_step>LV_ERROR</target_step>
+      <is_enabled>Y</is_enabled>
+      <nr_valuename/>
+      <descriptions_valuename/>
+      <fields_valuename/>
+      <codes_valuename/>
+      <max_errors/>
+      <max_pct_errors/>
+      <min_pct_rows/>
+    </error>
+    <error>
+      <source_step>LV Validator</source_step>
+      <target_step>LV_ERROR</target_step>
+      <is_enabled>Y</is_enabled>
+      <nr_valuename/>
+      <descriptions_valuename/>
+      <fields_valuename/>
+      <codes_valuename/>
+      <max_errors/>
+      <max_pct_errors/>
+      <min_pct_rows/>
+    </error>
+    <error>
+      <source_step>SACH Datatype Conversion</source_step>
+      <target_step>SACH_ERROR</target_step>
+      <is_enabled>Y</is_enabled>
+      <nr_valuename/>
+      <descriptions_valuename/>
+      <fields_valuename/>
+      <codes_valuename/>
+      <max_errors/>
+      <max_pct_errors/>
+      <min_pct_rows/>
+    </error>
+    <error>
+      <source_step>SACH Validator</source_step>
+      <target_step>SACH_ERROR</target_step>
+      <is_enabled>Y</is_enabled>
+      <nr_valuename/>
+      <descriptions_valuename/>
+      <fields_valuename/>
+      <codes_valuename/>
+      <max_errors/>
+      <max_pct_errors/>
+      <min_pct_rows/>
+    </error>
+    <error>
+      <source_step>STAMMDATEN_TRANSFORM</source_step>
+      <target_step/>
+      <is_enabled>N</is_enabled>
+      <nr_valuename/>
+      <descriptions_valuename/>
+      <fields_valuename/>
+      <codes_valuename/>
+      <max_errors/>
+      <max_pct_errors/>
+      <min_pct_rows/>
+    </error>
+    <error>
+      <source_step>Stammdaten Validator</source_step>
+      <target_step>STAMMDATEN_ERROR</target_step>
+      <is_enabled>Y</is_enabled>
+      <nr_valuename/>
+      <descriptions_valuename/>
+      <fields_valuename/>
+      <codes_valuename/>
+      <max_errors/>
+      <max_pct_errors/>
+      <min_pct_rows/>
+    </error>
+    <error>
+      <source_step>Stammdaten Datatype Conversion</source_step>
+      <target_step>STAMMDATEN_ERROR</target_step>
+      <is_enabled>Y</is_enabled>
+      <nr_valuename/>
+      <descriptions_valuename/>
+      <fields_valuename/>
+      <codes_valuename/>
+      <max_errors/>
+      <max_pct_errors/>
+      <min_pct_rows/>
+    </error>
   </step_error_handling>
   <slave-step-copy-partition-distribution>
   </slave-step-copy-partition-distribution>

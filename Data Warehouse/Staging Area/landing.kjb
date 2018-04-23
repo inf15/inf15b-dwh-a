@@ -12,6 +12,25 @@
   <modified_date>2018/04/02 23:33:11.563</modified_date>
   <parameters>
     </parameters>
+  <connection>
+    <name>landing_zone</name>
+    <server>localhost</server>
+    <type>MARIADB</type>
+    <access>Native</access>
+    <database>landing_zone</database>
+    <port>3306</port>
+    <username>root</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>3306</attribute>
+      </attribute>
+    </attributes>
+  </connection>
   <slaveservers>
     </slaveservers>
   <job-log-table>
@@ -296,7 +315,7 @@
       <sqlfromfile>T</sqlfromfile>
       <sqlfilename>${Internal.Job.Filename.Directory}\Recreate Landing Zone.sql</sqlfilename>
       <sendOneStatement>F</sendOneStatement>
-      <connection>Remote Landing-Zone</connection>
+      <connection>landing_zone</connection>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
