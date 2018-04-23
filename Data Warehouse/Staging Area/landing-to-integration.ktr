@@ -684,6 +684,21 @@
       <to>KV Validator</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>Get Timestamp</from>
+      <to>Join Rows (cartesian product)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get table names</from>
+      <to>Join Rows (cartesian product)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Join Rows (cartesian product)</from>
+      <to>METADATA</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
   <step>
     <name>BU Validator</name>
@@ -1079,75 +1094,57 @@
     <fields>
       <field>
         <name>VNr</name>
-        <rename/>
       </field>
       <field>
         <name>KuNr</name>
-        <rename/>
       </field>
       <field>
         <name>KFZ_KZ</name>
-        <rename/>
       </field>
       <field>
         <name>Art</name>
-        <rename/>
       </field>
       <field>
         <name>Neuwert</name>
-        <rename/>
       </field>
       <field>
         <name>Erstzulassung</name>
-        <rename/>
       </field>
       <field>
         <name>VBeginn</name>
-        <rename/>
       </field>
       <field>
         <name>HP_Monat</name>
-        <rename/>
       </field>
       <field>
         <name>TK_Monat</name>
-        <rename/>
       </field>
       <field>
         <name>VK_Monat</name>
-        <rename/>
       </field>
       <field>
         <name>HPSatz</name>
-        <rename/>
       </field>
       <field>
         <name>TKSatz</name>
-        <rename/>
       </field>
       <field>
         <name>VKSatz</name>
-        <rename/>
       </field>
       <field>
         <name>SB_TK</name>
-        <rename/>
       </field>
       <field>
         <name>SB_VK</name>
-        <rename/>
       </field>
       <field>
         <name>VK</name>
-        <rename/>
       </field>
       <field>
         <name>Schadenssumme_Sach</name>
-        <rename/>
       </field>
       <field>
         <name>Schadenssumme_Person</name>
-        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
       <meta>
@@ -2721,51 +2718,39 @@
     <fields>
       <field>
         <name>VNr</name>
-        <rename/>
       </field>
       <field>
         <name>KuNr</name>
-        <rename/>
       </field>
       <field>
         <name>Wertfaktor</name>
-        <rename/>
       </field>
       <field>
         <name>Vbeginn</name>
-        <rename/>
       </field>
       <field>
         <name>Laufzeit</name>
-        <rename/>
       </field>
       <field>
         <name>Monatsrate</name>
-        <rename/>
       </field>
       <field>
         <name>Quartalsrate</name>
-        <rename/>
       </field>
       <field>
         <name>Halbjahresrate</name>
-        <rename/>
       </field>
       <field>
         <name>Jahresrate</name>
-        <rename/>
       </field>
       <field>
         <name>Beguenstigter</name>
-        <rename/>
       </field>
       <field>
         <name>BU</name>
-        <rename/>
       </field>
       <field>
         <name>Zahlungsweise</name>
-        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
       <meta>
@@ -4829,89 +4814,6 @@
     </GUI>
   </step>
   <step>
-    <name>Stammdaten Validator</name>
-    <type>Validator</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <validate_all>Y</validate_all>
-    <concat_errors>N</concat_errors>
-    <concat_separator>|</concat_separator>
-    <validator_field>
-      <name>KuNr</name>
-      <validation_name>KuNr</validation_name>
-      <max_length/>
-      <min_length/>
-      <null_allowed>N</null_allowed>
-      <only_null_allowed>N</only_null_allowed>
-      <only_numeric_allowed>N</only_numeric_allowed>
-      <data_type>Number</data_type>
-      <data_type_verified>N</data_type_verified>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <max_value/>
-      <min_value/>
-      <start_string/>
-      <end_string/>
-      <start_string_not_allowed/>
-      <end_string_not_allowed/>
-      <regular_expression>K\d\d\d\d\d</regular_expression>
-      <regular_expression_not_allowed/>
-      <error_code>1</error_code>
-      <error_description>Ungültige Kundennummer</error_description>
-      <is_sourcing_values>N</is_sourcing_values>
-      <sourcing_step/>
-      <sourcing_field/>
-      <allowed_value/>
-    </validator_field>
-    <validator_field>
-      <name>EhepartnerMV</name>
-      <validation_name>EhepartnerMV</validation_name>
-      <max_length/>
-      <min_length/>
-      <null_allowed>Y</null_allowed>
-      <only_null_allowed>N</only_null_allowed>
-      <only_numeric_allowed>N</only_numeric_allowed>
-      <data_type>None</data_type>
-      <data_type_verified>N</data_type_verified>
-      <conversion_mask/>
-      <decimal_symbol/>
-      <grouping_symbol/>
-      <max_value/>
-      <min_value/>
-      <start_string/>
-      <end_string/>
-      <start_string_not_allowed/>
-      <end_string_not_allowed/>
-      <regular_expression>J|N</regular_expression>
-      <regular_expression_not_allowed/>
-      <error_code>03</error_code>
-      <error_description>EhepartnerMV wrong format</error_description>
-      <is_sourcing_values>N</is_sourcing_values>
-      <sourcing_step/>
-      <sourcing_field/>
-      <allowed_value/>
-    </validator_field>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>432</xloc>
-      <yloc>80</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Stammdaten Datatype Conversion</name>
     <type>SelectValues</type>
     <description/>
@@ -4925,87 +4827,66 @@
     <fields>
       <field>
         <name>KuNr</name>
-        <rename/>
       </field>
       <field>
         <name>Name</name>
-        <rename/>
       </field>
       <field>
         <name>Vorname</name>
-        <rename/>
       </field>
       <field>
         <name>Vorname2</name>
-        <rename/>
       </field>
       <field>
         <name>GebDatum</name>
-        <rename/>
       </field>
       <field>
         <name>GebOrt</name>
-        <rename/>
       </field>
       <field>
         <name>Strasse</name>
-        <rename/>
       </field>
       <field>
         <name>HausNr</name>
-        <rename/>
       </field>
       <field>
         <name>PLZ</name>
-        <rename/>
       </field>
       <field>
         <name>Ort</name>
-        <rename/>
       </field>
       <field>
         <name>TelPrivat</name>
-        <rename/>
       </field>
       <field>
         <name>TelArbeit</name>
-        <rename/>
       </field>
       <field>
         <name>TelMobil</name>
-        <rename/>
       </field>
       <field>
         <name>Fax</name>
-        <rename/>
       </field>
       <field>
         <name>Email1</name>
-        <rename/>
       </field>
       <field>
         <name>Email2</name>
-        <rename/>
       </field>
       <field>
         <name>Prio</name>
-        <rename/>
       </field>
       <field>
         <name>FamStand</name>
-        <rename/>
       </field>
       <field>
         <name>AnzKinder</name>
-        <rename/>
       </field>
       <field>
         <name>AnzKinderMV</name>
-        <rename/>
       </field>
       <field>
         <name>EhepartnerMV</name>
-        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
       <meta>
@@ -5380,6 +5261,89 @@
     </GUI>
   </step>
   <step>
+    <name>Stammdaten Validator</name>
+    <type>Validator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <validate_all>Y</validate_all>
+    <concat_errors>N</concat_errors>
+    <concat_separator>|</concat_separator>
+    <validator_field>
+      <name>KuNr</name>
+      <validation_name>KuNr</validation_name>
+      <max_length/>
+      <min_length/>
+      <null_allowed>N</null_allowed>
+      <only_null_allowed>N</only_null_allowed>
+      <only_numeric_allowed>N</only_numeric_allowed>
+      <data_type>Number</data_type>
+      <data_type_verified>N</data_type_verified>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <max_value/>
+      <min_value/>
+      <start_string/>
+      <end_string/>
+      <start_string_not_allowed/>
+      <end_string_not_allowed/>
+      <regular_expression>K\d\d\d\d\d</regular_expression>
+      <regular_expression_not_allowed/>
+      <error_code>1</error_code>
+      <error_description>Ungültige Kundennummer</error_description>
+      <is_sourcing_values>N</is_sourcing_values>
+      <sourcing_step/>
+      <sourcing_field/>
+      <allowed_value/>
+    </validator_field>
+    <validator_field>
+      <name>EhepartnerMV</name>
+      <validation_name>EhepartnerMV</validation_name>
+      <max_length/>
+      <min_length/>
+      <null_allowed>Y</null_allowed>
+      <only_null_allowed>N</only_null_allowed>
+      <only_numeric_allowed>N</only_numeric_allowed>
+      <data_type>None</data_type>
+      <data_type_verified>N</data_type_verified>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <max_value/>
+      <min_value/>
+      <start_string/>
+      <end_string/>
+      <start_string_not_allowed/>
+      <end_string_not_allowed/>
+      <regular_expression>J|N</regular_expression>
+      <regular_expression_not_allowed/>
+      <error_code>03</error_code>
+      <error_description>EhepartnerMV wrong format</error_description>
+      <is_sourcing_values>N</is_sourcing_values>
+      <sourcing_step/>
+      <sourcing_field/>
+      <allowed_value/>
+    </validator_field>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>432</xloc>
+      <yloc>80</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>ZA to CA</name>
     <type>ReplaceString</type>
     <description/>
@@ -5424,6 +5388,164 @@
     <GUI>
       <xloc>384</xloc>
       <yloc>400</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Get Timestamp</name>
+    <type>SystemInfo</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>timestamp</name>
+        <type>system date (variable)</type>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>96</xloc>
+      <yloc>1088</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Get table names</name>
+    <type>GetTableNames</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>landing_zone</connection>
+    <schemaname/>
+    <tablenamefieldname>tablename</tablenamefieldname>
+    <objecttypefieldname>type</objecttypefieldname>
+    <issystemobjectfieldname>is system</issystemobjectfieldname>
+    <sqlcreationfieldname/>
+    <includeCatalog>N</includeCatalog>
+    <includeSchema>N</includeSchema>
+    <includeTable>Y</includeTable>
+    <includeView>Y</includeView>
+    <includeProcedure>Y</includeProcedure>
+    <includeSynonym>Y</includeSynonym>
+    <addSchemaInOutput>N</addSchemaInOutput>
+    <dynamicSchema>N</dynamicSchema>
+    <schemaNameField/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>96</xloc>
+      <yloc>1024</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Join Rows (cartesian product)</name>
+    <type>JoinRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <cache_size>500</cache_size>
+    <main/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue/>
+        <function>=</function>
+        <rightvalue/>
+      </condition>
+    </compare>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>432</xloc>
+      <yloc>1024</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>METADATA</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>integration_zone</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>METADATA</table>
+      <key>
+        <name>tablename</name>
+        <field>Import_Table</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>timestamp</name>
+        <field>Import_Table</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>Import_Table</name>
+        <rename>tablename</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>Integration_Time</name>
+        <rename>timestamp</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>624</xloc>
+      <yloc>1024</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5549,7 +5671,7 @@
       <min_pct_rows/>
     </error>
     <error>
-      <source_step>Stammdaten Validator</source_step>
+      <source_step>Stammdaten Datatype Conversion</source_step>
       <target_step>STAMMDATEN_ERROR</target_step>
       <is_enabled>Y</is_enabled>
       <nr_valuename/>
@@ -5561,7 +5683,7 @@
       <min_pct_rows/>
     </error>
     <error>
-      <source_step>Stammdaten Datatype Conversion</source_step>
+      <source_step>Stammdaten Validator</source_step>
       <target_step>STAMMDATEN_ERROR</target_step>
       <is_enabled>Y</is_enabled>
       <nr_valuename/>
