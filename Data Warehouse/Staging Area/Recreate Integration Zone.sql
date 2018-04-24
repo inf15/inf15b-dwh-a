@@ -198,4 +198,7 @@ CREATE TABLE BU_ERROR (
 	Zahlungsweise VARCHAR(200)
 );
 
-
+CREATE TABLE METADATA (
+	Import_Table VARCHAR(200),
+	Integration_Time DATETIME
+);
