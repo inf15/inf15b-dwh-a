@@ -24,8 +24,7 @@ create table S_KFZ_LEISTUNG (
 	load_dts DATE,
 	record_source VARCHAR(60),
 	detail_hash_diff VARCHAR(64),
-	CONSTRAINT `pk_s_kfz_leistung` PRIMARY KEY (detail_hash_diff, load_dts),
-	CONSTRAINT `fk_s_kfz_leistung` FOREIGN KEY (kfz_hash) REFERENCES H_KFZ(hash_key)
+	CONSTRAINT `pk_s_kfz_leistung` PRIMARY KEY (detail_hash_diff, load_dts, kfz_hash)
 );
 
 create table S_KFZ_RATEN (
@@ -39,8 +38,7 @@ create table S_KFZ_RATEN (
 	load_dts DATE,
 	record_source VARCHAR(60),
 	detail_hash_diff VARCHAR(64),
-	CONSTRAINT `pk_s_kfz_raten` PRIMARY KEY(detail_hash_diff, load_dts),
-	CONSTRAINT `fk_s_kfz_raten` FOREIGN KEY (kfz_hash) REFERENCES H_KFZ(hash_key)
+	CONSTRAINT `pk_s_kfz_raten` PRIMARY KEY(detail_hash_diff, load_dts, kfz_hash)
 );
 
 create table H_KUNDEN (
@@ -63,8 +61,7 @@ create table S_KUNDE_PERSOENLICHE_INFORMATION (
 	load_dts DATE,
 	record_source VARCHAR(60),
 	detail_hash_diff VARCHAR(64),
-	CONSTRAINT `pk_s_kunde_informationen` PRIMARY KEY (detail_hash_diff, load_dts),
-	CONSTRAINT `fk_s_kunde_informationen` FOREIGN KEY (kunde_hash) REFERENCES H_KUNDEN(hash_key)
+	CONSTRAINT `pk_s_kunde_informationen` PRIMARY KEY (detail_hash_diff, load_dts, kunde_hash)
 );
 
 create table S_KUNDE_STATUS (
@@ -75,8 +72,7 @@ create table S_KUNDE_STATUS (
 	load_dts DATE,
 	record_source VARCHAR(60),
 	detail_hash_diff VARCHAR(64),
-	CONSTRAINT `pk_s_kunde_status` PRIMARY KEY (detail_hash_diff, load_dts),
-	CONSTRAINT `fk_s_kunde_status` FOREIGN KEY (kunde_hash) REFERENCES H_KUNDEN(hash_key)
+	CONSTRAINT `pk_s_kunde_status` PRIMARY KEY (detail_hash_diff, load_dts, kunde_hash)
 );
 
 create table S_KUNDE_ADRESSE (
@@ -94,8 +90,7 @@ create table S_KUNDE_ADRESSE (
 	load_dts DATE,
 	record_source VARCHAR(60),
 	detail_hash_diff VARCHAR(64),
-	CONSTRAINT `pk_s_kunde_adresse` PRIMARY KEY (detail_hash_diff, load_dts),
-	CONSTRAINT `fk_s_kunde_adresse` FOREIGN KEY (kunde_hash) REFERENCES H_KUNDEN(hash_key)
+	CONSTRAINT `pk_s_kunde_adresse` PRIMARY KEY (detail_hash_diff, load_dts, kunde_hash)
 );
 
 create table L_KUNDE_KFZ(
@@ -104,9 +99,7 @@ create table L_KUNDE_KFZ(
 	kfz_hash VARCHAR(64),
 	load_dts DATE,
 	record_source VARCHAR(60),
-	CONSTRAINT `pk_l_kfz_kunde` PRIMARY KEY (hash_key),
-	CONSTRAINT `fk_l_kfz` FOREIGN KEY (kfz_hash) REFERENCES H_KFZ (hash_key),
-	CONSTRAINT `fk_l_kunde` FOREIGN KEY (kunde_hash) REFERENCES H_KUNDEN (hash_key)
+	CONSTRAINT `pk_l_kfz_kunde` PRIMARY KEY (hash_key)
 );
 
 create table H_SACH(
@@ -127,8 +120,7 @@ create table S_SACH_LEISTUNG (
 	load_dts DATE,
 	record_source VARCHAR(60),
 	detail_hash_diff VARCHAR(64),
-	CONSTRAINT `pk_s_sach_leistung` PRIMARY KEY (detail_hash_diff, load_dts),
-	CONSTRAINT `fk_s_sach_leistung` FOREIGN KEY (sach_hash) REFERENCES H_SACH(hash_key)
+	CONSTRAINT `pk_s_sach_leistung` PRIMARY KEY (detail_hash_diff, load_dts, sach_hash)
 );
 
 create table S_SACH_RATEN (
@@ -140,8 +132,7 @@ create table S_SACH_RATEN (
 	load_dts DATE,
 	record_source VARCHAR(60),
 	detail_hash_diff VARCHAR(64),
-	CONSTRAINT `pk_s_sach_raten` PRIMARY KEY (detail_hash_diff, load_dts),
-	CONSTRAINT `fk_s_sach_raten` FOREIGN KEY (sach_hash) REFERENCES H_SACH(hash_key)
+	CONSTRAINT `pk_s_sach_raten` PRIMARY KEY (detail_hash_diff, load_dts, sach_hash)
 );
 
 create table L_KUNDE_SACH (
@@ -150,9 +141,7 @@ create table L_KUNDE_SACH (
 	sach_hash VARCHAR(64),
 	load_dts DATE,
 	record_source VARCHAR(60),
-	CONSTRAINT `pk_l_kunde_sach` PRIMARY KEY (hash_key),
-	CONSTRAINT `fk_l_kunde_sach_kunde` FOREIGN KEY (kunde_hash) REFERENCES H_KUNDEN(hash_key),
-	CONSTRAINT `fk_l_kunde_sach_sach` FOREIGN KEY (sach_hash) REFERENCES H_SACH(hash_key)
+	CONSTRAINT `pk_l_kunde_sach` PRIMARY KEY (hash_key)
 );
 
 create table H_KV (
@@ -175,8 +164,7 @@ create table S_KV_LEISTUNG (
 	load_dts DATE,
 	record_source VARCHAR(60),
 	detail_hash_diff VARCHAR(64),
-	CONSTRAINT `pk_s_kv_leistung` PRIMARY KEY (detail_hash_diff, load_dts),
-	CONSTRAINT `fl_s_kv_leistung` FOREIGN KEY (kv_hash) REFERENCES H_KV(hash_key)
+	CONSTRAINT `pk_s_kv_leistung` PRIMARY KEY (detail_hash_diff, load_dts, kv_hash)
 );
 
 create table L_KUNDE_KV (
@@ -185,9 +173,7 @@ create table L_KUNDE_KV (
 	kv_hash VARCHAR(64),
 	load_dts DATE,
 	record_source VARCHAR(60),
-	CONSTRAINT `pk_l_kunde_kv` PRIMARY KEY (hash_key),
-	CONSTRAINT `fk_l_kunde_kv_kunde` FOREIGN KEY (kunde_hash) REFERENCES H_KUNDEN(hash_key),
-	CONSTRAINT `fk_l_kunde_kv_kv` FOREIGN KEY (kv_hash) REFERENCES H_KV(hash_key)
+	CONSTRAINT `pk_l_kunde_kv` PRIMARY KEY (hash_key)
 );
 
 create table H_LV (
@@ -208,8 +194,7 @@ create table S_LV_RATEN (
 	load_dts DATE,
 	record_source VARCHAR(60),
 	detail_hash_diff VARCHAR(64),
-	CONSTRAINT `pk_s_lv_raten` PRIMARY KEY (detail_hash_diff, load_dts),
-	CONSTRAINT `fk_s_lv_raten` FOREIGN KEY (lv_hash) REFERENCES H_LV(hash_key)
+	CONSTRAINT `pk_s_lv_raten` PRIMARY KEY (detail_hash_diff, load_dts, lv_hash)
 );
 
 create table S_LV_LEISTUNG (
@@ -220,8 +205,7 @@ create table S_LV_LEISTUNG (
 	load_dts DATE,
 	record_source VARCHAR(60),
 	detail_hash_diff VARCHAR(64),
-	CONSTRAINT `pk_s_lv_leistung` PRIMARY KEY (detail_hash_diff, load_dts),
-	CONSTRAINT `fk_s_lv_leistung` FOREIGN KEY (lv_hash) REFERENCES H_LV(hash_key)
+	CONSTRAINT `pk_s_lv_leistung` PRIMARY KEY (detail_hash_diff, load_dts, lv_hash)
 );
 
 create table L_KUNDE_LV (
@@ -230,9 +214,7 @@ create table L_KUNDE_LV (
 	lv_hash VARCHAR(64),
 	load_dts DATE,
 	record_source VARCHAR(60),
-	CONSTRAINT `pk_l_kunde_lv` PRIMARY KEY (hash_key),
-	CONSTRAINT `fk_l_kunde_lv_kunde` FOREIGN KEY (kunde_hash) REFERENCES H_KUNDEN(hash_key),
-	CONSTRAINT `fk_l_kunde_lv_lv` FOREIGN KEY (lv_hash) REFERENCES H_LV(hash_key)
+	CONSTRAINT `pk_l_kunde_lv` PRIMARY KEY (hash_key)
 );
 
 create table H_BU (
@@ -254,8 +236,7 @@ create table S_BU_RATEN (
 	load_dts DATE,
 	record_source VARCHAR(60),
 	detail_hash_diff VARCHAR(64),
-	CONSTRAINT `pk_s_bu_raten` PRIMARY KEY (detail_hash_diff, load_dts),
-	CONSTRAINT `fk_s_bu_raten` FOREIGN KEY (bu_hash) REFERENCES H_BU(hash_key)
+	CONSTRAINT `pk_s_bu_raten` PRIMARY KEY (detail_hash_diff, load_dts, bu_hash)
 );
 
 create table L_LV_BU (
@@ -264,7 +245,5 @@ create table L_LV_BU (
 	bu_hash VARCHAR(64),
 	load_dts DATE,
 	record_source VARCHAR(60),
-	CONSTRAINT `pk_l_lv_bu` PRIMARY KEY (hash_key),
-	CONSTRAINT `fk_l_lv` FOREIGN KEY (lv_hash) REFERENCES H_LV(hash_key),
-	CONSTRAINT `fk_l_bu` FOREIGN KEY (bu_hash) REFERENCES H_BU(hash_key)
+	CONSTRAINT `pk_l_lv_bu` PRIMARY KEY (hash_key)
 );
