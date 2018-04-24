@@ -1,3 +1,6 @@
+CREATE DATABASE IF NOT EXISTS enterprise_data_warehouse;
+USE enterprise_data_warehouse;
+
 create table H_KFZ (
 	hash_key VARCHAR(64),
 	versicherung_id VARCHAR(7),
@@ -48,7 +51,7 @@ create table H_KUNDEN (
 	CONSTRAINT `pk_s_h_kunden` PRIMARY KEY (hash_key)
 );
 
-create table S_KUNDE_PERSÖNLICHE_INFORMATION (
+create table S_KUNDE_PERSOENLICHE_INFORMATION (
 	kunde_hash VARCHAR(64),
 	name VARCHAR(200),
 	vorname_1 VARCHAR(200),
@@ -66,7 +69,7 @@ create table S_KUNDE_PERSÖNLICHE_INFORMATION (
 
 create table S_KUNDE_STATUS (
 	kunde_hash VARCHAR(64),
-	priorität VARCHAR(1),
+	prioritaet VARCHAR(1),
 	anzahl_kinder_mv INTEGER,
 	ehepartner_mv VARCHAR(1),
 	load_dts DATE,
@@ -78,7 +81,7 @@ create table S_KUNDE_STATUS (
 
 create table S_KUNDE_ADRESSE (
 	kunde_hash VARCHAR(64),
-	straße VARCHAR(200),
+	strasse VARCHAR(200),
 	hausnummer VARCHAR(200),
 	plz VARCHAR(200),
 	ort VARCHAR(200),
@@ -118,7 +121,7 @@ create table S_SACH_LEISTUNG (
 	sach_hash VARCHAR(64),
 	versicherung_beginn DATE,
 	laufzeit INTEGER,
-	kündigungsfrist INTEGER,
+	kuendigungsfrist INTEGER,
 	versicherungswert DECIMAL(12,2),
 	art VARCHAR(3),
 	load_dts DATE,
@@ -166,9 +169,9 @@ create table S_KV_LEISTUNG (
 	monat_rate DECIMAL(12,2),
 	beteiligung_rate DECIMAL(12,2),
 	art VARCHAR(200),
-	jährliche_rückerstattung_1 DECIMAL(12,2),
-	jährliche_rückerstattung_2 DECIMAL(12,2),
-	jährliche_rückerstattung_3 DECIMAL(12,2),
+	jaehrliche_rueckerstattung_1 DECIMAL(12,2),
+	jaehrliche_rueckerstattung_2 DECIMAL(12,2),
+	jaehrliche_rueckerstattung_3 DECIMAL(12,2),
 	load_dts DATE,
 	record_source VARCHAR(60),
 	detail_hash_diff VARCHAR(64),
@@ -211,7 +214,7 @@ create table S_LV_RATEN (
 
 create table S_LV_LEISTUNG (
 	lv_hash VARCHAR(64),
-	begünstigter VARCHAR(2),
+	beguenstigter VARCHAR(2),
 	versicherung_beginn DATE,
 	DAUER INTEGER,
 	load_dts DATE,
