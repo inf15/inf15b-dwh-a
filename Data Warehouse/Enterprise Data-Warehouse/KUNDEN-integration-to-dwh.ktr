@@ -6,6 +6,7 @@
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
     <directory>/</directory>
     <parameters>
     </parameters>
@@ -427,10 +428,10 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2018/04/23 15:42:38.494</created_date>
+    <created_date>2018/04/24 18:07:44.804</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2018/04/23 15:42:38.494</modified_date>
-    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
+    <modified_date>2018/04/24 18:07:44.804</modified_date>
+    <key_for_session_key/>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -441,16 +442,48 @@
     <type>MARIADB</type>
     <access>Native</access>
     <database>enterprise_data_warehouse</database>
-    <port>3306</port>
+    <port>993</port>
     <username>root</username>
-    <password>Encrypted 6473616668757369666875737066686477cde8c7bb1fcf9391b81dbe76d696badc</password>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
     <attributes>
       <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
         <code>PORT_NUMBER</code>
-        <attribute>3306</attribute>
+        <attribute>993</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
       </attribute>
     </attributes>
   </connection>
@@ -460,28 +493,55 @@
     <type>MARIADB</type>
     <access>Native</access>
     <database>integration_zone</database>
-    <port>3306</port>
+    <port>993</port>
     <username>root</username>
-    <password>Encrypted 6473616668757369666875737066686477cde8c7bb1fcf9391b81dbe76d696badc</password>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
     <attributes>
       <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
         <code>PORT_NUMBER</code>
-        <attribute>3306</attribute>
+        <attribute>993</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
       </attribute>
     </attributes>
   </connection>
   <order>
     <hop>
-      <from>Kunden_KuNr</from>
+      <from>METADATA_DTS</from>
       <to>Join Rows (cartesian product)</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Kunden_KuNr</from>
-      <to>Add a checksum KuNr</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -490,18 +550,13 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>METADATA_DTS</from>
-      <to>Join Rows (cartesian product)</to>
+      <from>Kunden_KuNr</from>
+      <to>Add a checksum KuNr</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Add a checksum KuNr</from>
       <to>Join Rows (cartesian product)</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>KUNDE_persönliche_informationen</from>
-      <to>Join Rows (cartesian product) 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -515,18 +570,8 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Add a checksum persönlicheInfo</from>
-      <to>Join Rows (cartesian product) 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Join Rows (cartesian product) 2</from>
       <to>Insert in S_KUNDE_PERSÖNLICHE_INFORMATION</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Add a checksum KuNr</from>
-      <to>Join Rows (cartesian product) 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -535,8 +580,23 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>KUNDE_status</from>
-      <to>Join Rows (cartesian product) 2 2</to>
+      <from>Add a checksum persönlicheInfo</from>
+      <to>Multiway Merge Join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>KUNDE_persönliche_informationen</from>
+      <to>Multiway Merge Join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add a checksum KuNr</from>
+      <to>Multiway Merge Join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Multiway Merge Join</from>
+      <to>Join Rows (cartesian product) 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -545,18 +605,28 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Join Rows (cartesian product) 2 2</from>
-      <to>Insert in S_KUNDE_STATUS</to>
+      <from>Concat Fields 2</from>
+      <to>Add a checksum status</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>KUNDE_status</from>
+      <to>Multiway Merge Join 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Add a checksum status</from>
-      <to>Join Rows (cartesian product) 2 2</to>
+      <to>Multiway Merge Join 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Concat Fields 2</from>
-      <to>Add a checksum status</to>
+      <from>Add a checksum KuNr</from>
+      <to>Multiway Merge Join 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Multiway Merge Join 2</from>
+      <to>Join Rows (cartesian product) 2 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -565,18 +635,8 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Kunden_KuNr 2</from>
-      <to>Add a checksum KuNr 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Add a checksum KuNr 2</from>
-      <to>Join Rows (cartesian product) 2 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>KUNDE_Adresse</from>
-      <to>Join Rows (cartesian product) 2 2 2</to>
+      <from>Join Rows (cartesian product) 2 2</from>
+      <to>Insert in S_KUNDE_STATUS</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -585,18 +645,28 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Join Rows (cartesian product) 2 2 2</from>
-      <to>Insert in S_KUNDE_ADRESSE</to>
+      <from>Concat Fields 3</from>
+      <to>Add a checksum adresse</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Add a checksum adresse</from>
-      <to>Join Rows (cartesian product) 2 2 2</to>
+      <to>Multiway Merge Join 3</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Concat Fields 3</from>
-      <to>Add a checksum adresse</to>
+      <from>KUNDE_Adresse</from>
+      <to>Multiway Merge Join 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add a checksum KuNr</from>
+      <to>Multiway Merge Join 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Multiway Merge Join 3</from>
+      <to>Join Rows (cartesian product) 2 2 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -605,8 +675,8 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Add a checksum KuNr 2</from>
-      <to>Join Rows (cartesian product) 2 2 2</to>
+      <from>Join Rows (cartesian product) 2 2 2</from>
+      <to>Insert in S_KUNDE_ADRESSE</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -614,7 +684,7 @@
     <name>Add a checksum KuNr</name>
     <type>CheckSum</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -623,7 +693,7 @@
     </partitioning>
     <checksumtype>MD5</checksumtype>
     <resultfieldName>KuNr-Hash</resultfieldName>
-    <resultType>hexadecimal</resultType>
+    <resultType>string</resultType>
     <compatibilityMode>N</compatibilityMode>
     <fields>
       <field>
@@ -638,8 +708,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>64</xloc>
-      <yloc>144</yloc>
+      <xloc>176</xloc>
+      <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -713,7 +783,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>768</xloc>
+      <xloc>912</xloc>
       <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
@@ -749,7 +819,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>400</xloc>
+      <xloc>544</xloc>
       <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
@@ -758,7 +828,7 @@
     <name>Kunden_KuNr</name>
     <type>TableInput</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -783,7 +853,7 @@ FROM STAMMDATEN_TRANSFORM
       </output>
     </remotesteps>
     <GUI>
-      <xloc>64</xloc>
+      <xloc>32</xloc>
       <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
@@ -792,7 +862,7 @@ FROM STAMMDATEN_TRANSFORM
     <name>METADATA_DTS</name>
     <type>TableInput</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -804,7 +874,7 @@ FROM STAMMDATEN_TRANSFORM
   Import_Table
 , Integration_Time
 FROM METADATA
-</sql>
+where Import_Table = "STAMMDATEN_LANDING";</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -818,7 +888,7 @@ FROM METADATA
       </output>
     </remotesteps>
     <GUI>
-      <xloc>400</xloc>
+      <xloc>544</xloc>
       <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
@@ -827,7 +897,7 @@ FROM METADATA
     <name>KUNDE_persönliche_informationen</name>
     <type>TableInput</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -836,7 +906,8 @@ FROM METADATA
     </partitioning>
     <connection>integration_zone</connection>
     <sql>SELECT
- Name
+  KuNr
+, Name
 , Vorname
 , Vorname2
 , GebDatum
@@ -858,77 +929,8 @@ FROM STAMMDATEN_TRANSFORM
       </output>
     </remotesteps>
     <GUI>
-      <xloc>64</xloc>
-      <yloc>224</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Join Rows (cartesian product) 2</name>
-    <type>JoinRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <cache_size>500</cache_size>
-    <main/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue/>
-        <function>=</function>
-        <rightvalue/>
-      </condition>
-    </compare>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>400</xloc>
-      <yloc>224</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Add a checksum persönlicheInfo</name>
-    <type>CheckSum</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <checksumtype>MD5</checksumtype>
-    <resultfieldName>persönlicheInfo-hash</resultfieldName>
-    <resultType>hexadecimal</resultType>
-    <compatibilityMode>N</compatibilityMode>
-    <fields>
-      <field>
-        <name>concat_persönliche_info</name>
-      </field>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>400</xloc>
-      <yloc>336</yloc>
+      <xloc>32</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1073,8 +1075,77 @@ FROM STAMMDATEN_TRANSFORM
       </output>
     </remotesteps>
     <GUI>
-      <xloc>64</xloc>
-      <yloc>336</yloc>
+      <xloc>32</xloc>
+      <yloc>368</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Add a checksum persönlicheInfo</name>
+    <type>CheckSum</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <checksumtype>MD5</checksumtype>
+    <resultfieldName>persönlicheInfo-hash</resultfieldName>
+    <resultType>string</resultType>
+    <compatibilityMode>N</compatibilityMode>
+    <fields>
+      <field>
+        <name>concat_persönliche_info</name>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>304</xloc>
+      <yloc>368</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Join Rows (cartesian product) 2</name>
+    <type>JoinRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <cache_size>500</cache_size>
+    <main/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue/>
+        <function>=</function>
+        <rightvalue/>
+      </condition>
+    </compare>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>544</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1094,7 +1165,7 @@ FROM STAMMDATEN_TRANSFORM
     <update_bypassed>N</update_bypassed>
     <lookup>
       <schema/>
-      <table>S_KUNDE_PERSÖNLICHE_INFORMATION</table>
+      <table>S_KUNDE_PERSOENLICHE_INFORMATION</table>
       <key>
         <name>Name</name>
         <field>name</field>
@@ -1225,14 +1296,14 @@ FROM STAMMDATEN_TRANSFORM
       </output>
     </remotesteps>
     <GUI>
-      <xloc>768</xloc>
-      <yloc>224</yloc>
+      <xloc>928</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>KUNDE_status</name>
-    <type>TableInput</type>
+    <name>Multiway Merge Join</name>
+    <type>MultiwayMergeJoin</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1241,9 +1312,44 @@ FROM STAMMDATEN_TRANSFORM
       <method>none</method>
       <schema_name/>
     </partitioning>
+    <join_type>INNER</join_type>
+    <step0>Add a checksum persönlicheInfo</step0>
+    <step1>KUNDE_persönliche_informationen</step1>
+    <step2>Add a checksum KuNr</step2>
+    <number_input>3</number_input>
+    <keys>
+      <key>KuNr</key>
+      <key>KuNr</key>
+      <key>KuNr</key>
+    </keys>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>304</xloc>
+      <yloc>240</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>KUNDE_status</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <connection>integration_zone</connection>
     <sql>SELECT
- Prio
+  KuNr
+, Prio
 , AnzKinderMV
 , EhepartnerMV
 FROM STAMMDATEN_TRANSFORM
@@ -1261,77 +1367,8 @@ FROM STAMMDATEN_TRANSFORM
       </output>
     </remotesteps>
     <GUI>
-      <xloc>64</xloc>
-      <yloc>560</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Join Rows (cartesian product) 2 2</name>
-    <type>JoinRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <cache_size>500</cache_size>
-    <main/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue/>
-        <function>=</function>
-        <rightvalue/>
-      </condition>
-    </compare>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>400</xloc>
-      <yloc>560</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Add a checksum status</name>
-    <type>CheckSum</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <checksumtype>MD5</checksumtype>
-    <resultfieldName>status-hash</resultfieldName>
-    <resultType>hexadecimal</resultType>
-    <compatibilityMode>N</compatibilityMode>
-    <fields>
-      <field>
-        <name>concat_status</name>
-      </field>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>400</xloc>
-      <yloc>448</yloc>
+      <xloc>32</xloc>
+      <yloc>640</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1428,8 +1465,146 @@ FROM STAMMDATEN_TRANSFORM
       </output>
     </remotesteps>
     <GUI>
-      <xloc>64</xloc>
-      <yloc>448</yloc>
+      <xloc>32</xloc>
+      <yloc>512</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Multiway Merge Join 2</name>
+    <type>MultiwayMergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>INNER</join_type>
+    <step0>Add a checksum status</step0>
+    <step1>Add a checksum KuNr</step1>
+    <step2>KUNDE_status</step2>
+    <number_input>3</number_input>
+    <keys>
+      <key>KuNr</key>
+      <key>KuNr</key>
+      <key>KuNr</key>
+    </keys>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>304</xloc>
+      <yloc>640</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Add a checksum status</name>
+    <type>CheckSum</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <checksumtype>MD5</checksumtype>
+    <resultfieldName>status-hash</resultfieldName>
+    <resultType>string</resultType>
+    <compatibilityMode>N</compatibilityMode>
+    <fields>
+      <field>
+        <name>concat_status</name>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>304</xloc>
+      <yloc>512</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>METADATA_DTS 2</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>integration_zone</connection>
+    <sql>SELECT
+  Import_Table
+, Integration_Time
+FROM METADATA
+where Import_Table = "STAMMDATEN_LANDING";</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>560</xloc>
+      <yloc>784</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Join Rows (cartesian product) 2 2</name>
+    <type>JoinRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <cache_size>500</cache_size>
+    <main/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue/>
+        <function>=</function>
+        <rightvalue/>
+      </condition>
+    </compare>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>560</xloc>
+      <yloc>640</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1452,7 +1627,7 @@ FROM STAMMDATEN_TRANSFORM
       <table>S_KUNDE_STATUS</table>
       <key>
         <name>Prio</name>
-        <field>priorität</field>
+        <field>prioritaet</field>
         <condition>=</condition>
         <name2/>
       </key>
@@ -1493,23 +1668,13 @@ FROM STAMMDATEN_TRANSFORM
         <name2/>
       </key>
       <value>
-        <name>record_source</name>
-        <rename>Import_Table</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>priorität</name>
+        <name>prioritaet</name>
         <rename>Prio</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>load_dts</name>
-        <rename>Integration_Time</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>kunde_hash</name>
-        <rename>KuNr-Hash</rename>
+        <name>anzahl_kinder_mv</name>
+        <rename>AnzKinderMV</rename>
         <update>Y</update>
       </value>
       <value>
@@ -1518,13 +1683,23 @@ FROM STAMMDATEN_TRANSFORM
         <update>Y</update>
       </value>
       <value>
+        <name>load_dts</name>
+        <rename>Integration_Time</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>record_source</name>
+        <rename>Import_Table</rename>
+        <update>Y</update>
+      </value>
+      <value>
         <name>detail_hash_diff</name>
         <rename>status-hash</rename>
         <update>Y</update>
       </value>
       <value>
-        <name>anzahl_kinder_mv</name>
-        <rename>AnzKinderMV</rename>
+        <name>kunde_hash</name>
+        <rename>KuNr-Hash</rename>
         <update>Y</update>
       </value>
     </lookup>
@@ -1536,84 +1711,16 @@ FROM STAMMDATEN_TRANSFORM
       </output>
     </remotesteps>
     <GUI>
-      <xloc>768</xloc>
-      <yloc>560</yloc>
+      <xloc>880</xloc>
+      <yloc>640</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>METADATA_DTS 2</name>
+    <name>KUNDE_Adresse</name>
     <type>TableInput</type>
     <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>integration_zone</connection>
-    <sql>SELECT
-  Import_Table
-, Integration_Time
-FROM METADATA
-</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>400</xloc>
-      <yloc>656</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Add a checksum KuNr 2</name>
-    <type>CheckSum</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <checksumtype>MD5</checksumtype>
-    <resultfieldName>KuNr-Hash</resultfieldName>
-    <resultType>hexadecimal</resultType>
-    <compatibilityMode>N</compatibilityMode>
-    <fields>
-      <field>
-        <name>KuNr</name>
-      </field>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>224</xloc>
-      <yloc>656</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Kunden_KuNr 2</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -1623,40 +1730,7 @@ FROM METADATA
     <connection>integration_zone</connection>
     <sql>SELECT
   KuNr
-FROM STAMMDATEN_TRANSFORM
-</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>64</xloc>
-      <yloc>656</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>KUNDE_Adresse</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>integration_zone</connection>
-    <sql>SELECT
- Strasse
+, Strasse
 , HausNr
 , PLZ
 , Ort
@@ -1681,76 +1755,7 @@ FROM STAMMDATEN_TRANSFORM
       </output>
     </remotesteps>
     <GUI>
-      <xloc>64</xloc>
-      <yloc>784</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Join Rows (cartesian product) 2 2 2</name>
-    <type>JoinRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <cache_size>500</cache_size>
-    <main/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue/>
-        <function>=</function>
-        <rightvalue/>
-      </condition>
-    </compare>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>400</xloc>
-      <yloc>784</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Add a checksum adresse</name>
-    <type>CheckSum</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <checksumtype>MD5</checksumtype>
-    <resultfieldName>adresse-hash</resultfieldName>
-    <resultType>hexadecimal</resultType>
-    <compatibilityMode>N</compatibilityMode>
-    <fields>
-      <field>
-        <name>concat_adresse</name>
-      </field>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>400</xloc>
+      <xloc>32</xloc>
       <yloc>912</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1932,7 +1937,76 @@ FROM STAMMDATEN_TRANSFORM
       </output>
     </remotesteps>
     <GUI>
-      <xloc>64</xloc>
+      <xloc>32</xloc>
+      <yloc>1088</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Add a checksum adresse</name>
+    <type>CheckSum</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <checksumtype>MD5</checksumtype>
+    <resultfieldName>adresse-hash</resultfieldName>
+    <resultType>string</resultType>
+    <compatibilityMode>N</compatibilityMode>
+    <fields>
+      <field>
+        <name>concat_adresse</name>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>288</xloc>
+      <yloc>1088</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Join Rows (cartesian product) 2 2 2</name>
+    <type>JoinRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <cache_size>500</cache_size>
+    <main/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue/>
+        <function>=</function>
+        <rightvalue/>
+      </condition>
+    </compare>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>560</xloc>
       <yloc>912</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1956,7 +2030,7 @@ FROM STAMMDATEN_TRANSFORM
       <table>S_KUNDE_ADRESSE</table>
       <key>
         <name>Strasse</name>
-        <field>straße</field>
+        <field>strasse</field>
         <condition>=</condition>
         <name2/>
       </key>
@@ -2054,7 +2128,7 @@ FROM STAMMDATEN_TRANSFORM
         <update>Y</update>
       </value>
       <value>
-        <name>straße</name>
+        <name>strasse</name>
         <rename>Strasse</rename>
         <update>Y</update>
       </value>
@@ -2117,8 +2191,42 @@ FROM STAMMDATEN_TRANSFORM
       </output>
     </remotesteps>
     <GUI>
-      <xloc>768</xloc>
-      <yloc>784</yloc>
+      <xloc>896</xloc>
+      <yloc>912</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Multiway Merge Join 3</name>
+    <type>MultiwayMergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>INNER</join_type>
+    <step0>Add a checksum adresse</step0>
+    <step1>KUNDE_Adresse</step1>
+    <step2>Add a checksum KuNr</step2>
+    <number_input>3</number_input>
+    <keys>
+      <key>KuNr</key>
+      <key>KuNr</key>
+      <key>KuNr</key>
+    </keys>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>288</xloc>
+      <yloc>912</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
