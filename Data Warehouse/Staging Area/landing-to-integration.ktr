@@ -827,7 +827,7 @@
     <update_bypassed>N</update_bypassed>
     <lookup>
       <schema/>
-      <table>bu_error</table>
+      <table>BU_ERROR</table>
       <key>
         <name>VNr</name>
         <field>VNr</field>
