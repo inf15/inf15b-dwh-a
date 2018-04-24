@@ -428,10 +428,10 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2018/04/23 14:24:33.307</created_date>
+    <created_date>2018/04/24 19:21:22.094</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2018/04/23 14:24:33.307</modified_date>
-    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
+    <modified_date>2018/04/24 19:21:22.094</modified_date>
+    <key_for_session_key/>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -444,46 +444,14 @@
     <database>enterprise_data_warehouse</database>
     <port>993</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
+    <password>Encrypted 6473616668757369666875737066686477cde8c7bb1fcf9391b81dbe76d696badc</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
     <attributes>
       <attribute>
-        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>IS_CLUSTERED</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
         <code>PORT_NUMBER</code>
         <attribute>993</attribute>
-      </attribute>
-      <attribute>
-        <code>PRESERVE_RESERVED_WORD_CASE</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>QUOTE_ALL_FIELDS</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>USE_POOLING</code>
-        <attribute>N</attribute>
       </attribute>
     </attributes>
   </connection>
@@ -495,7 +463,7 @@
     <database>integration_zone</database>
     <port>993</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
+    <password>Encrypted 6473616668757369666875737066686477cde8c7bb1fcf9391b81dbe76d696badc</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -541,12 +509,12 @@
   <order>
     <hop>
       <from>KFZ_VNr</from>
-      <to>Join Rows (cartesian product)</to>
+      <to>Add a checksum VNr</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>KFZ_VNr</from>
-      <to>Add a checksum VNr</to>
+      <from>Add a checksum VNr</from>
+      <to>Join Rows (cartesian product)</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -560,33 +528,8 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Add a checksum VNr</from>
-      <to>Join Rows (cartesian product)</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>KFZ_Leistung</from>
-      <to>Join Rows (cartesian product) 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Add a checksum KFZ_LEISTUNG</from>
-      <to>Join Rows (cartesian product) 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Add a checksum VNr</from>
-      <to>Join Rows (cartesian product) 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Join Rows (cartesian product) 2</from>
-      <to>Insert in S_KFZ_LEISTUNG</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>METADATA_DTS</from>
-      <to>Join Rows (cartesian product) 2</to>
+      <to>Multiway Merge Join</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -600,8 +543,38 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>KFZ_Raten</from>
+      <from>Add a checksum KFZ_LEISTUNG</from>
+      <to>Multiway Merge Join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>METADATA_DTS</from>
+      <to>Join Rows (cartesian product) 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Multiway Merge Join</from>
+      <to>Join Rows (cartesian product) 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Join Rows (cartesian product) 2</from>
+      <to>Insert in S_KFZ_LEISTUNG</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add a checksum VNr</from>
+      <to>Multiway Merge Join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>METADATA_DTS</from>
       <to>Join Rows (cartesian product) 2 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>KFZ_Raten</from>
+      <to>Multiway Merge Join 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -610,7 +583,22 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Add a checksum KFZ_LEISTUNG 2</from>
+      <from>Concat Fields 2</from>
+      <to>Add a checksum KFZ_RATEN</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add a checksum KFZ_RATEN</from>
+      <to>Multiway Merge Join 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add a checksum VNr</from>
+      <to>Multiway Merge Join 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Multiway Merge Join 2</from>
       <to>Join Rows (cartesian product) 2 2</to>
       <enabled>Y</enabled>
     </hop>
@@ -620,18 +608,13 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Concat Fields 2</from>
-      <to>Add a checksum KFZ_LEISTUNG 2</to>
+      <from>Add a checksum VNr</from>
+      <to>Multiway Merge Join 2 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Add a checksum VNr</from>
-      <to>Join Rows (cartesian product) 2 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>METADATA_DTS</from>
-      <to>Join Rows (cartesian product) 2 2</to>
+      <to>Concat</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -641,70 +624,61 @@
     </hop>
     <hop>
       <from>Add a checksum KuNr</from>
-      <to>Join Rows (cartesian product) 2 3</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>KFZ_VNr 2</from>
-      <to>Add a checksum VNr 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Add a checksum VNr 2</from>
-      <to>Join Rows (cartesian product) 2 3</to>
+      <to>Multiway Merge Join 2 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Add a checksum KuNr</from>
-      <to>Concat Fields 3</to>
+      <to>Concat</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Add a checksum VNr 2</from>
-      <to>Concat Fields 3</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Join Rows (cartesian product) 2 3</from>
-      <to>Insert in L_KUNDE_KFZ</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>METADATA_DTS 2</from>
-      <to>Join Rows (cartesian product) 2 3</to>
+      <from>Concat</from>
+      <to>Add a checksum to Hashes</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Add a checksum to Hashes</from>
-      <to>Join Rows (cartesian product) 2 3</to>
+      <to>Multiway Merge Join 2 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Concat Fields 3</from>
-      <to>Add a checksum to Hashes</to>
+      <from>Multiway Merge Join 2 2</from>
+      <to>Join Rows (cartesian product) 2 2 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>METADATA_DTS</from>
+      <to>Join Rows (cartesian product) 2 2 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Join Rows (cartesian product) 2 2 2</from>
+      <to>Insert in L_KUNDE_KFZ</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Add a checksum KFZ_LEISTUNG</name>
-    <type>CheckSum</type>
+    <name>KFZ_VNr</name>
+    <type>TableInput</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <checksumtype>MD5</checksumtype>
-    <resultfieldName>leistung_hash</resultfieldName>
-    <resultType>string</resultType>
-    <compatibilityMode>N</compatibilityMode>
-    <fields>
-      <field>
-        <name>Output</name>
-      </field>
-    </fields>
+    <connection>integration_zone</connection>
+    <sql>SELECT
+VNr
+FROM KFZ_TRANSFORM
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -713,14 +687,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>256</xloc>
-      <yloc>352</yloc>
+      <xloc>32</xloc>
+      <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Add a checksum KFZ_LEISTUNG 2</name>
-    <type>CheckSum</type>
+    <name>Join Rows (cartesian product)</name>
+    <type>JoinRows</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -729,13 +703,124 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <cache_size>500</cache_size>
+    <main/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue/>
+        <function>=</function>
+        <rightvalue/>
+      </condition>
+    </compare>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>512</xloc>
+      <yloc>16</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Insert in H_KFZ</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>dwh</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>H_KFZ</table>
+      <key>
+        <name>VNr</name>
+        <field>versicherung_id</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Import_Table</name>
+        <field>record_source</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Integration_Time</name>
+        <field>load_dts</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>vnr_hash</name>
+        <field>hash_key</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>versicherung_id</name>
+        <rename>VNr</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>load_dts</name>
+        <rename>Integration_Time</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>record_source</name>
+        <rename>Import_Table</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>hash_key</name>
+        <rename>vnr_hash</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>800</xloc>
+      <yloc>16</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Add a checksum VNr</name>
+    <type>CheckSum</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
     <checksumtype>MD5</checksumtype>
-    <resultfieldName>raten_hash</resultfieldName>
+    <resultfieldName>vnr_hash</resultfieldName>
     <resultType>string</resultType>
     <compatibilityMode>N</compatibilityMode>
     <fields>
       <field>
-        <name>Output2</name>
+        <name>VNr</name>
       </field>
     </fields>
     <cluster_schema/>
@@ -747,30 +832,32 @@
     </remotesteps>
     <GUI>
       <xloc>208</xloc>
-      <yloc>544</yloc>
+      <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Add a checksum KuNr</name>
-    <type>CheckSum</type>
+    <name>METADATA_DTS</name>
+    <type>TableInput</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <checksumtype>MD5</checksumtype>
-    <resultfieldName>kunr_hash</resultfieldName>
-    <resultType>hexadecimal</resultType>
-    <compatibilityMode>N</compatibilityMode>
-    <fields>
-      <field>
-        <name>KuNr</name>
-      </field>
-    </fields>
+    <connection>integration_zone</connection>
+    <sql>SELECT
+  Import_Table
+, Integration_Time
+FROM METADATA
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -779,64 +866,42 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>624</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Add a checksum VNr</name>
-    <type>CheckSum</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <checksumtype>MD5</checksumtype>
-    <resultfieldName>vnr_hash</resultfieldName>
-    <resultType>hexadecimal</resultType>
-    <compatibilityMode>N</compatibilityMode>
-    <fields>
-      <field>
-        <name>VNr</name>
-      </field>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>64</xloc>
+      <xloc>512</xloc>
       <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Add a checksum VNr 2</name>
-    <type>CheckSum</type>
+    <name>KFZ_Leistung</name>
+    <type>TableInput</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <checksumtype>MD5</checksumtype>
-    <resultfieldName>vnr_hash3</resultfieldName>
-    <resultType>hexadecimal</resultType>
-    <compatibilityMode>N</compatibilityMode>
-    <fields>
-      <field>
-        <name>VNr</name>
-      </field>
-    </fields>
+    <connection>integration_zone</connection>
+    <sql>SELECT
+VNr
+, KFZ_KZ
+, Art
+, Neuwert
+, Erstzulassung
+, VBeginn
+, SB_TK
+, SB_VK
+, VK
+, Schadenssumme_Sach
+, Schadenssumme_Person
+FROM KFZ_TRANSFORM
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -845,41 +910,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>624</xloc>
-      <yloc>320</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Add a checksum to Hashes</name>
-    <type>CheckSum</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <checksumtype>MD5</checksumtype>
-    <resultfieldName>hash_hash</resultfieldName>
-    <resultType>hexadecimal</resultType>
-    <compatibilityMode>N</compatibilityMode>
-    <fields>
-      <field>
-        <name>Output3</name>
-      </field>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>736</xloc>
-      <yloc>208</yloc>
+      <xloc>32</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1048,7 +1080,7 @@
       </field>
     </fields>
     <ConcatFields>
-      <targetFieldName>Output</targetFieldName>
+      <targetFieldName>concat-leistung</targetFieldName>
       <targetFieldLength>0</targetFieldLength>
       <removeSelectedFields>N</removeSelectedFields>
     </ConcatFields>
@@ -1060,14 +1092,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>64</xloc>
-      <yloc>352</yloc>
+      <xloc>32</xloc>
+      <yloc>416</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Concat Fields 2</name>
-    <type>ConcatFields</type>
+    <name>Multiway Merge Join</name>
+    <type>MultiwayMergeJoin</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1076,116 +1108,49 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <separator>~</separator>
-    <enclosure>"</enclosure>
-    <enclosure_forced>N</enclosure_forced>
-    <enclosure_fix_disabled>N</enclosure_fix_disabled>
-    <header>N</header>
-    <footer>N</footer>
-    <format>DOS</format>
-    <compression>None</compression>
-    <encoding/>
-    <endedLine/>
-    <fileNameInField>N</fileNameInField>
-    <fileNameField/>
-    <create_parent_folder>Y</create_parent_folder>
-    <file>
-      <name>file</name>
-      <is_command>N</is_command>
-      <servlet_output>N</servlet_output>
-      <do_not_open_new_file_init>N</do_not_open_new_file_init>
-      <extention>txt</extention>
-      <append>N</append>
-      <split>N</split>
-      <haspartno>N</haspartno>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format/>
-      <add_to_result_filenames>Y</add_to_result_filenames>
-      <pad>N</pad>
-      <fast_dump>N</fast_dump>
-      <splitevery>0</splitevery>
-    </file>
+    <join_type>INNER</join_type>
+    <step0>Add a checksum KFZ_LEISTUNG</step0>
+    <step1>KFZ_Leistung</step1>
+    <step2>Add a checksum VNr</step2>
+    <number_input>3</number_input>
+    <keys>
+      <key>VNr</key>
+      <key>VNr</key>
+      <key>VNr</key>
+    </keys>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>352</xloc>
+      <yloc>272</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Add a checksum KFZ_LEISTUNG</name>
+    <type>CheckSum</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <checksumtype>MD5</checksumtype>
+    <resultfieldName>leistung_hash</resultfieldName>
+    <resultType>string</resultType>
+    <compatibilityMode>N</compatibilityMode>
     <fields>
       <field>
-        <name>HP_Monat</name>
-        <type>Number</type>
-        <format>0000000000.00</format>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>12</length>
-        <precision>2</precision>
-      </field>
-      <field>
-        <name>TK_Monat</name>
-        <type>Number</type>
-        <format>0000000000.00</format>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>12</length>
-        <precision>2</precision>
-      </field>
-      <field>
-        <name>VK_Monat</name>
-        <type>Number</type>
-        <format>0000000000.00</format>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>12</length>
-        <precision>2</precision>
-      </field>
-      <field>
-        <name>HPSatz</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>9</length>
-        <precision>0</precision>
-      </field>
-      <field>
-        <name>TKSatz</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>9</length>
-        <precision>0</precision>
-      </field>
-      <field>
-        <name>VKSatz</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>9</length>
-        <precision>0</precision>
+        <name>concat-leistung</name>
       </field>
     </fields>
-    <ConcatFields>
-      <targetFieldName>Output2</targetFieldName>
-      <targetFieldLength>0</targetFieldLength>
-      <removeSelectedFields>N</removeSelectedFields>
-    </ConcatFields>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1194,14 +1159,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>64</xloc>
-      <yloc>544</yloc>
+      <xloc>352</xloc>
+      <yloc>416</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Concat Fields 3</name>
-    <type>ConcatFields</type>
+    <name>Join Rows (cartesian product) 2</name>
+    <type>JoinRows</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1210,68 +1175,18 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <separator>~</separator>
-    <enclosure>"</enclosure>
-    <enclosure_forced>N</enclosure_forced>
-    <enclosure_fix_disabled>N</enclosure_fix_disabled>
-    <header>N</header>
-    <footer>N</footer>
-    <format>DOS</format>
-    <compression>None</compression>
-    <encoding/>
-    <endedLine/>
-    <fileNameInField>N</fileNameInField>
-    <fileNameField/>
-    <create_parent_folder>Y</create_parent_folder>
-    <file>
-      <name>file</name>
-      <is_command>N</is_command>
-      <servlet_output>N</servlet_output>
-      <do_not_open_new_file_init>N</do_not_open_new_file_init>
-      <extention>txt</extention>
-      <append>N</append>
-      <split>N</split>
-      <haspartno>N</haspartno>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format/>
-      <add_to_result_filenames>Y</add_to_result_filenames>
-      <pad>N</pad>
-      <fast_dump>N</fast_dump>
-      <splitevery>0</splitevery>
-    </file>
-    <fields>
-      <field>
-        <name>kunr_hash</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>vnr_hash3</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-    </fields>
-    <ConcatFields>
-      <targetFieldName>Output3</targetFieldName>
-      <targetFieldLength>0</targetFieldLength>
-      <removeSelectedFields>N</removeSelectedFields>
-    </ConcatFields>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <cache_size>500</cache_size>
+    <main/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue/>
+        <function>=</function>
+        <rightvalue/>
+      </condition>
+    </compare>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1280,169 +1195,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>624</xloc>
-      <yloc>208</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Insert in H_KFZ</name>
-    <type>InsertUpdate</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>dwh</connection>
-    <commit>100</commit>
-    <update_bypassed>N</update_bypassed>
-    <lookup>
-      <schema/>
-      <table>H_KFZ</table>
-      <key>
-        <name>VNr</name>
-        <field>versicherung_id</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>Import_Table</name>
-        <field>record_source</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>Integration_Time</name>
-        <field>load_dts</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>vnr_hash</name>
-        <field>hash_key</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>versicherung_id</name>
-        <rename>VNr</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>load_dts</name>
-        <rename>Integration_Time</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>record_source</name>
-        <rename>Import_Table</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>hash_key</name>
-        <rename>vnr_hash</rename>
-        <update>Y</update>
-      </value>
-    </lookup>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>464</xloc>
-      <yloc>32</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Insert in L_KUNDE_KFZ</name>
-    <type>InsertUpdate</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>dwh</connection>
-    <commit>100</commit>
-    <update_bypassed>N</update_bypassed>
-    <lookup>
-      <schema/>
-      <table>L_KUNDE_KFZ</table>
-      <key>
-        <name>kunr_hash</name>
-        <field>kunde_hash</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>vnr_hash3</name>
-        <field>kfz_hash</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>Import_Table</name>
-        <field>record_source</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>Integration_Time</name>
-        <field>load_dts</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>hash_hash</name>
-        <field>hash_key</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>record_source</name>
-        <rename>Import_Table</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>load_dts</name>
-        <rename>Integration_Time</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>hash_key</name>
-        <rename>hash_hash</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>kunde_hash</name>
-        <rename>kunr_hash</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>kfz_hash</name>
-        <rename>vnr_hash3</rename>
-        <update>Y</update>
-      </value>
-    </lookup>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1072</xloc>
-      <yloc>208</yloc>
+      <xloc>512</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1626,8 +1380,236 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>464</xloc>
-      <yloc>240</yloc>
+      <xloc>816</xloc>
+      <yloc>272</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>KFZ_Raten</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>integration_zone</connection>
+    <sql>SELECT
+  VNr
+, HP_Monat
+, TK_Monat
+, VK_Monat
+, HPSatz
+, TKSatz
+, VKSatz
+FROM KFZ_TRANSFORM
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>32</xloc>
+      <yloc>544</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Concat Fields 2</name>
+    <type>ConcatFields</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <separator>~</separator>
+    <enclosure>"</enclosure>
+    <enclosure_forced>N</enclosure_forced>
+    <enclosure_fix_disabled>N</enclosure_fix_disabled>
+    <header>N</header>
+    <footer>N</footer>
+    <format>DOS</format>
+    <compression>None</compression>
+    <encoding/>
+    <endedLine/>
+    <fileNameInField>N</fileNameInField>
+    <fileNameField/>
+    <create_parent_folder>Y</create_parent_folder>
+    <file>
+      <name>file</name>
+      <is_command>N</is_command>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>N</do_not_open_new_file_init>
+      <extention>txt</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>N</fast_dump>
+      <splitevery>0</splitevery>
+    </file>
+    <fields>
+      <field>
+        <name>HP_Monat</name>
+        <type>Number</type>
+        <format>0000000000.00</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>12</length>
+        <precision>2</precision>
+      </field>
+      <field>
+        <name>TK_Monat</name>
+        <type>Number</type>
+        <format>0000000000.00</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>12</length>
+        <precision>2</precision>
+      </field>
+      <field>
+        <name>VK_Monat</name>
+        <type>Number</type>
+        <format>0000000000.00</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>12</length>
+        <precision>2</precision>
+      </field>
+      <field>
+        <name>HPSatz</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>9</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>TKSatz</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>9</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>VKSatz</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>9</length>
+        <precision>0</precision>
+      </field>
+    </fields>
+    <ConcatFields>
+      <targetFieldName>concat-raten</targetFieldName>
+      <targetFieldLength>0</targetFieldLength>
+      <removeSelectedFields>N</removeSelectedFields>
+    </ConcatFields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>32</xloc>
+      <yloc>688</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Add a checksum KFZ_RATEN</name>
+    <type>CheckSum</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <checksumtype>MD5</checksumtype>
+    <resultfieldName>raten_hash</resultfieldName>
+    <resultType>string</resultType>
+    <compatibilityMode>N</compatibilityMode>
+    <fields>
+      <field>
+        <name>VNr</name>
+      </field>
+      <field>
+        <name>HP_Monat</name>
+      </field>
+      <field>
+        <name>TK_Monat</name>
+      </field>
+      <field>
+        <name>VK_Monat</name>
+      </field>
+      <field>
+        <name>HPSatz</name>
+      </field>
+      <field>
+        <name>TKSatz</name>
+      </field>
+      <field>
+        <name>VKSatz</name>
+      </field>
+      <field>
+        <name>concat-raten</name>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>352</xloc>
+      <yloc>688</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1767,14 +1749,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>464</xloc>
-      <yloc>432</yloc>
+      <xloc>832</xloc>
+      <yloc>544</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Join Rows (cartesian product)</name>
-    <type>JoinRows</type>
+    <name>Multiway Merge Join 2</name>
+    <type>MultiwayMergeJoin</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1783,18 +1765,16 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <cache_size>500</cache_size>
-    <main/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue/>
-        <function>=</function>
-        <rightvalue/>
-      </condition>
-    </compare>
+    <join_type>INNER</join_type>
+    <step0>KFZ_Raten</step0>
+    <step1>Add a checksum VNr</step1>
+    <step2>Add a checksum KFZ_RATEN</step2>
+    <number_input>3</number_input>
+    <keys>
+      <key>VNr</key>
+      <key>VNr</key>
+      <key>VNr</key>
+    </keys>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1803,44 +1783,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>256</xloc>
-      <yloc>32</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Join Rows (cartesian product) 2</name>
-    <type>JoinRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <cache_size>500</cache_size>
-    <main/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue/>
-        <function>=</function>
-        <rightvalue/>
-      </condition>
-    </compare>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>256</xloc>
-      <yloc>240</yloc>
+      <xloc>352</xloc>
+      <yloc>544</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1875,13 +1819,99 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>208</xloc>
-      <yloc>432</yloc>
+      <xloc>608</xloc>
+      <yloc>544</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Join Rows (cartesian product) 2 3</name>
+    <name>Insert in L_KUNDE_KFZ</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>dwh</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>L_KUNDE_KFZ</table>
+      <key>
+        <name>kunr_hash</name>
+        <field>kunde_hash</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>vnr_hash</name>
+        <field>kfz_hash</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Import_Table</name>
+        <field>record_source</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Integration_Time</name>
+        <field>load_dts</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>hash_hash</name>
+        <field>hash_key</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>record_source</name>
+        <rename>Import_Table</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>load_dts</name>
+        <rename>Integration_Time</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>hash_key</name>
+        <rename>hash_hash</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>kunde_hash</name>
+        <rename>kunr_hash</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>kfz_hash</name>
+        <rename>vnr_hash</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>960</xloc>
+      <yloc>864</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Join Rows (cartesian product) 2 2 2</name>
     <type>JoinRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -1911,14 +1941,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>912</xloc>
-      <yloc>208</yloc>
+      <xloc>784</xloc>
+      <yloc>864</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>KFZ_Leistung</name>
-    <type>TableInput</type>
+    <name>Multiway Merge Join 2 2</name>
+    <type>MultiwayMergeJoin</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1927,25 +1957,16 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>integration_zone</connection>
-    <sql>SELECT
- KFZ_KZ
-, Art
-, Neuwert
-, Erstzulassung
-, VBeginn
-, SB_TK
-, SB_VK
-, VK
-, Schadenssumme_Sach
-, Schadenssumme_Person
-FROM KFZ_TRANSFORM
-</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
+    <join_type>INNER</join_type>
+    <step0>Add a checksum VNr</step0>
+    <step1>Add a checksum KuNr</step1>
+    <step2>Add a checksum to Hashes</step2>
+    <number_input>3</number_input>
+    <keys>
+      <key>VNr</key>
+      <key>VNr</key>
+      <key>VNr</key>
+    </keys>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1954,14 +1975,14 @@ FROM KFZ_TRANSFORM
       </output>
     </remotesteps>
     <GUI>
-      <xloc>64</xloc>
-      <yloc>240</yloc>
+      <xloc>352</xloc>
+      <yloc>864</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>KFZ_Raten</name>
-    <type>TableInput</type>
+    <name>Concat</name>
+    <type>ConcatFields</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1970,21 +1991,68 @@ FROM KFZ_TRANSFORM
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>integration_zone</connection>
-    <sql>SELECT
- HP_Monat
-, TK_Monat
-, VK_Monat
-, HPSatz
-, TKSatz
-, VKSatz
-FROM KFZ_TRANSFORM
-</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
+    <separator>~</separator>
+    <enclosure>"</enclosure>
+    <enclosure_forced>N</enclosure_forced>
+    <enclosure_fix_disabled>N</enclosure_fix_disabled>
+    <header>N</header>
+    <footer>N</footer>
+    <format>DOS</format>
+    <compression>None</compression>
+    <encoding/>
+    <endedLine/>
+    <fileNameInField>N</fileNameInField>
+    <fileNameField/>
+    <create_parent_folder>Y</create_parent_folder>
+    <file>
+      <name>file</name>
+      <is_command>N</is_command>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>N</do_not_open_new_file_init>
+      <extention>txt</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>N</fast_dump>
+      <splitevery>0</splitevery>
+    </file>
+    <fields>
+      <field>
+        <name>vnr_hash</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>kunr_hash</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+    </fields>
+    <ConcatFields>
+      <targetFieldName>concat-hashes</targetFieldName>
+      <targetFieldLength>0</targetFieldLength>
+      <removeSelectedFields>N</removeSelectedFields>
+    </ConcatFields>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1993,14 +2061,14 @@ FROM KFZ_TRANSFORM
       </output>
     </remotesteps>
     <GUI>
-      <xloc>64</xloc>
-      <yloc>432</yloc>
+      <xloc>208</xloc>
+      <yloc>1008</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>KFZ_VNr</name>
-    <type>TableInput</type>
+    <name>Add a checksum to Hashes</name>
+    <type>CheckSum</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2009,16 +2077,15 @@ FROM KFZ_TRANSFORM
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>integration_zone</connection>
-    <sql>SELECT
-VNr
-FROM KFZ_TRANSFORM
-</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
+    <checksumtype>MD5</checksumtype>
+    <resultfieldName>hash_hash</resultfieldName>
+    <resultType>string</resultType>
+    <compatibilityMode>N</compatibilityMode>
+    <fields>
+      <field>
+        <name>concat-hashes</name>
+      </field>
+    </fields>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -2027,32 +2094,31 @@ FROM KFZ_TRANSFORM
       </output>
     </remotesteps>
     <GUI>
-      <xloc>64</xloc>
-      <yloc>32</yloc>
+      <xloc>352</xloc>
+      <yloc>1008</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>KFZ_VNr 2</name>
-    <type>TableInput</type>
+    <name>Add a checksum KuNr</name>
+    <type>CheckSum</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>integration_zone</connection>
-    <sql>SELECT
-VNr
-FROM KFZ_TRANSFORM
-</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
+    <checksumtype>MD5</checksumtype>
+    <resultfieldName>kunr_hash</resultfieldName>
+    <resultType>string</resultType>
+    <compatibilityMode>N</compatibilityMode>
+    <fields>
+      <field>
+        <name>KuNr</name>
+      </field>
+    </fields>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -2061,8 +2127,8 @@ FROM KFZ_TRANSFORM
       </output>
     </remotesteps>
     <GUI>
-      <xloc>624</xloc>
-      <yloc>432</yloc>
+      <xloc>176</xloc>
+      <yloc>864</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2079,7 +2145,8 @@ FROM KFZ_TRANSFORM
     </partitioning>
     <connection>integration_zone</connection>
     <sql>SELECT
- KuNr
+  VNr 
+, KuNr
 FROM KFZ_TRANSFORM
 </sql>
     <limit>0</limit>
@@ -2095,78 +2162,8 @@ FROM KFZ_TRANSFORM
       </output>
     </remotesteps>
     <GUI>
-      <xloc>624</xloc>
-      <yloc>32</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>METADATA_DTS</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>integration_zone</connection>
-    <sql>SELECT
-  Import_Table
-, Integration_Time
-FROM METADATA
-</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>256</xloc>
-      <yloc>144</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>METADATA_DTS 2</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>integration_zone</connection>
-    <sql>SELECT
-  Import_Table
-, Integration_Time
-FROM METADATA
-</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>912</xloc>
-      <yloc>80</yloc>
+      <xloc>48</xloc>
+      <yloc>864</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
