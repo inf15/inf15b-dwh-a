@@ -3,7 +3,7 @@ USE enterprise_data_warehouse;
 
 create table H_KFZ (
 	hash_key VARCHAR(64),
-	versicherung_id VARCHAR(7),
+	versicherung_id VARCHAR(8),
 	load_dts DATE,
 	record_source VARCHAR(60),
 	CONSTRAINT `pk_h_k_kfz` PRIMARY KEY (hash_key)
