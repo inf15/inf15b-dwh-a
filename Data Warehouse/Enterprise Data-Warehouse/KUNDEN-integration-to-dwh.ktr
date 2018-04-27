@@ -438,13 +438,13 @@
   </notepads>
   <connection>
     <name>dwh</name>
-    <server>localhost</server>
+    <server>mariadb.smackmack.industries</server>
     <type>MARIADB</type>
     <access>Native</access>
     <database>enterprise_data_warehouse</database>
-    <port>3306</port>
+    <port>993</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
+    <password>Encrypted 6473616668757369666875737066686477cde8c7bb1fcf9391b81dbe76d696badc</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -463,7 +463,7 @@
       </attribute>
       <attribute>
         <code>PORT_NUMBER</code>
-        <attribute>3306</attribute>
+        <attribute>993</attribute>
       </attribute>
       <attribute>
         <code>PRESERVE_RESERVED_WORD_CASE</code>
@@ -489,13 +489,13 @@
   </connection>
   <connection>
     <name>integration_zone</name>
-    <server>localhost</server>
+    <server>mariadb.smackmack.industries</server>
     <type>MARIADB</type>
     <access>Native</access>
     <database>integration_zone</database>
-    <port>3306</port>
+    <port>993</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
+    <password>Encrypted 6473616668757369666875737066686477cde8c7bb1fcf9391b81dbe76d696badc</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -514,7 +514,7 @@
       </attribute>
       <attribute>
         <code>PORT_NUMBER</code>
-        <attribute>3306</attribute>
+        <attribute>993</attribute>
       </attribute>
       <attribute>
         <code>PRESERVE_RESERVED_WORD_CASE</code>
@@ -575,11 +575,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>KUNDE_persönliche_informationen</from>
-      <to>Multiway Merge Join</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>METADATA_DTS 2</from>
       <to>Join Rows (cartesian product) 2 2</to>
       <enabled>Y</enabled>
@@ -590,18 +585,8 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>KUNDE_status</from>
-      <to>Multiway Merge Join 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Join Rows (cartesian product) 2 2</from>
       <to>Insert in S_KUNDE_STATUS</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Add a checksum status</from>
-      <to>Multiway Merge Join 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -610,7 +595,7 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Add a checksum KuNr</from>
+      <from>Add a checksum status</from>
       <to>Multiway Merge Join 2</to>
       <enabled>Y</enabled>
     </hop>
@@ -620,13 +605,13 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Multiway Merge Join 2</from>
-      <to>Join Rows (cartesian product) 2 2</to>
+      <from>Join Rows (cartesian product) 2 2 2</from>
+      <to>Insert in S_KUNDE_ADRESSE</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Join Rows (cartesian product) 2 2 2</from>
-      <to>Insert in S_KUNDE_ADRESSE</to>
+      <from>Add a checksum KuNr</from>
+      <to>Multiway Merge Join 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -635,8 +620,8 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>KUNDE_status</from>
-      <to>Add a checksum status</to>
+      <from>Multiway Merge Join 2</from>
+      <to>Join Rows (cartesian product) 2 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -659,7 +644,82 @@
       <to>Multiway Merge Join 3</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>KUNDE_status</from>
+      <to>Add a checksum status</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>KUNDE_status</from>
+      <to>Multiway Merge Join 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>KUNDE_persönliche_informationen</from>
+      <to>Multiway Merge Join</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
+  <step>
+    <name>Add a checksum</name>
+    <type>CheckSum</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <checksumtype>MD5</checksumtype>
+    <resultfieldName>adresse-hash</resultfieldName>
+    <resultType>hexadecimal</resultType>
+    <compatibilityMode>N</compatibilityMode>
+    <fields>
+      <field>
+        <name>Strasse</name>
+      </field>
+      <field>
+        <name>HausNr</name>
+      </field>
+      <field>
+        <name>PLZ</name>
+      </field>
+      <field>
+        <name>Ort</name>
+      </field>
+      <field>
+        <name>TelPrivat</name>
+      </field>
+      <field>
+        <name>TelArbeit</name>
+      </field>
+      <field>
+        <name>TelMobil</name>
+      </field>
+      <field>
+        <name>Fax</name>
+      </field>
+      <field>
+        <name>Email1</name>
+      </field>
+      <field>
+        <name>Email2</name>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>160</xloc>
+      <yloc>912</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
   <step>
     <name>Add a checksum KuNr</name>
     <type>CheckSum</type>
@@ -710,9 +770,6 @@
     <compatibilityMode>N</compatibilityMode>
     <fields>
       <field>
-        <name>KuNr</name>
-      </field>
-      <field>
         <name>Name</name>
       </field>
       <field>
@@ -742,8 +799,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>304</xloc>
-      <yloc>368</yloc>
+      <xloc>32</xloc>
+      <yloc>352</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -763,9 +820,6 @@
     <resultType>hexadecimal</resultType>
     <compatibilityMode>N</compatibilityMode>
     <fields>
-      <field>
-        <name>KuNr</name>
-      </field>
       <field>
         <name>Prio</name>
       </field>
@@ -1692,8 +1746,8 @@ where Import_Table = "STAMMDATEN_LANDING";</sql>
     </partitioning>
     <join_type>INNER</join_type>
     <step0>Add a checksum persönlicheInfo</step0>
-    <step1>KUNDE_persönliche_informationen</step1>
-    <step2>Add a checksum KuNr</step2>
+    <step1>Add a checksum KuNr</step1>
+    <step2>KUNDE_persönliche_informationen</step2>
     <number_input>3</number_input>
     <keys>
       <key>KuNr</key>
@@ -1744,66 +1798,6 @@ where Import_Table = "STAMMDATEN_LANDING";</sql>
     <GUI>
       <xloc>304</xloc>
       <yloc>640</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Add a checksum</name>
-    <type>CheckSum</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <checksumtype>MD5</checksumtype>
-    <resultfieldName>adresse-hash</resultfieldName>
-    <resultType>hexadecimal</resultType>
-    <compatibilityMode>N</compatibilityMode>
-    <fields>
-      <field>
-        <name>Email2</name>
-      </field>
-      <field>
-        <name>Email1</name>
-      </field>
-      <field>
-        <name>Fax</name>
-      </field>
-      <field>
-        <name>TelMobil</name>
-      </field>
-      <field>
-        <name>TelArbeit</name>
-      </field>
-      <field>
-        <name>TelPrivat</name>
-      </field>
-      <field>
-        <name>Ort</name>
-      </field>
-      <field>
-        <name>PLZ</name>
-      </field>
-      <field>
-        <name>HausNr</name>
-      </field>
-      <field>
-        <name>Strasse</name>
-      </field>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>160</xloc>
-      <yloc>912</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
