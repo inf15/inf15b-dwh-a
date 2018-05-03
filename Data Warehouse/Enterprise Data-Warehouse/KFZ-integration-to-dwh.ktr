@@ -645,7 +645,7 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Kunden_KuNr</from>
+      <from>KFZ_KuNr</from>
       <to>Add a checksum KuNr</to>
       <enabled>Y</enabled>
     </hop>
@@ -670,7 +670,7 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Kunden_KuNr</from>
+      <from>KFZ_KuNr</from>
       <to>Multiway Merge Join 2 2 2</to>
       <enabled>Y</enabled>
     </hop>
@@ -1945,7 +1945,7 @@ FROM KFZ_TRANSFORM
     </GUI>
   </step>
   <step>
-    <name>Kunden_KuNr</name>
+    <name>KFZ_KuNr</name>
     <type>TableInput</type>
     <description/>
     <distribute>N</distribute>
@@ -2129,7 +2129,7 @@ where Import_Table = 'kfz_landing'
       <schema_name/>
     </partitioning>
     <join_type>INNER</join_type>
-    <step0>Kunden_KuNr</step0>
+    <step0>KFZ_KuNr</step0>
     <step1>KFZ_VNr</step1>
     <number_input>2</number_input>
     <keys>

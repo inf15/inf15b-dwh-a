@@ -444,7 +444,7 @@
     <database>enterprise_data_warehouse</database>
     <port>993</port>
     <username>root</username>
-    <password>Encrypted 6473616668757369666875737066686477cde8c7bb1fcf9391b81dbe76d696badc</password>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -495,7 +495,7 @@
     <database>integration_zone</database>
     <port>993</port>
     <username>root</username>
-    <password>Encrypted 6473616668757369666875737066686477cde8c7bb1fcf9391b81dbe76d696badc</password>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>

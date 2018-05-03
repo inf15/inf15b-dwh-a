@@ -540,32 +540,117 @@
   <order>
     <hop>
       <from>KV_VNr</from>
-      <to>Join Rows (cartesian product) 2 2 2</to>
+      <to>Add a checksum VNr</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>KV_VNr</from>
-      <to>Add a checksum VNr 3</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Join Rows (cartesian product) 2 2 2</from>
+      <from>Join Rows (cartesian product)</from>
       <to>Insert in H_KV</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>METADATA_DTS 2 2 2</from>
-      <to>Join Rows (cartesian product) 2 2 2</to>
+      <from>METADATA_DTS</from>
+      <to>Join Rows (cartesian product)</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Add a checksum VNr 3</from>
-      <to>Join Rows (cartesian product) 2 2 2</to>
+      <from>Add a checksum VNr</from>
+      <to>Join Rows (cartesian product)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>KV_Leistung</from>
+      <to>Concat Fields-Leistung</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Concat Fields-Leistung</from>
+      <to>Add a checksum-Leistung</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add a checksum-Leistung</from>
+      <to>Multiway Merge Join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>KV_Leistung</from>
+      <to>Multiway Merge Join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add a checksum VNr</from>
+      <to>Multiway Merge Join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Multiway Merge Join</from>
+      <to>Join Rows (cartesian product) 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>METADATA_DTS</from>
+      <to>Join Rows (cartesian product) 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Join Rows (cartesian product) 2</from>
+      <to>Insert in S_KV_Leistung</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>KV_KuNr</from>
+      <to>Multiway Merge Join 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>KV_KuNr</from>
+      <to>Add a checksum KuNr</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add a checksum KuNr</from>
+      <to>Multiway Merge Join 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>KV_VNr</from>
+      <to>Multiway Merge Join 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add a checksum VNr</from>
+      <to>Multiway Merge Join 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Multiway Merge Join 2</from>
+      <to>Add a checksum hash-hash</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add a checksum hash-hash</from>
+      <to>Multiway Merge Join 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>METADATA_DTS</from>
+      <to>Join Rows (cartesian product) 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Multiway Merge Join 3</from>
+      <to>Join Rows (cartesian product) 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Join Rows (cartesian product) 3</from>
+      <to>Insert in L_KUNDE_KV</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Add a checksum VNr 3</name>
+    <name>Add a checksum KuNr</name>
     <type>CheckSum</type>
     <description/>
     <distribute>Y</distribute>
@@ -575,8 +660,41 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <checksumtype>CRC32</checksumtype>
-    <resultfieldName/>
+    <checksumtype>MD5</checksumtype>
+    <resultfieldName>KuNr_hash</resultfieldName>
+    <resultType>hexadecimal</resultType>
+    <compatibilityMode>N</compatibilityMode>
+    <fields>
+      <field>
+        <name>KuNr</name>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>208</xloc>
+      <yloc>496</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Add a checksum VNr</name>
+    <type>CheckSum</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <checksumtype>MD5</checksumtype>
+    <resultfieldName>VNr-Hash</resultfieldName>
     <resultType>hexadecimal</resultType>
     <compatibilityMode>N</compatibilityMode>
     <fields>
@@ -592,8 +710,223 @@
       </output>
     </remotesteps>
     <GUI>
+      <xloc>416</xloc>
+      <yloc>16</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Add a checksum hash-hash</name>
+    <type>CheckSum</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <checksumtype>MD5</checksumtype>
+    <resultfieldName>hash_hash</resultfieldName>
+    <resultType>hexadecimal</resultType>
+    <compatibilityMode>N</compatibilityMode>
+    <fields>
+      <field>
+        <name>VNr</name>
+      </field>
+      <field>
+        <name>KuNr</name>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>416</xloc>
+      <yloc>608</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Add a checksum-Leistung</name>
+    <type>CheckSum</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <checksumtype>MD5</checksumtype>
+    <resultfieldName>leistung_hash</resultfieldName>
+    <resultType>hexadecimal</resultType>
+    <compatibilityMode>N</compatibilityMode>
+    <fields>
+      <field>
+        <name>concat_leistung</name>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>272</xloc>
+      <yloc>384</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Concat Fields-Leistung</name>
+    <type>ConcatFields</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <separator>~</separator>
+    <enclosure>"</enclosure>
+    <enclosure_forced>N</enclosure_forced>
+    <enclosure_fix_disabled>N</enclosure_fix_disabled>
+    <header>N</header>
+    <footer>N</footer>
+    <format>DOS</format>
+    <compression>None</compression>
+    <encoding/>
+    <endedLine/>
+    <fileNameInField>N</fileNameInField>
+    <fileNameField/>
+    <create_parent_folder>Y</create_parent_folder>
+    <file>
+      <name>file</name>
+      <is_command>N</is_command>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>N</do_not_open_new_file_init>
+      <extention>txt</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>N</fast_dump>
+      <splitevery>0</splitevery>
+    </file>
+    <fields>
+      <field>
+        <name>Art</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>200</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>VBeginn</name>
+        <type>Date</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Rate</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>200</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>SB</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>200</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>R1</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>200</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>R2</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>200</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>R3</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>200</length>
+        <precision>-1</precision>
+      </field>
+    </fields>
+    <ConcatFields>
+      <targetFieldName>concat_leistung</targetFieldName>
+      <targetFieldLength>0</targetFieldLength>
+      <removeSelectedFields>N</removeSelectedFields>
+    </ConcatFields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
       <xloc>48</xloc>
-      <yloc>128</yloc>
+      <yloc>384</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -633,7 +966,7 @@
         <name2/>
       </key>
       <key>
-        <name>VNr_1</name>
+        <name>VNr-Hash</name>
         <field>hash_key</field>
         <condition>=</condition>
         <name2/>
@@ -655,7 +988,7 @@
       </value>
       <value>
         <name>hash_key</name>
-        <rename>VNr_1</rename>
+        <rename>VNr-Hash</rename>
         <update>Y</update>
       </value>
     </lookup>
@@ -667,13 +1000,251 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>432</xloc>
+      <xloc>928</xloc>
       <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Join Rows (cartesian product) 2 2 2</name>
+    <name>Insert in L_KUNDE_KV</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>dwh</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>L_KUNDE_KV</table>
+      <key>
+        <name>Import_Table</name>
+        <field>record_source</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Integration_Time</name>
+        <field>load_dts</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>VNr-Hash</name>
+        <field>kv_hash</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>KuNr_hash</name>
+        <field>kunde_hash</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>hash_hash</name>
+        <field>hash_key</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>record_source</name>
+        <rename>Import_Table</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>load_dts</name>
+        <rename>Integration_Time</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>kv_hash</name>
+        <rename>VNr-Hash</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>kunde_hash</name>
+        <rename>KuNr_hash</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>hash_key</name>
+        <rename>hash_hash</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>944</xloc>
+      <yloc>496</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Insert in S_KV_Leistung</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>dwh</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>S_KV_LEISTUNG</table>
+      <key>
+        <name>Art</name>
+        <field>art</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>VBeginn</name>
+        <field>versicherung_beginn</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Rate</name>
+        <field>monat_rate</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>SB</name>
+        <field>beteiligung_rate</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>R1</name>
+        <field>jaehrliche_rueckerstattung_1</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>R2</name>
+        <field>jaehrliche_rueckerstattung_2</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>R3</name>
+        <field>jaehrliche_rueckerstattung_3</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>VNr-Hash</name>
+        <field>kv_hash</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>leistung_hash</name>
+        <field>detail_hash_diff</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Import_Table</name>
+        <field>record_source</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Integration_Time</name>
+        <field>load_dts</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>art</name>
+        <rename>Art</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>versicherung_beginn</name>
+        <rename>VBeginn</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>monat_rate</name>
+        <rename>Rate</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>beteiligung_rate</name>
+        <rename>SB</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>jaehrliche_rueckerstattung_1</name>
+        <rename>R1</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>jaehrliche_rueckerstattung_2</name>
+        <rename>R2</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>jaehrliche_rueckerstattung_3</name>
+        <rename>R3</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>record_source</name>
+        <rename>Import_Table</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>load_dts</name>
+        <rename>Integration_Time</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>detail_hash_diff</name>
+        <rename>leistung_hash</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>kv_hash</name>
+        <rename>VNr-Hash</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>928</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Join Rows (cartesian product)</name>
     <type>JoinRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -703,8 +1274,156 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>240</xloc>
+      <xloc>688</xloc>
       <yloc>16</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Join Rows (cartesian product) 2</name>
+    <type>JoinRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <cache_size>500</cache_size>
+    <main/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue/>
+        <function>=</function>
+        <rightvalue/>
+      </condition>
+    </compare>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>688</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Join Rows (cartesian product) 3</name>
+    <type>JoinRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <cache_size>500</cache_size>
+    <main/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue/>
+        <function>=</function>
+        <rightvalue/>
+      </condition>
+    </compare>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>704</xloc>
+      <yloc>496</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>KV_KuNr</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>integration_zone</connection>
+    <sql>SELECT
+  VNr
+, KuNr
+FROM KV_TRANSFORM
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>48</xloc>
+      <yloc>496</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>KV_Leistung</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>integration_zone</connection>
+    <sql>SELECT
+  VNr
+, Art
+, VBeginn
+, Rate
+, SB
+, R1
+, R2
+, R3
+FROM KV_TRANSFORM
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>48</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -712,7 +1431,7 @@
     <name>KV_VNr</name>
     <type>TableInput</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -743,10 +1462,10 @@ FROM KV_TRANSFORM
     </GUI>
   </step>
   <step>
-    <name>METADATA_DTS 2 2 2</name>
+    <name>METADATA_DTS</name>
     <type>TableInput</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -758,6 +1477,7 @@ FROM KV_TRANSFORM
   Import_Table
 , Integration_Time
 FROM METADATA
+WHERE Import_Table = 'kv_landing'
 </sql>
     <limit>0</limit>
     <lookup/>
@@ -772,8 +1492,108 @@ FROM METADATA
       </output>
     </remotesteps>
     <GUI>
-      <xloc>240</xloc>
+      <xloc>496</xloc>
       <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Multiway Merge Join</name>
+    <type>MultiwayMergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>INNER</join_type>
+    <step0>KV_Leistung</step0>
+    <step1>Add a checksum VNr</step1>
+    <step2>Add a checksum-Leistung</step2>
+    <number_input>3</number_input>
+    <keys>
+      <key>VNr</key>
+      <key>VNr</key>
+      <key>VNr</key>
+    </keys>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>272</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Multiway Merge Join 2</name>
+    <type>MultiwayMergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>INNER</join_type>
+    <step0>KV_KuNr</step0>
+    <step1>KV_VNr</step1>
+    <number_input>2</number_input>
+    <keys>
+      <key>VNr</key>
+      <key>VNr</key>
+    </keys>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>176</xloc>
+      <yloc>608</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Multiway Merge Join 3</name>
+    <type>MultiwayMergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>INNER</join_type>
+    <step0>Add a checksum KuNr</step0>
+    <step1>Add a checksum VNr</step1>
+    <step2>Add a checksum hash-hash</step2>
+    <number_input>3</number_input>
+    <keys>
+      <key>VNr</key>
+      <key>VNr</key>
+      <key>VNr</key>
+    </keys>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>416</xloc>
+      <yloc>496</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
