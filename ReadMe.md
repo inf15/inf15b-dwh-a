@@ -91,10 +91,11 @@ Mit jeder Auswertung werden die Daten hier aktualisiert.
 Der Data-Mart wird im Sternschema aufgebaut, die Tabelle im Zentrum des Stern ist die *Fakten-Tabelle* und
 die Tabellen um diese herum sind *Dimensions-Tabellen*. 
 
+![Data-Mart](https://raw.githubusercontent.com/inf15/inf15b-dwh-a/master/Dokumentation/Datenmodelle/data-mart.png)
 
 **Dimensions-Tabellen** beinhalten die Details für eine Kombination der Eigenschaften Dimension (z.B. *Tag*, *Woche*, *Monat*, *Jahr* für eine Zeitdimension).
 
-**Fakten-Tabellen** enthalten ~~die Fakten~~ konkrete Kennzahlen für gegebene Dimensionen (z.B. *Zeit* und *Region* als Dimension und *Anzahl Verkäufe* als Fakt.).
+**Fakten-Tabellen** enthalten konkrete Kennzahlen für gegebene Dimensionen (z.B. *Zeit* und *Region* als Dimension und *Anzahl Verkäufe* als Fakt.).
 
 Über einen *SELECT* mit *Equi-Join* können dann Fakten für beliebig gewählte Dimensionen aggregiert werden.
 
