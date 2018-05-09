@@ -75,7 +75,7 @@ ___
 ## Pentaho Data-Integration (ETL-Tool)
 
 Als ETL-Tool verwenden wir die Community-Edition der "Pentaho Data-Integration".
-Das Tool kann [hier](https://sourceforge.net/projects/pentaho/files/latest/download?source=files) heruntergeladen werden.
+Das Tool kann [hier](https://sourceforge.net/projects/pentaho/files/Pentaho%208.0/client-tools/pdi-ce-8.0.0.0-28.zip/download) heruntergeladen werden.
 
 Die Dokumentation dazu findet sich [hier](https://help.pentaho.com/Documentation/8.0/Products/Data_Integration).
 
