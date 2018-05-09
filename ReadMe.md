@@ -75,11 +75,32 @@ Falls keine Änderung vorliegt wird auch kein neuer Eintrag angelegt.
 
 | Datenbank                 | Job                           | Skripte                             | ETL                        |
 |---------------------------|-------------------------------|-------------------------------------|----------------------------|
-| enterprise_data_warehouse | enterprise_data_warehouse.kjb | Build Enterprise Data-Warehouse.sql | integration-to-enterprise.krt |
+| enterprise_data_warehouse | integration_to_enterprise_data_warehouse.kjb | Create Enterprise Data-Warehouse.sql | KUNDEN-integration-to-dwh.ktr |
+| | | | BU-integration-to-dwh.ktr |
+| | | | KFZ-integration-to-dwh.ktr |
+| | | | KV-integration-to-dwh.ktr |
+| | | | LV-integration-to-dwh.ktr |
+| | | | SACH-integration-to-dwh.ktr |
 
-### 4. Enterprise Data-Warehouse
 
-*TBD*
+### 4. Data-Mart
+
+Der Data-Mart enthält die für das Reporting vorbereitete Daten.
+Mit jeder Auswertung werden die Daten hier aktualisiert.
+
+Der Data-Mart wird im Sternschema aufgebaut, die Tabelle im Zentrum des Stern ist die *Fakten-Tabelle* und
+die Tabellen um diese herum sind *Dimensions-Tabellen*. 
+
+
+**Dimensions-Tabellen** beinhalten die Details für eine Kombination der Eigenschaften Dimension (z.B. *Tag*, *Woche*, *Monat*, *Jahr* für eine Zeitdimension).
+
+**Fakten-Tabellen** enthalten ~~die Fakten~~ konkrete Kennzahlen für gegebene Dimensionen (z.B. *Zeit* und *Region* als Dimension und *Anzahl Verkäufe* als Fakt.).
+
+Über einen *SELECT* mit *Equi-Join* können dann Fakten für beliebig gewählte Dimensionen aggregiert werden.
+
+| Datenbank | Job                                        | Skripte              | ETL   |
+|-----------|--------------------------------------------|----------------------|-------|
+| data_mart | enterprise_data_warehouse_to_data_mart.kjb | Create Data-Mart.sql | *TBD* |
 
 ### 5. Reporting
 
