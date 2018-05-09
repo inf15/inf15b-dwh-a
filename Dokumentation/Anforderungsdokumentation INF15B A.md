@@ -26,13 +26,16 @@ Das *Data-Warehouse* soll dabei nach der bekannten *Referenz-Architektur* aufgeb
 * Es soll ein Report mit den zukünftigen Auszahlungen aus Lebensversicherungen als PDF erstellt werden.
   * Dies soll basierend auf den bereits abgeschlossenen Lebensversicherungen geschehen.
   * Es wird von einem Rentenalter von 65 Jahren ausgegangen.
+  * Aufsummiert bis zum Zeitpunkt x
+  * 1,3,5,10,30 Jahre
 * Es soll ein Report mit kundenbezogenen Sachversicherungen als PDF erstellt werden.
   * Die Kunden sollen nach den Gesichtspunkten *Geschlecht*, *Alter* etc. gruppiert werden.
+  * Anzahl Versicherung
 * Es soll ein zusätzlicher Report als PDF erstellt werden. Der zusätzliche Report wird im weiteren Laufe des Projekts festgelegt und genauer spezifiziert. Im Folgenden finden sich Vorschläge für einen solchen zusätzlichen Report.
   * Vorschlag: Trend KFZ-Zulassung und Versicherungen
   * Vorschlag: Umsatzentwicklung
   * Vorschlag: Fehleranalyse
-
+  * Vorschlag: Neuwert Wagen, Kundenalter
 
 ## Nicht-funktionale Anforderungen
 

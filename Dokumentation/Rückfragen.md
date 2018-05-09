@@ -7,7 +7,7 @@
   **Verfübarkeit: Mon-Fr 8-22 Uhr**
   **und so weiter**
 
-  **zeitnahe ergbenisse (noch bewertbar machen)**
+**zeitnahe ergbenisse (noch bewertbar machen)**
 
 * Wie mit Fehlern in der Staging-Area umgehen?
 **Fehlerhafte Datensätz gesammelt an Kunde**
@@ -33,3 +33,10 @@
 
  * Soll die Möglichkeit zur Versionierung technisch umgesetzt werden?
  **Eigene Entscheidung, nicht zwingend notwendig**
+
+* Wie streng sollen Daten geprüft werden?
+** Bsp. Kundennummer
+==> macht Sinn, nach Rücksprache 
+
+
+* Ist KFZ-Versicherung immer mit HP und TK/VK?
