@@ -437,13 +437,13 @@
   </notepads>
   <connection>
     <name>dwh</name>
-    <server>localhost</server>
+    <server>mariadb.smackmack.industries</server>
     <type>MARIADB</type>
     <access>Native</access>
     <database>enterprise_data_warehouse</database>
-    <port>3306</port>
+    <port>993</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
+    <password>Encrypted 6473616668757369666875737066686477cde8c7bb1fcf9391b81dbe76d696badc</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -462,7 +462,7 @@
       </attribute>
       <attribute>
         <code>PORT_NUMBER</code>
-        <attribute>3306</attribute>
+        <attribute>993</attribute>
       </attribute>
       <attribute>
         <code>PRESERVE_RESERVED_WORD_CASE</code>
@@ -488,13 +488,13 @@
   </connection>
   <connection>
     <name>integration_zone</name>
-    <server>localhost</server>
+    <server>mariadb.smackmack.industries</server>
     <type>MARIADB</type>
     <access>Native</access>
     <database>integration_zone</database>
-    <port>3306</port>
+    <port>993</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
+    <password>Encrypted 6473616668757369666875737066686477cde8c7bb1fcf9391b81dbe76d696badc</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -513,7 +513,7 @@
       </attribute>
       <attribute>
         <code>PORT_NUMBER</code>
-        <attribute>3306</attribute>
+        <attribute>993</attribute>
       </attribute>
       <attribute>
         <code>PRESERVE_RESERVED_WORD_CASE</code>
@@ -539,11 +539,6 @@
   </connection>
   <order>
     <hop>
-      <from>Sach_VNr</from>
-      <to>Add a checksum VNr</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Join Rows (cartesian product)</from>
       <to>Insert in H_SACH</to>
       <enabled>Y</enabled>
@@ -566,11 +561,6 @@
     <hop>
       <from>METADATA_DTS 2</from>
       <to>Join Rows (cartesian product) 3</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>SACH_link</from>
-      <to>Add a checksum KuNr</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -644,38 +634,8 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>SACH_leistung</from>
-      <to>Concat Fields</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>SACH_leistung</from>
-      <to>Multiway Merge Join</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Concat Fields 2</from>
       <to>Add a checksum raten</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>SACH_raten</from>
-      <to>Concat Fields 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>SACH_raten</from>
-      <to>Multiway Merge Join 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>SACH_link</from>
-      <to>Multiway Merge Join 3</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sach_VNr</from>
-      <to>Multiway Merge Join 3</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -686,6 +646,66 @@
     <hop>
       <from>METADATA_DTS 2</from>
       <to>Join Rows (cartesian product) 3 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>SACH_link</from>
+      <to>Sort rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows</from>
+      <to>Multiway Merge Join 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows</from>
+      <to>Add a checksum KuNr</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sach_VNr</from>
+      <to>Sort rows 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 2</from>
+      <to>Add a checksum VNr</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 2</from>
+      <to>Multiway Merge Join 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>SACH_raten</from>
+      <to>Sort rows 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 3</from>
+      <to>Concat Fields 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 3</from>
+      <to>Multiway Merge Join 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 4</from>
+      <to>Concat Fields</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 4</from>
+      <to>Multiway Merge Join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>SACH_leistung</from>
+      <to>Sort rows 4</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -718,7 +738,7 @@
     </remotesteps>
     <GUI>
       <xloc>272</xloc>
-      <yloc>784</yloc>
+      <yloc>928</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -750,7 +770,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>192</xloc>
+      <xloc>256</xloc>
       <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
@@ -786,8 +806,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>272</xloc>
-      <yloc>688</yloc>
+      <xloc>432</xloc>
+      <yloc>1040</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -820,7 +840,7 @@
     </remotesteps>
     <GUI>
       <xloc>384</xloc>
-      <yloc>368</yloc>
+      <yloc>400</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -852,8 +872,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>384</xloc>
-      <yloc>576</yloc>
+      <xloc>336</xloc>
+      <yloc>768</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -975,7 +995,7 @@
     </remotesteps>
     <GUI>
       <xloc>48</xloc>
-      <yloc>368</yloc>
+      <yloc>400</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1085,7 +1105,7 @@
     </remotesteps>
     <GUI>
       <xloc>48</xloc>
-      <yloc>576</yloc>
+      <yloc>768</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1246,7 +1266,7 @@
     </remotesteps>
     <GUI>
       <xloc>880</xloc>
-      <yloc>784</yloc>
+      <yloc>928</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1376,7 +1396,7 @@
     </remotesteps>
     <GUI>
       <xloc>848</xloc>
-      <yloc>240</yloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1494,8 +1514,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>848</xloc>
-      <yloc>480</yloc>
+      <xloc>800</xloc>
+      <yloc>672</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1567,7 +1587,7 @@
     </remotesteps>
     <GUI>
       <xloc>560</xloc>
-      <yloc>240</yloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1603,7 +1623,7 @@
     </remotesteps>
     <GUI>
       <xloc>560</xloc>
-      <yloc>480</yloc>
+      <yloc>672</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1639,7 +1659,7 @@
     </remotesteps>
     <GUI>
       <xloc>560</xloc>
-      <yloc>784</yloc>
+      <yloc>928</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1710,7 +1730,7 @@ where Import_Table = 'sach_landing'
     </remotesteps>
     <GUI>
       <xloc>560</xloc>
-      <yloc>640</yloc>
+      <yloc>800</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1728,7 +1748,7 @@ where Import_Table = 'sach_landing'
     <join_type>INNER</join_type>
     <step0>Add a checksum VNr</step0>
     <step1>Add a checksum leistung</step1>
-    <step2>SACH_leistung</step2>
+    <step2>Sort rows 4</step2>
     <number_input>3</number_input>
     <keys>
       <key>VNr</key>
@@ -1744,7 +1764,7 @@ where Import_Table = 'sach_landing'
     </remotesteps>
     <GUI>
       <xloc>384</xloc>
-      <yloc>240</yloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1762,7 +1782,7 @@ where Import_Table = 'sach_landing'
     <join_type>INNER</join_type>
     <step0>Add a checksum VNr</step0>
     <step1>Add a checksum raten</step1>
-    <step2>SACH_raten</step2>
+    <step2>Sort rows 3</step2>
     <number_input>3</number_input>
     <keys>
       <key>VNr</key>
@@ -1777,8 +1797,8 @@ where Import_Table = 'sach_landing'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>384</xloc>
-      <yloc>480</yloc>
+      <xloc>336</xloc>
+      <yloc>672</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1799,9 +1819,9 @@ where Import_Table = 'sach_landing'
     <step2>Add a checksum KuNr</step2>
     <number_input>3</number_input>
     <keys>
-      <key>VNr</key>
-      <key>VNr</key>
-      <key>VNr</key>
+      <key>KuNr</key>
+      <key>KuNr</key>
+      <key>KuNr</key>
     </keys>
     <cluster_schema/>
     <remotesteps>
@@ -1812,7 +1832,7 @@ where Import_Table = 'sach_landing'
     </remotesteps>
     <GUI>
       <xloc>432</xloc>
-      <yloc>784</yloc>
+      <yloc>928</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1828,12 +1848,12 @@ where Import_Table = 'sach_landing'
       <schema_name/>
     </partitioning>
     <join_type>INNER</join_type>
-    <step0>SACH_link</step0>
-    <step1>Sach_VNr</step1>
+    <step0>Sort rows</step0>
+    <step1>Sort rows 2</step1>
     <number_input>2</number_input>
     <keys>
-      <key>VNr</key>
-      <key>VNr</key>
+      <key>KuNr</key>
+      <key>KuNr</key>
     </keys>
     <cluster_schema/>
     <remotesteps>
@@ -1843,8 +1863,8 @@ where Import_Table = 'sach_landing'
       </output>
     </remotesteps>
     <GUI>
-      <xloc>160</xloc>
-      <yloc>688</yloc>
+      <xloc>240</xloc>
+      <yloc>1040</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1861,7 +1881,8 @@ where Import_Table = 'sach_landing'
     </partitioning>
     <connection>integration_zone</connection>
     <sql>SELECT
-  VNr
+KuNr
+, VNr
 , Art
 , VWert
 , VBeginn
@@ -1883,7 +1904,7 @@ FROM SACH_TRANSFORM
     </remotesteps>
     <GUI>
       <xloc>48</xloc>
-      <yloc>240</yloc>
+      <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1901,7 +1922,6 @@ FROM SACH_TRANSFORM
     <connection>integration_zone</connection>
     <sql>SELECT
 	KuNr
-,   VNr
 FROM SACH_TRANSFORM
 </sql>
     <limit>0</limit>
@@ -1918,7 +1938,7 @@ FROM SACH_TRANSFORM
     </remotesteps>
     <GUI>
       <xloc>64</xloc>
-      <yloc>784</yloc>
+      <yloc>928</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1935,7 +1955,8 @@ FROM SACH_TRANSFORM
     </partitioning>
     <connection>integration_zone</connection>
     <sql>SELECT
-  VNr
+KuNr
+, VNr
 , Rate_Monat
 , Rate_Quartal
 , Rate_Jahr
@@ -1956,7 +1977,7 @@ FROM SACH_TRANSFORM
     </remotesteps>
     <GUI>
       <xloc>48</xloc>
-      <yloc>480</yloc>
+      <yloc>544</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1974,6 +1995,7 @@ FROM SACH_TRANSFORM
     <connection>integration_zone</connection>
     <sql>SELECT
   VNr
+, KuNr
 FROM SACH_TRANSFORM
 </sql>
     <limit>0</limit>
@@ -1991,6 +2013,170 @@ FROM SACH_TRANSFORM
     <GUI>
       <xloc>48</xloc>
       <yloc>16</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>KuNr</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>64</xloc>
+      <yloc>1040</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows 2</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>KuNr</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>144</xloc>
+      <yloc>16</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows 3</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>KuNr</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>48</xloc>
+      <yloc>672</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows 4</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>KuNr</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>48</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
