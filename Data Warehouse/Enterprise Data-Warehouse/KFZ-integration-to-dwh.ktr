@@ -444,7 +444,7 @@
     <database>enterprise_data_warehouse</database>
     <port>993</port>
     <username>root</username>
-    <password>Encrypted 6473616668757369666875737066686477cde8c7bb1fcf9391b81dbe76d696badc</password>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -495,7 +495,7 @@
     <database>integration_zone</database>
     <port>993</port>
     <username>root</username>
-    <password>Encrypted 6473616668757369666875737066686477cde8c7bb1fcf9391b81dbe76d696badc</password>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -725,6 +725,7 @@
     <resultfieldName>hash_hash</resultfieldName>
     <resultType>hexadecimal</resultType>
     <compatibilityMode>N</compatibilityMode>
+    <oldChecksumBehaviour>Y</oldChecksumBehaviour>
     <fields>
       <field>
         <name>VNr</name>
@@ -761,6 +762,7 @@
     <resultfieldName>leistung_hash</resultfieldName>
     <resultType>hexadecimal</resultType>
     <compatibilityMode>N</compatibilityMode>
+    <oldChecksumBehaviour>Y</oldChecksumBehaviour>
     <fields>
       <field>
         <name>concat-leistung</name>
@@ -794,6 +796,7 @@
     <resultfieldName>raten_hash</resultfieldName>
     <resultType>hexadecimal</resultType>
     <compatibilityMode>N</compatibilityMode>
+    <oldChecksumBehaviour>Y</oldChecksumBehaviour>
     <fields>
       <field>
         <name>VNr</name>
@@ -848,6 +851,7 @@
     <resultfieldName>kunr_hash</resultfieldName>
     <resultType>hexadecimal</resultType>
     <compatibilityMode>N</compatibilityMode>
+    <oldChecksumBehaviour>Y</oldChecksumBehaviour>
     <fields>
       <field>
         <name>KuNr</name>
@@ -881,6 +885,7 @@
     <resultfieldName>vnr_hash</resultfieldName>
     <resultType>hexadecimal</resultType>
     <compatibilityMode>N</compatibilityMode>
+    <oldChecksumBehaviour>Y</oldChecksumBehaviour>
     <fields>
       <field>
         <name>VNr</name>
@@ -925,7 +930,6 @@
     <create_parent_folder>Y</create_parent_folder>
     <file>
       <name>file</name>
-      <is_command>N</is_command>
       <servlet_output>N</servlet_output>
       <do_not_open_new_file_init>N</do_not_open_new_file_init>
       <extention>txt</extention>
@@ -1107,7 +1111,6 @@
     <create_parent_folder>Y</create_parent_folder>
     <file>
       <name>file</name>
-      <is_command>N</is_command>
       <servlet_output>N</servlet_output>
       <do_not_open_new_file_init>N</do_not_open_new_file_init>
       <extention>txt</extention>
