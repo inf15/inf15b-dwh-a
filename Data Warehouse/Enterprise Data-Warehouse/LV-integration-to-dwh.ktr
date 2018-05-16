@@ -437,11 +437,11 @@
   </notepads>
   <connection>
     <name>dwh</name>
-    <server>mariadb.smackmack.industries</server>
+    <server>localhost</server>
     <type>MARIADB</type>
     <access>Native</access>
     <database>enterprise_data_warehouse</database>
-    <port>993</port>
+    <port>3306</port>
     <username>root</username>
     <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
     <servername/>
@@ -462,7 +462,7 @@
       </attribute>
       <attribute>
         <code>PORT_NUMBER</code>
-        <attribute>993</attribute>
+        <attribute>3306</attribute>
       </attribute>
       <attribute>
         <code>PRESERVE_RESERVED_WORD_CASE</code>
@@ -488,11 +488,11 @@
   </connection>
   <connection>
     <name>integration_zone</name>
-    <server>mariadb.smackmack.industries</server>
+    <server>localhost</server>
     <type>MARIADB</type>
     <access>Native</access>
     <database>integration_zone</database>
-    <port>993</port>
+    <port>3306</port>
     <username>root</username>
     <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
     <servername/>
@@ -513,7 +513,7 @@
       </attribute>
       <attribute>
         <code>PORT_NUMBER</code>
-        <attribute>993</attribute>
+        <attribute>3306</attribute>
       </attribute>
       <attribute>
         <code>PRESERVE_RESERVED_WORD_CASE</code>
@@ -619,11 +619,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Add a checksum KuNr</from>
-      <to>Multiway Merge Join 4</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Add a checksum hash_hash</from>
       <to>Multiway Merge Join 4</to>
       <enabled>Y</enabled>
@@ -646,16 +641,6 @@
     <hop>
       <from>Join Rows (cartesian product) 4</from>
       <to>Insert in L_KUNDE_LV</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>LV_KuNr</from>
-      <to>Sort rows</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort rows</from>
-      <to>Add a checksum KuNr</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -706,6 +691,21 @@
     <hop>
       <from>Sort rows 4</from>
       <to>Multiway Merge Join 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>LV_KuNr</from>
+      <to>Sort rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows</from>
+      <to>Add a checksum KuNr</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add a checksum KuNr</from>
+      <to>Multiway Merge Join 4</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -1286,7 +1286,7 @@
       </key>
       <key>
         <name>Laufzeit</name>
-        <field>laufzeit</field>
+        <field>dauer</field>
         <condition>=</condition>
         <name2/>
       </key>
@@ -1341,7 +1341,7 @@
         <update>Y</update>
       </value>
       <value>
-        <name>laufzeit</name>
+        <name>dauer</name>
         <rename>Laufzeit</rename>
         <update>Y</update>
       </value>
@@ -1656,8 +1656,9 @@
     </partitioning>
     <connection>integration_zone</connection>
     <sql>SELECT
-  KuNr
-FROM STAMMDATEN_TRANSFORM
+  VNr
+, KuNr
+FROM lv_transform
 </sql>
     <limit>0</limit>
     <lookup/>
@@ -1751,7 +1752,7 @@ FROM LV_TRANSFORM
     </remotesteps>
     <GUI>
       <xloc>48</xloc>
-      <yloc>160</yloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1942,9 +1943,9 @@ where Import_Table = 'lv_landing'</sql>
     <step2>Add a checksum hash_hash</step2>
     <number_input>3</number_input>
     <keys>
-      <key>KuNr</key>
-      <key>KuNr</key>
-      <key>KuNr</key>
+      <key>VNr</key>
+      <key>VNr</key>
+      <key>VNr</key>
     </keys>
     <cluster_schema/>
     <remotesteps>

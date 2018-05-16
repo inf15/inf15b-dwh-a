@@ -437,11 +437,11 @@
   </notepads>
   <connection>
     <name>dwh</name>
-    <server>mariadb.smackmack.industries</server>
+    <server>localhost</server>
     <type>MARIADB</type>
     <access>Native</access>
     <database>enterprise_data_warehouse</database>
-    <port>993</port>
+    <port>3306</port>
     <username>root</username>
     <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
     <servername/>
@@ -462,7 +462,7 @@
       </attribute>
       <attribute>
         <code>PORT_NUMBER</code>
-        <attribute>993</attribute>
+        <attribute>3306</attribute>
       </attribute>
       <attribute>
         <code>PRESERVE_RESERVED_WORD_CASE</code>
@@ -488,11 +488,11 @@
   </connection>
   <connection>
     <name>integration_zone</name>
-    <server>mariadb.smackmack.industries</server>
+    <server>localhost</server>
     <type>MARIADB</type>
     <access>Native</access>
     <database>integration_zone</database>
-    <port>993</port>
+    <port>3306</port>
     <username>root</username>
     <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
     <servername/>
@@ -513,7 +513,7 @@
       </attribute>
       <attribute>
         <code>PORT_NUMBER</code>
-        <attribute>993</attribute>
+        <attribute>3306</attribute>
       </attribute>
       <attribute>
         <code>PRESERVE_RESERVED_WORD_CASE</code>
@@ -1822,9 +1822,9 @@ where Import_Table = 'sach_landing'
     <step2>Add a checksum KuNr</step2>
     <number_input>3</number_input>
     <keys>
-      <key>KuNr</key>
-      <key>KuNr</key>
-      <key>KuNr</key>
+      <key>VNr</key>
+      <key>VNr</key>
+      <key>VNr</key>
     </keys>
     <cluster_schema/>
     <remotesteps>
@@ -1924,7 +1924,7 @@ FROM SACH_TRANSFORM
     </partitioning>
     <connection>integration_zone</connection>
     <sql>SELECT
-	KuNr
+	KuNr, VNr
 FROM SACH_TRANSFORM
 </sql>
     <limit>0</limit>

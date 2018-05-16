@@ -201,7 +201,7 @@ create table S_LV_LEISTUNG (
 	lv_hash VARCHAR(64),
 	beguenstigter VARCHAR(2),
 	versicherung_beginn DATE,
-	DAUER INTEGER,
+	dauer VARCHAR(5),
 	load_dts DATE,
 	record_source VARCHAR(60),
 	detail_hash_diff VARCHAR(64),
