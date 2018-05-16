@@ -560,21 +560,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Stammdaten Validator</from>
-      <to>STAMMDATEN_TRANSFORM</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Stammdaten Validator</from>
-      <to>STAMMDATEN_ERROR</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>LV Validator</from>
-      <to>LV_TRANSFORM</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>LV Validator</from>
       <to>LV_ERROR</to>
       <enabled>Y</enabled>
@@ -595,23 +580,13 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>KV Validator</from>
-      <to>KV_ERROR</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>KV Validator</from>
-      <to>KV_TRANSFORM</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>KFZ Datatype Conversion</from>
       <to>KFZ Validator</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>KFZ Validator</from>
-      <to>KFZ_TRANSFORM</to>
+      <from>KV Validator</from>
+      <to>KV_ERROR</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -626,22 +601,12 @@
     </hop>
     <hop>
       <from>SACH Validator</from>
-      <to>SACH_TRANSFORM</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>SACH Validator</from>
       <to>SACH_ERROR</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>BU_LANDING</from>
       <to>BU Validator</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>BU Validator</from>
-      <to>BU_TRANSFORM</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -695,16 +660,208 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
+      <from>Stammdaten Validator</from>
+      <to>STAMMDATEN_ERROR</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
       <from>LV Datatype Conversion</from>
       <to>LV_ERROR</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>Stammdaten Validator</from>
+      <to>Stammdaten Sortieren</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Stammdaten Sortieren</from>
+      <to>Stammdaten Unique</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Stammdaten Unique</from>
+      <to>STAMMDATEN_TRANSFORM</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Stammdaten Unique</from>
+      <to>STAMMDATEN_ERROR</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>LV Validator</from>
+      <to>LV Sortieren</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>LV Sortieren</from>
+      <to>LV Unique</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>LV Unique</from>
+      <to>LV_TRANSFORM</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>LV Unique</from>
+      <to>LV_ERROR</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>KV Validator</from>
+      <to>KV Sortieren</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>KV Sortieren</from>
+      <to>KV Unique</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>KV Unique</from>
+      <to>KV_ERROR</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>KV Unique</from>
+      <to>KV_TRANSFORM</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>KFZ Validator</from>
+      <to>KFZ Sortieren</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>KFZ Sortieren</from>
+      <to>KFZ Unique</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>KFZ Unique</from>
+      <to>KFZ_TRANSFORM</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>KFZ Unique</from>
+      <to>KFZ_ERROR</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>SACH Validator</from>
+      <to>SACH sortieren</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>SACH Unique</from>
+      <to>SACH_TRANSFORM</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>SACH sortieren</from>
+      <to>SACH Unique</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>SACH Unique</from>
+      <to>SACH_ERROR</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>BU Validator</from>
+      <to>BU Sortieren</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>BU Sortieren</from>
+      <to>BU Unique</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>BU Unique</from>
+      <to>BU_TRANSFORM</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>BU Unique</from>
+      <to>BU_ERROR</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
+  <step>
+    <name>BU Sortieren</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>736</xloc>
+      <yloc>1040</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>BU Unique</name>
+    <type>Unique</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <count_rows>N</count_rows>
+    <count_field/>
+    <reject_duplicate_row>Y</reject_duplicate_row>
+    <error_description>BU nicht unique</error_description>
+    <fields>
+      <field>
+        <name>VNr</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>992</xloc>
+      <yloc>1040</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
   <step>
     <name>BU Validator</name>
     <type>Validator</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -807,7 +964,7 @@
     </remotesteps>
     <GUI>
       <xloc>432</xloc>
-      <yloc>880</yloc>
+      <yloc>1056</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -925,8 +1082,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>624</xloc>
-      <yloc>944</yloc>
+      <xloc>736</xloc>
+      <yloc>1152</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -957,7 +1114,7 @@
     </remotesteps>
     <GUI>
       <xloc>96</xloc>
-      <yloc>880</yloc>
+      <yloc>1056</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1075,8 +1232,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>624</xloc>
-      <yloc>880</yloc>
+      <xloc>1216</xloc>
+      <yloc>1040</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1105,8 +1262,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>96</xloc>
-      <yloc>1088</yloc>
+      <xloc>80</xloc>
+      <yloc>1328</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1144,8 +1301,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>96</xloc>
-      <yloc>1024</yloc>
+      <xloc>80</xloc>
+      <yloc>1264</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1180,8 +1337,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>432</xloc>
-      <yloc>1024</yloc>
+      <xloc>416</xloc>
+      <yloc>1264</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1568,6 +1725,93 @@
     </remotesteps>
     <GUI>
       <xloc>272</xloc>
+      <yloc>624</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>KFZ Sortieren</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>VNr</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>KuNr</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>736</xloc>
+      <yloc>592</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>KFZ Unique</name>
+    <type>Unique</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <count_rows>N</count_rows>
+    <count_field/>
+    <reject_duplicate_row>Y</reject_duplicate_row>
+    <error_description>KFZ nicht unique</error_description>
+    <fields>
+      <field>
+        <name>VNr</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>KuNr</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>992</xloc>
       <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1576,7 +1820,7 @@
     <name>KFZ Validator</name>
     <type>Validator</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -1707,7 +1951,7 @@
     </remotesteps>
     <GUI>
       <xloc>432</xloc>
-      <yloc>560</yloc>
+      <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1935,8 +2179,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>624</xloc>
-      <yloc>624</yloc>
+      <xloc>736</xloc>
+      <yloc>704</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1967,7 +2211,7 @@
     </remotesteps>
     <GUI>
       <xloc>96</xloc>
-      <yloc>592</yloc>
+      <yloc>624</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2195,8 +2439,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>624</xloc>
-      <yloc>560</yloc>
+      <xloc>1200</xloc>
+      <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2408,10 +2652,97 @@
     </GUI>
   </step>
   <step>
+    <name>KV Sortieren</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>VNr</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>KuNr</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>736</xloc>
+      <yloc>400</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>KV Unique</name>
+    <type>Unique</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <count_rows>N</count_rows>
+    <count_field/>
+    <reject_duplicate_row>Y</reject_duplicate_row>
+    <error_description>KV nicht unique</error_description>
+    <fields>
+      <field>
+        <name>VNr</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>KuNr</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>992</xloc>
+      <yloc>400</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>KV Validator</name>
     <type>Validator</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -2643,8 +2974,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>688</xloc>
-      <yloc>464</yloc>
+      <xloc>736</xloc>
+      <yloc>496</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2804,7 +3135,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>688</xloc>
+      <xloc>1200</xloc>
       <yloc>400</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3073,6 +3404,93 @@
     <GUI>
       <xloc>272</xloc>
       <yloc>272</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>LV Sortieren</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>BU</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>KuNr</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>736</xloc>
+      <yloc>240</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>LV Unique</name>
+    <type>Unique</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <count_rows>N</count_rows>
+    <count_field/>
+    <reject_duplicate_row>Y</reject_duplicate_row>
+    <error_description>LV nicht unique</error_description>
+    <fields>
+      <field>
+        <name>BU</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>KuNr</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>992</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3401,8 +3819,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>624</xloc>
-      <yloc>304</yloc>
+      <xloc>736</xloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3595,7 +4013,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>624</xloc>
+      <xloc>1200</xloc>
       <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3648,8 +4066,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>624</xloc>
-      <yloc>1024</yloc>
+      <xloc>608</xloc>
+      <yloc>1264</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3916,7 +4334,45 @@
     </remotesteps>
     <GUI>
       <xloc>272</xloc>
-      <yloc>752</yloc>
+      <yloc>816</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>SACH Unique</name>
+    <type>Unique</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <count_rows>N</count_rows>
+    <count_field/>
+    <reject_duplicate_row>Y</reject_duplicate_row>
+    <error_description>SACH nicht unique</error_description>
+    <fields>
+      <field>
+        <name>VNr</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>KuNr</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>992</xloc>
+      <yloc>800</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3924,7 +4380,7 @@
     <name>SACH Validator</name>
     <type>Validator</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -4054,8 +4510,57 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>432</xloc>
-      <yloc>720</yloc>
+      <xloc>448</xloc>
+      <yloc>800</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>SACH sortieren</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>VNr</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>KuNr</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>736</xloc>
+      <yloc>800</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4217,8 +4722,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>624</xloc>
-      <yloc>784</yloc>
+      <xloc>736</xloc>
+      <yloc>944</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4249,7 +4754,7 @@
     </remotesteps>
     <GUI>
       <xloc>96</xloc>
-      <yloc>752</yloc>
+      <yloc>816</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4411,8 +4916,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>624</xloc>
-      <yloc>720</yloc>
+      <xloc>1216</xloc>
+      <yloc>800</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4673,8 +5178,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>624</xloc>
-      <yloc>144</yloc>
+      <xloc>736</xloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4966,8 +5471,41 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>624</xloc>
+      <xloc>1200</xloc>
       <yloc>80</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows 5</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>768</xloc>
+      <yloc>1248</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5419,6 +5957,81 @@
     </GUI>
   </step>
   <step>
+    <name>Stammdaten Sortieren</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>KuNr</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>736</xloc>
+      <yloc>80</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Stammdaten Unique</name>
+    <type>Unique</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <count_rows>N</count_rows>
+    <count_field/>
+    <reject_duplicate_row>Y</reject_duplicate_row>
+    <error_description>Stammdaten nicht unique</error_description>
+    <fields>
+      <field>
+        <name>KuNr</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>992</xloc>
+      <yloc>80</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Stammdaten Validator</name>
     <type>Validator</type>
     <description/>
@@ -5540,6 +6153,18 @@
   </step>
   <step_error_handling>
     <error>
+      <source_step>BU Unique</source_step>
+      <target_step>BU_ERROR</target_step>
+      <is_enabled>Y</is_enabled>
+      <nr_valuename/>
+      <descriptions_valuename/>
+      <fields_valuename/>
+      <codes_valuename/>
+      <max_errors/>
+      <max_pct_errors/>
+      <min_pct_rows/>
+    </error>
+    <error>
       <source_step>BU Validator</source_step>
       <target_step>BU_ERROR</target_step>
       <is_enabled>Y</is_enabled>
@@ -5553,6 +6178,18 @@
     </error>
     <error>
       <source_step>KFZ Datatype Conversion</source_step>
+      <target_step>KFZ_ERROR</target_step>
+      <is_enabled>Y</is_enabled>
+      <nr_valuename/>
+      <descriptions_valuename/>
+      <fields_valuename/>
+      <codes_valuename/>
+      <max_errors/>
+      <max_pct_errors/>
+      <min_pct_rows/>
+    </error>
+    <error>
+      <source_step>KFZ Unique</source_step>
       <target_step>KFZ_ERROR</target_step>
       <is_enabled>Y</is_enabled>
       <nr_valuename/>
@@ -5588,6 +6225,18 @@
       <min_pct_rows/>
     </error>
     <error>
+      <source_step>KV Unique</source_step>
+      <target_step>KV_ERROR</target_step>
+      <is_enabled>Y</is_enabled>
+      <nr_valuename/>
+      <descriptions_valuename/>
+      <fields_valuename/>
+      <codes_valuename/>
+      <max_errors/>
+      <max_pct_errors/>
+      <min_pct_rows/>
+    </error>
+    <error>
       <source_step>KV Validator</source_step>
       <target_step>KV_ERROR</target_step>
       <is_enabled>Y</is_enabled>
@@ -5601,6 +6250,18 @@
     </error>
     <error>
       <source_step>LV Datatype Conversion</source_step>
+      <target_step>LV_ERROR</target_step>
+      <is_enabled>Y</is_enabled>
+      <nr_valuename/>
+      <descriptions_valuename/>
+      <fields_valuename/>
+      <codes_valuename/>
+      <max_errors/>
+      <max_pct_errors/>
+      <min_pct_rows/>
+    </error>
+    <error>
+      <source_step>LV Unique</source_step>
       <target_step>LV_ERROR</target_step>
       <is_enabled>Y</is_enabled>
       <nr_valuename/>
@@ -5636,9 +6297,33 @@
       <min_pct_rows/>
     </error>
     <error>
+      <source_step>SACH Unique</source_step>
+      <target_step>SACH_ERROR</target_step>
+      <is_enabled>Y</is_enabled>
+      <nr_valuename/>
+      <descriptions_valuename/>
+      <fields_valuename/>
+      <codes_valuename/>
+      <max_errors/>
+      <max_pct_errors/>
+      <min_pct_rows/>
+    </error>
+    <error>
       <source_step>SACH Validator</source_step>
       <target_step>SACH_ERROR</target_step>
       <is_enabled>Y</is_enabled>
+      <nr_valuename/>
+      <descriptions_valuename/>
+      <fields_valuename/>
+      <codes_valuename/>
+      <max_errors/>
+      <max_pct_errors/>
+      <min_pct_rows/>
+    </error>
+    <error>
+      <source_step>SACH_ERROR</source_step>
+      <target_step>SACH Unique</target_step>
+      <is_enabled>N</is_enabled>
       <nr_valuename/>
       <descriptions_valuename/>
       <fields_valuename/>
@@ -5661,6 +6346,18 @@
     </error>
     <error>
       <source_step>Stammdaten Datatype Conversion</source_step>
+      <target_step>STAMMDATEN_ERROR</target_step>
+      <is_enabled>Y</is_enabled>
+      <nr_valuename/>
+      <descriptions_valuename/>
+      <fields_valuename/>
+      <codes_valuename/>
+      <max_errors/>
+      <max_pct_errors/>
+      <min_pct_rows/>
+    </error>
+    <error>
+      <source_step>Stammdaten Unique</source_step>
       <target_step>STAMMDATEN_ERROR</target_step>
       <is_enabled>Y</is_enabled>
       <nr_valuename/>
