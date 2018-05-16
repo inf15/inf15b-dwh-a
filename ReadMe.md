@@ -6,7 +6,7 @@ ___
 ## Pentaho Data-Integration (ETL-Tool)
 
 Als ETL-Tool verwenden wir die Enterprise-Edition der "Pentaho Data-Integration".
-Das Trial-Version kann [hier](https://www.hitachivantara.com/en-us/products/big-data-integration-analytics/pentaho-trial-download.html) heruntergeladen werden.
+Die Trial-Version kann [hier](https://www.hitachivantara.com/en-us/products/big-data-integration-analytics/pentaho-trial-download.html) heruntergeladen werden.
 
 Die Dokumentation dazu findet sich [hier](https://help.pentaho.com/Documentation/8.0/Products/Data_Integration).
 
