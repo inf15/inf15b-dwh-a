@@ -695,6 +695,7 @@
     <resultfieldName>KuNr-Hash</resultfieldName>
     <resultType>hexadecimal</resultType>
     <compatibilityMode>N</compatibilityMode>
+    <oldChecksumBehaviour>Y</oldChecksumBehaviour>
     <fields>
       <field>
         <name>KuNr</name>
@@ -728,6 +729,7 @@
     <resultfieldName>adresse-hash</resultfieldName>
     <resultType>string</resultType>
     <compatibilityMode>N</compatibilityMode>
+    <oldChecksumBehaviour>Y</oldChecksumBehaviour>
     <fields>
       <field>
         <name>concat_adresse</name>
@@ -761,6 +763,7 @@
     <resultfieldName>persönlicheInfo-hash</resultfieldName>
     <resultType>hexadecimal</resultType>
     <compatibilityMode>N</compatibilityMode>
+    <oldChecksumBehaviour>Y</oldChecksumBehaviour>
     <fields>
       <field>
         <name>concat_persönliche_info</name>
@@ -794,6 +797,7 @@
     <resultfieldName>status-hash</resultfieldName>
     <resultType>hexadecimal</resultType>
     <compatibilityMode>N</compatibilityMode>
+    <oldChecksumBehaviour>Y</oldChecksumBehaviour>
     <fields>
       <field>
         <name>concat_status</name>
@@ -838,7 +842,6 @@
     <create_parent_folder>Y</create_parent_folder>
     <file>
       <name>file</name>
-      <is_command>N</is_command>
       <servlet_output>N</servlet_output>
       <do_not_open_new_file_init>N</do_not_open_new_file_init>
       <extention>txt</extention>
@@ -984,7 +987,6 @@
     <create_parent_folder>Y</create_parent_folder>
     <file>
       <name>file</name>
-      <is_command>N</is_command>
       <servlet_output>N</servlet_output>
       <do_not_open_new_file_init>N</do_not_open_new_file_init>
       <extention>txt</extention>
@@ -1082,7 +1084,6 @@
     <create_parent_folder>Y</create_parent_folder>
     <file>
       <name>file</name>
-      <is_command>N</is_command>
       <servlet_output>N</servlet_output>
       <do_not_open_new_file_init>N</do_not_open_new_file_init>
       <extention>txt</extention>
