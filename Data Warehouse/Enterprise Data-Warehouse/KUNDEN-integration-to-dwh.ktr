@@ -545,6 +545,11 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
+      <from>Join Rows (cartesian product)</from>
+      <to>Insert in H_KUNDEN</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
       <from>Kunden_KuNr</from>
       <to>Add a checksum KuNr</to>
       <enabled>Y</enabled>
@@ -552,6 +557,21 @@
     <hop>
       <from>Add a checksum KuNr</from>
       <to>Join Rows (cartesian product)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>KUNDE_persönliche_informationen</from>
+      <to>Concat Fields</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Concat Fields</from>
+      <to>Add a checksum persönlicheInfo</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Join Rows (cartesian product) 2</from>
+      <to>Insert in S_KUNDE_PERSÖNLICHE_INFORMATION</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -565,8 +585,8 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>METADATA_DTS 2</from>
-      <to>Join Rows (cartesian product) 2 2</to>
+      <from>KUNDE_persönliche_informationen</from>
+      <to>Multiway Merge Join</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -580,13 +600,23 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Add a checksum status</from>
+      <from>KUNDE_status</from>
+      <to>Concat Fields 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Concat Fields 2</from>
+      <to>Add a checksum status</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>KUNDE_status</from>
       <to>Multiway Merge Join 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>METADATA_DTS 2</from>
-      <to>Join Rows (cartesian product) 2 2 2</to>
+      <from>Add a checksum status</from>
+      <to>Multiway Merge Join 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -595,17 +625,42 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>KUNDE_Adresse</from>
-      <to>Add a checksum</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Multiway Merge Join 2</from>
       <to>Join Rows (cartesian product) 2 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Add a checksum</from>
+      <from>METADATA_DTS 2</from>
+      <to>Join Rows (cartesian product) 2 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Join Rows (cartesian product) 2 2</from>
+      <to>Insert in S_KUNDE_STATUS</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>KUNDE_Adresse</from>
+      <to>Concat Fields 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Concat Fields 3</from>
+      <to>Add a checksum adresse</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add a checksum adresse</from>
+      <to>Multiway Merge Join 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>KUNDE_Adresse</from>
+      <to>Multiway Merge Join 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add a checksum KuNr</from>
       <to>Multiway Merge Join 3</to>
       <enabled>Y</enabled>
     </hop>
@@ -615,161 +670,16 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Add a checksum KuNr</from>
-      <to>Multiway Merge Join 3</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>KUNDE_status</from>
-      <to>Multiway Merge Join 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>KUNDE_persönliche_informationen</from>
-      <to>Multiway Merge Join</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>KUNDE_status</from>
-      <to>StatusToString</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>StatusToString</from>
-      <to>Add a checksum status</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Unique rows</from>
-      <to>Insert in H_KUNDEN</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>KUNDE_persönliche_informationen</from>
-      <to>InfoToString</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>InfoToString</from>
-      <to>Add a checksum persönlicheInfo</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Join Rows (cartesian product)</from>
-      <to>Sort rows</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort rows</from>
-      <to>Unique rows</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Join Rows (cartesian product) 2</from>
-      <to>Sort rows 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort rows 2</from>
-      <to>Unique rows 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Unique rows 2</from>
-      <to>Insert in S_KUNDE_PERSÖNLICHE_INFORMATION</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort rows 3</from>
-      <to>Unique rows 3</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort rows 4</from>
-      <to>Unique rows 4</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Join Rows (cartesian product) 2 2</from>
-      <to>Sort rows 4</to>
+      <from>METADATA_DTS 2</from>
+      <to>Join Rows (cartesian product) 2 2 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Join Rows (cartesian product) 2 2 2</from>
-      <to>Sort rows 3</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Unique rows 3</from>
       <to>Insert in S_KUNDE_ADRESSE</to>
       <enabled>Y</enabled>
     </hop>
-    <hop>
-      <from>Unique rows 4</from>
-      <to>Insert in S_KUNDE_STATUS</to>
-      <enabled>Y</enabled>
-    </hop>
   </order>
-  <step>
-    <name>Add a checksum</name>
-    <type>CheckSum</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <checksumtype>MD5</checksumtype>
-    <resultfieldName>adresse-hash</resultfieldName>
-    <resultType>hexadecimal</resultType>
-    <compatibilityMode>N</compatibilityMode>
-    <fields>
-      <field>
-        <name>Strasse</name>
-      </field>
-      <field>
-        <name>HausNr</name>
-      </field>
-      <field>
-        <name>PLZ</name>
-      </field>
-      <field>
-        <name>Ort</name>
-      </field>
-      <field>
-        <name>TelPrivat</name>
-      </field>
-      <field>
-        <name>TelArbeit</name>
-      </field>
-      <field>
-        <name>TelMobil</name>
-      </field>
-      <field>
-        <name>Fax</name>
-      </field>
-      <field>
-        <name>Email1</name>
-      </field>
-      <field>
-        <name>Email2</name>
-      </field>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>800</xloc>
-      <yloc>512</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
   <step>
     <name>Add a checksum KuNr</name>
     <type>CheckSum</type>
@@ -785,6 +695,7 @@
     <resultfieldName>KuNr-Hash</resultfieldName>
     <resultType>hexadecimal</resultType>
     <compatibilityMode>N</compatibilityMode>
+    <oldChecksumBehaviour>Y</oldChecksumBehaviour>
     <fields>
       <field>
         <name>KuNr</name>
@@ -798,8 +709,42 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>560</xloc>
-      <yloc>384</yloc>
+      <xloc>176</xloc>
+      <yloc>32</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Add a checksum adresse</name>
+    <type>CheckSum</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <checksumtype>MD5</checksumtype>
+    <resultfieldName>adresse-hash</resultfieldName>
+    <resultType>string</resultType>
+    <compatibilityMode>N</compatibilityMode>
+    <oldChecksumBehaviour>Y</oldChecksumBehaviour>
+    <fields>
+      <field>
+        <name>concat_adresse</name>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>288</xloc>
+      <yloc>1088</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -818,27 +763,10 @@
     <resultfieldName>persönlicheInfo-hash</resultfieldName>
     <resultType>hexadecimal</resultType>
     <compatibilityMode>N</compatibilityMode>
+    <oldChecksumBehaviour>Y</oldChecksumBehaviour>
     <fields>
       <field>
-        <name>Name</name>
-      </field>
-      <field>
-        <name>Vorname</name>
-      </field>
-      <field>
-        <name>Vorname2</name>
-      </field>
-      <field>
-        <name>GebDatum</name>
-      </field>
-      <field>
-        <name>GebOrt</name>
-      </field>
-      <field>
-        <name>FamStand</name>
-      </field>
-      <field>
-        <name>AnzKinder</name>
+        <name>concat_persönliche_info</name>
       </field>
     </fields>
     <cluster_schema/>
@@ -849,8 +777,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>384</xloc>
-      <yloc>128</yloc>
+      <xloc>304</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -869,15 +797,10 @@
     <resultfieldName>status-hash</resultfieldName>
     <resultType>hexadecimal</resultType>
     <compatibilityMode>N</compatibilityMode>
+    <oldChecksumBehaviour>Y</oldChecksumBehaviour>
     <fields>
       <field>
-        <name>Prio</name>
-      </field>
-      <field>
-        <name>EhepartnerMV</name>
-      </field>
-      <field>
-        <name>AnzKinderMV</name>
+        <name>concat_status</name>
       </field>
     </fields>
     <cluster_schema/>
@@ -888,8 +811,431 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>400</xloc>
-      <yloc>816</yloc>
+      <xloc>304</xloc>
+      <yloc>512</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Concat Fields</name>
+    <type>ConcatFields</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <separator>~</separator>
+    <enclosure>"</enclosure>
+    <enclosure_forced>N</enclosure_forced>
+    <enclosure_fix_disabled>N</enclosure_fix_disabled>
+    <header>N</header>
+    <footer>N</footer>
+    <format>DOS</format>
+    <compression>None</compression>
+    <encoding/>
+    <endedLine/>
+    <fileNameInField>N</fileNameInField>
+    <fileNameField/>
+    <create_parent_folder>Y</create_parent_folder>
+    <file>
+      <name>file</name>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>N</do_not_open_new_file_init>
+      <extention>txt</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>N</fast_dump>
+      <splitevery>0</splitevery>
+    </file>
+    <fields>
+      <field>
+        <name>Name</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>200</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Vorname</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>200</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Vorname2</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>200</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>GebDatum</name>
+        <type>Date</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>GebOrt</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>200</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>FamStand</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>200</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>AnzKinder</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>9</length>
+        <precision>0</precision>
+      </field>
+    </fields>
+    <ConcatFields>
+      <targetFieldName>concat_persönliche_info</targetFieldName>
+      <targetFieldLength>0</targetFieldLength>
+      <removeSelectedFields>N</removeSelectedFields>
+    </ConcatFields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>32</xloc>
+      <yloc>368</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Concat Fields 2</name>
+    <type>ConcatFields</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <separator>~</separator>
+    <enclosure>"</enclosure>
+    <enclosure_forced>N</enclosure_forced>
+    <enclosure_fix_disabled>N</enclosure_fix_disabled>
+    <header>N</header>
+    <footer>N</footer>
+    <format>DOS</format>
+    <compression>None</compression>
+    <encoding/>
+    <endedLine/>
+    <fileNameInField>N</fileNameInField>
+    <fileNameField/>
+    <create_parent_folder>Y</create_parent_folder>
+    <file>
+      <name>file</name>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>N</do_not_open_new_file_init>
+      <extention>txt</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>N</fast_dump>
+      <splitevery>0</splitevery>
+    </file>
+    <fields>
+      <field>
+        <name>Prio</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>AnzKinderMV</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>9</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>EhepartnerMV</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>1</length>
+        <precision>-1</precision>
+      </field>
+    </fields>
+    <ConcatFields>
+      <targetFieldName>concat_status</targetFieldName>
+      <targetFieldLength>0</targetFieldLength>
+      <removeSelectedFields>N</removeSelectedFields>
+    </ConcatFields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>32</xloc>
+      <yloc>512</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Concat Fields 3</name>
+    <type>ConcatFields</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <separator>~</separator>
+    <enclosure>"</enclosure>
+    <enclosure_forced>N</enclosure_forced>
+    <enclosure_fix_disabled>N</enclosure_fix_disabled>
+    <header>N</header>
+    <footer>N</footer>
+    <format>DOS</format>
+    <compression>None</compression>
+    <encoding/>
+    <endedLine/>
+    <fileNameInField>N</fileNameInField>
+    <fileNameField/>
+    <create_parent_folder>Y</create_parent_folder>
+    <file>
+      <name>file</name>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>N</do_not_open_new_file_init>
+      <extention>txt</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>N</fast_dump>
+      <splitevery>0</splitevery>
+    </file>
+    <fields>
+      <field>
+        <name>Strasse</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>200</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>HausNr</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>200</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>PLZ</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>200</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Ort</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>200</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>TelPrivat</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>200</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>TelArbeit</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>200</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>TelMobil</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>200</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Fax</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>200</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Email1</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>200</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>Email2</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>200</length>
+        <precision>-1</precision>
+      </field>
+    </fields>
+    <ConcatFields>
+      <targetFieldName>concat_adresse</targetFieldName>
+      <targetFieldLength>0</targetFieldLength>
+      <removeSelectedFields>N</removeSelectedFields>
+    </ConcatFields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>32</xloc>
+      <yloc>1088</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -963,8 +1309,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1536</xloc>
-      <yloc>384</yloc>
+      <xloc>912</xloc>
+      <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1148,8 +1494,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1536</xloc>
-      <yloc>512</yloc>
+      <xloc>896</xloc>
+      <yloc>912</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1300,8 +1646,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1536</xloc>
-      <yloc>96</yloc>
+      <xloc>928</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1408,8 +1754,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1536</xloc>
-      <yloc>784</yloc>
+      <xloc>880</xloc>
+      <yloc>640</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1444,8 +1790,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>864</xloc>
-      <yloc>384</yloc>
+      <xloc>544</xloc>
+      <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1480,8 +1826,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>864</xloc>
-      <yloc>96</yloc>
+      <xloc>544</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1516,8 +1862,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1088</xloc>
-      <yloc>784</yloc>
+      <xloc>560</xloc>
+      <yloc>640</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1552,8 +1898,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1088</xloc>
-      <yloc>512</yloc>
+      <xloc>560</xloc>
+      <yloc>912</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1596,8 +1942,8 @@ FROM STAMMDATEN_TRANSFORM
       </output>
     </remotesteps>
     <GUI>
-      <xloc>688</xloc>
-      <yloc>512</yloc>
+      <xloc>32</xloc>
+      <yloc>912</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1605,7 +1951,7 @@ FROM STAMMDATEN_TRANSFORM
     <name>KUNDE_persönliche_informationen</name>
     <type>TableInput</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -1637,8 +1983,8 @@ FROM STAMMDATEN_TRANSFORM
       </output>
     </remotesteps>
     <GUI>
-      <xloc>112</xloc>
-      <yloc>96</yloc>
+      <xloc>32</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1665,7 +2011,7 @@ FROM STAMMDATEN_TRANSFORM
     <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
-    <lazy_conversion_active>Y</lazy_conversion_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1674,8 +2020,8 @@ FROM STAMMDATEN_TRANSFORM
       </output>
     </remotesteps>
     <GUI>
-      <xloc>112</xloc>
-      <yloc>784</yloc>
+      <xloc>32</xloc>
+      <yloc>640</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1708,8 +2054,8 @@ FROM STAMMDATEN_TRANSFORM
       </output>
     </remotesteps>
     <GUI>
-      <xloc>112</xloc>
-      <yloc>384</yloc>
+      <xloc>32</xloc>
+      <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1743,8 +2089,8 @@ where Import_Table = "STAMMDATEN_LANDING";</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>864</xloc>
-      <yloc>240</yloc>
+      <xloc>544</xloc>
+      <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1778,8 +2124,8 @@ where Import_Table = "STAMMDATEN_LANDING";</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1088</xloc>
-      <yloc>640</yloc>
+      <xloc>560</xloc>
+      <yloc>784</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1796,8 +2142,8 @@ where Import_Table = "STAMMDATEN_LANDING";</sql>
     </partitioning>
     <join_type>INNER</join_type>
     <step0>Add a checksum persönlicheInfo</step0>
-    <step1>Add a checksum KuNr</step1>
-    <step2>KUNDE_persönliche_informationen</step2>
+    <step1>KUNDE_persönliche_informationen</step1>
+    <step2>Add a checksum KuNr</step2>
     <number_input>3</number_input>
     <keys>
       <key>KuNr</key>
@@ -1812,8 +2158,8 @@ where Import_Table = "STAMMDATEN_LANDING";</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>560</xloc>
-      <yloc>96</yloc>
+      <xloc>304</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1846,8 +2192,8 @@ where Import_Table = "STAMMDATEN_LANDING";</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>560</xloc>
-      <yloc>784</yloc>
+      <xloc>304</xloc>
+      <yloc>640</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1863,10 +2209,12 @@ where Import_Table = "STAMMDATEN_LANDING";</sql>
       <schema_name/>
     </partitioning>
     <join_type>INNER</join_type>
-    <step0>Add a checksum KuNr</step0>
-    <step1>Add a checksum</step1>
-    <number_input>2</number_input>
+    <step0>Add a checksum adresse</step0>
+    <step1>KUNDE_Adresse</step1>
+    <step2>Add a checksum KuNr</step2>
+    <number_input>3</number_input>
     <keys>
+      <key>KuNr</key>
       <key>KuNr</key>
       <key>KuNr</key>
     </keys>
@@ -1878,614 +2226,8 @@ where Import_Table = "STAMMDATEN_LANDING";</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>928</xloc>
-      <yloc>512</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>StatusToString</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>KuNr</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Prio</name>
-        <rename/>
-      </field>
-      <field>
-        <name>AnzKinderMV</name>
-        <rename/>
-      </field>
-      <field>
-        <name>EhepartnerMV</name>
-        <rename/>
-      </field>
-      <select_unspecified>N</select_unspecified>
-      <meta>
-        <name>KuNr</name>
-        <rename>KuNr</rename>
-        <type>None</type>
-        <length>6</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>Prio</name>
-        <rename>Prio</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>AnzKinderMV</name>
-        <rename>AnzKinderMV</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>EhepartnerMV</name>
-        <rename>EhepartnerMV</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>272</xloc>
-      <yloc>816</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Unique rows</name>
-    <type>Unique</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <count_rows>N</count_rows>
-    <count_field/>
-    <reject_duplicate_row>N</reject_duplicate_row>
-    <error_description/>
-    <fields>
-      <field>
-        <name>KuNr-Hash</name>
-        <case_insensitive>N</case_insensitive>
-      </field>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1328</xloc>
-      <yloc>384</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>InfoToString</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>KuNr</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Name</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Vorname</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Vorname2</name>
-        <rename/>
-      </field>
-      <field>
-        <name>GebDatum</name>
-        <rename/>
-      </field>
-      <field>
-        <name>GebOrt</name>
-        <rename/>
-      </field>
-      <field>
-        <name>FamStand</name>
-        <rename/>
-      </field>
-      <field>
-        <name>AnzKinder</name>
-        <rename/>
-      </field>
-      <select_unspecified>N</select_unspecified>
-      <meta>
-        <name>KuNr</name>
-        <rename>KuNr</rename>
-        <type>None</type>
-        <length>6</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>Name</name>
-        <rename>Name</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>Vorname</name>
-        <rename>Vorname</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>Vorname2</name>
-        <rename>Vorname2</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>GebDatum</name>
-        <rename>GebDatum</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>GebOrt</name>
-        <rename>GebOrt</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>FamStand</name>
-        <rename>FamStand</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>AnzKinder</name>
-        <rename>AnzKinder</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>240</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort rows</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>KuNr-Hash</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1232</xloc>
-      <yloc>384</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Unique rows 2</name>
-    <type>Unique</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <count_rows>N</count_rows>
-    <count_field/>
-    <reject_duplicate_row>N</reject_duplicate_row>
-    <error_description/>
-    <fields>
-      <field>
-        <name>KuNr-Hash</name>
-        <case_insensitive>N</case_insensitive>
-      </field>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1328</xloc>
-      <yloc>96</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort rows 2</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>KuNr-Hash</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1232</xloc>
-      <yloc>96</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Unique rows 3</name>
-    <type>Unique</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <count_rows>N</count_rows>
-    <count_field/>
-    <reject_duplicate_row>N</reject_duplicate_row>
-    <error_description/>
-    <fields>
-      <field>
-        <name>KuNr-Hash</name>
-        <case_insensitive>N</case_insensitive>
-      </field>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1328</xloc>
-      <yloc>512</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort rows 3</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>KuNr-Hash</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1232</xloc>
-      <yloc>512</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Unique rows 4</name>
-    <type>Unique</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <count_rows>N</count_rows>
-    <count_field/>
-    <reject_duplicate_row>N</reject_duplicate_row>
-    <error_description/>
-    <fields>
-      <field>
-        <name>KuNr-Hash</name>
-        <case_insensitive>N</case_insensitive>
-      </field>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1328</xloc>
-      <yloc>784</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort rows 4</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>KuNr-Hash</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1232</xloc>
-      <yloc>784</yloc>
+      <xloc>288</xloc>
+      <yloc>912</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
