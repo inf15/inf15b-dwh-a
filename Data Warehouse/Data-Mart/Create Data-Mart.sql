@@ -1,0 +1,61 @@
+CREATE DATABASE IF NOT EXISTS data_mart;
+USE data_mart;
+
+create table DIM_GRUPPE (
+	GRUPPE_ID INTEGER,
+	geburtsjahr INTEGER,
+	geschlecht INTEGER,
+	familienstand VARCHAR(200),
+	prioritaet INTEGER,
+	CONSTRAINT `pk_dim_gruppe` PRIMARY KEY(GRUPPE_ID)
+);
+
+create table DIM_REGION (
+	REGION_ID INTEGER,
+	plz INTEGER,
+	ort VARCHAR(200),
+	CONSTRAINT `pk_dim_region` PRIMARY KEY(REGION_ID)
+);
+
+create table DIM_VERSICHERUNG (
+	VERSICHERUNG_ID INTEGER,
+	versicherung_art VARCHAR(200),
+	CONSTRAINT `pk_dim_versicherung` PRIMARY KEY(VERSICHERUNG_ID)
+);
+
+create table DIM_KUNDE (
+	KUNDE_ID INTEGER,
+	kundennummer VARCHAR(200),
+	CONSTRAINT `pk_dim_kunde` PRIMARY KEY(KUNDE_ID)
+);
+
+create table DIM_ZEIT (
+	ZEIT_ID INTEGER,
+	jahr INTEGER,
+	monat INTEGER,
+	woche INTEGER,
+	CONSTRAINT `pk_dim_zeit` PRIMARY KEY(ZEIT_ID)
+);
+
+create table FACT_AUSZAHLUNG_LV (
+	ZEIT_ID INTEGER,
+	GRUPPE_ID INTEGER,
+	REGION_ID INTEGER,
+	KUNDE_ID INTEGER, 
+	auszahlung_betrag DECIMAL(12,2)
+);
+
+create table FACT_NEUWERT (
+	ERSTZULASSUNG_ZEIT_ID INTEGER,
+	GRUPPE_ID INTEGER,
+	REGION_ID INTEGER,
+	KUNDE_ID INTEGER,
+	neuwert_betrag DECIMAL(12,2)
+);
+
+create table FACT_VERSICHERUNGEN (
+	VERSICHERUNG_ID INTEGER,
+	GRUPPE_ID INTEGER,
+	REGION_ID INTEGER,
+	versichert_anzahl INTEGER
+);
