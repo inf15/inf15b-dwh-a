@@ -437,11 +437,11 @@
   </notepads>
   <connection>
     <name>dwh</name>
-    <server>localhost</server>
+    <server>mariadb.smackmack.industries</server>
     <type>MARIADB</type>
     <access>Native</access>
     <database>enterprise_data_warehouse</database>
-    <port>3306</port>
+    <port>993</port>
     <username>root</username>
     <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
     <servername/>
@@ -462,7 +462,7 @@
       </attribute>
       <attribute>
         <code>PORT_NUMBER</code>
-        <attribute>3306</attribute>
+        <attribute>993</attribute>
       </attribute>
       <attribute>
         <code>PRESERVE_RESERVED_WORD_CASE</code>
@@ -488,11 +488,11 @@
   </connection>
   <connection>
     <name>integration_zone</name>
-    <server>localhost</server>
+    <server>mariadb.smackmack.industries</server>
     <type>MARIADB</type>
     <access>Native</access>
     <database>integration_zone</database>
-    <port>3306</port>
+    <port>993</port>
     <username>root</username>
     <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
     <servername/>
@@ -513,7 +513,7 @@
       </attribute>
       <attribute>
         <code>PORT_NUMBER</code>
-        <attribute>3306</attribute>
+        <attribute>993</attribute>
       </attribute>
       <attribute>
         <code>PRESERVE_RESERVED_WORD_CASE</code>
@@ -1658,7 +1658,8 @@
     <sql>SELECT
   VNr
 , KuNr
-FROM lv_transform
+FROM LV_TRANSFORM
+
 </sql>
     <limit>0</limit>
     <lookup/>
@@ -1769,8 +1770,8 @@ FROM LV_TRANSFORM
     </partitioning>
     <connection>integration_zone</connection>
     <sql>SELECT
-  VNr,
-  KuNr
+  VNr
+, KuNr
 FROM LV_TRANSFORM
 </sql>
     <limit>0</limit>
