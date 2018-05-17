@@ -200,6 +200,7 @@ create table S_LV_RATEN (
 create table S_LV_LEISTUNG (
 	lv_hash VARCHAR(64),
 	beguenstigter VARCHAR(2),
+	wertfaktor DECIMAL(4,2),
 	versicherung_beginn DATE,
 	dauer VARCHAR(5),
 	load_dts DATE,
