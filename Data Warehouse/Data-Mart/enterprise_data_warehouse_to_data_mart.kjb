@@ -461,14 +461,14 @@
       <sql/>
       <useVariableSubstitution>T</useVariableSubstitution>
       <sqlfromfile>T</sqlfromfile>
-      <sqlfilename>C:\Users\Moritz\Desktop\DHBW\Semester 6\Datenbanken\DWH\inf15b-dwh-a\Data Warehouse\Data-Mart\Truncate Data-Mart.sql</sqlfilename>
+      <sqlfilename>${Internal.Job.Filename.Directory}\Truncate Data-Mart.sql</sqlfilename>
       <sendOneStatement>F</sendOneStatement>
       <connection>data_mart</connection>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>400</xloc>
-      <yloc>192</yloc>
+      <yloc>176</yloc>
     </entry>
   </entries>
   <hops>
