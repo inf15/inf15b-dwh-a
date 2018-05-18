@@ -539,11 +539,6 @@
   </connection>
   <order>
     <hop>
-      <from>BU_VNr</from>
-      <to>Add a checksum VNr</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Join Rows (cartesian product)</from>
       <to>Insert in H_BU</to>
       <enabled>Y</enabled>
@@ -559,22 +554,12 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>BU_Raten</from>
-      <to>Concat Fields</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Concat Fields</from>
       <to>Add a checksum Raten</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Add a checksum Raten</from>
-      <to>Multiway Merge Join</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>BU_Raten</from>
       <to>Multiway Merge Join</to>
       <enabled>Y</enabled>
     </hop>
@@ -599,21 +584,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>BU_KuNr</from>
-      <to>Add a checksum KuNr</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>BU_VNr</from>
-      <to>Multiway Merge Join 3</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>BU_KuNr</from>
-      <to>Multiway Merge Join 3</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Multiway Merge Join 3</from>
       <to>Add a checksum hash-hash</to>
       <enabled>Y</enabled>
@@ -624,7 +594,7 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Add a checksum KuNr</from>
+      <from>Add a checksum LV_VNr</from>
       <to>Multiway Merge Join 2</to>
       <enabled>Y</enabled>
     </hop>
@@ -648,7 +618,135 @@
       <to>Insert in L_LV_BU</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>BU_KuNr</from>
+      <to>Sort rows 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 2</from>
+      <to>Multiway Merge Join 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>LV_VNr</from>
+      <to>Sort rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows</from>
+      <to>Multiway Merge Join 4</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 2</from>
+      <to>Multiway Merge Join 4</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Multiway Merge Join 4</from>
+      <to>Add a checksum LV_VNr</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>BU_VNr</from>
+      <to>Sort rows 4</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 4</from>
+      <to>Add a checksum VNr</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 4</from>
+      <to>Multiway Merge Join 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>BU_Raten</from>
+      <to>Sort rows 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 3</from>
+      <to>Concat Fields</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 3</from>
+      <to>Multiway Merge Join</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
+  <step>
+    <name>Add a checksum LV_VNr</name>
+    <type>CheckSum</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <checksumtype>MD5</checksumtype>
+    <resultfieldName>LV_VNr_hash</resultfieldName>
+    <resultType>hexadecimal</resultType>
+    <compatibilityMode>N</compatibilityMode>
+    <oldChecksumBehaviour>Y</oldChecksumBehaviour>
+    <fields>
+      <field>
+        <name>VNr</name>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>288</xloc>
+      <yloc>560</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Add a checksum Raten</name>
+    <type>CheckSum</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <checksumtype>MD5</checksumtype>
+    <resultfieldName>raten-hash</resultfieldName>
+    <resultType>hexadecimal</resultType>
+    <compatibilityMode>N</compatibilityMode>
+    <oldChecksumBehaviour>Y</oldChecksumBehaviour>
+    <fields>
+      <field>
+        <name>concat_raten</name>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>288</xloc>
+      <yloc>368</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
   <step>
     <name>Add a checksum VNr</name>
     <type>CheckSum</type>
@@ -664,6 +762,7 @@
     <resultfieldName>vnr_hash</resultfieldName>
     <resultType>hexadecimal</resultType>
     <compatibilityMode>N</compatibilityMode>
+    <oldChecksumBehaviour>Y</oldChecksumBehaviour>
     <fields>
       <field>
         <name>VNr</name>
@@ -683,7 +782,44 @@
     </GUI>
   </step>
   <step>
-    <name>BU_VNr</name>
+    <name>Add a checksum hash-hash</name>
+    <type>CheckSum</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <checksumtype>MD5</checksumtype>
+    <resultfieldName>hash_hash</resultfieldName>
+    <resultType>hexadecimal</resultType>
+    <compatibilityMode>N</compatibilityMode>
+    <oldChecksumBehaviour>Y</oldChecksumBehaviour>
+    <fields>
+      <field>
+        <name>VNr</name>
+      </field>
+      <field>
+        <name>KuNr</name>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>320</xloc>
+      <yloc>704</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>BU_KuNr</name>
     <type>TableInput</type>
     <description/>
     <distribute>N</distribute>
@@ -696,6 +832,7 @@
     <connection>integration_zone</connection>
     <sql>SELECT
   VNr
+, KuNr
 FROM BU_TRANSFORM
 </sql>
     <limit>0</limit>
@@ -712,154 +849,7 @@ FROM BU_TRANSFORM
     </remotesteps>
     <GUI>
       <xloc>64</xloc>
-      <yloc>16</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Insert in H_BU</name>
-    <type>InsertUpdate</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>dwh</connection>
-    <commit>100</commit>
-    <update_bypassed>N</update_bypassed>
-    <lookup>
-      <schema/>
-      <table>H_BU</table>
-      <key>
-        <name>VNr</name>
-        <field>versicherung_id</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>Import_Table</name>
-        <field>record_source</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>Integration_Time</name>
-        <field>load_dts</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>vnr_hash</name>
-        <field>hash_key</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>load_dts</name>
-        <rename>Integration_Time</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>record_source</name>
-        <rename>Import_Table</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>versicherung_id</name>
-        <rename>VNr</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>hash_key</name>
-        <rename>vnr_hash</rename>
-        <update>Y</update>
-      </value>
-    </lookup>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>928</xloc>
-      <yloc>16</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Join Rows (cartesian product)</name>
-    <type>JoinRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <cache_size>500</cache_size>
-    <main/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue/>
-        <function>=</function>
-        <rightvalue/>
-      </condition>
-    </compare>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>608</xloc>
-      <yloc>16</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>METADATA_DTS</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>integration_zone</connection>
-    <sql>SELECT
-  Import_Table
-, Integration_Time
-FROM METADATA
-WHERE Import_Table = 'bu_landing'
-</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>512</xloc>
-      <yloc>128</yloc>
+      <yloc>816</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -876,7 +866,8 @@ WHERE Import_Table = 'bu_landing'
     </partitioning>
     <connection>integration_zone</connection>
     <sql>SELECT
-  VNr
+  KuNr
+, VNr
 , Wertbetrag
 , Rate_Monat
 , Rate_Quartal
@@ -899,7 +890,42 @@ FROM BU_TRANSFORM
     </remotesteps>
     <GUI>
       <xloc>64</xloc>
-      <yloc>240</yloc>
+      <yloc>144</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>BU_VNr</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>integration_zone</connection>
+    <sql>SELECT
+  VNr
+, KuNr
+FROM BU_TRANSFORM
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>64</xloc>
+      <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -929,7 +955,6 @@ FROM BU_TRANSFORM
     <create_parent_folder>Y</create_parent_folder>
     <file>
       <name>file</name>
-      <is_command>N</is_command>
       <servlet_output>N</servlet_output>
       <do_not_open_new_file_init>N</do_not_open_new_file_init>
       <extention>txt</extention>
@@ -1038,8 +1063,8 @@ FROM BU_TRANSFORM
     </GUI>
   </step>
   <step>
-    <name>Add a checksum Raten</name>
-    <type>CheckSum</type>
+    <name>Insert in H_BU</name>
+    <type>InsertUpdate</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1048,15 +1073,57 @@ FROM BU_TRANSFORM
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <checksumtype>MD5</checksumtype>
-    <resultfieldName>raten-hash</resultfieldName>
-    <resultType>hexadecimal</resultType>
-    <compatibilityMode>N</compatibilityMode>
-    <fields>
-      <field>
-        <name>concat_raten</name>
-      </field>
-    </fields>
+    <connection>dwh</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>H_BU</table>
+      <key>
+        <name>VNr</name>
+        <field>versicherung_id</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Import_Table</name>
+        <field>record_source</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Integration_Time</name>
+        <field>load_dts</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>vnr_hash</name>
+        <field>hash_key</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>load_dts</name>
+        <rename>Integration_Time</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>record_source</name>
+        <rename>Import_Table</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>versicherung_id</name>
+        <rename>VNr</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>hash_key</name>
+        <rename>vnr_hash</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1065,14 +1132,14 @@ FROM BU_TRANSFORM
       </output>
     </remotesteps>
     <GUI>
-      <xloc>288</xloc>
-      <yloc>368</yloc>
+      <xloc>928</xloc>
+      <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Multiway Merge Join</name>
-    <type>MultiwayMergeJoin</type>
+    <name>Insert in L_LV_BU</name>
+    <type>InsertUpdate</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1081,16 +1148,68 @@ FROM BU_TRANSFORM
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <join_type>INNER</join_type>
-    <step0>Add a checksum Raten</step0>
-    <step1>BU_Raten</step1>
-    <step2>Add a checksum VNr</step2>
-    <number_input>3</number_input>
-    <keys>
-      <key>VNr</key>
-      <key>VNr</key>
-      <key>VNr</key>
-    </keys>
+    <connection>dwh</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>L_LV_BU</table>
+      <key>
+        <name>hash_hash</name>
+        <field>hash_key</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>LV_VNr_hash</name>
+        <field>lv_hash</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>vnr_hash</name>
+        <field>bu_hash</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Import_Table</name>
+        <field>record_source</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Integration_Time</name>
+        <field>load_dts</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>bu_hash</name>
+        <rename>vnr_hash</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>load_dts</name>
+        <rename>Integration_Time</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>record_source</name>
+        <rename>Import_Table</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>hash_key</name>
+        <rename>hash_hash</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>lv_hash</name>
+        <rename>LV_VNr_hash</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1099,44 +1218,8 @@ FROM BU_TRANSFORM
       </output>
     </remotesteps>
     <GUI>
-      <xloc>288</xloc>
-      <yloc>240</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Join Rows (cartesian product) 2</name>
-    <type>JoinRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <cache_size>500</cache_size>
-    <main/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue/>
-        <function>=</function>
-        <rightvalue/>
-      </condition>
-    </compare>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>608</xloc>
-      <yloc>240</yloc>
+      <xloc>944</xloc>
+      <yloc>560</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1282,43 +1365,8 @@ FROM BU_TRANSFORM
     </GUI>
   </step>
   <step>
-    <name>BU_KuNr</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>integration_zone</connection>
-    <sql>SELECT
-  VNr
-, KuNr
-FROM BU_TRANSFORM
-</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>64</xloc>
-      <yloc>512</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Add a checksum KuNr</name>
-    <type>CheckSum</type>
+    <name>Join Rows (cartesian product)</name>
+    <type>JoinRows</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1327,15 +1375,18 @@ FROM BU_TRANSFORM
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <checksumtype>MD5</checksumtype>
-    <resultfieldName>KuNr_hash</resultfieldName>
-    <resultType>hexadecimal</resultType>
-    <compatibilityMode>N</compatibilityMode>
-    <fields>
-      <field>
-        <name>KuNr</name>
-      </field>
-    </fields>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <cache_size>500</cache_size>
+    <main/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue/>
+        <function>=</function>
+        <rightvalue/>
+      </condition>
+    </compare>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1344,14 +1395,14 @@ FROM BU_TRANSFORM
       </output>
     </remotesteps>
     <GUI>
-      <xloc>288</xloc>
-      <yloc>512</yloc>
+      <xloc>608</xloc>
+      <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Multiway Merge Join 2</name>
-    <type>MultiwayMergeJoin</type>
+    <name>Join Rows (cartesian product) 2</name>
+    <type>JoinRows</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1360,16 +1411,18 @@ FROM BU_TRANSFORM
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <join_type>INNER</join_type>
-    <step0>Add a checksum hash-hash</step0>
-    <step1>Add a checksum KuNr</step1>
-    <step2>Add a checksum VNr</step2>
-    <number_input>3</number_input>
-    <keys>
-      <key>VNr</key>
-      <key>VNr</key>
-      <key>VNr</key>
-    </keys>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <cache_size>500</cache_size>
+    <main/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue/>
+        <function>=</function>
+        <rightvalue/>
+      </condition>
+    </compare>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1378,76 +1431,8 @@ FROM BU_TRANSFORM
       </output>
     </remotesteps>
     <GUI>
-      <xloc>448</xloc>
-      <yloc>512</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Multiway Merge Join 3</name>
-    <type>MultiwayMergeJoin</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <join_type>INNER</join_type>
-    <step0>BU_VNr</step0>
-    <step1>BU_KuNr</step1>
-    <number_input>2</number_input>
-    <keys>
-      <key>VNr</key>
-      <key>VNr</key>
-    </keys>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>192</xloc>
-      <yloc>624</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Add a checksum hash-hash</name>
-    <type>CheckSum</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <checksumtype>MD5</checksumtype>
-    <resultfieldName>hash_hash</resultfieldName>
-    <resultType>hexadecimal</resultType>
-    <compatibilityMode>N</compatibilityMode>
-    <fields>
-      <field>
-        <name>VNr</name>
-      </field>
-      <field>
-        <name>KuNr</name>
-      </field>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>320</xloc>
-      <yloc>624</yloc>
+      <xloc>608</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1483,83 +1468,33 @@ FROM BU_TRANSFORM
     </remotesteps>
     <GUI>
       <xloc>624</xloc>
-      <yloc>512</yloc>
+      <yloc>560</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Insert in L_LV_BU</name>
-    <type>InsertUpdate</type>
+    <name>METADATA_DTS</name>
+    <type>TableInput</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>dwh</connection>
-    <commit>100</commit>
-    <update_bypassed>N</update_bypassed>
-    <lookup>
-      <schema/>
-      <table>L_LV_BU</table>
-      <key>
-        <name>hash_hash</name>
-        <field>hash_key</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>KuNr_hash</name>
-        <field>lv_hash</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>vnr_hash</name>
-        <field>bu_hash</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>Import_Table</name>
-        <field>record_source</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>Integration_Time</name>
-        <field>load_dts</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>bu_hash</name>
-        <rename>vnr_hash</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>load_dts</name>
-        <rename>Integration_Time</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>record_source</name>
-        <rename>Import_Table</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>hash_key</name>
-        <rename>hash_hash</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>lv_hash</name>
-        <rename>KuNr_hash</rename>
-        <update>Y</update>
-      </value>
-    </lookup>
+    <connection>integration_zone</connection>
+    <sql>SELECT
+  Import_Table
+, Integration_Time
+FROM METADATA
+WHERE Import_Table = 'bu_landing'
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1568,8 +1503,339 @@ FROM BU_TRANSFORM
       </output>
     </remotesteps>
     <GUI>
-      <xloc>944</xloc>
-      <yloc>512</yloc>
+      <xloc>512</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Multiway Merge Join</name>
+    <type>MultiwayMergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>INNER</join_type>
+    <step0>Add a checksum Raten</step0>
+    <step1>Sort rows 3</step1>
+    <step2>Add a checksum VNr</step2>
+    <number_input>3</number_input>
+    <keys>
+      <key>VNr</key>
+      <key>VNr</key>
+      <key>VNr</key>
+    </keys>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>288</xloc>
+      <yloc>240</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Multiway Merge Join 2</name>
+    <type>MultiwayMergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>INNER</join_type>
+    <step0>Add a checksum hash-hash</step0>
+    <step1>Add a checksum LV_VNr</step1>
+    <step2>Add a checksum VNr</step2>
+    <number_input>3</number_input>
+    <keys>
+      <key>VNr_1</key>
+      <key>VNr_1</key>
+      <key>VNr</key>
+    </keys>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>448</xloc>
+      <yloc>560</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Multiway Merge Join 3</name>
+    <type>MultiwayMergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>INNER</join_type>
+    <step0>Sort rows 4</step0>
+    <step1>Sort rows 2</step1>
+    <number_input>2</number_input>
+    <keys>
+      <key>VNr</key>
+      <key>VNr</key>
+    </keys>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>192</xloc>
+      <yloc>704</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>LV_VNr</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>integration_zone</connection>
+    <sql>SELECT
+  VNr
+, KuNr
+FROM LV_TRANSFORM
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>64</xloc>
+      <yloc>448</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>KuNr</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>64</xloc>
+      <yloc>560</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows 2</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>KuNr</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>64</xloc>
+      <yloc>704</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Multiway Merge Join 4</name>
+    <type>MultiwayMergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>INNER</join_type>
+    <step0>Sort rows</step0>
+    <step1>Sort rows 2</step1>
+    <number_input>2</number_input>
+    <keys>
+      <key>KuNr</key>
+      <key>KuNr</key>
+    </keys>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>144</xloc>
+      <yloc>560</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows 3</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>KuNr</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>64</xloc>
+      <yloc>240</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows 4</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>KuNr</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>176</xloc>
+      <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1578,4 +1844,17 @@ FROM BU_TRANSFORM
   <slave-step-copy-partition-distribution>
   </slave-step-copy-partition-distribution>
   <slave_transformation>N</slave_transformation>
+  <attributes>
+    <group>
+      <name>explorerState</name>
+      <attribute>
+        <key>LV_VNr</key>
+        <value/>
+      </attribute>
+      <attribute>
+        <key>Add a checksum LV_VNr</key>
+        <value/>
+      </attribute>
+    </group>
+  </attributes>
 </transformation>
