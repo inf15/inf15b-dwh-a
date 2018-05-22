@@ -1320,6 +1320,12 @@
         <condition>=</condition>
         <name2/>
       </key>
+      <key>
+        <name>Wertfaktor</name>
+        <field>wertfaktor</field>
+        <condition/>
+        <name2/>
+      </key>
       <value>
         <name>load_dts</name>
         <rename>Integration_Time</rename>
@@ -1353,6 +1359,11 @@
       <value>
         <name>detail_hash_diff</name>
         <rename>leistung_hash</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>wertfaktor</name>
+        <rename>Wertfaktor</rename>
         <update>Y</update>
       </value>
     </lookup>
