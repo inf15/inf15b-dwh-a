@@ -478,7 +478,7 @@
     </notepad>
     <notepad>
       <note>REGION ermitteln und in DB schreiben</note>
-      <xloc>448</xloc>
+      <xloc>496</xloc>
       <yloc>608</yloc>
       <width>264</width>
       <heigth>30</heigth>
@@ -520,7 +520,7 @@
     </notepad>
     <notepad>
       <note>GRUPPE ermitteln und in DB schreiben</note>
-      <xloc>448</xloc>
+      <xloc>496</xloc>
       <yloc>528</yloc>
       <width>264</width>
       <heigth>30</heigth>
@@ -2555,7 +2555,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>368</xloc>
+      <xloc>416</xloc>
       <yloc>528</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2619,7 +2619,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>368</xloc>
+      <xloc>416</xloc>
       <yloc>608</yloc>
       <draw>Y</draw>
     </GUI>

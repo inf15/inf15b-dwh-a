@@ -437,7 +437,7 @@
     <notepad>
       <note>REGION ermitteln und in DB schreiben</note>
       <xloc>672</xloc>
-      <yloc>960</yloc>
+      <yloc>1008</yloc>
       <width>264</width>
       <heigth>30</heigth>
       <fontname>Segoe UI</fontname>
@@ -458,28 +458,7 @@
     <notepad>
       <note>GRUPPE ermitteln und in DB schreiben</note>
       <xloc>672</xloc>
-      <yloc>864</yloc>
-      <width>264</width>
-      <heigth>30</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
-    <notepad>
-      <note>REGION ermitteln und in DB schreiben</note>
-      <xloc>688</xloc>
-      <yloc>2032</yloc>
+      <yloc>912</yloc>
       <width>264</width>
       <heigth>30</heigth>
       <fontname>Segoe UI</fontname>
@@ -500,9 +479,9 @@
     <notepad>
       <note>KUNDE ermitteln und in DB schreiben</note>
       <xloc>672</xloc>
-      <yloc>1040</yloc>
-      <width>208</width>
-      <heigth>26</heigth>
+      <yloc>1088</yloc>
+      <width>260</width>
+      <heigth>30</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
       <fontbold>N</fontbold>
@@ -521,9 +500,9 @@
     <notepad>
       <note>ZEIT ermitteln und in DB schreiben</note>
       <xloc>672</xloc>
-      <yloc>1136</yloc>
-      <width>193</width>
-      <heigth>26</heigth>
+      <yloc>1184</yloc>
+      <width>240</width>
+      <heigth>30</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
       <fontbold>N</fontbold>
@@ -541,10 +520,10 @@
     </notepad>
     <notepad>
       <note>Auszahlung der LV Versicherung pro KUNDE, GRUPPE, REGION und ZEIT ermitteln</note>
-      <xloc>720</xloc>
-      <yloc>1408</yloc>
-      <width>438</width>
-      <heigth>26</heigth>
+      <xloc>528</xloc>
+      <yloc>1360</yloc>
+      <width>546</width>
+      <heigth>30</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
       <fontbold>N</fontbold>
@@ -612,6 +591,57 @@
       </attribute>
     </attributes>
   </connection>
+  <connection>
+    <name>mart</name>
+    <server>localhost</server>
+    <type>MARIADB</type>
+    <access>Native</access>
+    <database>data_mart</database>
+    <port>3306</port>
+    <username>root</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>3306</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
   <order>
     <hop>
       <from>Get Kunden and Leistung</from>
@@ -620,11 +650,11 @@
     </hop>
     <hop>
       <from>Calculate dauerInJahren</from>
-      <to>Calculate auszahlungsDatum</to>
+      <to>Calculate auszahlungsDatum + auszahlungsBetrag</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Calculate auszahlungsDatum</from>
+      <from>Calculate auszahlungsDatum + auszahlungsBetrag</from>
       <to>Zeit</to>
       <enabled>Y</enabled>
     </hop>
@@ -684,16 +714,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Generate REGION_ID 2</from>
-      <to>Write DIM_REGION 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Generate KUNDE_ID</from>
-      <to>Write DIM_KUNDE</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Generate ZEIT_ID</from>
       <to>Write DIM_ZEIT</to>
       <enabled>Y</enabled>
@@ -719,28 +739,33 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Multiway Merge Join 2</from>
-      <to>Sort rows</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort 6</from>
-      <to>Multiway Merge Join 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Sort rows</from>
       <to>Group by KUNDE, REGION, GRUPPE und ZEIT</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>l_kunde_lv</from>
-      <to>Sort 6</to>
+      <from>Group by KUNDE, REGION, GRUPPE und ZEIT</from>
+      <to>Write FACT_AUSZAHLUNG_LV</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Group by KUNDE, REGION, GRUPPE und ZEIT</from>
-      <to>Write FACT_AUSZAHLUNG_LV</to>
+      <from>GENERATE KUNDE_ID</from>
+      <to>Write DIM_KUNDE</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Generate REGION_ID</from>
+      <to>GENERATE KUNDE_ID</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>GENERATE KUNDE_ID</from>
+      <to>Generate ZEIT_ID</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Generate ZEIT_ID</from>
+      <to>Sort rows</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -780,7 +805,7 @@ WHERE k.kunde_hash = l.kunde_hash AND l.lv_hash = hlv.hash_key AND hlv.hash_key 
     </GUI>
   </step>
   <step>
-    <name>Calculate auszahlungsDatum</name>
+    <name>Calculate auszahlungsDatum + auszahlungsBetrag</name>
     <type>Calculator</type>
     <description/>
     <distribute>Y</distribute>
@@ -827,6 +852,36 @@ WHERE k.kunde_hash = l.kunde_hash AND l.lv_hash = hlv.hash_key AND hlv.hash_key 
       <field_b>dauerInMonaten</field_b>
       <field_c/>
       <value_type>Date</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <calculation>
+      <field_name>temp_betrag</field_name>
+      <calc_type>MULTIPLY</calc_type>
+      <field_a>dauerInJahren</field_a>
+      <field_b>wertfaktor</field_b>
+      <field_c/>
+      <value_type>Number</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>Y</remove>
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <calculation>
+      <field_name>auszahlungsBetrag</field_name>
+      <calc_type>MULTIPLY</calc_type>
+      <field_a>temp_betrag</field_a>
+      <field_b>jahr_rate</field_b>
+      <field_c/>
+      <value_type>Number</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
       <remove>N</remove>
@@ -964,6 +1019,7 @@ function setResult(result) {
     <resultfieldName>GRUPPE_ID</resultfieldName>
     <resultType>hexadecimal</resultType>
     <compatibilityMode>N</compatibilityMode>
+    <oldChecksumBehaviour>Y</oldChecksumBehaviour>
     <fields>
       <field>
         <name>geburtsjahr</name>
@@ -984,40 +1040,7 @@ function setResult(result) {
     </remotesteps>
     <GUI>
       <xloc>448</xloc>
-      <yloc>864</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Generate KUNDE_ID</name>
-    <type>CheckSum</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <checksumtype>CRC32</checksumtype>
-    <resultfieldName>KUNDE_ID</resultfieldName>
-    <resultType>hexadecimal</resultType>
-    <compatibilityMode>N</compatibilityMode>
-    <fields>
-      <field>
-        <name>beguenstigter</name>
-      </field>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>448</xloc>
-      <yloc>1040</yloc>
+      <yloc>912</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1036,6 +1059,7 @@ function setResult(result) {
     <resultfieldName>REGION_ID</resultfieldName>
     <resultType>hexadecimal</resultType>
     <compatibilityMode>N</compatibilityMode>
+    <oldChecksumBehaviour>Y</oldChecksumBehaviour>
     <fields>
       <field>
         <name>plz</name>
@@ -1053,43 +1077,7 @@ function setResult(result) {
     </remotesteps>
     <GUI>
       <xloc>448</xloc>
-      <yloc>944</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Generate REGION_ID 2</name>
-    <type>CheckSum</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <checksumtype>CRC32</checksumtype>
-    <resultfieldName>REGION_ID</resultfieldName>
-    <resultType>hexadecimal</resultType>
-    <compatibilityMode>N</compatibilityMode>
-    <fields>
-      <field>
-        <name>plz</name>
-      </field>
-      <field>
-        <name>ort</name>
-      </field>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>464</xloc>
-      <yloc>2032</yloc>
+      <yloc>992</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1108,6 +1096,7 @@ function setResult(result) {
     <resultfieldName>ZEIT_ID</resultfieldName>
     <resultType>hexadecimal</resultType>
     <compatibilityMode>N</compatibilityMode>
+    <oldChecksumBehaviour>Y</oldChecksumBehaviour>
     <fields>
       <field>
         <name>woche</name>
@@ -1116,7 +1105,7 @@ function setResult(result) {
         <name>monat</name>
       </field>
       <field>
-        <name>jahr</name>
+        <name>year</name>
       </field>
     </fields>
     <cluster_schema/>
@@ -1128,7 +1117,7 @@ function setResult(result) {
     </remotesteps>
     <GUI>
       <xloc>448</xloc>
-      <yloc>1136</yloc>
+      <yloc>1184</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1147,10 +1136,11 @@ function setResult(result) {
     <sql>SELECT
   k.kunde_hash
 , k.geburtstag
+, rate.jahr_rate
 , leistung.wertfaktor
 , leistung.dauer
-FROM S_KUNDE_PERSOENLICHE_INFORMATION k, L_KUNDE_LV l, H_LV hlv, S_LV_LEISTUNG leistung
-WHERE k.kunde_hash = l.kunde_hash AND l.lv_hash = hlv.hash_key AND hlv.hash_key = leistung.lv_hash;</sql>
+FROM S_KUNDE_PERSOENLICHE_INFORMATION k, L_KUNDE_LV l, H_LV hlv, S_LV_LEISTUNG leistung, S_LV_RATEN rate
+WHERE k.kunde_hash = l.kunde_hash AND l.lv_hash = hlv.hash_key AND hlv.hash_key = leistung.lv_hash AND hlv.hash_key = rate.lv_hash;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -1190,7 +1180,7 @@ WHERE k.kunde_hash = l.kunde_hash AND l.lv_hash = hlv.hash_key AND hlv.hash_key 
     <give_back_row>Y</give_back_row>
     <group>
       <field>
-        <name>KUNDE_ID</name>
+        <name>KUNDE_HASH_ID</name>
       </field>
       <field>
         <name>REGION_ID</name>
@@ -1205,7 +1195,7 @@ WHERE k.kunde_hash = l.kunde_hash AND l.lv_hash = hlv.hash_key AND hlv.hash_key 
     <fields>
       <field>
         <aggregate>auszahlung_betrag</aggregate>
-        <subject>KUNDE_ID</subject>
+        <subject>auszahlungsBetrag</subject>
         <type>SUM</type>
         <valuefield/>
       </field>
@@ -1218,8 +1208,8 @@ WHERE k.kunde_hash = l.kunde_hash AND l.lv_hash = hlv.hash_key AND hlv.hash_key 
       </output>
     </remotesteps>
     <GUI>
-      <xloc>928</xloc>
-      <yloc>1312</yloc>
+      <xloc>688</xloc>
+      <yloc>1264</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1245,8 +1235,8 @@ WHERE k.kunde_hash = l.kunde_hash AND l.lv_hash = hlv.hash_key AND hlv.hash_key 
       <key>kunde_hash</key>
       <key>kunde_hash</key>
       <key>kunde_hash</key>
-      <key/>
-      <key/>
+      <key>kunde_hash</key>
+      <key>kunde_hash</key>
     </keys>
     <cluster_schema/>
     <remotesteps>
@@ -1257,39 +1247,7 @@ WHERE k.kunde_hash = l.kunde_hash AND l.lv_hash = hlv.hash_key AND hlv.hash_key 
     </remotesteps>
     <GUI>
       <xloc>448</xloc>
-      <yloc>736</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Multiway Merge Join 2</name>
-    <type>MultiwayMergeJoin</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <join_type>INNER</join_type>
-    <step0>Generate ZEIT_ID</step0>
-    <step1>Sort 6</step1>
-    <number_input>2</number_input>
-    <keys>
-      <key>kunde_hash</key>
-      <key>kunde_hash</key>
-    </keys>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>640</xloc>
-      <yloc>1312</yloc>
+      <yloc>688</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1499,47 +1457,6 @@ WHERE k.kunde_hash = l.kunde_hash AND l.lv_hash = hlv.hash_key AND hlv.hash_key 
     </GUI>
   </step>
   <step>
-    <name>Sort 6</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>kunde_hash</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>640</xloc>
-      <yloc>1408</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Sort rows</name>
     <type>SortRows</type>
     <description/>
@@ -1599,8 +1516,8 @@ WHERE k.kunde_hash = l.kunde_hash AND l.lv_hash = hlv.hash_key AND hlv.hash_key 
       </output>
     </remotesteps>
     <GUI>
-      <xloc>768</xloc>
-      <yloc>1312</yloc>
+      <xloc>448</xloc>
+      <yloc>1264</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1615,7 +1532,7 @@ WHERE k.kunde_hash = l.kunde_hash AND l.lv_hash = hlv.hash_key AND hlv.hash_key 
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection/>
+    <connection>mart</connection>
     <commit>100</commit>
     <update_bypassed>Y</update_bypassed>
     <lookup>
@@ -1675,60 +1592,7 @@ WHERE k.kunde_hash = l.kunde_hash AND l.lv_hash = hlv.hash_key AND hlv.hash_key 
     </remotesteps>
     <GUI>
       <xloc>592</xloc>
-      <yloc>864</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Write DIM_KUNDE</name>
-    <type>InsertUpdate</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>dwh</connection>
-    <commit>100</commit>
-    <update_bypassed>Y</update_bypassed>
-    <lookup>
-      <schema/>
-      <table>DIM_KUNDE</table>
-      <key>
-        <name>beguenstigter</name>
-        <field>kundennummer</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>KUNDE_ID</name>
-        <field>KUNDE_ID</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>kundennummer</name>
-        <rename>beguenstigter</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>KUNDE_ID</name>
-        <rename>KUNDE_ID</rename>
-        <update>Y</update>
-      </value>
-    </lookup>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>592</xloc>
-      <yloc>1040</yloc>
+      <yloc>912</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1743,7 +1607,7 @@ WHERE k.kunde_hash = l.kunde_hash AND l.lv_hash = hlv.hash_key AND hlv.hash_key 
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection/>
+    <connection>mart</connection>
     <commit>100</commit>
     <update_bypassed>Y</update_bypassed>
     <lookup>
@@ -1792,71 +1656,7 @@ WHERE k.kunde_hash = l.kunde_hash AND l.lv_hash = hlv.hash_key AND hlv.hash_key 
     </remotesteps>
     <GUI>
       <xloc>592</xloc>
-      <yloc>944</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Write DIM_REGION 2</name>
-    <type>InsertUpdate</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection/>
-    <commit>100</commit>
-    <update_bypassed>Y</update_bypassed>
-    <lookup>
-      <schema/>
-      <table>DIM_REGION</table>
-      <key>
-        <name>plz</name>
-        <field>plz</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>ort</name>
-        <field>ort</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>REGION_ID</name>
-        <field>REGION_ID</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>plz</name>
-        <rename>plz</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>ort</name>
-        <rename>ort</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>REGION_ID</name>
-        <rename>REGION_ID</rename>
-        <update>Y</update>
-      </value>
-    </lookup>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>608</xloc>
-      <yloc>2032</yloc>
+      <yloc>992</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1871,7 +1671,7 @@ WHERE k.kunde_hash = l.kunde_hash AND l.lv_hash = hlv.hash_key AND hlv.hash_key 
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>dwh</connection>
+    <connection>mart</connection>
     <commit>100</commit>
     <update_bypassed>Y</update_bypassed>
     <lookup>
@@ -1890,7 +1690,7 @@ WHERE k.kunde_hash = l.kunde_hash AND l.lv_hash = hlv.hash_key AND hlv.hash_key 
         <name2/>
       </key>
       <key>
-        <name>jahr</name>
+        <name>year</name>
         <field>jahr</field>
         <condition>=</condition>
         <name2/>
@@ -1913,7 +1713,7 @@ WHERE k.kunde_hash = l.kunde_hash AND l.lv_hash = hlv.hash_key AND hlv.hash_key 
       </value>
       <value>
         <name>jahr</name>
-        <rename>jahr</rename>
+        <rename>year</rename>
         <update>Y</update>
       </value>
       <value>
@@ -1931,7 +1731,7 @@ WHERE k.kunde_hash = l.kunde_hash AND l.lv_hash = hlv.hash_key AND hlv.hash_key 
     </remotesteps>
     <GUI>
       <xloc>592</xloc>
-      <yloc>1136</yloc>
+      <yloc>1184</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1946,7 +1746,7 @@ WHERE k.kunde_hash = l.kunde_hash AND l.lv_hash = hlv.hash_key AND hlv.hash_key 
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>dwh</connection>
+    <connection>mart</connection>
     <commit>100</commit>
     <update_bypassed>N</update_bypassed>
     <lookup>
@@ -1965,7 +1765,7 @@ WHERE k.kunde_hash = l.kunde_hash AND l.lv_hash = hlv.hash_key AND hlv.hash_key 
         <name2/>
       </key>
       <key>
-        <name>KUNDE_ID</name>
+        <name>KUNDE_HASH_ID</name>
         <field>KUNDE_ID</field>
         <condition>=</condition>
         <name2/>
@@ -1994,7 +1794,7 @@ WHERE k.kunde_hash = l.kunde_hash AND l.lv_hash = hlv.hash_key AND hlv.hash_key 
       </value>
       <value>
         <name>KUNDE_ID</name>
-        <rename>KUNDE_ID</rename>
+        <rename>KUNDE_HASH_ID</rename>
         <update>Y</update>
       </value>
       <value>
@@ -2016,8 +1816,8 @@ WHERE k.kunde_hash = l.kunde_hash AND l.lv_hash = hlv.hash_key AND hlv.hash_key 
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1152</xloc>
-      <yloc>1312</yloc>
+      <xloc>992</xloc>
+      <yloc>1264</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2091,7 +1891,7 @@ WHERE k.kunde_hash = l.kunde_hash AND l.lv_hash = hlv.hash_key AND hlv.hash_key 
     </GUI>
   </step>
   <step>
-    <name>l_kunde_lv</name>
+    <name>s_kunde_adresse</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -2103,45 +1903,12 @@ WHERE k.kunde_hash = l.kunde_hash AND l.lv_hash = hlv.hash_key AND hlv.hash_key 
     </partitioning>
     <connection>dwh</connection>
     <sql>SELECT
-kunde_hash
-, lv_hash
-FROM L_KUNDE_LV
-</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>640</xloc>
-      <yloc>1488</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>s_kunde_adresse</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection/>
-    <sql>SELECT
-  kunde_hash
-, plz
-, ort
-FROM S_KUNDE_ADRESSE
+  k.kunde_id
+, a.kunde_hash
+, a.plz
+, a.ort
+FROM S_KUNDE_ADRESSE a, H_KUNDEN k
+WHERE k.hash_key = a.kunde_hash
 </sql>
     <limit>0</limit>
     <lookup/>
@@ -2172,7 +1939,7 @@ FROM S_KUNDE_ADRESSE
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection/>
+    <connection>dwh</connection>
     <sql>SELECT
   kunde_hash
 , geburtstag
@@ -2208,7 +1975,7 @@ FROM S_KUNDE_PERSOENLICHE_INFORMATION
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection/>
+    <connection>dwh</connection>
     <sql>SELECT
   kunde_hash
 , prioritaet
@@ -2232,6 +1999,96 @@ FROM S_KUNDE_STATUS
       <draw>Y</draw>
     </GUI>
   </step>
+  <step>
+    <name>GENERATE KUNDE_ID</name>
+    <type>CheckSum</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <checksumtype>CRC32</checksumtype>
+    <resultfieldName>KUNDE_HASH_ID</resultfieldName>
+    <resultType>hexadecimal</resultType>
+    <compatibilityMode>N</compatibilityMode>
+    <oldChecksumBehaviour>N</oldChecksumBehaviour>
+    <fields>
+      <field>
+        <name>kunde_hash</name>
+      </field>
+      <field>
+        <name>kunde_id</name>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>448</xloc>
+      <yloc>1088</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Write DIM_KUNDE</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>mart</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>DIM_KUNDE</table>
+      <key>
+        <name>kunde_id</name>
+        <field>kundennummer</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>KUNDE_HASH_ID</name>
+        <field>KUNDE_ID</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>kundennummer</name>
+        <rename>kunde_id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>KUNDE_ID</name>
+        <rename>KUNDE_HASH_ID</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>592</xloc>
+      <yloc>1088</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
   <step_error_handling>
   </step_error_handling>
   <slave-step-copy-partition-distribution>
@@ -2240,6 +2097,10 @@ FROM S_KUNDE_STATUS
   <attributes>
     <group>
       <name>explorerState</name>
+      <attribute>
+        <key>Calculate auszahlungsDatum + auszahlungsBetrag</key>
+        <value/>
+      </attribute>
     </group>
   </attributes>
 </transformation>
