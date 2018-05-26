@@ -105,4 +105,5 @@ die Tabellen um diese herum sind *Dimensions-Tabellen*.
 
 ### 5. Reporting
 
-*TBD*
+Das Reporting erfolgt mit der Analysesoftware [Tableau](https://www.tableau.com).
+Studentenlizenzen können [hier](https://www.tableau.com/academic/students) beantragt werden.
