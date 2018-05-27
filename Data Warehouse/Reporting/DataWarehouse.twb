@@ -1,0 +1,430 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20181.18.0416.1335                               -->
+<workbook original-version='18.1' source-build='2018.1.0 (20181.18.0416.1335)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='mariadb.smackmack.industries' inline='true' name='federated.0mir6jo14daj6m1bvkdzn0rim84x' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='mariadb.smackmack.industries' name='mysql.1gc27ut01t0kfk123j65g0or3cfj'>
+            <connection class='mysql' dbname='data_mart' odbc-native-protocol='' one-time-sql='' port='993' server='mariadb.smackmack.industries' source-charset='' username='root' />
+          </named-connection>
+        </named-connections>
+        <relation join='inner' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[FACT_AUSZAHLUNG_LV].[ZEIT_ID]' />
+              <expression op='[DIM_ZEIT].[ZEIT_ID]' />
+            </expression>
+          </clause>
+          <relation connection='mysql.1gc27ut01t0kfk123j65g0or3cfj' name='FACT_AUSZAHLUNG_LV' table='[FACT_AUSZAHLUNG_LV]' type='table' />
+          <relation connection='mysql.1gc27ut01t0kfk123j65g0or3cfj' name='DIM_ZEIT' table='[DIM_ZEIT]' type='table'>
+            <columns>
+              <column datatype='date' date-parse-format='yyyy' name='jahr' />
+            </columns>
+          </relation>
+        </relation>
+        <cols>
+          <map key='[GRUPPE_ID]' value='[FACT_AUSZAHLUNG_LV].[GRUPPE_ID]' />
+          <map key='[KUNDE_ID]' value='[FACT_AUSZAHLUNG_LV].[KUNDE_ID]' />
+          <map key='[REGION_ID]' value='[FACT_AUSZAHLUNG_LV].[REGION_ID]' />
+          <map key='[ZEIT_ID (DIM_ZEIT)]' value='[DIM_ZEIT].[ZEIT_ID]' />
+          <map key='[ZEIT_ID]' value='[FACT_AUSZAHLUNG_LV].[ZEIT_ID]' />
+          <map key='[auszahlung_betrag]' value='[FACT_AUSZAHLUNG_LV].[auszahlung_betrag]' />
+          <map key='[jahr]' value='[DIM_ZEIT].[jahr]' />
+          <map key='[monat]' value='[DIM_ZEIT].[monat]' />
+          <map key='[woche]' value='[DIM_ZEIT].[woche]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>ZEIT_ID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[ZEIT_ID]</local-name>
+            <parent-name>[FACT_AUSZAHLUNG_LV]</parent-name>
+            <remote-alias>ZEIT_ID</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIGINT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SBIGINT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>GRUPPE_ID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[GRUPPE_ID]</local-name>
+            <parent-name>[FACT_AUSZAHLUNG_LV]</parent-name>
+            <remote-alias>GRUPPE_ID</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIGINT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SBIGINT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>REGION_ID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[REGION_ID]</local-name>
+            <parent-name>[FACT_AUSZAHLUNG_LV]</parent-name>
+            <remote-alias>REGION_ID</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIGINT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SBIGINT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>KUNDE_ID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[KUNDE_ID]</local-name>
+            <parent-name>[FACT_AUSZAHLUNG_LV]</parent-name>
+            <remote-alias>KUNDE_ID</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIGINT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SBIGINT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>auszahlung_betrag</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[auszahlung_betrag]</local-name>
+            <parent-name>[FACT_AUSZAHLUNG_LV]</parent-name>
+            <remote-alias>auszahlung_betrag</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>12</precision>
+            <scale>2</scale>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_DECIMAL&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_NUMERIC&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ZEIT_ID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[ZEIT_ID (DIM_ZEIT)]</local-name>
+            <parent-name>[DIM_ZEIT]</parent-name>
+            <remote-alias>ZEIT_ID</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIGINT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SBIGINT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>jahr</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[jahr]</local-name>
+            <parent-name>[DIM_ZEIT]</parent-name>
+            <remote-alias>jahr</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>monat</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[monat]</local-name>
+            <parent-name>[DIM_ZEIT]</parent-name>
+            <remote-alias>monat</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>woche</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[woche]</local-name>
+            <parent-name>[DIM_ZEIT]</parent-name>
+            <remote-alias>woche</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Gruppe Id' datatype='integer' name='[GRUPPE_ID]' role='dimension' type='ordinal' />
+      <column caption='Kunde Id' datatype='integer' name='[KUNDE_ID]' role='dimension' type='ordinal' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Region Id' datatype='integer' name='[REGION_ID]' role='dimension' type='ordinal' />
+      <column caption='Zeit Id (Dim Zeit)' datatype='integer' name='[ZEIT_ID (DIM_ZEIT)]' role='dimension' type='ordinal' />
+      <column caption='Zeit Id' datatype='integer' name='[ZEIT_ID]' role='dimension' type='ordinal' />
+      <column caption='Auszahlung Betrag' datatype='real' name='[auszahlung_betrag]' role='measure' type='quantitative' />
+      <column caption='Jahr' datatype='date' datatype-customized='true' name='[jahr]' role='dimension' type='quantitative' />
+      <column caption='Monat' datatype='integer' name='[monat]' role='dimension' type='quantitative' />
+      <column caption='Woche' datatype='real' datatype-customized='true' name='[woche]' role='dimension' type='quantitative' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.5' measure-ordering='alphabetic' measure-percentage='0.5' show-aliased-fields='true' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Deutschland&quot;' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Blatt 1'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Zukünftige Auszahlungen Lebensversicherungen</run>
+          </formatted-text>
+        </title>
+        <caption>
+          <formatted-text>
+            <run>Summe der zukünftigen Auszahlungsbeträge der Lebensversicherungen pro Jahr.</run>
+          </formatted-text>
+        </caption>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='mariadb.smackmack.industries' name='federated.0mir6jo14daj6m1bvkdzn0rim84x' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0mir6jo14daj6m1bvkdzn0rim84x'>
+            <column caption='Auszahlung Betrag' datatype='real' name='[auszahlung_betrag]' role='measure' type='quantitative' />
+            <column caption='Jahr' datatype='date' datatype-customized='true' name='[jahr]' role='dimension' type='quantitative' />
+            <column-instance column='[auszahlung_betrag]' derivation='Sum' name='[sum:auszahlung_betrag:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[jahr]' derivation='Year-Trunc' name='[tyr:jahr:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.0mir6jo14daj6m1bvkdzn0rim84x].[sum:auszahlung_betrag:qk]' scope='rows' value='Auszahlung Betrag (€)' />
+            <format attr='auto-subtitle' class='0' field='[federated.0mir6jo14daj6m1bvkdzn0rim84x].[sum:auszahlung_betrag:qk]' scope='rows' value='false' />
+            <format attr='subtitle' class='0' field='[federated.0mir6jo14daj6m1bvkdzn0rim84x].[sum:auszahlung_betrag:qk]' scope='rows' value='' />
+            <format attr='auto-subtitle' class='0' field='[federated.0mir6jo14daj6m1bvkdzn0rim84x].[tyr:jahr:qk]' scope='cols' value='false' />
+            <format attr='title' class='0' field='[federated.0mir6jo14daj6m1bvkdzn0rim84x].[tyr:jahr:qk]' scope='cols' value='Jahr' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='color' value='#ffffff' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='height-header' value='44' />
+          </style-rule>
+          <style-rule element='field-labels-decoration'>
+            <format attr='color' value='#ffffff' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='in-tooltip' field='[federated.0mir6jo14daj6m1bvkdzn0rim84x].[sum:auszahlung_betrag:qk]' value='false' />
+            <format attr='in-tooltip' field='[federated.0mir6jo14daj6m1bvkdzn0rim84x].[tyr:jahr:qk]' value='false' />
+          </style-rule>
+          <style-rule element='annotation'>
+            <format attr='color' value='#ffffff' />
+          </style-rule>
+          <style-rule element='tooltip'>
+            <format attr='color' value='#ffffff' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <mark-sizing custom-mark-size-in-axis-units='1.0' mark-alignment='mark-alignment-left' mark-sizing-setting='marks-scaling-on' use-custom-mark-size='false' />
+            <encodings>
+              <lod column='[federated.0mir6jo14daj6m1bvkdzn0rim84x].[sum:auszahlung_betrag:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='pane'>
+                <format attr='minheight' value='557' />
+                <format attr='maxheight' value='557' />
+                <format attr='minwidth' value='1174' />
+                <format attr='maxwidth' value='1174' />
+                <format attr='aspect' value='0' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0mir6jo14daj6m1bvkdzn0rim84x].[sum:auszahlung_betrag:qk]</rows>
+        <cols>[federated.0mir6jo14daj6m1bvkdzn0rim84x].[tyr:jahr:qk]</cols>
+        <tooltip-style tooltip-mode='none' />
+      </table>
+    </worksheet>
+  </worksheets>
+  <windows saved-dpi-scale-factor='1.25' source-height='37'>
+    <window class='worksheet' maximized='true' name='Blatt 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='375'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='bottom'>
+          <strip size='116'>
+            <card type='caption' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0mir6jo14daj6m1bvkdzn0rim84x].[none:jahr:qk]</field>
+            <field>[federated.0mir6jo14daj6m1bvkdzn0rim84x].[none:woche:qk]</field>
+            <field>[federated.0mir6jo14daj6m1bvkdzn0rim84x].[tyr:jahr:ok]</field>
+            <field>[federated.0mir6jo14daj6m1bvkdzn0rim84x].[tyr:jahr:qk]</field>
+            <field>[federated.0mir6jo14daj6m1bvkdzn0rim84x].[tyr:woche:qk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Blatt 1' width='192'>
+      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
+    </thumbnail>
+  </thumbnails>
+</workbook>
